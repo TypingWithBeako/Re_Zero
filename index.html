@@ -20,7 +20,7 @@
   color: #f2f2f2;
   text-align: left;
   padding: 17.5px 0px;
-  margin-left: 22px;
+  margin-left: 24px;
   text-decoration: none;
   font-size: 17.5px;
 }
@@ -47,6 +47,12 @@
             font-size: 22px;
             font-weight: bold;
         }
+        #videoPlayer {
+            max-width: 100%;
+            margin: 0 auto;
+            margin-top: 60px;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -54,20 +60,61 @@
         Re:ZERO All OPs and EDs
     </h1>
     <p>
-        Here's my website that changes video based on the text you click!
+        Here's my website that changes video based on the text you click! <br>
+        (5 second delay between videos)
     </p>
     <div class="topnav">
     <nav>
-        <a href="OP1 - Redo.mp4" target="vid"> OP1 - Redo </a>
-        <a href="OP2 - Paradisus - Paradoxum.mp4" target="vid"> OP2 - Paradisus - Paradoxium </a>
-        <a href="OP3 - Realize.mp4" target="vid"> OP3 - Realize </a>
-        <a href="OP4 - Long shot.mp4" target="vid"> OP4 - Long shot </a>
-        <a href="ED1 - STYX HELIX.mp4" target="vid"> ED1 - STYX HELIX </a>
-        <a href="ED2 - Stay Alive.mp4" target="vid"> ED2 - Stay Alive </a>
-        <a href="ED3 - Memento.mp4" target="vid"> ED3 - Memento </a>
-        <a href="ED4 - Believe in you.mp4" target="vid"> ED4 - Believe in you </a>
+        <a href="#" onclick="playVideo('OP1 - Redo.mp4')">OP1 - Redo</a>
+        <a href="#" onclick="playVideo('OP2 - Paradisus - Paradoxum.mp4')">OP2 - Paradisus - Paradoxum</a>
+        <a href="#" onclick="playVideo('OP3 - Realize.mp4')">OP3 - Realize</a>
+        <a href="#" onclick="playVideo('OP4 - Long shot.mp4')">OP4 - Long shot</a>
+        <a href="#" onclick="playVideo('ED1 - STYX HELIX.mp4')">ED1 - STYX HELIX</a>
+        <a href="#" onclick="playVideo('ED2 - Stay Alive.mp4')">ED2 - Stay Alive</a>
+        <a href="#" onclick="playVideo('ED3 - Memento.mp4')">ED3 - Memento</a>
+        <a href="#" onclick="playVideo('ED4 - Believe in you.mp4')">ED4 - Believe in you</a>
     </nav>
 </div>
-    <iframe src="Beatrice_Anime (2).webp" name="vid" width = "640" height = "360" scrolling="no"></iframe>
+<video id="videoPlayer" width="640" height="360" poster="Beatrice_Anime (2).webp" onended="playNextVideo()">
+    <source src="OP1 - Redo.mp4" type="video/mp4">
+</video>
+
+<script>
+    function playVideo(videoName) {
+    // Update the video player screen with the selected video
+    // For example, you can set the video source and play the video
+    document.getElementById('videoPlayer').src = videoName;
+    document.getElementById('videoPlayer').play();
+}
+    const videoUrls = [
+        "OP1 - Redo.mp4",
+        "OP2 - Paradisus - Paradoxum.mp4",
+        "OP3 - Realize.mp4",
+        "OP4 - Long shot.mp4",
+        "ED1 - STYX HELIX.mp4",
+        "ED2 - Stay Alive.mp4",
+        "ED3 - Memento.mp4",
+        "ED4 - Believe in you.mp4",
+        "OP1 - Redo.mp4" // Loop back to the first video
+    ];
+
+    let currentIndex = 0;
+const videoPlayer = document.getElementById('videoPlayer');
+let isSwitching = false;
+
+function playNextVideo() {
+    if (!isSwitching) {
+        isSwitching = true;
+        // Delay before switching to the next video
+        setTimeout(function() {
+            currentIndex = (currentIndex + 1) % videoUrls.length;
+            videoPlayer.src = videoUrls[currentIndex];
+            videoPlayer.poster = ""; // Clear the poster attribute
+            videoPlayer.play();
+            isSwitching = false;
+        }, 5000); // 5000 milliseconds delay (5 seconds)
+    }
+    }
+</script>
 </body>
 </html>
