@@ -93,6 +93,7 @@
     const preloadLink = document.createElement('link');
     preloadLink.rel = 'preload';
     preloadLink.as = 'video';
+    preloadLink.type = 'video/mp4';
     preloadLink.href = nextVideoUrl;
     document.head.appendChild(preloadLink);
 }
