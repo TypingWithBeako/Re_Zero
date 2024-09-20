@@ -75,7 +75,7 @@
         <a href="#" onclick="playVideo('ED4 - Believe in you.mp4')">ED4 - Believe in you</a>
     </nav>
 </div>
-<video id="videoPlayer" width="640" height="360" poster="Beatrice_Anime (2).webp" onended="playNextVideo()">
+<video id="videoPlayer" width="640" height="360" poster="Beatrice_Anime (2).webp" controls onended="playNextVideo()">
     <source src="OP1 - Redo.mp4" type="video/mp4">
 </video>
 
@@ -85,6 +85,8 @@
     // For example, you can set the video source and play the video
     document.getElementById('videoPlayer').src = videoName;
     document.getElementById('videoPlayer').play();
+    // Update the currentIndex based on the selected video
+    currentIndex = videoUrls.indexOf(videoName);
 }
     const videoUrls = [
         "OP1 - Redo.mp4",
@@ -94,8 +96,7 @@
         "ED1 - STYX HELIX.mp4",
         "ED2 - Stay Alive.mp4",
         "ED3 - Memento.mp4",
-        "ED4 - Believe in you.mp4",
-        "OP1 - Redo.mp4" // Loop back to the first video
+        "ED4 - Believe in you.mp4" //Automatically reset to first video
     ];
 
     let currentIndex = 0;
