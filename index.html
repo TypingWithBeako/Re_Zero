@@ -87,6 +87,14 @@
     document.getElementById('videoPlayer').play();
     // Update the currentIndex based on the selected video
     currentIndex = videoUrls.indexOf(videoName);
+    // Preload the next video
+    const nextIndex = (currentIndex + 1) % videoUrls.length;
+    const nextVideoUrl = videoUrls[nextIndex];
+    const preloadLink = document.createElement('link');
+    preloadLink.rel = 'preload';
+    preloadLink.as = 'video';
+    preloadLink.href = nextVideoUrl;
+    document.head.appendChild(preloadLink);
 }
     const videoUrls = [
         "OP1 - Redo.mp4",
