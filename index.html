@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Me first website</title>
+    <title>My first website ⸜(｡˃ ᵕ ˂ )⸝♡</title>
+    <link rel="icon" href="favicon.png" type = "image/x-icon"/>
     <style>
         nav a:not(:last-child)::after {
     content: '|';
     background-color: #ccc; 
-    margin: 0 15px; 
+    margin: 0 2vw; 
 }
         .topnav {
   overflow: hidden;
@@ -19,16 +20,16 @@
   float: left;
   color: #f2f2f2;
   text-align: left;
-  padding: 17.5px 15px;
-  margin-left: 30px;
+  padding: 0.911vw 0;
+  margin-left: 1.7vw;
   text-decoration: none;
-  font-size: 17.5px;
+  font-size: 0.911vw;
 }
         iframe {
             border: none;
             display: block;
             margin: auto;
-            margin-top: 60px;
+            margin-top: 3.125vw;
         }
         body {
             background-image: url("bg-tv.png");
@@ -39,18 +40,18 @@
         h1 {
             font-family:Arial, Helvetica, sans-serif;
             color: gray; 
-            font-size: 38px;
+            font-size: 1.979vw;
         }
         p {
             font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             text-align: center;
-            font-size: 22px;
-            font-weight: bold;
+            font-size: 1.146vw;
+            font-weight: bold;  
         }
         #videoPlayer {
             max-width: 100%;
             margin: 0 auto;
-            margin-top: 60px;
+            margin-top: 3.125vw;
             display: block;
         }
     </style>
@@ -75,7 +76,7 @@
         <a href="#" onclick="playVideo('ED4 - Believe in you.mp4')">ED4 - Believe in you</a>
     </nav>
 </div>
-<video id="videoPlayer" width="640" height="360" poster="Beatrice_Anime (2).webp" onended="playNextVideo()">
+<video id="videoPlayer" width="640" height="360" poster="Beatrice_Anime (2).webp" controls onended="playNextVideo()">
     <source src="OP1 - Redo.mp4" type="video/mp4">
 </video>
 
