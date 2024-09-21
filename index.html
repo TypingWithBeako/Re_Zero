@@ -19,7 +19,6 @@
   overflow: hidden;
   background-color: #333;
 }
-
 .topnav a {
   float: left;
   color: #f2f2f2;
@@ -100,7 +99,7 @@
         <a href="#" onclick="playVideo('ED4 - Believe in you.mp4')">ED4 - Believe in you</a>
     </nav>
 </div>
-<video id="videoPlayer" width="640" height="360" poster="Beatrice_Anime (2).webp" controls onended="playNextVideo()">
+<video id="videoPlayer" width="640" height="360" poster="Beatrice_Anime (2).webp" onended="playNextVideo()">
     <source src="OP1 - Redo.mp4" type="video/mp4">
 </video>
 
@@ -123,6 +122,16 @@
     preloadLink.href = nextVideoUrl;
     document.head.appendChild(preloadLink);
 }
+    // Add  controls attribute for devices 600 pixel wider
+    function addControlsBasedOnWidth() {
+        if (window.innerWidth >= 600) {
+            videoPlayer.controls = true;
+        } else {
+            videoPlayer.controls = false;
+        }
+    }
+    window.onload = addControlsBasedOnWidth;
+    window.onresize = addControlsBasedOnWidth;
     const videoUrls = [
         "OP1 - Redo.mp4",
         "OP2 - Paradisus - Paradoxum.mp4",
