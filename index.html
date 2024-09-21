@@ -36,11 +36,10 @@
             margin-top: 3.125vw;
         }
         body {
-            background-image: url("bg-tv (1).png");
+            background-image: url("bg-tv.png");
             background-repeat: no-repeat;
             background-attachment: fixed; 
-            background-size: cover;
-            background-position: center;
+            background-size: 100% 100%;
             margin:0 /* Make topnav spread fullscreen */
         }
         h1 {
@@ -101,8 +100,6 @@
         @media only screen and (max-width: 600px) {
             body {
                 background-image: url(bg-tv.png);
-                /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
-                background-attachment: fixed;
             }
             .subaru{
                 width: 60vw;
@@ -141,7 +138,8 @@
    } 
    .topnav {
     margin-top:5vw;
-   }  
+   }
+}
     </style>
     <link href = "stylesheet.css" rel = "stylesheet" type = "text/css" />
 </head>
