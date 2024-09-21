@@ -106,6 +106,7 @@
     document.getElementById('videoPlayer').play();
     // Update the currentIndex based on the selected video
     currentIndex = videoUrls.indexOf(videoName);
+    videoPlayer.poster = ""; // Clear the poster attribute 
     // Preload the next video
     const nextIndex = (currentIndex + 1) % videoUrls.length;
     const nextVideoUrl = videoUrls[nextIndex];
