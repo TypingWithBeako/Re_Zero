@@ -152,7 +152,7 @@
     </h1>
     <p>
         My first project! Feel free to enjoy the Re:ZERO openings and endings! <br>
-        (5 seconds delay between videos)
+        (1 second delay between videos)
     </p>
     <div class="topnav">
     <nav>
@@ -194,7 +194,7 @@
     document.head.appendChild(preloadLink);
 }
     // Add  controls attribute for devices 600 pixel wider
-    function addControlsBasedOnWidth() {
+    /*function addControlsBasedOnWidth() {
         if (window.innerWidth >= 0) {
             videoPlayer.controls = true;
         } else {
@@ -202,7 +202,7 @@
         }
     }
     window.onload = addControlsBasedOnWidth;
-    window.onresize = addControlsBasedOnWidth;
+    window.onresize = addControlsBasedOnWidth;*/
     const videoUrls = [
         "OP1 - Redo.mp4",
         "OP2 - Paradisus - Paradoxum.mp4",
@@ -228,7 +228,7 @@ function playNextVideo() {
             videoPlayer.poster = "black.png"; // Clear the poster attribute
             videoPlayer.play();
             isSwitching = false;
-        }, 5000); // 5000 milliseconds delay (5 seconds)
+        }, 500); // 500 milliseconds delay (5 seconds)
     }
     }
 </script>
