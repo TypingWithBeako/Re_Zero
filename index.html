@@ -101,6 +101,8 @@
         @media only screen and (max-width: 600px) {
             body {
                 background-image: url(bg-tv.png);
+                /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
+                background-attachment: scroll;
             }
             .subaru{
                 width: 60vw;
@@ -139,14 +141,7 @@
    } 
    .topnav {
     margin-top:5vw;
-   }
-}
-     /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
-@media only screen and (max-device-width: 1366px) {
-  .parallax {
-    background-attachment: scroll;
-  }
-}   
+   }  
     </style>
     <link href = "stylesheet.css" rel = "stylesheet" type = "text/css" />
 </head>
