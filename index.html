@@ -9,7 +9,7 @@
     <style>
         nav a:not(:last-child)::after {
     content: '|';
-    background-color: #ccc; 
+    background-color: white; 
     margin: 0 1.7vw; 
 }  
         nav a:hover {
@@ -75,6 +75,43 @@
             top: 3vw;
             left: 1vw;
         }
+        @media only screen and (max-width: 600px) {
+            body {
+                background-image: url(bg-tv.png);
+            }
+            img {
+                width: 37.5vw;
+                height: 15vw;
+                margin-top: -9vw;
+            }
+        .moveable_img{
+            position: relative;
+            top: 6.5vw;
+            left: 2.5vw;
+        }
+            
+    h1 {
+        font-size: 5.3vw; /* Adjust the font size of h1 for mobile */
+    }
+    p {
+        font-size: 2.8vw; /* Adjust the font size of p for mobile */
+        margin-top:4vw;
+    }
+    #videoPlayer {
+        max-width: 100%; /* Make the video player responsive */
+        height: auto; /* Allow the video player to adjust its height */
+        margin-top: 9vw;
+    }
+   .topnav a {
+    font-size:2.3vw;
+    margin-left: 1.73vw;
+    text-align: left;
+    padding: 2vw 0;
+   } 
+   .topnav {
+    margin-top:5vw;
+   }
+}
     </style>
     <link href = "stylesheet.css" rel = "stylesheet" type = "text/css" />
 </head>
