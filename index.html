@@ -106,7 +106,7 @@
     document.getElementById('videoPlayer').play();
     // Update the currentIndex based on the selected video
     currentIndex = videoUrls.indexOf(videoName);
-    videoPlayer.poster = "black.jpg";
+    videoPlayer.poster = "black.png";
     // Preload the next video
     const nextIndex = (currentIndex + 1) % videoUrls.length;
     const nextVideoUrl = videoUrls[nextIndex];
@@ -139,7 +139,7 @@ function playNextVideo() {
         setTimeout(function() {
             currentIndex = (currentIndex + 1) % videoUrls.length;
             videoPlayer.src = videoUrls[currentIndex];
-            videoPlayer.poster = "black.jpg"; // Clear the poster attribute
+            videoPlayer.poster = "black.png"; // Clear the poster attribute
             videoPlayer.play();
             isSwitching = false;
         }, 5000); // 5000 milliseconds delay (5 seconds)
