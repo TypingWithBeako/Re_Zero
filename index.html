@@ -221,9 +221,13 @@
     preloadLink.as = 'fetch';
     preloadLink.type = 'video/mp4';
     preloadLink.href = nextVideoUrl;
+     // Add an event listener to wait for the preload operation to complete
+     preloadLink.addEventListener('load', function() {
+        console.log('Next video preloaded:', nextVideoUrl); // Log preload event
+    });
+    
     document.head.appendChild(preloadLink);
-    console.log('Next video preloaded:', nextVideoUrl); // Log preload event
-    }
+}
     // Add  controls attribute for devices 600 pixel wider
     /*function addControlsBasedOnWidth() {
         if (window.innerWidth >= 600) {
