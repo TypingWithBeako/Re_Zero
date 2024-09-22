@@ -206,8 +206,9 @@
     // For example, you can set the video source and play the video
     document.getElementById('videoPlayer').src = videoName;
     document.getElementById('videoPlayer').play();
-    // Update the currentIndex based on the selected video
+    // Update the currentIndex and newcurrentIndex based on the selected video
     currentIndex = videoUrls.indexOf(videoName);
+    newcurrentIndex = newvideoUrls.indexOf(videoName);
     videoPlayer.poster = "black.png";
     // Preload the next video
     const nextIndex = (currentIndex + 1) % videoUrls.length;
