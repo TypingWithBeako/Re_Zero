@@ -241,7 +241,7 @@
         "ED4 - Believe in you.mp4" //Automatically reset to first video
     ];
     const newvideoUrls = [
-        "STRAIGHT BET.MP4",
+        "STRAIGHT BET.mp4",
         "Wishing.mp4",
         "Door.mp4",
         "What you dont know.mp4",
@@ -262,8 +262,6 @@ function playNextVideo() {
         setTimeout(function() {
             if (clickCount % 2 === 1) {
                 newcurrentIndex = (newcurrentIndex + 1) % newvideoUrls.length;
-                if (newcurrentIndex === 0) {
-                newcurrentIndex = 0;} // Reset to 0 when reaching the end
                 videoPlayer.src = newvideoUrls[newcurrentIndex];
             } else {
                 currentIndex = (currentIndex + 1) % videoUrls.length;
