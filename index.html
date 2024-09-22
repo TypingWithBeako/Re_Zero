@@ -15,11 +15,25 @@
         nav a:hover {
             text-decoration: underline;
         }
-      .topnav {
+      .oldtopnav {
   overflow: hidden;
   background-color: #333;
 }
-.topnav a {
+.oldtopnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: left;
+  padding: 0.911vw 0;
+  margin-left: 1.45vw;
+  text-decoration: none;
+  font-size: 0.911vw;
+  white-space: nowrap; /* Prevent text wrapping */  
+}
+.newtopnav {
+  overflow: hidden;
+  background-color: #333;
+}
+.newtopnav a {
   float: left;
   color: #f2f2f2;
   text-align: left;
@@ -91,8 +105,9 @@
             width: 15vw;
             height: 6.3vw;
             margin-top: -4vw;
+            cursor: pointer;
         }
-        @media only screen and (max-width:1535px) {
+        @media only screen and (max-width:1990px) {
             .emilia {
                 display:none;
             }
@@ -120,7 +135,7 @@
         }
             
     h1 {
-        font-size: 5.3vw; /* Adjust the font size of h1 for mobile */
+        font-size: 5vw; /* Adjust the font size of h1 for mobile */
         margin-top:3vw;
     }
     p {
@@ -148,14 +163,14 @@
 <body>
     <h1 align="center">
         <img class= "moveable_img" src="Re_ZERO icon (1).png"  alt="Re:ZERO icon">
-        All OPs and EDs
+        <span  id="text_to_change"> All OPs and EDs </span>
     </h1>
     <p>
-        My first project! Feel free to enjoy the Re:ZERO openings and endings! <br>
+        My first project! Feel free to enjoy the Re:ZERO <span id="bodytext">openings and endings!</span> <br>
         (1 second delay between videos)
     </p>
-    <div class="topnav">
-    <nav>
+    <div class="oldtopnav">
+    <nav id = "oldnavbarContent">
         <a href="#" onclick="playVideo('OP1 - Redo.mp4')">OP1 - Redo</a>
         <a href="#" onclick="playVideo('OP2 - Paradisus - Paradoxum.mp4')">OP2 - Paradisus - Paradoxum</a>
         <a href="#" onclick="playVideo('OP3 - Realize.mp4')">OP3 - Realize</a>
@@ -166,7 +181,19 @@
         <a href="#" onclick="playVideo('ED4 - Believe in you.mp4')">ED4 - Believe in you</a>
     </nav>
 </div>
-<video id="videoPlayer" width="640" height="360" controls poster="Beatrice_Anime (2).webp" onended="playNextVideo()">
+    <div class ="newtopnav">
+    <nav id = "newnavbarContent" style ="display: none;">
+        <a href="#" onclick="playVideo('OP1 - Redo.mp4')">STRAIGHT BET</a>
+        <a href="#" onclick="playVideo('OP2 - Paradisus - Paradoxum.mp4')">OP2 - Paradisus - Paradoxum</a>
+        <a href="#" onclick="playVideo('OP3 - Realize.mp4')">OP3 - Realize</a>
+        <a href="#" onclick="playVideo('OP4 - Long shot.mp4')">OP4 - Long shot</a>
+        <a href="#" onclick="playVideo('ED1 - STYX HELIX.mp4')">ED1 - STYX HELIX</a>
+        <a href="#" onclick="playVideo('ED2 - Stay Alive.mp4')">ED2 - Stay Alive</a>
+        <a href="#" onclick="playVideo('ED3 - Memento.mp4')">ED3 - Memento</a>
+        <a href="#" onclick="playVideo('ED4 - Believe in you.mp4')">ED4 - Believe in you</a>
+    </nav>
+</div>
+<video id="videoPlayer" width="640" height="360" poster="Beatrice_Anime (2).webp" controls onended="playNextVideo()">
     <source src="OP1 - Redo.mp4" type="video/mp4">
 </video>
         <h2><img class= "subaru" src="subaru cheering.png" width="320" height="180" alt="rezero cast in isekai quartet"> </h2>
@@ -195,7 +222,7 @@
 }
     // Add  controls attribute for devices 600 pixel wider
     /*function addControlsBasedOnWidth() {
-        if (window.innerWidth >= 0) {
+        if (window.innerWidth >= 600) {
             videoPlayer.controls = true;
         } else {
             videoPlayer.controls = false;
@@ -205,12 +232,12 @@
     window.onresize = addControlsBasedOnWidth;*/
     const videoUrls = [
         "OP1 - Redo.mp4",
-        "OP2 - Paradisus - Paradoxum.mp4",
-        "OP3 - Realize.mp4",
-        "OP4 - Long shot.mp4",
         "ED1 - STYX HELIX.mp4",
+        "OP2 - Paradisus - Paradoxum.mp4",
         "ED2 - Stay Alive.mp4",
+        "OP3 - Realize.mp4",
         "ED3 - Memento.mp4",
+        "OP4 - Long shot.mp4",
         "ED4 - Believe in you.mp4" //Automatically reset to first video
     ];
 
@@ -228,9 +255,34 @@ function playNextVideo() {
             videoPlayer.poster = "black.png"; // Clear the poster attribute
             videoPlayer.play();
             isSwitching = false;
-        }, 500); // 500 milliseconds delay (5 seconds)
+        }, 500); // 500 milliseconds delay (0.5 seconds)
     }
     }
+    const mediaQuery = window.matchMedia('(max-width: 600px)'); // Define a media query for mobile devices
+    const moveableimg = document.querySelector('.moveable_img');
+    const textToChange = document.getElementById('text_to_change');
+    const navbarContent = document.getElementById('oldnavbarContent');
+    const newnavbarContent = document.getElementById('newnavbarContent');
+    const bodytext =document.getElementById('bodytext');
+    moveableimg.addEventListener('click', function(){
+        console.log("Image clicked!"); // Add this line for testing
+        textToChange.innerHTML = "All <s> OPs and EDs</s> Insert Songs";
+        bodytext.innerHTML = "Insert Songs and more!"
+        navbarContent.textContent  = "";
+        newnavbarContent.style.display ='block';
+        function handleFontSizeChange(mediaQuery) {
+        if (mediaQuery.matches) {
+            textToChange.style.fontSize = '4.2vw'; // Change font size for mobile devices
+        } else {
+            textToChange.style.fontSize = 'inherit'; // Reset font size for non-mobile devices
+        }
+    }
+    // Initial call to set font size based on device width
+    handleFontSizeChange(mediaQuery);
+    // Add event listener for changes in media query
+    mediaQuery.addEventListener('change', handleFontSizeChange);
+    });
+    
 </script>
 </body>
 </html>
