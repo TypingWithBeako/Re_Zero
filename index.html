@@ -212,10 +212,7 @@
     currentIndex = videoUrls.indexOf(videoName);
     newcurrentIndex = newvideoUrls.indexOf(videoName);
     videoPlayer.poster = "black.png";
-     // Preload the next video 5 seconds before the current video ends
-     videoPlayer.addEventListener('timeupdate', function() {
-        const remainingTime = videoPlayer.duration - videoPlayer.currentTime;
-        if (remainingTime < 5) {
+     // Preload the next video
     const nextIndex = (currentIndex + 1) % videoUrls.length;
     const nextVideoUrl = videoUrls[nextIndex];
 
@@ -225,8 +222,7 @@
     preloadLink.type = 'video/mp4';
     preloadLink.href = nextVideoUrl;
     document.head.appendChild(preloadLink);
-        }
-     });
+    console.log('Next video preloaded:', nextVideoUrl); // Log preload event
     }
     // Add  controls attribute for devices 600 pixel wider
     /*function addControlsBasedOnWidth() {
