@@ -252,32 +252,20 @@ let isSwitching = false;
 function playNextVideo() {
     if (!isSwitching) {
         isSwitching = true;
-        let nextVideoUrl;
-        if (clickCount % 2 === 1) {
-            newcurrentIndex = (newcurrentIndex + 1) % newvideoUrls.length;
-            nextVideoUrl = newvideoUrls[newcurrentIndex];
-        } else {
-            currentIndex = (currentIndex + 1) % videoUrls.length;
-            nextVideoUrl = videoUrls[currentIndex];
-        }
-
-        // Create a new video element to download the next video in the background
-        const nextVideoElement = document.createElement('video');
-        nextVideoElement.src = nextVideoUrl;
-        nextVideoElement.preload = 'metadata'; // Load metadata only, not the entire video
-
-        nextVideoElement.addEventListener('loadedmetadata', function() {
-            console.log('Next video downloaded:', nextVideoUrl);
-
-            // Update the video source and play
-            videoPlayer.src = nextVideoUrl;
-            videoPlayer.poster = "black.png"; 
+        // Delay before switching to the next video
+        setTimeout(function() {
+            if (clickCount % 2 === 1) {
+                newcurrentIndex = (newcurrentIndex + 1) % newvideoUrls.length;
+                videoPlayer.src = newvideoUrls[newcurrentIndex];
+            } else {
+                currentIndex = (currentIndex + 1) % videoUrls.length;
+                videoPlayer.src = videoUrls[currentIndex];
+            }
+            videoPlayer.poster = "black.png"; // Clear the poster attribute
             videoPlayer.play();
             isSwitching = false;
-
-            // Clean up the next video element
-            nextVideoElement.remove();
-        });
+        }, 1); // 1 milliseconds delay (0.001 seconds)
+        
     }
 }
     const mediaQuery = window.matchMedia('(max-width: 600px)'); // Define a media query for mobile devices
