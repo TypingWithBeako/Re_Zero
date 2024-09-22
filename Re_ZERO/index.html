@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I love Remilia</title>
+    <link rel="icon" href="favicon.png" type = "image/x-icon"/>
+    <style>
+        nav a:not(:last-child)::after {
+    content: '|';
+    background-color: white; 
+    margin: 0 1.7vw; 
+}  
+        nav a:hover {
+            text-decoration: underline;
+        }
+      .oldtopnav {
+  overflow: hidden;
+  background-color: #333;
+}
+.oldtopnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: left;
+  padding: 0.911vw 0;
+  margin-left: 1.45vw;
+  text-decoration: none;
+  font-size: 0.911vw;
+  white-space: nowrap; /* Prevent text wrapping */  
+}
+.newtopnav {
+  overflow: hidden;
+  background-color: #333;
+}
+.newtopnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: left;
+  padding: 0.911vw 0;
+  margin-left: 1.6vw;
+  text-decoration: none;
+  font-size: 0.911vw;
+  white-space: nowrap; /* Prevent text wrapping */  
+}
+        iframe {
+            border: none;
+            display: block;
+            margin: auto;
+            margin-top: 3.125vw;
+        }
+        body {
+            background-image: url("bg-tv.png");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            margin:0 /* Make topnav spread fullscreen */
+        }
+        h1 {
+            font: Joane-Regular;
+            color: black; 
+            font-size: 1.979vw;
+        }
+        .emilia {
+            position:absolute;
+            width: 28vw;
+            height: 28vw;
+            left: 75vw;
+            top: 12vw
+        }
+        .subaru {
+            position:absolute;
+            bottom:0;
+            left:38vw;
+            width: 24vw;
+            height: 13.5vw;
+        }
+        h3 {
+            position:absolute;
+            left: 0.5vw;
+            bottom: -0.6vw;
+            font-size:0.8vw;
+        }
+        p {
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-align: center;
+            font-size: 1.146vw;
+            font-weight: bold;  
+            margin-top:2.5vw
+        }
+        #videoPlayer {
+            max-width: 100%;
+            margin: 0 auto;
+            margin-top: 2vw;
+            display: block;
+        }
+        nav a {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold
+        }
+        .moveable_img{
+            position: relative;
+            top: 3vw;
+            left: 1vw;
+            width: 15vw;
+            height: 6.3vw;
+            margin-top: -4vw;
+            cursor: pointer;
+        }
+        @media only screen and (max-width:1990px) {
+            .emilia {
+                display:none;
+            }
+        }
+        @media only screen and (max-width: 600px) {
+            body {
+                background-image: url(bg-tv.png);
+            }
+            .subaru{
+                width: 60vw;
+                height: 33.75vw;
+                left: 25vw;
+            }
+            h3 {
+                font-size:1.1vw;
+                }
+            
+        .moveable_img{
+            position: relative;
+            top: 7.5vw;
+            left: 2.5vw;
+            width: 37.5vw;
+            height: 15vw;
+            margin-top: -9vw;
+        }
+            
+    h1 {
+        font-size: 5vw; /* Adjust the font size of h1 for mobile */
+        margin-top:3vw;
+    }
+    p {
+        font-size: 2.8vw; /* Adjust the font size of p for mobile */
+        margin-top:4vw;
+    }
+    #videoPlayer {
+        max-width: 100%; /* Make the video player responsive */
+        height: auto; /* Allow the video player to adjust its height */
+        margin-top: 9vw;
+    }
+   .topnav a {
+    font-size:2.2vw;
+    margin-left: 1.73vw;
+    text-align: left;
+    padding: 2vw 0;
+   } 
+   .topnav {
+    margin-top:5vw;
+   }
+}
+    </style>
+    <link href = "stylesheet.css" rel = "stylesheet" type = "text/css" />
+</head>
+<body>
+    <h1 align="center">
+        <img class= "moveable_img" src="Re_ZERO icon (1).png"  alt="Re:ZERO icon">
+        <span  id="text_to_change"> All OPs and EDs </span>
+    </h1>
+    <p>
+        My first project! Feel free to enjoy the Re:ZERO <span id="bodytext">Openings and Endings!</span> <br>
+        (1 second delay between videos)
+    </p>
+    <div class="oldtopnav">
+    <nav id = "oldnavbarContent">
+        <a href="#" onclick="playVideo('OP1 - Redo.mp4')">OP1 - Redo</a>
+        <a href="#" onclick="playVideo('OP2 - Paradisus - Paradoxum.mp4')">OP2 - Paradisus - Paradoxum</a>
+        <a href="#" onclick="playVideo('OP3 - Realize.mp4')">OP3 - Realize</a>
+        <a href="#" onclick="playVideo('OP4 - Long shot.mp4')">OP4 - Long shot</a>
+        <a href="#" onclick="playVideo('ED1 - STYX HELIX.mp4')">ED1 - STYX HELIX</a>
+        <a href="#" onclick="playVideo('ED2 - Stay Alive.mp4')">ED2 - Stay Alive</a>
+        <a href="#" onclick="playVideo('ED3 - Memento.mp4')">ED3 - Memento</a>
+        <a href="#" onclick="playVideo('ED4 - Believe in you.mp4')">ED4 - Believe in you</a>
+    </nav>
+</div>
+    <div class ="newtopnav">
+    <nav id = "newnavbarContent" style ="display: none;">
+        <a href="#" onclick="playVideo('OP1 - Redo.mp4')">EP 8 - STRAIGHT BET</a>
+        <a href="#" onclick="playVideo('OP2 - Paradisus - Paradoxum.mp4')">EP 15 - Wishing</a>
+        <a href="#" onclick="playVideo('OP3 - Realize.mp4')">EP 40 - Door</a>
+        <a href="#" onclick="playVideo('OP4 - Long shot.mp4')">EP 48 - What you don't know</a>
+        <a href="#" onclick="playVideo('ED1 - STYX HELIX.mp4')">OVA 1 - "Memories"</a>
+        <a href="#" onclick="playVideo('ED2 - Stay Alive.mp4')">OVA 1 - "White White Snow"</a>
+        <a href="#" onclick="playVideo('ED3 - Memento.mp4')">OVA 2 - "Your Name"</a>
+    </nav>
+</div>
+<video id="videoPlayer" width="640" height="360" poster="Beatrice_Anime (2).webp" controls onended="playNextVideo()">
+    <source src="OP1 - Redo.mp4" type="video/mp4">
+</video>
+        <h2><img class= "subaru" src="subaru cheering.png" width="320" height="180" alt="rezero cast in isekai quartet"> </h2>
+        <h3>©2024 "TypingWithBeako" - Nguyễn Thái Tuấn </h3>
+    <a href="https://myfigurecollection.net/item/713029" target="_blank">
+        <img class ="emilia" src="emilia.png" alt="Emilia">
+    </a>
+<script>
+    function playVideo(videoName) {
+    // Update the video player screen with the selected video
+    // For example, you can set the video source and play the video
+    document.getElementById('videoPlayer').src = videoName;
+    document.getElementById('videoPlayer').play();
+    // Update the currentIndex based on the selected video
+    currentIndex = videoUrls.indexOf(videoName);
+    videoPlayer.poster = "black.png";
+    // Preload the next video
+    const nextIndex = (currentIndex + 1) % videoUrls.length;
+    const nextVideoUrl = videoUrls[nextIndex];
+    const preloadLink = document.createElement('link');
+    preloadLink.rel = 'preload';
+    preloadLink.as = 'video';
+    preloadLink.type = 'video/mp4';
+    preloadLink.href = nextVideoUrl;
+    document.head.appendChild(preloadLink);
+}
+    // Add  controls attribute for devices 600 pixel wider
+    /*function addControlsBasedOnWidth() {
+        if (window.innerWidth >= 600) {
+            videoPlayer.controls = true;
+        } else {
+            videoPlayer.controls = false;
+        }
+    }
+    window.onload = addControlsBasedOnWidth;
+    window.onresize = addControlsBasedOnWidth;*/
+    const videoUrls = [
+        "OP1 - Redo.mp4",
+        "ED1 - STYX HELIX.mp4",
+        "OP2 - Paradisus - Paradoxum.mp4",
+        "ED2 - Stay Alive.mp4",
+        "OP3 - Realize.mp4",
+        "ED3 - Memento.mp4",
+        "OP4 - Long shot.mp4",
+        "ED4 - Believe in you.mp4" //Automatically reset to first video
+    ];
+
+    let currentIndex = 0;
+const videoPlayer = document.getElementById('videoPlayer');
+let isSwitching = false;
+
+function playNextVideo() {
+    if (!isSwitching) {
+        isSwitching = true;
+        // Delay before switching to the next video
+        setTimeout(function() {
+            currentIndex = (currentIndex + 1) % videoUrls.length;
+            videoPlayer.src = videoUrls[currentIndex];
+            videoPlayer.poster = "black.png"; // Clear the poster attribute
+            videoPlayer.play();
+            isSwitching = false;
+        }, 500); // 500 milliseconds delay (0.5 seconds)
+    }
+    }
+    const mediaQuery = window.matchMedia('(max-width: 600px)'); // Define a media query for mobile devices
+    const moveableimg = document.querySelector('.moveable_img');
+    const textToChange = document.getElementById('text_to_change');
+    const navbarContent = document.getElementById('oldnavbarContent');
+    const newnavbarContent = document.getElementById('newnavbarContent');
+    const bodytext =document.getElementById('bodytext');
+    let clickCount = 0;
+    moveableimg.addEventListener('click', function(){
+        clickCount++
+        console.log("Image clicked!"); // Add this line for testing
+        if (clickCount % 2 === 1) {
+        textToChange.innerHTML = "All <s> OPs and EDs</s> Insert Songs";
+        bodytext.innerHTML = "Insert Songs and more!"
+        navbarContent.style.display = 'none';
+        newnavbarContent.style.display ='block';
+        function handleFontSizeChange(mediaQuery) {
+            if (mediaQuery.matches) {
+            textToChange.style.fontSize = '4.2vw'; // Change font size for mobile devices
+            }    else {
+            textToChange.style.fontSize = 'inherit'; // Reset font size for non-mobile devices
+            }}
+    }
+        else {
+        textToChange.innerHTML = "All OPs and EDs";
+        bodytext.innerHTML = "Openings and Endings!";
+        navbarContent.style.display ='block';
+        newnavbarContent.style.display ='none';
+    }
+    // Initial call to set font size based on device width
+    handleFontSizeChange(mediaQuery);
+    // Add event listener for changes in media query
+    mediaQuery.addEventListener('change', handleFontSizeChange);
+    });
+    
+</script>
+</body>
+</html>

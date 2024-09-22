@@ -1,0 +1,216 @@
+@font-face {
+    font-family: 'Joane Deco';
+    src: url('JoaneDeco-Regular.eot');
+    src: local('Joane Deco Regular'), local('JoaneDeco-Regular'),
+        url('JoaneDeco-Regular.eot?#iefix') format('embedded-opentype'),
+        url('JoaneDeco-Regular.woff2') format('woff2'),
+        url('JoaneDeco-Regular.woff') format('woff'),
+        url('JoaneDeco-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Joane';
+    src: url('JoaneItalic-Ultrabold.eot');
+    src: local('Joane Italic Ultrabold'), local('JoaneItalic-Ultrabold'),
+        url('JoaneItalic-Ultrabold.eot?#iefix') format('embedded-opentype'),
+        url('JoaneItalic-Ultrabold.woff2') format('woff2'),
+        url('JoaneItalic-Ultrabold.woff') format('woff'),
+        url('JoaneItalic-Ultrabold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Joane';
+    src: url('JoaneItalic-Thin.eot');
+    src: local('Joane Italic Thin'), local('JoaneItalic-Thin'),
+        url('JoaneItalic-Thin.eot?#iefix') format('embedded-opentype'),
+        url('JoaneItalic-Thin.woff2') format('woff2'),
+        url('JoaneItalic-Thin.woff') format('woff'),
+        url('JoaneItalic-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Joane';
+    src: url('JoaneItalic-SemiBold.eot');
+    src: local('Joane Italic SemiBold'), local('JoaneItalic-SemiBold'),
+        url('JoaneItalic-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('JoaneItalic-SemiBold.woff2') format('woff2'),
+        url('JoaneItalic-SemiBold.woff') format('woff'),
+        url('JoaneItalic-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Joane';
+    src: url('Joane-Light.eot');
+    src: local('Joane Light'), local('Joane-Light'),
+        url('Joane-Light.eot?#iefix') format('embedded-opentype'),
+        url('Joane-Light.woff2') format('woff2'),
+        url('Joane-Light.woff') format('woff'),
+        url('Joane-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Joane';
+    src: url('JoaneItalic-ExtraLight.eot');
+    src: local('Joane Italic ExtraLight'), local('JoaneItalic-ExtraLight'),
+        url('JoaneItalic-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('JoaneItalic-ExtraLight.woff2') format('woff2'),
+        url('JoaneItalic-ExtraLight.woff') format('woff'),
+        url('JoaneItalic-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Joane';
+    src: url('JoaneItalic-Light.eot');
+    src: local('Joane Italic Light'), local('JoaneItalic-Light'),
+        url('JoaneItalic-Light.eot?#iefix') format('embedded-opentype'),
+        url('JoaneItalic-Light.woff2') format('woff2'),
+        url('JoaneItalic-Light.woff') format('woff'),
+        url('JoaneItalic-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Joane';
+    src: url('Joane-Thin.eot');
+    src: local('Joane Thin'), local('Joane-Thin'),
+        url('Joane-Thin.eot?#iefix') format('embedded-opentype'),
+        url('Joane-Thin.woff2') format('woff2'),
+        url('Joane-Thin.woff') format('woff'),
+        url('Joane-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Joane';
+    src: url('Joane-Ultrabold.eot');
+    src: local('Joane Ultrabold'), local('Joane-Ultrabold'),
+        url('Joane-Ultrabold.eot?#iefix') format('embedded-opentype'),
+        url('Joane-Ultrabold.woff2') format('woff2'),
+        url('Joane-Ultrabold.woff') format('woff'),
+        url('Joane-Ultrabold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Joane';
+    src: url('Joane-SemiBold.eot');
+    src: local('Joane SemiBold'), local('Joane-SemiBold'),
+        url('Joane-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('Joane-SemiBold.woff2') format('woff2'),
+        url('Joane-SemiBold.woff') format('woff'),
+        url('Joane-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Joane';
+    src: url('Joane-Regular.eot');
+    src: local('Joane Regular'), local('Joane-Regular'),
+        url('Joane-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Joane-Regular.woff2') format('woff2'),
+        url('Joane-Regular.woff') format('woff'),
+        url('Joane-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Joane';
+    src: url('JoaneItalic-Bold.eot');
+    src: local('Joane Italic Bold'), local('JoaneItalic-Bold'),
+        url('JoaneItalic-Bold.eot?#iefix') format('embedded-opentype'),
+        url('JoaneItalic-Bold.woff2') format('woff2'),
+        url('JoaneItalic-Bold.woff') format('woff'),
+        url('JoaneItalic-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Joane';
+    src: url('Joane-Black.eot');
+    src: local('Joane Black'), local('Joane-Black'),
+        url('Joane-Black.eot?#iefix') format('embedded-opentype'),
+        url('Joane-Black.woff2') format('woff2'),
+        url('Joane-Black.woff') format('woff'),
+        url('Joane-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Joane';
+    src: url('Joane-ExtraLight.eot');
+    src: local('Joane ExtraLight'), local('Joane-ExtraLight'),
+        url('Joane-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('Joane-ExtraLight.woff2') format('woff2'),
+        url('Joane-ExtraLight.woff') format('woff'),
+        url('Joane-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Joane';
+    src: url('Joane-Bold.eot');
+    src: local('Joane Bold'), local('Joane-Bold'),
+        url('Joane-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Joane-Bold.woff2') format('woff2'),
+        url('Joane-Bold.woff') format('woff'),
+        url('Joane-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Joane';
+    src: url('JoaneItalic-Regular.eot');
+    src: local('Joane Italic Regular'), local('JoaneItalic-Regular'),
+        url('JoaneItalic-Regular.eot?#iefix') format('embedded-opentype'),
+        url('JoaneItalic-Regular.woff2') format('woff2'),
+        url('JoaneItalic-Regular.woff') format('woff'),
+        url('JoaneItalic-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Joane Engraved';
+    src: url('JoaneEngraved-Regular.eot');
+    src: local('Joane Engraved Regular'), local('JoaneEngraved-Regular'),
+        url('JoaneEngraved-Regular.eot?#iefix') format('embedded-opentype'),
+        url('JoaneEngraved-Regular.woff2') format('woff2'),
+        url('JoaneEngraved-Regular.woff') format('woff'),
+        url('JoaneEngraved-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Joane';
+    src: url('JoaneItalic-Black.eot');
+    src: local('Joane Italic Black'), local('JoaneItalic-Black'),
+        url('JoaneItalic-Black.eot?#iefix') format('embedded-opentype'),
+        url('JoaneItalic-Black.woff2') format('woff2'),
+        url('JoaneItalic-Black.woff') format('woff'),
+        url('JoaneItalic-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
