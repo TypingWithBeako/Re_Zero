@@ -212,16 +212,22 @@
     currentIndex = videoUrls.indexOf(videoName);
     newcurrentIndex = newvideoUrls.indexOf(videoName);
     videoPlayer.poster = "black.png";
-    // Preload the next video
+     // Preload the next video 5 seconds before the current video ends
+     videoPlayer.addEventListener('timeupdate', function() {
+        const remainingTime = videoPlayer.duration - videoPlayer.currentTime;
+        if (remainingTime < 5) {
     const nextIndex = (currentIndex + 1) % videoUrls.length;
     const nextVideoUrl = videoUrls[nextIndex];
+
     const preloadLink = document.createElement('link');
     preloadLink.rel = 'preload';
-    preloadLink.as = 'video';
+    preloadLink.as = 'fetch';
     preloadLink.type = 'video/mp4';
     preloadLink.href = nextVideoUrl;
     document.head.appendChild(preloadLink);
-}
+        }
+     });
+    }
     // Add  controls attribute for devices 600 pixel wider
     /*function addControlsBasedOnWidth() {
         if (window.innerWidth >= 600) {
@@ -255,6 +261,7 @@
     let newcurrentIndex =0; // For newvideoUrls
 
 const videoPlayer = document.getElementById('videoPlayer');
+
 let isSwitching = false;
 
 function playNextVideo() {
@@ -294,12 +301,6 @@ function playNextVideo() {
         navbarContent.style.display = 'none';
         newnavbarContent.style.display ='block';
         videoPlayer.src="STRAIGHT BET.mp4";
-        function handleFontSizeChange(mediaQuery) {
-            if (mediaQuery.matches) {
-            textToChange.style.fontSize = '4.2vw'; // Change font size for mobile devices
-            }    else {
-            textToChange.style.fontSize = 'inherit'; // Reset font size for non-mobile devices
-            }}
     }
         else {
         textToChange.innerHTML = "All OPs and EDs";
@@ -309,12 +310,18 @@ function playNextVideo() {
         newnavbarContent.style.display ='none';
         videoPlayer.src="OP1 - Redo.mp4";
     }
-    // Initial call to set font size based on device width
-    handleFontSizeChange(mediaQuery);
+    });
+    function handleFontSizeChange(mediaQuery) {
+    if (mediaQuery.matches) {
+        textToChange.style.fontSize = '4.2vw'; // Change font size for mobile devices
+    } else {
+        textToChange.style.fontSize = 'inherit'; // Reset font size for non-mobile devices
+    }
+}
+     // Initial call to set font size based on device width
+     handleFontSizeChange(mediaQuery);
     // Add event listener for changes in media query
     mediaQuery.addEventListener('change', handleFontSizeChange);
-    });
-    
 </script>
 </body>
 </html>
