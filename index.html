@@ -290,6 +290,7 @@ function playNextVideo() {
         songname.innerHTML = "Openings and Endings!"
         navbarContent.style.display = 'none';
         newnavbarContent.style.display ='block';
+        videoPlayer.src="STRAIGHT BET.mp4";
         function handleFontSizeChange(mediaQuery) {
             if (mediaQuery.matches) {
             textToChange.style.fontSize = '4.2vw'; // Change font size for mobile devices
@@ -303,13 +304,12 @@ function playNextVideo() {
         songname.innerHTML = "Insert Songs!"
         navbarContent.style.display ='block';
         newnavbarContent.style.display ='none';
+        videoPlayer.src="Redo.mp4";
     }
     // Initial call to set font size based on device width
     handleFontSizeChange(mediaQuery);
     // Add event listener for changes in media query
     mediaQuery.addEventListener('change', handleFontSizeChange);
-     // Pause the video player when moveable_img is clicked
-     videoPlayer.src="black.png";
     });
     
 </script>
