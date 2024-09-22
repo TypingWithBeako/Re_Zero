@@ -307,37 +307,6 @@ function playNextVideo() {
      handleFontSizeChange(mediaQuery);
     // Add event listener for changes in media query
     mediaQuery.addEventListener('change', handleFontSizeChange);
-    //Preload videos 5 seconds before ending
-    let isNextVideoPreloaded = false;
-
-    function preloadNextVideoWhenPlaying() {
-    videoPlayer.addEventListener('timeupdate', function() {
-        if (videoPlayer.paused || videoPlayer.ended) {
-            return; // Stop if the video is paused or ended
-        }
-
-        const remainingTime = videoPlayer.duration - videoPlayer.currentTime;
-        
-        if (remainingTime <= 5 && !isNextVideoPreloaded) {
-            const nextIndex = (clickCount % 2 === 1) ? (newcurrentIndex + 1) % newvideoUrls.length : (currentIndex + 1) % videoUrls.length;
-            const nextVideoUrl = (clickCount % 2 === 1) ? newvideoUrls[nextIndex] : videoUrls[nextIndex];
-
-            const preloadLink = document.createElement('link');
-            preloadLink.rel = 'preload';
-            preloadLink.as = 'fetch';
-            preloadLink.type = 'video/mp4';
-            preloadLink.href = nextVideoUrl;
-
-            preloadLink.addEventListener('load', function() {
-                console.log('Next video preloaded:', nextVideoUrl);
-                isNextVideoPreloaded = true; // Set the flag to indicate that the next video is preloaded
-            });
-
-            document.head.appendChild(preloadLink);
-        }
-    });
-}
-preloadNextVideoWhenPlaying();
 </script>
 </body>
 </html>
