@@ -213,10 +213,7 @@
     newcurrentIndex = newvideoUrls.indexOf(videoName);
     videoPlayer.poster = "Other_Files/black.png";
 }
-    videoPlayer.addEventListener('play', function() {
-    // Remove the poster when the video is played
-    videoPlayer.poster = 'Other_Files/black.png';
-    });
+    
     // Add  controls attribute for devices 600 pixel wider
     /*function addControlsBasedOnWidth() {
         if (window.innerWidth >= 600) {
@@ -250,7 +247,9 @@
     let newcurrentIndex =0; // For newvideoUrls
 
 const videoPlayer = document.getElementById('videoPlayer');
-
+videoPlayer.addEventListener('play',function(){
+    videoPlayer.poster = "Other_Files/black.png"
+})
 let isSwitching = false;
 
 function playNextVideo() {
@@ -268,13 +267,10 @@ function playNextVideo() {
             videoPlayer.poster = "Other_Files/black.png"; // Clear the poster attribute
             videoPlayer.play();
             isSwitching = false;
-        }, 1); // 1 milliseconds delay (0.001 seconds)
+        }, 1); // 0 seconds delay (0 seconds)
         
     }
 }
-videoPlayer.addEventListener('ended', function() {
-    playNextVideo();
-});
     const mediaQuery = window.matchMedia('(max-width: 600px)'); // Define a media query for mobile devices
     const moveableimg = document.querySelector('.moveable_img');
     const textToChange = document.getElementById('text_to_change');
