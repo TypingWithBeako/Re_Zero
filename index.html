@@ -272,6 +272,9 @@ function playNextVideo() {
         
     }
 }
+videoPlayer.addEventListener('ended', function() {
+    playNextVideo();
+});
     const mediaQuery = window.matchMedia('(max-width: 600px)'); // Define a media query for mobile devices
     const moveableimg = document.querySelector('.moveable_img');
     const textToChange = document.getElementById('text_to_change');
