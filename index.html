@@ -213,6 +213,10 @@
     newcurrentIndex = newvideoUrls.indexOf(videoName);
     videoPlayer.poster = "Other_Files/black.png";
 }
+    videoPlayer.addEventListener('play', function() {
+    // Remove the poster when the video is played
+    videoPlayer.poster = 'Other_Files/black.png';
+    });
     // Add  controls attribute for devices 600 pixel wider
     /*function addControlsBasedOnWidth() {
         if (window.innerWidth >= 600) {
