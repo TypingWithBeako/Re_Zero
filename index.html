@@ -284,25 +284,27 @@ function playNextVideo() {
     const songname =document.getElementById('songname');
 
     let clickCount = 0;
-    moveableimg.addEventListener('click', function(){
-        clickCount++
-        console.log("Image clicked!"); // Add this line for testing
-        if (clickCount % 2 === 1) {
-        textToChange.innerHTML = "All <s> OPs and EDs</s> Insert Songs";
-        bodytext.innerHTML = "Insert Songs and more!"
-        songname.innerHTML = "Openings and Endings"
-        navbarContent.style.display = 'none';
-        newnavbarContent.style.display ='block';
-        videoPlayer.src="Insert_Songs/STRAIGHT BET.mp4";
-    }
-        else {
-        textToChange.innerHTML = "All OPs and EDs";
-        bodytext.innerHTML = "Openings and Endings!";
-        songname.innerHTML = "Insert Songs"
-        navbarContent.style.display ='block';
-        newnavbarContent.style.display ='none';
-        videoPlayer.src="Openings_and_Endings/OP1 - Redo.mp4";
-    }
+        moveableimg.addEventListener('click', function(){
+            clickCount++;
+            console.log("Image clicked!"); // Add this line for testing
+            if (clickCount % 2 === 1) {
+            textToChange.innerHTML = "All <s> OPs and EDs</s> Insert Songs";
+            bodytext.innerHTML = "Insert Songs and more!"
+            songname.innerHTML = "Openings and Endings"
+            navbarContent.style.display = 'none';
+            newnavbarContent.style.display ='block';
+            videoPlayer.src="Insert_Songs/STRAIGHT BET.mp4";
+            newcurrentIndex=0;
+        }
+            else {
+            textToChange.innerHTML = "All OPs and EDs";
+            bodytext.innerHTML = "Openings and Endings!";
+            songname.innerHTML = "Insert Songs"
+            navbarContent.style.display ='block';
+            newnavbarContent.style.display ='none';
+            videoPlayer.src="Openings_and_Endings/OP1 - Redo.mp4";
+            currentIndex=0;
+        }
     });
     function handleFontSizeChange(mediaQuery) {
     if (mediaQuery.matches) {
