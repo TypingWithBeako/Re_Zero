@@ -1,1 +1,2 @@
-This is my Re:Zero website. Feel free to edit it if you want!
+/23/09/2024/
+I have completed the website! Still looking forward to adding more changes though!
