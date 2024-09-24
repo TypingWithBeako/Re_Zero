@@ -10,21 +10,20 @@
     <link rel="icon" type="image/png" sizes="32x32" href="Icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="Icons/favicon-16x16.png">
     <link rel="manifest" href="Icons/site.webmanifest">
-
-    <style>
-        nav a:not(:last-child)::after {
+<style>
+         nav a:not(:last-child)::after {
     content: '|';
     background-color: white; 
     margin: 0 1.7vw; 
 }  
-        nav a:hover {
+         nav a:hover {
             text-decoration: underline;
         }
-      .oldtopnav {
+        .oldtopnav {
   overflow: hidden;
   background-color: #333;
 }
-.oldtopnav a {
+        .oldtopnav a {
   float: left;
   color: #f2f2f2;
   text-align: left;
@@ -34,11 +33,11 @@
   font-size: 0.911vw;
   white-space: nowrap; /* Prevent text wrapping */  
 }
-.newtopnav {
+        .newtopnav {
   overflow: hidden;
   background-color: #333;
 }
-.newtopnav a {
+        .newtopnav a {
   float: left;
   color: #f2f2f2;
   text-align: left;
@@ -48,12 +47,6 @@
   font-size: 0.911vw;
   white-space: nowrap; /* Prevent text wrapping */  
 }
-        iframe {
-            border: none;
-            display: block;
-            margin: auto;
-            margin-top: 3.125vw;
-        }
         body {
             background-image: url("Other_Files/bg-tv.png");
             background-repeat: no-repeat;
@@ -130,39 +123,39 @@
             }
             h3 {
                 font-size:1.1vw;
-                }
+             }
             
-        .moveable_img{
-            position: relative;
-            top: 7.5vw;
-            left: 2.5vw;
-            width: 37.5vw;
-            height: 15vw;
-            margin-top: -9vw;
-        }
+            .moveable_img {
+                position: relative;
+                top: 7.5vw;
+                left: 2.5vw;
+                width: 37.5vw;
+                height: 15vw;
+                margin-top: -9vw;
+            }
             
-    h1 {
-        font-size: 5vw; /* Adjust the font size of h1 for mobile */
-        margin-top:3vw;
-    }
-    p {
-        font-size: 2.8vw; /* Adjust the font size of p for mobile */
-        margin-top:4vw;
-    }
-    #videoPlayer {
-        max-width: 100%; /* Make the video player responsive */
-        height: auto; /* Allow the video player to adjust its height */
-        margin-top: 9vw;
-    }
-   .topnav a {
-    font-size:2.2vw;
-    margin-left: 1.73vw;
-    text-align: left;
-    padding: 2vw 0;
-   } 
-   .topnav {
-    margin-top:5vw;
-   }
+            h1 {
+                font-size: 5vw; /* Adjust the font size of h1 for mobile */
+                margin-top:3vw;
+            }
+            p {
+                font-size: 2.8vw; /* Adjust the font size of p for mobile */
+                margin-top:4vw;
+            }
+            #videoPlayer {
+                max-width: 100%; /* Make the video player responsive */
+                height: auto; /* Allow the video player to adjust its height */
+                margin-top: 9vw;
+            }
+            .topnav a {
+                font-size:2.2vw;
+                margin-left: 1.73vw;
+                text-align: left;
+                padding: 2vw 0;
+            } 
+            .topnav {
+                margin-top:5vw;
+            }
 }
     </style>
     <link href = "Other_Files/stylesheet.css" rel = "stylesheet" type = "text/css" />
@@ -177,28 +170,28 @@
         (Click on the logo to change to <span id="songname">Insert Songs</span>)
     </p>
     <div class="oldtopnav">
-    <nav id = "oldnavbarContent">
-        <a href="#" onclick="playVideo('Openings_and_Endings/OP1 - Redo.mp4')">OP1 - Redo</a>
-        <a href="#" onclick="playVideo('Openings_and_Endings/ED1 - STYX HELIX.mp4')">ED1 - STYX HELIX</a>
-        <a href="#" onclick="playVideo('Openings_and_Endings/OP2 - Paradisus - Paradoxum.mp4')">OP2 - Paradisus - Paradoxum</a>
-        <a href="#" onclick="playVideo('Openings_and_Endings/ED2 - Stay Alive.mp4')">ED2 - Stay Alive</a>
-        <a href="#" onclick="playVideo('Openings_and_Endings/OP3 - Realize.mp4')">OP3 - Realize</a>
-        <a href="#" onclick="playVideo('Openings_and_Endings/ED3 - Memento.mp4')">ED3 - Memento</a>
-        <a href="#" onclick="playVideo('Openings_and_Endings/OP4 - Long shot.mp4')">OP4 - Long shot</a>
-        <a href="#" onclick="playVideo('Openings_and_Endings/ED4 - Believe in you.mp4')">ED4 - Believe in you</a>
-    </nav>
-</div>
+        <nav id = "oldnavbarContent">
+            <a href="#" onclick="playVideo('Openings_and_Endings/OP1 - Redo.mp4')">OP1 - Redo</a>
+            <a href="#" onclick="playVideo('Openings_and_Endings/ED1 - STYX HELIX.mp4')">ED1 - STYX HELIX</a>
+            <a href="#" onclick="playVideo('Openings_and_Endings/OP2 - Paradisus - Paradoxum.mp4')">OP2 - Paradisus - Paradoxum</a>
+            <a href="#" onclick="playVideo('Openings_and_Endings/ED2 - Stay Alive.mp4')">ED2 - Stay Alive</a>
+            <a href="#" onclick="playVideo('Openings_and_Endings/OP3 - Realize.mp4')">OP3 - Realize</a>
+            <a href="#" onclick="playVideo('Openings_and_Endings/ED3 - Memento.mp4')">ED3 - Memento</a>
+            <a href="#" onclick="playVideo('Openings_and_Endings/OP4 - Long shot.mp4')">OP4 - Long shot</a>
+            <a href="#" onclick="playVideo('Openings_and_Endings/ED4 - Believe in you.mp4')">ED4 - Believe in you</a>
+        </nav>
+    </div>
     <div class ="newtopnav">
-    <nav id = "newnavbarContent" style ="display: none;">
-        <a href="#" onclick="playVideo('Insert_Songs/STRAIGHT BET.mp4')">EP 8 - STRAIGHT BET</a>
-        <a href="#" onclick="playVideo('Insert_Songs/Wishing.mp4')">EP 15 - Wishing</a>
-        <a href="#" onclick="playVideo('Insert_Songs/Door.mp4')">EP 40 - Door</a>
-        <a href="#" onclick="playVideo('Insert_Songs/What you dont know.mp4')">EP 48 - What you don't know</a>
-        <a href="#" onclick="playVideo('Insert_Songs/Memories.mp4')">OVA 1 - "Memories"</a>
-        <a href="#" onclick="playVideo('Insert_Songs/White White Snow.mp4')">OVA 1 - "White White Snow"</a>
-        <a href="#" onclick="playVideo('Insert_Songs/Yuki no hate ni Kimi no na wo.mp4')">OVA 2 - "Your Name"</a>
-    </nav>
-</div>
+        <nav id = "newnavbarContent" style ="display: none;">
+            <a href="#" onclick="playVideo('Insert_Songs/STRAIGHT BET.mp4')">EP 8 - STRAIGHT BET</a>
+            <a href="#" onclick="playVideo('Insert_Songs/Wishing.mp4')">EP 15 - Wishing</a>
+            <a href="#" onclick="playVideo('Insert_Songs/Door.mp4')">EP 40 - Door</a>
+            <a href="#" onclick="playVideo('Insert_Songs/What you dont know.mp4')">EP 48 - What you don't know</a>
+            <a href="#" onclick="playVideo('Insert_Songs/Memories.mp4')">OVA 1 - "Memories"</a>
+            <a href="#" onclick="playVideo('Insert_Songs/White White Snow.mp4')">OVA 1 - "White White Snow"</a>
+            <a href="#" onclick="playVideo('Insert_Songs/Yuki no hate ni Kimi no na wo.mp4')">OVA 2 - "Your Name"</a>
+        </nav>
+    </div>
 <video id="videoPlayer" width="640" height="360" poster="Other_Files/Beatrice_Anime (2).webp" controls playsinline onended="playNextVideo()">
     <source src="Openings_and_Endings/OP1 - Redo.mp4" type="video/mp4">
 </video>
@@ -208,31 +201,6 @@
         <img class ="emilia" src="Other_Files/emilia.png" alt="Emilia">
     </a>
 <script>
-    let isPosterSet = false; //Track if poster is set
-    function playVideo(videoName) {
-    // Update the video player screen with the selected video
-    // For example, you can set the video source and play the video
-    document.getElementById('videoPlayer').src = videoName;
-    document.getElementById('videoPlayer').play();
-    // Update the currentIndex and newcurrentIndex based on the selected video
-    currentIndex = videoUrls.indexOf(videoName);
-    newcurrentIndex = newvideoUrls.indexOf(videoName);
-    if (!isPosterSet) {
-        videoPlayer.poster = "Other_Files/black.png";
-        isPosterSet = true;
-    }
-}
-    
-    // Add  controls attribute for devices 600 pixel wider
-    /*function addControlsBasedOnWidth() {
-        if (window.innerWidth >= 600) {
-            videoPlayer.controls = true;
-        } else {
-            videoPlayer.controls = false;
-        }
-    }
-    window.onload = addControlsBasedOnWidth;
-    window.onresize = addControlsBasedOnWidth;*/
     const videoUrls = [
         "Openings_and_Endings/OP1 - Redo.mp4",
         "Openings_and_Endings/ED1 - STYX HELIX.mp4",
@@ -252,8 +220,36 @@
         "Insert_Songs/White White Snow.mp4",
         "Insert_Songs/Yuki no hate ni Kimi no na wo.mp4"
     ];
+    let isPosterSet = false; //Track if poster is set
     let currentIndex = 0; // For videoUrls
     let newcurrentIndex =0; // For newvideoUrls
+    let isSwitching = false;
+    let clickCount = 0;
+    let preloadedVideos = [];
+    
+    function playVideo(videoName) {
+    // Update the video player screen with the selected video
+    // For example, you can set the video source and play the video
+    document.getElementById('videoPlayer').src = videoName;
+    document.getElementById('videoPlayer').play();
+    // Update the currentIndex and newcurrentIndex based on the selected video
+    currentIndex = videoUrls.indexOf(videoName);
+    newcurrentIndex = newvideoUrls.indexOf(videoName);
+    if (!isPosterSet) {
+        videoPlayer.poster = "Other_Files/black.png";
+        isPosterSet = true;
+    }
+}
+    // Add  controls attribute for devices 600 pixel wider
+    /*function addControlsBasedOnWidth() {
+        if (window.innerWidth >= 600) {
+            videoPlayer.controls = true;
+        } else {
+            videoPlayer.controls = false;
+        }
+    }
+    window.onload = addControlsBasedOnWidth;
+    window.onresize = addControlsBasedOnWidth;*/
 
 const videoPlayer = document.getElementById('videoPlayer');
 videoPlayer.addEventListener('play',function(){
@@ -262,7 +258,6 @@ videoPlayer.addEventListener('play',function(){
         isPosterSet = true;
     }
 })
-let isSwitching = false;
 
 function playNextVideo() {
     if (!isSwitching) {
@@ -279,8 +274,7 @@ function playNextVideo() {
             videoPlayer.poster = "Other_Files/black.png"; // Clear the poster attribute
             videoPlayer.play();
             isSwitching = false;
-        }, 0); // 0 seconds delay (0 seconds)
-        
+        }, 0); // 0 seconds delay (0 seconds)       
     }
 }
     const mediaQuery = window.matchMedia('(max-width: 600px)'); // Define a media query for mobile devices
@@ -290,71 +284,70 @@ function playNextVideo() {
     const newnavbarContent = document.getElementById('newnavbarContent');
     const bodytext =document.getElementById('bodytext');
     const songname =document.getElementById('songname');
-
-    let clickCount = 0;
+  
         moveableimg.addEventListener('click', function(){
             clickCount++;
             console.log("Image clicked!"); // Add this line for testing
             if (clickCount % 2 === 1) {
-            textToChange.innerHTML = "All <s> OPs and EDs</s> Insert Songs";
-            bodytext.innerHTML = "Insert Songs and more!"
-            songname.innerHTML = "Openings and Endings"
-            navbarContent.style.display = 'none';
-            newnavbarContent.style.display ='block';
-            videoPlayer.src="Insert_Songs/STRAIGHT BET.mp4";
-            newcurrentIndex=0;
-        }
+                textToChange.innerHTML = "All <s> OPs and EDs</s> Insert Songs";
+                bodytext.innerHTML = "Insert Songs and more!"
+                songname.innerHTML = "Openings and Endings"
+                navbarContent.style.display = 'none';
+                newnavbarContent.style.display ='block';
+                videoPlayer.src="Insert_Songs/STRAIGHT BET.mp4";
+                newcurrentIndex=0;
+            }
             else {
-            textToChange.innerHTML = "All OPs and EDs";
-            bodytext.innerHTML = "Openings and Endings!";
-            songname.innerHTML = "Insert Songs"
-            navbarContent.style.display ='block';
-            newnavbarContent.style.display ='none';
-            videoPlayer.src="Openings_and_Endings/OP1 - Redo.mp4";
-            currentIndex=0;
-        }
+                textToChange.innerHTML = "All OPs and EDs";
+                bodytext.innerHTML = "Openings and Endings!";
+                songname.innerHTML = "Insert Songs"
+                navbarContent.style.display ='block';
+                newnavbarContent.style.display ='none';
+                videoPlayer.src="Openings_and_Endings/OP1 - Redo.mp4";
+                currentIndex=0;
+            }
     });
     function handleFontSizeChange(mediaQuery) {
-    if (mediaQuery.matches) {
-        textToChange.style.fontSize = '4.2vw'; // Change font size for mobile devices
-    } else {
-        textToChange.style.fontSize = 'inherit'; // Reset font size for non-mobile devices
+        if (mediaQuery.matches) {
+            textToChange.style.fontSize = '4.2vw'; // Change font size for mobile devices
+        }
+        else {
+            textToChange.style.fontSize = 'inherit'; // Reset font size for non-mobile devices
+        }
     }
-}
      // Initial call to set font size based on device width
-     handleFontSizeChange(mediaQuery);
+    handleFontSizeChange(mediaQuery);
     // Add event listener for changes in media query
     mediaQuery.addEventListener('change', handleFontSizeChange);
 
-    //Video preloading
-    let preloadedVideos = [];
-
+    // Video preloading 
     videoPlayer.addEventListener('timeupdate', function() {
         const currentTime = videoPlayer.currentTime;
         const duration = videoPlayer.duration;
 
     // Check if there are around 5 seconds left in the current video
-    if (duration - currentTime <= 5) {
+        if (duration - currentTime <= 5) {
         // Preload multiple videos based on the current video type
-        if (clickCount % 2 === 1) {
-            const nextNewIndex = (newcurrentIndex + 1) % newvideoUrls.length;
-            if (!preloadedVideos.includes(newvideoUrls[nextNewIndex])) {
-                const nextNewVideo = new Audio(newvideoUrls[nextNewIndex]);
-                nextNewVideo.preload = 'auto';
-                preloadedVideos.push(newvideoUrls[nextNewIndex]);
-                console.log('Next new video preloaded:', newvideoUrls[nextNewIndex]);
+            if (clickCount % 2 === 1) {
+                const nextNewIndex = (newcurrentIndex + 1) % newvideoUrls.length;
+                if (!preloadedVideos.includes(newvideoUrls[nextNewIndex])) {
+                    const nextNewVideo = new Audio(newvideoUrls[nextNewIndex]);
+                    nextNewVideo.preload = 'auto';
+                    preloadedVideos.push(newvideoUrls[nextNewIndex]);
+                    console.log('Next new video preloaded:', newvideoUrls[nextNewIndex]);
+                    }
             }
-        } else {
+            else {
             const nextIndex = (currentIndex + 1) % videoUrls.length;
-            if (!preloadedVideos.includes(videoUrls[nextIndex])) {
-                const nextVideo = new Audio(videoUrls[nextIndex]);
-                nextVideo.preload = 'auto';
-                preloadedVideos.push(videoUrls[nextIndex]);
-                console.log('Next video preloaded:', videoUrls[nextIndex]);
+                if (!preloadedVideos.includes(videoUrls[nextIndex])) {
+                    const nextVideo = new Audio(videoUrls[nextIndex]);
+                    nextVideo.preload = 'auto';
+                    preloadedVideos.push(videoUrls[nextIndex]);
+                    console.log('Next video preloaded:', videoUrls[nextIndex]);
+                }
             }
         }
-    }
-});
+    });
 </script>
 </body>
 </html>
