@@ -332,25 +332,18 @@ function playNextVideo() {
                 const nextNewIndex = (newcurrentIndex + 1) % newvideoUrls.length;
                 if (!preloadedVideos.includes(newvideoUrls[nextNewIndex])) {
                     const nextNewVideo = new Audio(newvideoUrls[nextNewIndex]);
-                    nextNewVideo.preload = 'metadata';
+                    nextNewVideo.preload = 'auto';
                     preloadedVideos.push(newvideoUrls[nextNewIndex]);
-                    console.log('Next new video preloaded:', newvideoUrls[nextNewIndex]);
-                    // Add a failsafe to automatically play the video if it pauses during preloading
-                    videoPlayer.addEventListener('pause', function() {
-                    videoPlayer.play();
-                });
+                    console.log('Next new video preloaded:', newvideoUrls[nextNewIndex]);                                    
                 }
             }
             else {
             const nextIndex = (currentIndex + 1) % videoUrls.length;
                 if (!preloadedVideos.includes(videoUrls[nextIndex])) {
                     const nextVideo = new Audio(videoUrls[nextIndex]);
-                    nextVideo.preload = 'metadata';
+                    nextVideo.preload = 'auto';
                     preloadedVideos.push(videoUrls[nextIndex]);
-                    console.log('Next video preloaded:', videoUrls[nextIndex]);
-                    videoPlayer.addEventListener('pause', function() {
-                    videoPlayer.play();
-                });
+                    console.log('Next video preloaded:', videoUrls[nextIndex]);       
                 }
             }
         }
