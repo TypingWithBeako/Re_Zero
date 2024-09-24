@@ -207,6 +207,7 @@
         <img class ="emilia" src="Other_Files/emilia.png" alt="Emilia">
     </a>
 <script>
+    let isPosterSet = false; //Track if poster is set
     function playVideo(videoName) {
     // Update the video player screen with the selected video
     // For example, you can set the video source and play the video
@@ -215,7 +216,10 @@
     // Update the currentIndex and newcurrentIndex based on the selected video
     currentIndex = videoUrls.indexOf(videoName);
     newcurrentIndex = newvideoUrls.indexOf(videoName);
-    videoPlayer.poster = "Other_Files/black.png";
+    if (!isPosterSet) {
+        videoPlayer.poster = "Other_Files/black.png";
+        isPosterSet = true;
+    }
 }
     
     // Add  controls attribute for devices 600 pixel wider
@@ -252,7 +256,10 @@
 
 const videoPlayer = document.getElementById('videoPlayer');
 videoPlayer.addEventListener('play',function(){
-    videoPlayer.poster = "Other_Files/black.png"
+    if (!isPosterSet) {
+        videoPlayer.poster = "Other_Files/black.png";
+        isPosterSet = true;
+    }
 })
 let isSwitching = false;
 
