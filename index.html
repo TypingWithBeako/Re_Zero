@@ -335,7 +335,11 @@ function playNextVideo() {
                     nextNewVideo.preload = 'metadata';
                     preloadedVideos.push(newvideoUrls[nextNewIndex]);
                     console.log('Next new video preloaded:', newvideoUrls[nextNewIndex]);
-                    }
+                    // Add a failsafe to automatically play the video if it pauses during preloading
+                    videoPlayer.addEventListener('pause', function() {
+                    videoPlayer.play();
+                });
+                }
             }
             else {
             const nextIndex = (currentIndex + 1) % videoUrls.length;
@@ -344,6 +348,9 @@ function playNextVideo() {
                     nextVideo.preload = 'metadata';
                     preloadedVideos.push(videoUrls[nextIndex]);
                     console.log('Next video preloaded:', videoUrls[nextIndex]);
+                    videoPlayer.addEventListener('pause', function() {
+                    videoPlayer.play();
+                });
                 }
             }
         }
