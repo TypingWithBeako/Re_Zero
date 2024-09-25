@@ -230,20 +230,23 @@
     let clickCount = 0;
     let preloadedVideos = [];
     let disablePreloading = false;
+    let nextVideoTimeout;
     
     function playVideo(videoName) {
     // Update the video player screen with the selected video
     // For example, you can set the video source and play the video
-    document.getElementById('videoPlayer').src = videoName;
-    document.getElementById('videoPlayer').play();
-    // Update the currentIndex and newcurrentIndex based on the selected video
-    currentIndex = videoUrls.indexOf(videoName);
-    newcurrentIndex = newvideoUrls.indexOf(videoName);
-    if (!isPosterSet) {
-        videoPlayer.poster = "Other_Files/black.png";
-        isPosterSet = true;
+        document.getElementById('videoPlayer').src = videoName;
+        document.getElementById('videoPlayer').play();
+        // Update the currentIndex and newcurrentIndex based on the selected video
+        currentIndex = videoUrls.indexOf(videoName);
+        newcurrentIndex = newvideoUrls.indexOf(videoName);
+        if (!isPosterSet) {
+            videoPlayer.poster = "Other_Files/black.png";
+            isPosterSet = true;
+        }
+        clearTimeout(nextVideoTimeout); // Clear the timeout for playNextVideo
+        isSwitching = false; // When playVideo is executed, reset isSwitching.
     }
-}
     // Add  controls attribute for devices 600 pixel wider
     /*function addControlsBasedOnWidth() {
         if (window.innerWidth >= 600) {
@@ -255,32 +258,36 @@
     window.onload = addControlsBasedOnWidth;
     window.onresize = addControlsBasedOnWidth;*/
 
-const videoPlayer = document.getElementById('videoPlayer');
-videoPlayer.addEventListener('play',function(){
-    if (!isPosterSet) {
+    const videoPlayer = document.getElementById('videoPlayer');
+    videoPlayer.addEventListener('play',function(){
+        if (!isPosterSet) {
         videoPlayer.poster = "Other_Files/black.png";
         isPosterSet = true;
-    }
-})
+        }
+    })
 
-function playNextVideo() {
-    if (!isSwitching) {
-        isSwitching = true;
-        // Delay before switching to the next video
-        setTimeout(function() {
-            if (clickCount % 2 === 1) {
-                newcurrentIndex = (newcurrentIndex + 1) % newvideoUrls.length;
-                videoPlayer.src = newvideoUrls[newcurrentIndex];
-            } else {
-                currentIndex = (currentIndex + 1) % videoUrls.length;
-                videoPlayer.src = videoUrls[currentIndex];
-            }
-            videoPlayer.poster = "Other_Files/black.png"; // Clear the poster attribute
-            videoPlayer.play();
-            isSwitching = false;
-        }, 2500); // 2500 seconds delay (2.5 seconds)       
+    function playNextVideo() {
+        if (!isSwitching) {
+            isSwitching = true;
+            // Delay before switching to the next video
+            nextVideoTimeout = setTimeout(function() {
+                if (clickCount % 2 === 1) {
+                    newcurrentIndex = (newcurrentIndex + 1) % newvideoUrls.length;
+                    videoPlayer.src = newvideoUrls[newcurrentIndex];
+                } else {
+                    currentIndex = (currentIndex + 1) % videoUrls.length;
+                    videoPlayer.src = videoUrls[currentIndex];
+                }
+                videoPlayer.poster = "Other_Files/black.png"; // Clear the poster attribute
+                videoPlayer.play();
+                isSwitching = false;
+            }, 2500); // 2500 seconds delay (2.5 seconds)       
+        }
     }
-}
+    // Add event listener to stop the timeout if playVideo is pressed while setTimeout is running
+    videoPlayer.addEventListener('play', function() {
+        clearTimeout(nextVideoTimeout);
+    });
     const mediaQuery = window.matchMedia('(max-width: 600px)'); // Define a media query for mobile devices
     const moveableimg = document.querySelector('.moveable_img');
     const textToChange = document.getElementById('text_to_change');
@@ -333,6 +340,7 @@ function playNextVideo() {
             disablePreloading = true;
         });
             if (duration - currentTime <= 5 && disablePreloading === false ) {
+
         // Preload multiple videos based on the current video type
                 if (clickCount % 2 === 1) {
                 const nextNewIndex = (newcurrentIndex + 1) % newvideoUrls.length;
