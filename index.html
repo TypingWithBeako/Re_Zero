@@ -327,9 +327,9 @@ function playNextVideo() {
 
     // Check if the user agent indicates a Tizen browser/ Smart TV
     const isSmartTV = navigator.userAgent.includes('SMART-TV')
-    const isSamsung = navigator.userAgent.includes('Tizen')    
+    const isTizen = navigator.userAgent.includes('Tizen')    
     // Check if there are around 5 seconds left in the current video and not in a Tizen browser or a Smart TV.
-    if (duration - currentTime <= 5 && (!isSmartTV || !isSamsung)) {
+    if (duration - currentTime <= 5 && (!isSmartTV || !isTizen)) {
         // Preload multiple videos based on the current video type
             if (clickCount % 2 === 1) {
                 const nextNewIndex = (newcurrentIndex + 1) % newvideoUrls.length;
