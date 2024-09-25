@@ -313,6 +313,8 @@
                 newnavbarContent.style.display ='block';
                 videoPlayer.src="Insert_Songs/STRAIGHT BET.mp4";
                 newcurrentIndex=0;
+                clearTimeout(nextVideoTimeout);
+                isSwitching = false; 
             }
             else {
                 textToChange.innerHTML = "All OPs and EDs";
@@ -322,6 +324,8 @@
                 newnavbarContent.style.display ='none';
                 videoPlayer.src="Openings_and_Endings/OP1 - Redo.mp4";
                 currentIndex=0;
+                clearTimeout(nextVideoTimeout); 
+                isSwitching = false; 
             }
     });
     function handleFontSizeChange(mediaQuery) {
