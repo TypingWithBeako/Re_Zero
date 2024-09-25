@@ -196,7 +196,7 @@
     <source src="Openings_and_Endings/OP1 - Redo.mp4" type="video/mp4">
 </video>
         <h2><img class= "subaru" src="Other_Files/subaru cheering.png" width="320" height="180" alt="rezero cast in isekai quartet"> </h2>
-        <h3>©2024 "TypingWithBeako" - Nguyễn Thái Tuấn </h3>
+        <h3 class="trademark">©2024 "TypingWithBeako" - Nguyễn Thái Tuấn </h3>
     <a href="https://myfigurecollection.net/item/713029" target="_blank">
         <img class ="emilia" src="Other_Files/emilia.png" alt="Emilia">
     </a>
@@ -220,6 +220,7 @@
         "Insert_Songs/White White Snow.mp4",
         "Insert_Songs/Yuki no hate ni Kimi no na wo.mp4"
     ];
+    
     let isPosterSet = false; //Track if poster is set
     let currentIndex = 0; // For videoUrls
     let newcurrentIndex =0; // For newvideoUrls
@@ -290,6 +291,7 @@
     videoPlayer.addEventListener('play', function() {
         clearTimeout(nextVideoTimeout);
     });
+
     const mediaQuery = window.matchMedia('(max-width: 600px)'); // Define a media query for mobile devices
     const moveableimg = document.querySelector('.moveable_img');
     const textToChange = document.getElementById('text_to_change');
@@ -297,6 +299,8 @@
     const newnavbarContent = document.getElementById('newnavbarContent');
     const bodytext =document.getElementById('bodytext');
     const songname =document.getElementById('songname');
+    const disablePreloadingbutton = document.querySelector('.subaru');
+    const enablePreloadingbutton = document.querySelector('.trademark');
   
         moveableimg.addEventListener('click', function(){
             clickCount++;
@@ -328,23 +332,32 @@
             textToChange.style.fontSize = 'inherit'; // Reset font size for non-mobile devices
         }
     }
+
      // Initial call to set font size based on device width
     handleFontSizeChange(mediaQuery);
     // Add event listener for changes in media query
     mediaQuery.addEventListener('change', handleFontSizeChange);
 
     // Disable preloading when clicking on re:zero cast image
-    const disablePreloadingbutton = document.querySelector('.subaru');
     disablePreloadingbutton.addEventListener('click',function(){
-            console.log('Preloading disabled!');
+        if (!disablePreloading) {
+            console.log('Preloading disabled! (click on the trademark to enable preloading)');
             disablePreloading = true;
-        }, {once :  true});
+             // Added failsafe if mistakenly clicked on picture (in IF statements: "!const" = "const === false")
+            if (disablePreloading){
+                enablePreloadingbutton.addEventListener('click',function(){
+                console.log('Preloading enabled!');
+                disablePreloading = false;
+                }, {once :  true});
+            }
+        }
+    }, );
 
     // Video preloading 
     videoPlayer.addEventListener('timeupdate', function() {
         const currentTime = videoPlayer.currentTime;
         const duration = videoPlayer.duration;
-            if (duration - currentTime <= 5 && disablePreloading === false ) {
+            if (duration - currentTime <= 5 && !disablePreloading) {
 
         // Preload multiple videos based on the current video type
                 if (clickCount % 2 === 1) {
