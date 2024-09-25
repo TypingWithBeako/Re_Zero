@@ -72,7 +72,7 @@
             left:38vw;
             width: 24vw;
             height: 13.5vw;
-            pointer-events: none;
+            pointer-events: auto;
             user-select: none;
         }
         h3 {
@@ -200,9 +200,6 @@
     <a href="https://myfigurecollection.net/item/713029" target="_blank">
         <img class ="emilia" src="Other_Files/emilia.png" alt="Emilia">
     </a>
-    <button class="button">
-        Click here to disable preloading!
-    </button>
 <script>
     const videoUrls = [
         "Openings_and_Endings/OP1 - Redo.mp4",
@@ -212,7 +209,7 @@
         "Openings_and_Endings/OP3 - Realize.mp4",
         "Openings_and_Endings/ED3 - Memento.mp4",
         "Openings_and_Endings/OP4 - Long shot.mp4",
-        "Openings_and_Endings/ED4 - Believe in you.mp4" //Automatically reset to first video
+        "Openings_and_Endings/ED4 - Believe in you.mp4" 
     ];
     const newvideoUrls = [
         "Insert_Songs/STRAIGHT BET.mp4",
@@ -244,8 +241,10 @@
             videoPlayer.poster = "Other_Files/black.png";
             isPosterSet = true;
         }
-        clearTimeout(nextVideoTimeout); // Clear the timeout for playNextVideo
-        isSwitching = false; // When playVideo is executed, reset isSwitching.
+        // Clear the timeout for playNextVideo
+        clearTimeout(nextVideoTimeout); 
+        // When playVideo is executed, reset isSwitching.
+        isSwitching = false; 
     }
     // Add  controls attribute for devices 600 pixel wider
     /*function addControlsBasedOnWidth() {
@@ -284,6 +283,7 @@
             }, 2500); // 2500 seconds delay (2.5 seconds)       
         }
     }
+
     // Add event listener to stop the timeout if playVideo is pressed while setTimeout is running
     videoPlayer.addEventListener('play', function() {
         clearTimeout(nextVideoTimeout);
@@ -331,14 +331,17 @@
     // Add event listener for changes in media query
     mediaQuery.addEventListener('change', handleFontSizeChange);
 
+    // Disable preloading when clicking on re:zero cast image
+    const disablePreloadingbutton = document.querySelector('.subaru');
+    disablePreloadingbutton.addEventListener('click',function(){
+            console.log('Preloading disabled!');
+            disablePreloading = true;
+        }, {once :  true});
+
     // Video preloading 
     videoPlayer.addEventListener('timeupdate', function() {
         const currentTime = videoPlayer.currentTime;
         const duration = videoPlayer.duration;
-        const disablePreloadingbutton = document.querySelector('.button');
-        disablePreloadingbutton.addEventListener('click',function(){
-            disablePreloading = true;
-        });
             if (duration - currentTime <= 5 && disablePreloading === false ) {
 
         // Preload multiple videos based on the current video type
