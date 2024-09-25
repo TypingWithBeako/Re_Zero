@@ -234,6 +234,7 @@
     // For example, you can set the video source and play the video
         document.getElementById('videoPlayer').src = videoName;
         document.getElementById('videoPlayer').play();
+        console.log('Video selected:',videoName)
         // Update the currentIndex and newcurrentIndex based on the selected video
         currentIndex = videoUrls.indexOf(videoName);
         newcurrentIndex = newvideoUrls.indexOf(videoName);
@@ -246,6 +247,7 @@
         // When playVideo is executed, reset isSwitching.
         isSwitching = false; 
     }
+
     // Add  controls attribute for devices 600 pixel wider
     /*function addControlsBasedOnWidth() {
         if (window.innerWidth >= 600) {
