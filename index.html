@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,6 +57,7 @@
             font: Joane-Regular;
             color: black; 
             font-size: 1.979vw;
+            text-align:center;
         }
         .emilia {
             position:absolute;
@@ -161,7 +161,7 @@
     <link href = "Other_Files/stylesheet.css" rel = "stylesheet" type = "text/css" />
 </head>
 <body>
-    <h1 align="center">
+    <h1>
         <img class= "moveable_img" src="Other_Files/Re_ZERO icon (1).png"  alt="Re:ZERO icon">
         <span  id="text_to_change"> All OPs and EDs </span>
     </h1>
@@ -325,8 +325,11 @@ function playNextVideo() {
         const currentTime = videoPlayer.currentTime;
         const duration = videoPlayer.duration;
 
-    // Check if there are around 5 seconds left in the current video
-        if (duration - currentTime <= 5) {
+    // Check if the user agent indicates a Tizen browser
+    const isTizenBrowser = navigator.userAgent.includes('Tizen');
+
+    // Check if there are around 5 seconds left in the current video and not in a Tizen browser
+    if (duration - currentTime <= 5 && !isTizenBrowser) {
         // Preload multiple videos based on the current video type
             if (clickCount % 2 === 1) {
                 const nextNewIndex = (newcurrentIndex + 1) % newvideoUrls.length;
