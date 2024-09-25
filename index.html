@@ -241,6 +241,7 @@
             isPosterSet = true;
         }
         clearTimeout(nextVideoTimeout); // Clear the timeout for playNextVideo
+        isSwitching = false; // When playVideo is executed, reset isSwitching.
     }
     // Add  controls attribute for devices 600 pixel wider
     /*function addControlsBasedOnWidth() {
