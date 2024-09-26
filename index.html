@@ -444,7 +444,7 @@
         else{
             console.log('Video looping disabled for:', videoUrls[currentIndex])
             loopText.innerHTML = "Enable looping";
-            videoPlayer.removeEventListener('ended, enableLoopingListener');
+            videoPlayer.removeEventListener('ended', enableLoopingListener);
         }
     });
 </script>
