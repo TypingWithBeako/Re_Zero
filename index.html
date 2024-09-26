@@ -10,154 +10,188 @@
     <link rel="icon" type="image/png" sizes="16x16" href="Icons/favicon-16x16.png">
     <link rel="manifest" href="Icons/site.webmanifest">
 <style>
-         nav a:not(:last-child)::after {
-    content: '|';
-    background-color: white; 
-    margin: 0 1.7vw; 
-}  
-         nav a:hover {
-            text-decoration: underline;
-        }
-        .oldtopnav {
-  overflow: hidden;
-  background-color: #333;
-}
-        .oldtopnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: left;
-  padding: 0.911vw 0;
-  margin-left: 1.45vw;
-  text-decoration: none;
-  font-size: 0.911vw;
-  white-space: nowrap; /* Prevent text wrapping */  
-}
-        .newtopnav {
-  overflow: hidden;
-  background-color: #333;
-}
-        .newtopnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: left;
-  padding: 0.911vw 0;
-  margin-left: 1.6vw;
-  text-decoration: none;
-  font-size: 0.911vw;
-  white-space: nowrap; /* Prevent text wrapping */  
-}
-        body {
-            background-image: url("Other_Files/bg-tv.png");
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: 100% 100%;
-            margin:0 /* Make topnav spread fullscreen */
-        }
-        h1 {
-            font: Joane-Regular;
-            color: black; 
-            font-size: 1.979vw;
-            text-align:center;
-        }
+    nav a:not(:last-child)::after {
+        content: '|';
+        background-color: white; 
+        margin: 0 1.7vw; 
+    }  
+    nav a:hover {
+        text-decoration: underline;
+    }
+    .oldtopnav {
+        overflow: hidden;
+        background-color: #333;
+    }
+    .oldtopnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: left;
+        padding: 0.911vw 0;
+        margin-left: 1.45vw;
+        text-decoration: none;
+        font-size: 0.911vw;
+        white-space: nowrap; /* Prevent text wrapping */  
+    }
+    .newtopnav {
+        overflow: hidden;
+        background-color: #333;
+    }
+    .newtopnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: left;
+        padding: 0.911vw 0;
+        margin-left: 1.6vw;
+        text-decoration: none;
+        font-size: 0.911vw;
+        white-space: nowrap; /* Prevent text wrapping */  
+    }
+    body {
+        background-image: url("Other_Files/bg-tv.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        margin:0 /* Make topnav spread fullscreen */
+    }
+    h1 {
+        font: Joane-Regular;
+        color: black; 
+        font-size: 1.979vw;
+        text-align:center;
+    }
+    .emilia {
+        position:absolute;
+        width: 28vw;
+        height: 28vw;
+        left: 75vw;
+        top: 12vw
+    }
+    .subaru {
+        position:absolute;
+        bottom:0;
+        left:38vw;
+        width: 24vw;
+        height: 13.5vw;
+        pointer-events: auto;
+        user-select: none;
+    }
+    h3 {
+        position:absolute;
+        left: 0.5vw;
+        bottom: -0.6vw;
+        font-size:0.8vw;
+    }
+    p {
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        text-align: center;
+        font-size: 1.146vw;
+        font-weight: bold;  
+        margin-top:2.5vw
+    }
+    #videoPlayer {
+        max-width: 100%;
+        margin: 0 auto;
+        margin-top: 2vw;
+        display: block;
+    }
+    nav a {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold
+    }
+    .moveable_img{
+        position: relative;
+        top: 3vw;
+        left: 1vw;
+        width: 15vw;
+        height: 6.3vw;
+        margin-top: -4vw;
+        cursor: pointer;
+    }
+    .button-container {
+        position: relative;
+        margin-left: 47vw;
+        margin-top: -55vh;
+    }
+    .loop{
+        width: auto;
+        height: auto;
+    }
+    .looptext {
+        font-size: 0.7vw;
+    }
+    .loopicon { 
+        position:relative;
+        top: 0.15vh;
+        width:0.8vw;
+        height:0.8vw;
+    }
+    @media only screen and (max-width:1990px) {
         .emilia {
-            position:absolute;
-            width: 28vw;
-            height: 28vw;
-            left: 75vw;
-            top: 12vw
+            display:none;
+        }
+    }
+    @media only screen and (max-width: 600px) {
+        body {
+            background-image: url(Other_Files/bg-tv.png);
         }
         .subaru {
-            position:absolute;
-            bottom:0;
-            left:38vw;
-            width: 24vw;
-            height: 13.5vw;
-            pointer-events: auto;
-            user-select: none;
+            width: 60vw;
+            height: 33.75vw;
+            left: 25vw;
         }
         h3 {
-            position:absolute;
-            left: 0.5vw;
-            bottom: -0.6vw;
-            font-size:0.8vw;
+            font-size:1.1vw;
+        }   
+        .moveable_img {
+            position: relative;
+            top: 7.5vw;
+            left: 2.5vw;
+            width: 37.5vw;
+            height: 15vw;
+            margin-top: -9vw;
+        }  
+        h1 {
+            font-size: 5vw; /* Adjust the font size of h1 for mobile */
+            margin-top:3vw;
         }
         p {
-            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            text-align: center;
-            font-size: 1.146vw;
-            font-weight: bold;  
-            margin-top:2.5vw
+            font-size: 2.8vw; /* Adjust the font size of p for mobile */
+            margin-top:4vw;
         }
-        #videoPlayer {
-            max-width: 100%;
-            margin: 0 auto;
-            margin-top: 2vw;
-            display: block;
+         #videoPlayer {
+            max-width: 100%; /* Make the video player responsive */
+            height: auto; /* Allow the video player to adjust its height */
+            margin-top: 9vw;
         }
-        nav a {
-            font-family: Arial, Helvetica, sans-serif;
-            font-weight: bold
+        .topnav a {
+            font-size:2.2vw;
+            margin-left: 1.73vw;
+            text-align: left;
+            padding: 2vw 0;
+        } 
+        .topnav {
+            margin-top:5vw;
         }
-        .moveable_img{
-            position: relative;
-            top: 3vw;
-            left: 1vw;
-            width: 15vw;
-            height: 6.3vw;
-            margin-top: -4vw;
-            cursor: pointer;
+        .button-container {
+        position: relative;
+        right: 3vw;
+        top: 53vh;
+    }
+        .loop {
+        width: 20vw;
+        height: auto;
         }
-        @media only screen and (max-width:1990px) {
-            .emilia {
-                display:none;
-            }
-        }
-        @media only screen and (max-width: 600px) {
-            body {
-                background-image: url(Other_Files/bg-tv.png);
-            }
-            .subaru{
-                width: 60vw;
-                height: 33.75vw;
-                left: 25vw;
-            }
-            h3 {
-                font-size:1.1vw;
-             }
-            
-            .moveable_img {
-                position: relative;
-                top: 7.5vw;
-                left: 2.5vw;
-                width: 37.5vw;
-                height: 15vw;
-                margin-top: -9vw;
-            }
-            
-            h1 {
-                font-size: 5vw; /* Adjust the font size of h1 for mobile */
-                margin-top:3vw;
-            }
-            p {
-                font-size: 2.8vw; /* Adjust the font size of p for mobile */
-                margin-top:4vw;
-            }
-            #videoPlayer {
-                max-width: 100%; /* Make the video player responsive */
-                height: auto; /* Allow the video player to adjust its height */
-                margin-top: 9vw;
-            }
-            .topnav a {
-                font-size:2.2vw;
-                margin-left: 1.73vw;
-                text-align: left;
-                padding: 2vw 0;
-            } 
-            .topnav {
-                margin-top:5vw;
-            }
-}
-    </style>
+    .looptext {
+        font-size: 1.8vw;
+    }
+    .loopicon {
+        position: relative;
+        width:2vw;
+        height:2vw;
+        top:0.4vw;
+    }
+    }
+</style>
     <link href = "Other_Files/stylesheet.css" rel = "stylesheet" type = "text/css" />
 </head>
 <body>
@@ -200,7 +234,11 @@
     <a href="https://myfigurecollection.net/item/713029" target="_blank">
         <img class ="emilia" src="Other_Files/emilia.png" alt="Emilia">
     </a>
-    <button class = "loop"><span class ="looptext"> Click here to loop the current video! </span> </button>
+    <div class="button-container">
+        <button class = "loop"><span class ="looptext">Enable looping </span>
+        <img class ="loopicon" src="loop.png" alt="loop icon">
+        </button>
+    </div>   
 <script>
     const videoUrls = [
         "Openings_and_Endings/OP1 - Redo.mp4",
@@ -232,7 +270,8 @@
     let nextVideoTimeout;
     let loopcurrentIndex = 0;
     let loopclickCount = 0;
-    
+    let enableLoopingListener = null;
+
     function playVideo(videoName) {
     // Update the video player screen with the selected video
     // For example, you can set the video source and play the video
@@ -364,12 +403,12 @@
     videoPlayer.addEventListener('timeupdate', function() {
         const currentTime = videoPlayer.currentTime;
         const duration = videoPlayer.duration;
-            if (duration - currentTime <= 5 && !disablePreloading) {
+        if (duration - currentTime <= 5 && !disablePreloading) {
 
         // Preload multiple videos based on the current video type
-                if (clickCount % 2 === 1) {
-                const nextNewIndex = (newcurrentIndex + 1) % newvideoUrls.length;
-                    if (!preloadedVideos.includes(newvideoUrls[nextNewIndex])) {
+            if (clickCount % 2 === 1) {
+            const nextNewIndex = (newcurrentIndex + 1) % newvideoUrls.length;
+                if (!preloadedVideos.includes(newvideoUrls[nextNewIndex])) {
                     const nextNewVideo = new Audio(newvideoUrls[nextNewIndex]);
                     nextNewVideo.preload = 'auto';
                     preloadedVideos.push(newvideoUrls[nextNewIndex]);
@@ -385,24 +424,29 @@
                         console.log('Next video preloaded:', videoUrls[nextIndex]);       
                     }
                 }
-            }    
-        });
-        const loopVideo = document.querySelector('.loop')
-        const loopText = document.querySelector('.looptext')
-        loopVideo.addEventListener('click',function() {
-            loopclickCount++
-            console.log('Video looping enabled for:', videoUrls[currentIndex])
-            if (loopclickCount % 2 == 1){
-                loopText.innerHTML = "Click here to disable looping!";  
-                
-            videoPlayer.addEventListener('ended',function() {
-                loopcurrentIndex = currentIndex;
-                videoPlayer.src =videoUrls[loopcurrentIndex];
-                videoPlayer.play();
-                isSwitching = false;
-                
-            });
-        });
+         }      
+     });
+    enableLoopingListener = function EnableLooping() {
+        loopcurrentIndex = currentIndex;
+        videoPlayer.src =videoUrls[loopcurrentIndex];
+        videoPlayer.play();
+        isSwitching = false;
+    };
+    const loopVideo = document.querySelector('.loop')
+    const loopText = document.querySelector('.looptext')
+    loopVideo.addEventListener('click',function() {
+        loopclickCount++
+        if (loopclickCount % 2 == 1){
+            loopText.innerHTML = "Disable looping";
+            console.log('Video looping enabled for:', videoUrls[currentIndex])  
+            videoPlayer.addEventListener('ended', enableLoopingListener);
+        }
+        else{
+            console.log('Video looping disabled for:', videoUrls[currentIndex])
+            loopText.innerHTML = "Enable looping";
+            videoPlayer.removeEventListener('ended, enableLoopingListener');
+        }
+    });
 </script>
 </body>
 </html>
