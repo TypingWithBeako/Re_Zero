@@ -116,14 +116,17 @@
         width: auto;
         height: auto;
     }
-    .looptext {
-        font-size: 0.7vw;
-    }
     .loopicon { 
         position:relative;
-        top: 0.15vh;
-        width:0.8vw;
-        height:0.8vw;
+        top: 0.2vw;
+        width:0.9vw;
+        height:0.9vw;
+    }
+    #changeDelayButton {
+        position:relative;
+        left: 0.5vw;
+        width: auto;
+        height: auto;
     }
     @media only screen and (max-width:1990px) {
         .emilia {
@@ -182,13 +185,17 @@
             height: auto;
         }
         .looptext {
-            font-size: 1.8vw;
+            font-size: 2vw;
         }
         .loopicon {
             position: relative;
             width:2vw;
             height:2vw;
             top:0.4vw;
+        }
+        #changeDelayButton {
+            width: 20vw;
+            height: auto;
         }
     }
 </style>
@@ -228,7 +235,10 @@
     </div>
     <div class="button-container">
         <button class = "loop"><span class ="looptext">Enable looping </span>
-        <img class ="loopicon" src="loop.png" alt="loop icon">
+            <img class ="loopicon" src="loop.png" alt="loop icon">
+            <button id="changeDelayButton">Change Delay
+                <img class ="loopicon" src="delay.jpg" alt="loop icon">
+            </button>
         </button>
     </div>   
 <video id="videoPlayer" width="640" height="360" poster="Other_Files/Beatrice_Anime (2).webp" controls playsinline onended="playNextVideo()">
@@ -241,6 +251,8 @@
     </a>
 </div>
 <script>
+    console.log ("To disable preloading, you can click the image below the video player. To re-enable preloading, you can click my trademark text")
+    console.log("Currently, there is a bug relating to clicking the play button when the video ends. You can manually fix it by changing the delay to 0 milliseconds.")
     const videoUrls = [
         "Openings_and_Endings/OP1 - Redo.mp4",
         "Openings_and_Endings/ED1 - STYX HELIX.mp4",
@@ -272,6 +284,7 @@
     let loopcurrentIndex = 0;
     let loopclickCount = 0;
     let enableLoopingListener = null;
+    let delay = 2500;
 
     function playVideo(videoName) {
     // Update the video player screen with the selected video
@@ -326,9 +339,27 @@
                 videoPlayer.poster = "Other_Files/black.png"; // Clear the poster attribute
                 videoPlayer.play();
                 isSwitching = false;
-            }, 2500); // 2500 seconds delay (2.5 seconds)       
+            }, delay); // 2500 seconds delay (2.5 seconds)       
         }
     }
+
+    // Update the delay variable
+    function updateDelay(newDelay) {
+        delay = newDelay; 
+    }
+    // Add event listener for button click
+    document.getElementById("changeDelayButton").addEventListener("click", function() {
+        // Prompt user for new delay
+        let newDelay = parseInt(prompt("Enter new delay in milliseconds (Default is 2500ms):"));
+        // Validate user input
+        if (isNaN(newDelay) || newDelay < 0) {
+            alert("Invalid delay. Please enter a non-negative number.");
+        return;
+        }
+        // Update delay and optionally display confirmation
+        updateDelay(newDelay);
+        console.log("Delay updated to", newDelay, "milliseconds");
+    });
 
     // Add event listener to stop the timeout if playVideo is pressed while setTimeout is running
     videoPlayer.addEventListener('play', function() {
@@ -391,7 +422,7 @@
     // Disable preloading when clicking on re:zero cast image
     disablePreloadingbutton.addEventListener('click',function(){
         if (!disablePreloading) {
-            console.log('Preloading disabled! (click on the trademark to enable preloading)');
+            console.log('Preloading disabled!');
             disablePreloading = true;
              // Added failsafe if mistakenly clicked on picture (in IF statements: "!const" = "const === false")
             if (disablePreloading){
@@ -466,7 +497,6 @@
                     console.log('Video looping disabled for:', videoUrls[currentIndex])
             }
     });
-
 </script>
 </body>
 </html>
