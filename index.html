@@ -91,7 +91,7 @@
     #videoPlayer {
         max-width: 100%;
         margin: 0 auto;
-        margin-top: 2vw;
+        margin-top: 0.5vw;
         display: block;
     }
     nav a {
@@ -108,9 +108,9 @@
         cursor: pointer;
     }
     .button-container {
+        text-align: center;
         position: relative;
-        margin-left: 47vw;
-        margin-top: -55vh;
+        top: 0.25vw;
     }
     .loop{
         width: auto;
@@ -161,7 +161,7 @@
          #videoPlayer {
             max-width: 100%; /* Make the video player responsive */
             height: auto; /* Allow the video player to adjust its height */
-            margin-top: 9vw;
+            margin-top: 4vw;
         }
         .topnav a {
             font-size:2.2vw;
@@ -172,24 +172,24 @@
         .topnav {
             margin-top:5vw;
         }
-        .button-container {
-        position: relative;
-        right: 3vw;
-        top: 53vh;
-    }
-        .loop {
-        width: 20vw;
-        height: auto;
+        .button-container{
+            position: absolute;
+            top: 72vh;
+            left: 42vw
         }
-    .looptext {
-        font-size: 1.8vw;
-    }
-    .loopicon {
-        position: relative;
-        width:2vw;
-        height:2vw;
-        top:0.4vw;
-    }
+        .loop {
+            width: 16.5vw;
+            height: auto;
+        }
+        .looptext {
+            font-size: 1.8vw;
+        }
+        .loopicon {
+            position: relative;
+            width:2vw;
+            height:2vw;
+            top:0.4vw;
+        }
     }
 </style>
     <link href = "Other_Files/stylesheet.css" rel = "stylesheet" type = "text/css" />
@@ -226,6 +226,11 @@
             <a href="#" onclick="playVideo('Insert_Songs/What you dont know.mp4')">EP 48 - What you don't know</a>
         </nav>
     </div>
+    <div class="button-container">
+        <button class = "loop"><span class ="looptext">Enable looping </span>
+        <img class ="loopicon" src="loop.png" alt="loop icon">
+        </button>
+    </div>   
 <video id="videoPlayer" width="640" height="360" poster="Other_Files/Beatrice_Anime (2).webp" controls playsinline onended="playNextVideo()">
     <source src="Openings_and_Endings/OP1 - Redo.mp4" type="video/mp4">
 </video>
@@ -234,11 +239,7 @@
     <a href="https://myfigurecollection.net/item/713029" target="_blank">
         <img class ="emilia" src="Other_Files/emilia.png" alt="Emilia">
     </a>
-    <div class="button-container">
-        <button class = "loop"><span class ="looptext">Enable looping </span>
-        <img class ="loopicon" src="loop.png" alt="loop icon">
-        </button>
-    </div>   
+</div>
 <script>
     const videoUrls = [
         "Openings_and_Endings/OP1 - Redo.mp4",
@@ -370,12 +371,15 @@
                 isSwitching = false; 
             }
     });
+    
     function handleFontSizeChange(mediaQuery) {
+         // Change font size for mobile devices
         if (mediaQuery.matches) {
-            textToChange.style.fontSize = '4.2vw'; // Change font size for mobile devices
+            textToChange.style.fontSize = '4.2vw';
         }
+        // Reset font size for non-mobile devices
         else {
-            textToChange.style.fontSize = 'inherit'; // Reset font size for non-mobile devices
+            textToChange.style.fontSize = 'inherit'; 
         }
     }
 
@@ -426,9 +430,16 @@
                 }
          }      
      });
+     // Enable and Disable Looping functions
     enableLoopingListener = function EnableLooping() {
+        if (clickCount % 2 == 1) {
+        loopcurrentIndex = newcurrentIndex;
+        videoPlayer.src =newvideoUrls[loopcurrentIndex];
+        }
+        else {
         loopcurrentIndex = currentIndex;
-        videoPlayer.src =videoUrls[loopcurrentIndex];
+        videoPlayer.src = videoUrls[loopcurrentIndex];
+        }
         videoPlayer.play();
         isSwitching = false;
     };
@@ -436,17 +447,24 @@
     const loopText = document.querySelector('.looptext')
     loopVideo.addEventListener('click',function() {
         loopclickCount++
-        if (loopclickCount % 2 == 1){
-            loopText.innerHTML = "Disable looping";
-            console.log('Video looping enabled for:', videoUrls[currentIndex])  
-            videoPlayer.addEventListener('ended', enableLoopingListener);
-        }
-        else{
-            console.log('Video looping disabled for:', videoUrls[currentIndex])
-            loopText.innerHTML = "Enable looping";
-            videoPlayer.removeEventListener('ended', enableLoopingListener);
-        }
+            if (loopclickCount % 2 == 1){
+                loopText.innerHTML = "Disable looping";
+                videoPlayer.addEventListener('ended', enableLoopingListener);
+                if (clickCount % 2 == 1)    
+                    console.log('Video looping enabled for:', newvideoUrls[newcurrentIndex]);
+                else
+                    console.log('Video looping enabled for:', videoUrls[currentIndex]);   
+            }
+            else {
+                loopText.innerHTML = "Enable looping";
+                videoPlayer.removeEventListener('ended', enableLoopingListener);
+                if (clickCount % 2 == 1)
+                    console.log('Video looping disabled for:', newvideoUrls[newcurrentIndex])
+                else 
+                    console.log('Video looping disabled for:', videoUrls[currentIndex])
+            }
     });
+
 </script>
 </body>
 </html>
