@@ -200,6 +200,7 @@
     <a href="https://myfigurecollection.net/item/713029" target="_blank">
         <img class ="emilia" src="Other_Files/emilia.png" alt="Emilia">
     </a>
+    <button class = "loop"><span class ="looptext"> Click here to loop the current video! </span> </button>
 <script>
     const videoUrls = [
         "Openings_and_Endings/OP1 - Redo.mp4",
@@ -229,6 +230,8 @@
     let preloadedVideos = [];
     let disablePreloading = false;
     let nextVideoTimeout;
+    let loopcurrentIndex = 0;
+    let loopclickCount = 0;
     
     function playVideo(videoName) {
     // Update the video player screen with the selected video
@@ -383,7 +386,23 @@
                     }
                 }
             }    
-        });    
+        });
+        const loopVideo = document.querySelector('.loop')
+        const loopText = document.querySelector('.looptext')
+        loopVideo.addEventListener('click',function() {
+            loopclickCount++
+            console.log('Video looping enabled for:', videoUrls[currentIndex])
+            if (loopclickCount % 2 == 1){
+                loopText.innerHTML = "Click here to disable looping!";  
+                
+            videoPlayer.addEventListener('ended',function() {
+                loopcurrentIndex = currentIndex;
+                videoPlayer.src =videoUrls[loopcurrentIndex];
+                videoPlayer.play();
+                isSwitching = false;
+                
+            });
+        });
 </script>
 </body>
 </html>
