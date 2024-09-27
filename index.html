@@ -571,6 +571,43 @@
     };
     // Listen for orientation changes
     window.addEventListener("resize", checkOrientation);
+
+    // Register key being pressed
+    document.addEventListener("keydown", function(event) {
+        // Play/pause the video when pressing space
+        if (event.code === "Space") {
+            if (videoPlayer.paused)
+                videoPlayer.play();
+            else 
+                videoPlayer.pause();
+        }
+        // Skipping to the next video using the playVideo function when pressing right arrow key
+        if (event.code === "ArrowRight") {
+            if (clickCount % 2 === 1) {
+                const nextnewcurrentIndex = (newcurrentIndex + 1);
+                playVideo(newvideoUrls[nextnewcurrentIndex]);
+            }
+            else {
+                const nextcurrentIndex = (currentIndex + 1);
+                playVideo(videoUrls[nextcurrentIndex]);
+            }
+        }
+        // Returning to the previous video using the playVideo function (doesn't work if used on first video)
+        if (event.code === "ArrowLeft") {
+            if (clickCount % 2 === 1) {
+                if (newcurrentIndex > 0) {
+                    prevnewIndex = newcurrentIndex - 1;
+                    playVideo(newvideoUrls[prevnewIndex]);
+                }
+            }   
+            else {
+                if (currentIndex > 0) {
+                    prevIndex = currentIndex - 1;
+                    playVideo(videoUrls[prevIndex]);
+                }
+            }
+        }
+    });
 </script>
 </body>
 </html>
