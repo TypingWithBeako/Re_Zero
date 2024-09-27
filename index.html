@@ -348,18 +348,6 @@
         // When playVideo is executed, reset isSwitching.
         isSwitching = false; 
     }
-
-    // Add  controls attribute for devices 600 pixel wider
-    /*function addControlsBasedOnWidth() {
-        if (window.innerWidth >= 600) {
-            videoPlayer.controls = true;
-        } else {
-            videoPlayer.controls = false;
-        }
-    }
-    window.onload = addControlsBasedOnWidth;
-    window.onresize = addControlsBasedOnWidth;*/
-
     const videoPlayer = document.getElementById('videoPlayer');
     videoPlayer.addEventListener('play',function(){
         if (!isPosterSet) {
@@ -367,7 +355,7 @@
         isPosterSet = true;
         }
     })
-
+    // Automatically play next video after ending with a delay
     function playNextVideo() {
         if (!isSwitching) {
             isSwitching = true;
@@ -387,24 +375,6 @@
         }
     }
 
-    // Update the delay variable
-    function updateDelay(newDelay) {
-        delay = newDelay; 
-    }
-    // Add event listener for button click
-    document.getElementById("changeDelayButton").addEventListener("click", function() {
-        // Prompt user for new delay
-        let newDelay = parseInt(prompt("Enter new delay in milliseconds (Current delay: " + delay + "ms)"));
-        // Validate user input
-        if (isNaN(newDelay) || newDelay < 0) {
-            alert("Invalid delay. Please enter a non-negative number.");
-        return;
-        }
-        // Update delay and optionally display confirmation
-        updateDelay(newDelay);
-        console.log("Delay updated to", newDelay, "milliseconds");
-    });
-
     // Add event listener to stop the timeout if playVideo is pressed while setTimeout is running
     videoPlayer.addEventListener('play', function() {
         clearTimeout(nextVideoTimeout);
@@ -420,31 +390,32 @@
     const disablePreloadingbutton = document.querySelector('.subaru');
     const enablePreloadingbutton = document.querySelector('.trademark');
   
-        moveableimg.addEventListener('click', function(){
-            clickCount++;
-            console.log("Image clicked!"); // Add this line for testing
-            if (clickCount % 2 === 1) {
-                textToChange.innerHTML = "All <s> OPs and EDs</s> Insert Songs";
-                bodytext.innerHTML = "Insert Songs and more!"
-                songname.innerHTML = "Openings and Endings"
-                navbarContent.style.display = 'none';
-                newnavbarContent.style.display ='block';
-                videoPlayer.src="Insert_Songs/STRAIGHT BET.mp4";
-                newcurrentIndex=0;
-                clearTimeout(nextVideoTimeout);
-                isSwitching = false; 
-            }
-            else {
-                textToChange.innerHTML = "All OPs and EDs";
-                bodytext.innerHTML = "Openings and Endings!";
-                songname.innerHTML = "Insert Songs"
-                navbarContent.style.display ='block';
-                newnavbarContent.style.display ='none';
-                videoPlayer.src="Openings_and_Endings/OP1 - Redo.mp4";
-                currentIndex=0;
-                clearTimeout(nextVideoTimeout); 
-                isSwitching = false; 
-            }
+
+    moveableimg.addEventListener('click', function(){
+        clickCount++;
+        console.log("Image clicked!"); // Add this line for testing
+        if (clickCount % 2 === 1) {
+               textToChange.innerHTML = "All <s> OPs and EDs</s> Insert Songs";
+            bodytext.innerHTML = "Insert Songs and more!"
+            songname.innerHTML = "Openings and Endings"
+            navbarContent.style.display = 'none';
+            newnavbarContent.style.display ='block';
+            videoPlayer.src="Insert_Songs/STRAIGHT BET.mp4";
+            newcurrentIndex=0;
+            clearTimeout(nextVideoTimeout);
+            isSwitching = false; 
+        }
+        else {
+            textToChange.innerHTML = "All OPs and EDs";
+            bodytext.innerHTML = "Openings and Endings!";
+            songname.innerHTML = "Insert Songs"
+            navbarContent.style.display ='block';
+            newnavbarContent.style.display ='none';
+            videoPlayer.src="Openings_and_Endings/OP1 - Redo.mp4";
+            currentIndex=0;
+            clearTimeout(nextVideoTimeout); 
+            isSwitching = false; 
+        }
     });
     
     function handleFontSizeChange(mediaQuery) {
@@ -507,6 +478,7 @@
                 }
          }      
      });
+
      // Enable and Disable Looping functions
     enableLoopingListener = function EnableLooping() {
         if (clickCount % 2 == 1) {
@@ -543,6 +515,7 @@
                     console.log('Video looping disabled for:', videoUrls[currentIndex])
             }
     });
+
     // Function to shuffle the array elements randomly
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
@@ -553,7 +526,6 @@
     }
     // Get a reference to the shuffle button element
     const shuffleButton = document.getElementById('shuffleButton');
-
     // Add an event listener to the shuffle button to randomize the order of songs
     shuffleButton.addEventListener('click', function() {
     // Shuffle the videoUrls array
@@ -572,6 +544,33 @@
         else
             console.log('Shuffled videos to:', videoUrls);
     });
+    
+    // Update the delay variable
+    function updateDelay(newDelay) {
+        delay = newDelay; 
+    }
+    // Add event listener for button click
+    document.getElementById("changeDelayButton").addEventListener("click", function() {
+        // Prompt user for new delay
+        let newDelay = parseInt(prompt("Enter new delay in milliseconds (Current delay: " + delay + "ms)"));
+        // Validate user input
+        if (isNaN(newDelay) || newDelay < 0) {
+            alert("Invalid delay. Please enter a non-negative number.");
+        return;
+        }
+        // Update delay and optionally display confirmation
+        updateDelay(newDelay);
+        console.log("Delay updated to", newDelay, "milliseconds");
+    });
+
+   // Check for orientation change using matchMedia (for mobile devices)
+    const checkOrientation = () => {
+    if (window.matchMedia("(max-width: 722px) and (orientation: landscape)").matches) {
+        alert("Please switch to portrait mode for the best experience.");
+     }
+    };
+    // Listen for orientation changes
+    window.addEventListener("resize", checkOrientation);
 </script>
 </body>
 </html>
