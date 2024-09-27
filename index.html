@@ -117,6 +117,11 @@
         width:0.9vw;
         height:0.9vw;
     }
+    .delayicon { 
+        top: 0.2vw;
+        width:0.9vw;
+        height:0.9vw;
+    }
     #changeDelayButton {
         position: relative;
         left: 0.5vw;
@@ -176,24 +181,30 @@
             left: 35vw;
         }
         .loop{
-            display: inline-block;
+            vertical-align:top;
             width: 20vw;
-            height: 10vw;
+            height: 12vw;          
         }
         .looptext {
-            font-size: 2.4vw;
+            font-size: 2.3vw;
         }
         #changeDelayButton{
-            display: inline-block;
-            font-size: 2.4vw;
+            vertical-align : top; 
+            font-size: 2.45vw;
             width: 20vw;
-            height: 10vw;
+            height: 12vw;
         }
         .loopicon {
             position: relative;
             width:2vw;
             height:2vw;
             top:0.3vw;
+        }
+        .delayicon {
+            position: relative;
+            width:2vw;
+            height:2vw;
+            top:0.6vw;
         }
     }
 </style>
@@ -236,7 +247,7 @@
             <img class ="loopicon" src="loop.png" alt="loop icon">
         </button>
         <button id="changeDelayButton">Change Delay
-            <img class ="loopicon" src="delay.jpg" alt="loop icon">
+            <img class ="delayicon" src="delay.jpg" alt="delay icon">
         </button>
         
     </div>   
