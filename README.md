@@ -5,4 +5,8 @@ I have completed the website! Still looking forward to adding more changes thoug
 /24.09.2024/ <br>
 Nguyễn Thái Tuấn <br>
 Finished adding preloading feature and cleaned up the code (can actually look at the code now). <br>
-The website functionality is as great as I imagined. If anyone want to improve on this, feel free to do it!
+The website functionality is as great as I imagined. If anyone want to improve on this, feel free to do it! 
+<br> <br>
+/27.09.2024/ <br>
+Nguyễn Thái Tuấn <br>
+Finished adding the loop, randomize and delay button!
