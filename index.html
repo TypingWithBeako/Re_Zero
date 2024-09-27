@@ -112,15 +112,27 @@
         position: relative;
         top: 0.25vw;
     }
+    .loop{
+        vertical-align:top;
+        position: relative;
+        left: 0.22vw;
+    }
     .loopicon { 
         top: 0.2vw;
-        width:0.9vw;
-        height:0.9vw;
+        width:0.7vw;
+        height:0.7vw;
+    }
+    .randomizeicon{
+        position:relative;
+        right: 0.5vw;
+        width:0.7vw;
+        height:0.7vw;
     }
     .delayicon { 
-        top: 0.2vw;
-        width:0.9vw;
-        height:0.9vw;
+        position: relative;
+        left: 0.2vw;
+        width:0.5vw;
+        height:0.5vw;
     }
     #changeDelayButton {
         position: relative;
@@ -178,11 +190,17 @@
         .button-container{
             position: absolute;
             top: 72vh;
-            left: 35vw;
+            left: 23vw;
+        }
+        #shuffleButton{
+            font-size: 2.4vw;
+            vertical-align:top;
+            width: 20vw;
+            height: 12vw;  
         }
         .loop{
             vertical-align:top;
-            width: 20vw;
+            width: 20.5vw;
             height: 12vw;          
         }
         .looptext {
@@ -195,6 +213,12 @@
             height: 12vw;
         }
         .loopicon {
+            position: relative;
+            width:2vw;
+            height:2vw;
+            top:0.3vw;
+        }
+        .randomizeicon {
             position: relative;
             width:2vw;
             height:2vw;
@@ -243,7 +267,10 @@
         </nav>
     </div>
     <div class="button-container">
-        <button class = "loop"><span class ="looptext">Enable looping</span>
+        <button id = "shuffleButton">&nbsp&nbspRandomize&nbsp&nbsp&nbsp;
+            <img class ="randomizeicon" src="randomize.jpg" alt="randomize icon">
+        </button>
+        <button class = "loop"><span class ="looptext">Enable looping&nbsp;</span>
             <img class ="loopicon" src="loop.png" alt="loop icon">
         </button>
         <button id="changeDelayButton">Change Delay
@@ -263,7 +290,7 @@
 <script>
     console.log ("To disable preloading, you can click the image below the video player. To re-enable preloading, you can click my trademark text")
     console.log("Currently, there is a bug relating to clicking the play button when the video ends. You can manually fix it by changing the delay to 0 milliseconds.")
-    const videoUrls = [
+    var videoUrls = [
         "Openings_and_Endings/OP1 - Redo.mp4",
         "Openings_and_Endings/ED1 - STYX HELIX.mp4",
         "Openings_and_Endings/OP2 - Paradisus - Paradoxum.mp4",
@@ -273,7 +300,7 @@
         "Openings_and_Endings/OP4 - Long shot.mp4",
         "Openings_and_Endings/ED4 - Believe in you.mp4" 
     ];
-    const newvideoUrls = [
+    var newvideoUrls = [
         "Insert_Songs/STRAIGHT BET.mp4",
         "Insert_Songs/Memories.mp4",
         "Insert_Songs/White White Snow.mp4",
@@ -506,6 +533,34 @@
                 else 
                     console.log('Video looping disabled for:', videoUrls[currentIndex])
             }
+    });
+    // Function to shuffle the array elements randomly
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    return array;
+    }
+    // Get a reference to the shuffle button element
+    const shuffleButton = document.getElementById('shuffleButton');
+
+    // Add an event listener to the shuffle button to randomize the order of songs
+    shuffleButton.addEventListener('click', function() {
+    // Shuffle the videoUrls array
+        if (clickCount % 2 == 1){
+            newvideoUrls = shuffleArray(newvideoUrls);
+            videoPlayer.src = newvideoUrls[0];
+        }
+        else {
+            videoUrls = shuffleArray(videoUrls);
+            videoPlayer.src = videoUrls[0];
+        }
+    // You can now use the shuffled videoUrls array for playing the songs in a random order
+        if (clickCount % 2 == 1)
+            console.log('Shuffled videos to:', newvideoUrls);
+        else
+            console.log('Shuffled videos to:', videoUrls);
     });
 </script>
 </body>
