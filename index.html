@@ -585,11 +585,11 @@
         // Skipping to the next video using the playVideo function when pressing right arrow key
         if (event.code === "ArrowRight") {
             if (clickCount % 2 === 1) {
-                const nextnewcurrentIndex = (newcurrentIndex + 1);
+                const nextnewcurrentIndex = (newcurrentIndex + 1) % newvideoUrls.length;
                 playVideo(newvideoUrls[nextnewcurrentIndex]);
             }
             else {
-                const nextcurrentIndex = (currentIndex + 1);
+                const nextcurrentIndex = (currentIndex + 1) % videoUrls.length;
                 playVideo(videoUrls[nextcurrentIndex]);
             }
         }
