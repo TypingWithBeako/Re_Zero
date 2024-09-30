@@ -58,6 +58,21 @@
         color: black; 
         font-size: 1.979vw;
         text-align:center;
+        text-shadow:-3px 4px 4px rgba(0,0,0,0.4),
+                    -3px 8px 13px rgba(0,0,0,0.1),
+                    -3px 18px 23px rgba(0,0,0,0.1);
+    }
+    .Re {
+        font-size:1.4vw;
+        font-family: Joane;
+    }
+    .ZE {
+        position: relative;
+        bottom:0.08vw;
+    }
+    .RO {
+        position: relative;
+        top:0.08vw;
     }
     .emilia {
         position:absolute;
@@ -86,7 +101,7 @@
         text-align: center;
         font-size: 1.146vw;
         font-weight: bold;  
-        margin-top:2.5vw
+        margin-top:2.5vw;
     }
     #videoPlayer {
         max-width: 100%;
@@ -141,6 +156,36 @@
         width: auto;
         height: auto;
     }
+    #text_to_change, #bodytext, #songname {
+    transition: opacity 0.5s, transform 0.5s; /* Define the transition properties */
+    }
+
+    .slide-in {
+    animation: slideIn 3s ease; /* Define a keyframe animation */
+    }
+    .fade-in{
+        animation: fadeIn 2.5s ease;
+    }
+    @keyframes fadeIn {
+    from {
+        transform: translateX(0%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    }
+    @keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    }
     @media only screen and (max-width:1990px) {
         .emilia {
             display:none;
@@ -169,6 +214,9 @@
         h1 {
             font-size: 5vw; /* Adjust the font size of h1 for mobile */
             margin-top:3vw;
+        }
+        .Re {
+            font-size: 3.2vw;
         }
         p {
             font-size: 2.8vw; /* Adjust the font size of p for mobile */
@@ -231,6 +279,14 @@
             height:2vw;
             top:0.6vw;
         }
+        .ZE {
+        position: relative;
+        bottom:0.2vw;
+        }
+        .RO {
+        position: relative;
+        top:0.2vw;
+        }
         @media screen and (orientation: landscape) {
              body {
                  display: none; /* Hide content in landscape mode */     }
@@ -241,11 +297,12 @@
 </head>
 <body>
     <h1>
-        <img class= "moveable_img" src="Other_Files/Re_ZERO icon (1).png"  alt="Re:ZERO icon">
+        <img id = "moveable_img" class= "moveable_img" src="Other_Files/Re_ZERO icon (1).png"  alt="Re:ZERO icon">
         <span  id="text_to_change"> All OPs and EDs </span>
     </h1>
     <p>
-        My first project - Feel free to enjoy the Re:ZERO <span id="bodytext">Openings and Endings!</span> <br>
+        My first project - Feel free to enjoy the <span class ="Re" style = "color:#7771b3">Re</span>:<span class="ZE">ZE</span><span class ="RO">RO</span> 
+        <span id="bodytext">Openings and Endings!</span> <br>
         (Click on the logo to change to <span id="songname">Insert Songs</span>)
     </p>
     <div class="oldtopnav">
@@ -330,6 +387,7 @@
     let loopclickCount = 0;
     let enableLoopingListener = null;
     let delay = 2500;
+    let isAnimating = false;
 
     function playVideo(videoName) {
     // Update the video player screen with the selected video
@@ -393,10 +451,17 @@
   
 
     moveableimg.addEventListener('click', function(){
+        
+        if (isAnimating || this.hasAttribute('disabled')) {
+        return; // Exit the function if an animation is already in progress or the element is disabled
+        }
+
+        isAnimating = true; // Set the flag to indicate that an animation is in progress
+        this.setAttribute('disabled', 'disabled'); // Disable the clickable element
         clickCount++;
         console.log("Image clicked!"); // Add this line for testing
         if (clickCount % 2 === 1) {
-               textToChange.innerHTML = "All <s> OPs and EDs</s> Insert Songs";
+            textToChange.innerHTML = "All <s> OPs and EDs</s> Insert Songs";
             bodytext.innerHTML = "Insert Songs and more!"
             songname.innerHTML = "Openings and Endings"
             navbarContent.style.display = 'none';
@@ -405,6 +470,11 @@
             newcurrentIndex=0;
             clearTimeout(nextVideoTimeout);
             isSwitching = false; 
+            textToChange.classList.add('fade-in');
+            bodytext.classList.add('fade-in');
+            songname.classList.add('fade-in');
+            newnavbarContent.classList.add('slide-in');
+            moveable_img.classList.add('fade-in');
         }
         else {
             textToChange.innerHTML = "All OPs and EDs";
@@ -416,7 +486,35 @@
             currentIndex=0;
             clearTimeout(nextVideoTimeout); 
             isSwitching = false; 
+            textToChange.classList.add('fade-in');
+            bodytext.classList.add('fade-in');
+            songname.classList.add('fade-in');
+            navbarContent.classList.add('slide-in');
+            moveable_img.classList.add('fade-in');
         }
+        setTimeout(() => {
+        isAnimating = false; // Reset the flag once the animation is complete
+        this.removeAttribute('disabled'); // Re-enable the clickable element
+        }, 3000); // Adjust the timeout value to match your animation duration
+    });
+    // Remove the animation class after the animation ends
+    textToChange.addEventListener('animationend', () => {
+    textToChange.classList.remove('fade-in');
+    });
+    bodytext.addEventListener('animationend', () => {
+    bodytext.classList.remove('fade-in');
+    });
+    songname.addEventListener('animationend', () => {
+    songname.classList.remove('slide-in');
+    });
+    navbarContent.addEventListener('animationend', () => {
+    navbarContent.classList.remove('slide-in');
+    });
+    newnavbarContent.addEventListener('animationend', () => {
+    newnavbarContent.classList.remove('fade-in');
+    });
+    moveable_img.addEventListener('animationend', () => {
+    moveable_img.classList.remove('fade-in');
     });
     
     function handleFontSizeChange(mediaQuery) {
