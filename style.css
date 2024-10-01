@@ -1,0 +1,299 @@
+nav a:not(:last-child)::after {
+    content: '|';
+    background-color: white; 
+    margin: 0 1.7vw; 
+}  
+nav a:hover {
+    text-decoration: underline;
+}
+.oldtopnav {
+    overflow: hidden;
+    background-color: #333;
+}
+.oldtopnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: justify;
+    padding: 0.911vw 0;
+    margin-left: 1.45vw;
+    text-decoration: none;
+    font-size: 0.911vw;
+    white-space: nowrap; /* Prevent text wrapping */  
+}
+.newtopnav {
+    overflow: hidden;
+    background-color: #333;
+}
+.newtopnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: left;
+    padding: 0.911vw 0;
+    margin-left: 1.6vw;
+    text-decoration: none;
+    font-size: 0.911vw;
+    white-space: nowrap; /* Prevent text wrapping */  
+}
+body {
+    background-image: url("Other_Files/bg-tv.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    margin:0 /* Make topnav spread fullscreen */
+}
+h1 {
+    font: Joane-Regular;
+    color: black; 
+    font-size: 1.979vw;
+    text-align:center;
+    text-shadow:-3px 4px 4px rgba(0,0,0,0.4),
+                -3px 8px 13px rgba(0,0,0,0.1),
+                -3px 18px 23px rgba(0,0,0,0.1);
+}
+.Re {
+    font-size:1.4vw;
+    font-family: Joane;
+}
+.ZE {
+    position: relative;
+    bottom:0.08vw;
+}
+.RO {
+    position: relative;
+    top:0.08vw;
+}
+.emilia {
+    position:absolute;
+    width: 28vw;
+    height: 28vw;
+    left: 75vw;
+    top: 12vw
+}
+.subaru {
+    position:absolute;
+    bottom:0;
+    left:38vw;
+    width: 24vw;
+    height: 9.45vw;
+    pointer-events: auto;
+    user-select: none;
+}
+h3 {
+    position:absolute;
+    left: 0.5vw;
+    bottom: -0.6vw;
+    font-size:0.8vw;
+}
+p {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    font-size: 1.146vw;
+    font-weight: bold;  
+    margin-top:2.5vw;
+}
+#videoPlayer {
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 0.5vw;
+    display: block;
+}
+nav a {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold
+}
+.moveable_img{
+    position: relative;
+    top: 3vw;
+    left: 1vw;
+    width: 15vw;
+    height: 6.3vw;
+    margin-top: -4vw;
+    cursor: pointer;
+}
+.button-container {
+    text-align: center;
+    position: relative;
+    top: 0.25vw;
+}
+.loop{
+    vertical-align:top;
+    position: relative;
+    left: 0.22vw;
+}
+.loopicon { 
+    top: 0.2vw;
+    width:0.7vw;
+    height:0.7vw;
+}
+.randomizeicon{
+    position:relative;
+    right: 0.5vw;
+    width:0.7vw;
+    height:0.7vw;
+}
+.delayicon { 
+    position: relative;
+    left: 0.2vw;
+    width:0.5vw;
+    height:0.5vw;
+}
+#changeDelayButton {
+    vertical-align:top;
+    position: relative;
+    left: 0.5vw;
+    width: auto;
+    height: auto;
+}
+#text_to_change, #bodytext, #songname {
+transition: opacity 0.5s, transform 0.5s; /* Define the transition properties */
+}
+
+.slide-in {
+animation: slideIn 3.25s ease;
+animation-delay:2s;
+animation-fill-mode: backwards;
+}
+.fade-in{
+    animation: fadeIn 2.5s ease;
+}
+.fade-in-title{
+    animation: fadeIn 2.5s ease;
+    animation-delay:1.5s;
+    animation-fill-mode: both;
+}
+.fade-in-bodytext{
+    animation: fadeIn 2.5s ease;
+    animation-delay:2.5s;
+    animation-fill-mode: both;
+}
+.fade-in-songname{
+    animation: fadeIn 2.5s ease;
+    animation-delay:3.25s;
+    animation-fill-mode: both;
+}
+@keyframes fadeIn {
+from {
+    transform: translateX(0%);
+    opacity: 0;
+}
+to {
+    transform: translateX(0);
+    opacity: 1;
+}
+}
+@keyframes slideIn {
+from {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+to {
+    transform: translateX(0);
+    opacity: 1;
+}
+}
+@media only screen and (max-width:1990px) {
+    .emilia {
+        display:none;
+    }
+}
+@media only screen and (max-width: 722px) {
+    body {
+        background-image: url(Other_Files/bg-tv.png);
+    }
+    .subaru {
+        width: 60vw;
+        height: 23.62vw;
+        left: 25vw;
+    }
+    h3 {
+        font-size:1.1vw;
+    }   
+    .moveable_img {
+        position: relative;
+        top: 7.5vw;
+        left: 2.5vw;
+        width: 37.5vw;
+        height: 15vw;
+        margin-top: -9vw;
+    }  
+    h1 {
+        font-size: 5vw; /* Adjust the font size of h1 for mobile */
+        margin-top:3vw;
+    }
+    .Re {
+        font-size: 3.2vw;
+    }
+    p {
+        font-size: 2.8vw; /* Adjust the font size of p for mobile */
+        margin-top:4vw;
+    }
+     #videoPlayer {
+        max-width: 100%; /* Make the video player responsive */
+        height: auto; /* Allow the video player to adjust its height */
+        margin-top: 4vw;
+    }
+    .topnav a {
+        font-size:2.2vw;
+        margin-left: 1.73vw;
+        text-align: left;
+        padding: 2vw 0;
+    } 
+    .topnav {
+        margin-top:5vw;
+    }
+    .button-container{
+        position: absolute;
+        top: 72vh;
+        left: 23vw;
+    }
+    #shuffleButton{
+        font-size: 2.4vw;
+        vertical-align:top;
+        width: 20vw;
+        height: 12vw;  
+    }
+    .loop{
+        vertical-align:top;
+        width: 20.5vw;
+        height: 12vw;          
+    }
+    .looptext {
+        font-size: 2.3vw;
+    }
+    #changeDelayButton{
+        vertical-align : top; 
+        font-size: 2.45vw;
+        width: 20vw;
+        height: 12vw;
+    }
+    .loopicon {
+        position: relative;
+        width:2vw;
+        height:2vw;
+        top:0.3vw;
+    }
+    .randomizeicon {
+        position: relative;
+        width:2vw;
+        height:2vw;
+        top:0.3vw;
+    }
+    .delayicon {
+        position: relative;
+        width:2vw;
+        height:2vw;
+        top:0.6vw;
+    }
+    .ZE {
+    position: relative;
+    bottom:0.2vw;
+    }
+    .RO {
+    position: relative;
+    top:0.2vw;
+    }
+    @media screen and (orientation: landscape) {
+         body {
+             display: none; /* Hide content in landscape mode */     }
+    }
+}
