@@ -335,7 +335,7 @@
         </nav>
     </div>
     <div class ="newtopnav">
-        <nav id = "newnavbarContent" style ="display: none;">
+        <nav id = "newnavbarContent" style = "display: none;">
             <a href="#" onclick="playVideo('Insert_Songs/STRAIGHT BET.mp4')">EP 8 - STRAIGHT BET</a>
             <a href="#" onclick="playVideo('Insert_Songs/Memories.mp4')">OVA 1 - "Memories"</a>
             <a href="#" onclick="playVideo('Insert_Songs/White White Snow.mp4')">OVA 1 - "White White Snow"</a>
@@ -371,7 +371,7 @@
 <script>
     console.log ("To disable preloading, you can click the image below the video player. To re-enable preloading, you can click my trademark text.")
     console.log("Currently, there is a bug relating to clicking the play button when the video ends. You can manually fix it by changing the delay to 0 milliseconds.")
-    console.log("Video player keyboard controls: Spacebar: Play/Pause video; ArrowKeyRight: Skipping to next video; ArrowKeyRight: Returning to previous video.")
+    console.log("Video player keyboard controls: Spacebar: Play/Pause video; ArrowKeyRight: Skipping to next video; ArrowKeyRight: Returning to previous video; Numpad1/Digit1 for video selecting.")
     var videoUrls = [
         "Openings_and_Endings/OP1 - Redo.mp4",
         "Openings_and_Endings/ED1 - STYX HELIX.mp4",
@@ -405,6 +405,7 @@
     let enableLoopingListener = null;
     let delay = 0;
     let isAnimating = false;
+    
     function playVideo(videoName) {
          // Extract the file name from the full path
          const songName = videoName.split('/').pop(); // Get the last part of the path after splitting by '/'
@@ -729,6 +730,67 @@
                     playVideo(videoUrls[prevIndex]);
                 }
             }
+        }
+        if (event.code === "Numpad1"||event.code === "Digit1")  {
+            if (clickCount % 2 === 1) {
+                    playVideo(newvideoUrls[0]);
+                }   
+            else {
+                    playVideo(videoUrls[0]);
+                }
+            }
+        if (event.code === "Numpad2"||event.code === "Digit2")  {
+            if (clickCount % 2 === 1) {
+                    playVideo(newvideoUrls[1]);
+                }   
+            else {
+                    playVideo(videoUrls[1]);
+                }
+            }
+        if (event.code === "Numpad3"||event.code === "Digit3")  {
+            if (clickCount % 2 === 1) {
+                    playVideo(newvideoUrls[2]);
+                }   
+            else {
+                    playVideo(videoUrls[2]);
+                }
+            }
+        if (event.code === "Numpad4"||event.code === "Digit4")  {
+            if (clickCount % 2 === 1) {
+                    playVideo(newvideoUrls[3]);
+                }   
+            else {
+                    playVideo(videoUrls[3]);
+                }
+            }
+        if (event.code === "Numpad5"||event.code === "Digit5")  {
+            if (clickCount % 2 === 1) {
+                    playVideo(newvideoUrls[4]);
+                }   
+            else {
+                    playVideo(videoUrls[4]);
+                }
+            }
+        if (event.code === "Numpad6"||event.code === "Digit6")  {
+            if (clickCount % 2 === 1) {
+                    playVideo(newvideoUrls[5]);
+                }   
+            else {
+                    playVideo(videoUrls[5]);
+                }
+            }
+        if (event.code === "Numpad7"||event.code === "Digit7")  {
+            if (clickCount % 2 === 1) {
+                    playVideo(newvideoUrls[6]);
+                }   
+            else {
+                    playVideo(videoUrls[6]);
+                }
+            }
+        if (event.code === "Numpad8"||event.code === "Digit8")  {
+            if (clickCount % 2 === 0) {
+                    playVideo(videoUrls[7]);
+                }   
         }
     });
 </script>
