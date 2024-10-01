@@ -161,10 +161,27 @@
     }
 
     .slide-in {
-    animation: slideIn 3s ease; /* Define a keyframe animation */
+    animation: slideIn 3.25s ease;
+    animation-delay:2s;
+    animation-fill-mode: backwards;
     }
     .fade-in{
         animation: fadeIn 2.5s ease;
+    }
+    .fade-in-title{
+        animation: fadeIn 2.5s ease;
+        animation-delay:1.5s;
+        animation-fill-mode: both;
+    }
+    .fade-in-bodytext{
+        animation: fadeIn 2.5s ease;
+        animation-delay:2.5s;
+        animation-fill-mode: both;
+    }
+    .fade-in-songname{
+        animation: fadeIn 2.5s ease;
+        animation-delay:3.25s;
+        animation-fill-mode: both;
     }
     @keyframes fadeIn {
     from {
@@ -455,7 +472,6 @@
         if (isAnimating || this.hasAttribute('disabled')) {
         return; // Exit the function if an animation is already in progress or the element is disabled
         }
-
         isAnimating = true; // Set the flag to indicate that an animation is in progress
         this.setAttribute('disabled', 'disabled'); // Disable the clickable element
         clickCount++;
@@ -470,9 +486,9 @@
             newcurrentIndex=0;
             clearTimeout(nextVideoTimeout);
             isSwitching = false; 
-            textToChange.classList.add('fade-in');
-            bodytext.classList.add('fade-in');
-            songname.classList.add('fade-in');
+            textToChange.classList.add('fade-in-title');
+            bodytext.classList.add('fade-in-bodytext');
+            songname.classList.add('fade-in-songname');
             newnavbarContent.classList.add('slide-in');
             moveable_img.classList.add('fade-in');
         }
@@ -486,26 +502,26 @@
             currentIndex=0;
             clearTimeout(nextVideoTimeout); 
             isSwitching = false; 
-            textToChange.classList.add('fade-in');
-            bodytext.classList.add('fade-in');
-            songname.classList.add('fade-in');
+            textToChange.classList.add('fade-in-title');
+            bodytext.classList.add('fade-in-bodytext');
+            songname.classList.add('fade-in-songname');
             navbarContent.classList.add('slide-in');
             moveable_img.classList.add('fade-in');
         }
         setTimeout(() => {
         isAnimating = false; // Reset the flag once the animation is complete
         this.removeAttribute('disabled'); // Re-enable the clickable element
-        }, 3000); // Adjust the timeout value to match your animation duration
+        }, 5751); // Adjust the timeout value to match your animation duration
     });
     // Remove the animation class after the animation ends
     textToChange.addEventListener('animationend', () => {
-    textToChange.classList.remove('fade-in');
+    textToChange.classList.remove('fade-in-title');
     });
     bodytext.addEventListener('animationend', () => {
-    bodytext.classList.remove('fade-in');
+    bodytext.classList.remove('fade-in-bodytext');
     });
     songname.addEventListener('animationend', () => {
-    songname.classList.remove('fade-in');
+    songname.classList.remove('fade-in-songname');
     });
     navbarContent.addEventListener('animationend', () => {
     navbarContent.classList.remove('slide-in');
