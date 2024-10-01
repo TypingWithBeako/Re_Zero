@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="Icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="Icons/favicon-16x16.png">
     <link rel="manifest" href="Icons/site.webmanifest">
+    <link href = "Font/stylesheet.css" rel = "stylesheet" type = "text/css" />
 <style>
     nav a:not(:last-child)::after {
         content: '|';
@@ -310,7 +311,6 @@
         }
     }
 </style>
-    <link href = "Other_Files/stylesheet.css" rel = "stylesheet" type = "text/css" />
 </head>
 <body>
     <h1>
@@ -369,9 +369,9 @@
     </a>
 </div>
 <script>
-    console.log ("To disable preloading, you can click the image below the video player. To re-enable preloading, you can click my trademark text")
+    console.log ("To disable preloading, you can click the image below the video player. To re-enable preloading, you can click my trademark text.")
     console.log("Currently, there is a bug relating to clicking the play button when the video ends. You can manually fix it by changing the delay to 0 milliseconds.")
-    console.log("Video player keyboard controls: Spacebar: Play/Pause video; ArrowKeyRight: Skipping to next video; ArrowKeyRight: Returning to previous video")
+    console.log("Video player keyboard controls: Spacebar: Play/Pause video; ArrowKeyRight: Skipping to next video; ArrowKeyRight: Returning to previous video.")
     var videoUrls = [
         "Openings_and_Endings/OP1 - Redo.mp4",
         "Openings_and_Endings/ED1 - STYX HELIX.mp4",
@@ -403,15 +403,16 @@
     let loopcurrentIndex = 0;
     let loopclickCount = 0;
     let enableLoopingListener = null;
-    let delay = 2500;
+    let delay = 0;
     let isAnimating = false;
-
     function playVideo(videoName) {
-    // Update the video player screen with the selected video
-    // For example, you can set the video source and play the video
+         // Extract the file name from the full path
+         const songName = videoName.split('/').pop(); // Get the last part of the path after splitting by '/'
+        // Update the video player screen with the selected video
+        // For example, you can set the video source and play the video
         document.getElementById('videoPlayer').src = videoName;
         document.getElementById('videoPlayer').play();
-        console.log('Video selected:',videoName)
+        console.log('Video selected:',songName)
         // Update the currentIndex and newcurrentIndex based on the selected video
         currentIndex = videoUrls.indexOf(videoName);
         newcurrentIndex = newvideoUrls.indexOf(videoName);
@@ -447,7 +448,7 @@
                 videoPlayer.poster = "Other_Files/black.png"; // Clear the poster attribute
                 videoPlayer.play();
                 isSwitching = false;
-            }, delay); // 2500 seconds delay (2.5 seconds)       
+            }, delay);     
         }
     }
 
@@ -465,7 +466,6 @@
     const songname =document.getElementById('songname');
     const disablePreloadingbutton = document.querySelector('.subaru');
     const enablePreloadingbutton = document.querySelector('.trademark');
-  
 
     moveableimg.addEventListener('click', function(){
         
@@ -616,18 +616,26 @@
             if (loopclickCount % 2 == 1){
                 loopText.innerHTML = "Disable looping";
                 videoPlayer.addEventListener('ended', enableLoopingListener);
-                if (clickCount % 2 == 1)    
-                    console.log('Video looping enabled for:', newvideoUrls[newcurrentIndex]);
-                else
-                    console.log('Video looping enabled for:', videoUrls[currentIndex]);   
+                if (clickCount % 2 == 1){ 
+                    const songName = newvideoUrls[newcurrentIndex].split('/').pop(); // Get the last part of the path after splitting by '/'   
+                    console.log('Video looping enabled for:', songName);
+                }
+                else{
+                    const songName = videoUrls[currentIndex].split('/').pop();
+                    console.log('Video looping enabled for:', songName);   
+                }
             }
             else {
                 loopText.innerHTML = "Enable looping";
                 videoPlayer.removeEventListener('ended', enableLoopingListener);
-                if (clickCount % 2 == 1)
-                    console.log('Video looping disabled for:', newvideoUrls[newcurrentIndex])
-                else 
-                    console.log('Video looping disabled for:', videoUrls[currentIndex])
+                if (clickCount % 2 == 1){
+                    const songName = newvideoUrls[newcurrentIndex].split('/').pop();
+                    console.log('Video looping disabled for:', songName)
+                }
+                else {
+                    const songName = videoUrls[currentIndex].split('/').pop();
+                    console.log('Video looping disabled for:', songName);
+                }
             }
     });
 
