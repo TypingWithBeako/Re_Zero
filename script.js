@@ -1,6 +1,6 @@
     console.log ("To disable preloading, you can click the image below the video player. To re-enable preloading, you can click my trademark text.")
     console.log("Currently, there is a bug relating to clicking the play button when the video ends. You can manually fix it by changing the delay to 0 milliseconds.")
-    console.log("Video player keyboard controls: Spacebar: Play/Pause video; ArrowKeyRight: Skipping to next video; ArrowKeyRight: Returning to previous video; Numpad1/Digit1 for video selecting.")
+    console.log("Video player keyboard controls: Spacebar: Play/Pause video; ArrowKeyRight: Skipping to next video; ArrowKeyRight: Returning to previous video; Numpad1/Digit1 for video selecting; Tab to change between OPs and EDs and Insert Songs.")
     var videoUrls = [
         "Openings_and_Endings/OP1 - Redo.mp4",
         "Openings_and_Endings/ED1 - STYX HELIX.mp4",
@@ -420,5 +420,9 @@
             if (clickCount % 2 === 0) {
                     playVideo(videoUrls[7]);
                 }   
+        }
+        if (event.code === 'Tab') {
+            event.preventDefault(); // Prevent the default tab behavior
+            moveableimg.click();
         }
     });
