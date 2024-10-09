@@ -6,6 +6,37 @@ nav a:not(:last-child)::after {
 nav a:hover {
     text-decoration: underline;
 }
+#backButton {
+    position:absolute;
+    left:0;
+    margin-top: 0.25vw;
+    margin-left:0;
+    padding-left: 0;
+    display:none;
+    background-color: transparent;
+    border:none;
+}
+#nextButton {
+    position:absolute;
+    right:0;
+    margin-top: 0.25vw;
+    margin-right:0;
+    padding-right:0;
+    background-color: transparent;
+    border:none;
+}
+.backIcon {
+    width: 2vw;
+    height: 2vw;
+}
+.nextIcon {
+    width: 2vw;
+    height: 2vw;
+}
+#Season3Content {
+    display:none;
+    text-align: center;
+}
 .oldtopnav {
     overflow: hidden;
     background-color: #333;
@@ -33,6 +64,9 @@ nav a:hover {
     text-decoration: none;
     font-size: 0.911vw;
     white-space: nowrap; /* Prevent text wrapping */  
+}
+#newnavbarContent {
+    display:none;
 }
 body {
     background-image: url("Other_Files/bg-tv.png");

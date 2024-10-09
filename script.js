@@ -96,6 +96,9 @@
     const songname =document.getElementById('songname');
     const disablePreloadingbutton = document.querySelector('.subaru');
     const enablePreloadingbutton = document.querySelector('.trademark');
+    const nextButton = document.getElementById('nextButton');
+    const backButton = document.getElementById('backButton');
+    const S3 = document.getElementById('Season3Content');
 
     moveableimg.addEventListener('click', function(){
         
@@ -121,6 +124,9 @@
             songname.classList.add('fade-in-songname');
             newnavbarContent.classList.add('slide-in');
             moveable_img.classList.add('fade-in');
+            backButton.style.display ='none';
+            nextButton.style.display ='none';
+            S3.style.display='none';
         }
         else {
             textToChange.innerHTML = "All OPs and EDs";
@@ -137,6 +143,8 @@
             songname.classList.add('fade-in-songname');
             navbarContent.classList.add('slide-in');
             moveable_img.classList.add('fade-in');
+            nextButton.style.display ='inline';
+            nextButton.classList.add('fade-in-songname')
         }
         setTimeout(() => {
         isAnimating = false; // Reset the flag once the animation is complete
@@ -161,6 +169,9 @@
     });
     moveable_img.addEventListener('animationend', () => {
     moveable_img.classList.remove('fade-in');
+    });
+    nextButton.addEventListener('animationend', () => {
+    nextButton.classList.remove('fade-in-songname');
     });
     
     function handleFontSizeChange(mediaQuery) {
@@ -426,3 +437,32 @@
             moveableimg.click();
         }
     });
+    // Next and Back button implementation:
+    nextButton.addEventListener('click',function(){
+        oldnavbarContent.style.display = 'none';
+        S3.style.display = 'block';
+        nextButton.style.display ='none';
+        backButton.style.display ='inline';
+        S3.classList.add('fade-in');
+        backButton.classList.add('fade-in');
+    })
+    backButton.addEventListener('click',function(){
+        oldnavbarContent.style.display = 'block';
+        S3.style.display = 'none';
+        nextButton.style.display ='inline';
+        backButton.style.display ='none';
+        oldnavbarContent.classList.add('fade-in');
+        nextButton.classList.add('fade-in');
+    })
+    S3.addEventListener('animationend', () => {
+        S3.classList.remove('fade-in');
+    })
+    backButton.addEventListener('animationend', () => {
+        backButton.classList.remove('fade-in');
+    })
+    oldnavbarContent.addEventListener('animationend', () => {
+        oldnavbarContent.classList.remove('fade-in');
+    })
+    nextButton.addEventListener('animationend', () => {
+        nextButton.classList.remove('fade-in');
+    })

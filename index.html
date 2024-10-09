@@ -23,6 +23,9 @@
         (Click on the logo to change to <span id="songname">Insert Songs</span>)
     </p>
     <div class="oldtopnav">
+        <button id="backButton">
+            <img class = "backIcon" src="Other_Files/previous.png">
+        </button>
         <nav id = "oldnavbarContent">
             <a href="#" onclick="playVideo('Openings_and_Endings/OP1 - Redo.mp4')">OP1 - Redo</a>
             <a href="#" onclick="playVideo('Openings_and_Endings/ED1 - STYX HELIX.mp4')">ED1 - STYX HELIX</a>
@@ -33,10 +36,19 @@
             <a href="#" onclick="playVideo('Openings_and_Endings/OP4 - Long shot.mp4')">OP4 - Long shot</a>
             <a href="#" onclick="playVideo('Openings_and_Endings/ED4 - Believe in you.mp4')">ED4 - Believe in you</a>
         </nav>
+        <button id="nextButton">
+            <img class="nextIcon" src="Other_Files/next.png">
+        </button>
+        <nav id = "Season3Content">
+            <a href="#" onclick="playVideo('Openings_and_Endings/ED4 - Believe in you.mp4')">&nbsp&nbsp&nbspOP5 - Reweave</a>
+            <a href="#" onclick="playVideo('Openings_and_Endings/ED4 - Believe in you.mp4')">ED5 - Nox Lux</a>
+            <a href="#" onclick="playVideo('Openings_and_Endings/ED4 - Believe in you.mp4')">OP6 - TBA</a>
+            <a href="#" onclick="playVideo('Openings_and_Endings/ED4 - Believe in you.mp4')">ED6 - TBA</a>
+        </nav>
     </div>
     <div class ="newtopnav">
-        <nav id = "newnavbarContent" style = "display: none;">
-            <a href="#" onclick="playVideo('Insert_Songs/STRAIGHT BET.mp4')">EP 8 - STRAIGHT BET</a>
+        <nav id = "newnavbarContent">
+            <a href="#" onclick="playVideo('Insert_Songs/STRAIGHT BET.mp4')">&nbsp&nbsp&nbspEP 8 - STRAIGHT BET</a>
             <a href="#" onclick="playVideo('Insert_Songs/Memories.mp4')">OVA 1 - Memories</a>
             <a href="#" onclick="playVideo('Insert_Songs/White White Snow.mp4')">OVA 1 - White White Snow</a>
             <a href="#" onclick="playVideo('Insert_Songs/Yuki no hate ni Kimi no na wo.mp4')">OVA 2 - Your Name</a>
@@ -60,7 +72,9 @@
     <video id="videoPlayer" width="640" height="360"  poster="Other_Files/Beatrice_Anime (2).webp" controls preload="auto" playsinline onended="playNextVideo()">
         <source src="Openings_and_Endings/OP1 - Redo.mp4" type="video/mp4">
     </video>
-    <h2><img class= "subaru" src="Other_Files/subaru cheering.png" alt="rezero cast in isekai quartet"> </h2>
+    <h2>
+        <img class= "subaru" src="Other_Files/subaru cheering.png" alt="rezero cast in isekai quartet"> 
+    </h2>
     <h3 class="trademark">©2024 "TypingWithBeako" - Nguyễn Thái Tuấn <br>
          For audio version, you can visit <a href="https://open.spotify.com/playlist/2CIlJuP1CU7HpWLGX9T5DW" target="_blank">here</a>  
      </h3>
@@ -68,6 +82,7 @@
         <img class ="emilia" src="Other_Files/emilia.png" alt="Emilia">
     </a>
 </div>
-<script src="script.js" type="text/javascript"></script>
+<script src="script.js" type="text/javascript">
+</script>
 </body>
 </html>
