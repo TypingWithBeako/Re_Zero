@@ -241,6 +241,12 @@ to {
     }
     h3 {
         font-size:1.1vw;
+    }
+    #backButton {
+        margin-top:0;
+    }
+    #nextButton {
+        margin-top:0;
     }   
     .moveable_img {
         position: relative;
