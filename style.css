@@ -243,10 +243,10 @@ to {
         font-size:1.1vw;
     }
     #backButton {
-        margin-top:0;
+        margin-top:-0.5vh;
     }
     #nextButton {
-        margin-top:0;
+        margin-top:-0.5vh;
     }   
     .moveable_img {
         position: relative;
