@@ -165,6 +165,7 @@
     });
     navbarContent.addEventListener('animationend', () => {
     navbarContent.classList.remove('slide-in');
+    
     });
     newnavbarContent.addEventListener('animationend', () => {
     newnavbarContent.classList.remove('slide-in');
@@ -439,22 +440,41 @@
             moveableimg.click();
         }
     });
+    let isAnimatingbutton = false;
     // Next and Back button implementation:
     nextButton.addEventListener('click',function(){
-        oldnavbarContent.style.display = 'none';
+        if (isAnimating || this.hasAttribute('disabled')) {
+            return; // Exit the function if an animation is already in progress or the element is disabled
+            }
+            isAnimating = true; // Set the flag to indicate that an animation is in progress
+            this.setAttribute('disabled', 'disabled'); // Disable the clickable element
+        navbarContent.style.display = 'none';
         S3.style.display = 'block';
         nextButton.style.display ='none';
         backButton.style.display ='inline';
         S3.classList.add('fade-in');
         backButton.classList.add('fade-in');
+        setTimeout(() => {
+            isAnimating = false; // Reset the flag once the animation is complete
+            this.removeAttribute('disabled'); // Re-enable the clickable element
+            }, 2501);
     })
     backButton.addEventListener('click',function(){
-        oldnavbarContent.style.display = 'block';
+        if (isAnimating || this.hasAttribute('disabled')) {
+            return; // Exit the function if an animation is already in progress or the element is disabled
+            }
+            isAnimating = true; // Set the flag to indicate that an animation is in progress
+            this.setAttribute('disabled', 'disabled'); // Disable the clickable element
+        navbarContent.style.display = 'block';
         S3.style.display = 'none';
         nextButton.style.display ='inline';
         backButton.style.display ='none';
-        oldnavbarContent.classList.add('fade-in');
+        navbarContent.classList.add('fade-in');
         nextButton.classList.add('fade-in');
+        setTimeout(() => {
+            isAnimating = false; // Reset the flag once the animation is complete
+            this.removeAttribute('disabled'); // Re-enable the clickable element
+            }, 2501);
     })
     S3.addEventListener('animationend', () => {
         S3.classList.remove('fade-in');
@@ -462,8 +482,8 @@
     backButton.addEventListener('animationend', () => {
         backButton.classList.remove('fade-in');
     })
-    oldnavbarContent.addEventListener('animationend', () => {
-        oldnavbarContent.classList.remove('fade-in');
+    navbarContent.addEventListener('animationend', () => {
+    navbarContent.classList.remove('fade-in');
     })
     nextButton.addEventListener('animationend', () => {
         nextButton.classList.remove('fade-in');
