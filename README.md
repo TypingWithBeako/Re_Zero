@@ -9,3 +9,7 @@ The website functionality is as great as I imagined. If anyone want to improve o
 /27.09.2024/ <br>
 Nguyễn Thái Tuấn <br>
 Finished adding the loop, randomize and delay button!
+<br> <br>
+/11.10.2024/ <br>
+Nguyễn Thái Tuấn <br>
+Mostly completed! Aiming to add caching videos feature to reserve bandwidth (gonna take a while)
