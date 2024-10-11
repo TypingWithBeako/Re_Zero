@@ -131,7 +131,7 @@
             S3.style.display='none';
         }
         else {
-            textToChange.innerHTML = "All OPs and EDs";
+            textToChange.innerHTML = " All OPs and EDs ";
             bodytext.innerHTML = "Openings and Endings!";
             songname.innerHTML = "Insert Songs"
             navbarContent.style.display ='block';
@@ -463,8 +463,8 @@
         if (isAnimating || this.hasAttribute('disabled')) {
             return; // Exit the function if an animation is already in progress or the element is disabled
             }
-            isAnimating = true; // Set the flag to indicate that an animation is in progress
-            this.setAttribute('disabled', 'disabled'); // Disable the clickable element
+        isAnimating = true; // Set the flag to indicate that an animation is in progress
+        this.setAttribute('disabled', 'disabled'); // Disable the clickable element
         navbarContent.style.display = 'block';
         S3.style.display = 'none';
         nextButton.style.display ='inline';

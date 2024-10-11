@@ -118,6 +118,11 @@ h3 {
     bottom: -0.6vw;
     font-size:0.8vw;
 }
+footer {
+    position:absolute;
+    bottom:1vh;
+    right:0.5vw;
+}
 p {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
