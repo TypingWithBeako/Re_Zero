@@ -253,7 +253,7 @@
         videoPlayer.play();
         isSwitching = false;
     };
-    const loopVideo = document.querySelector('.loop')
+    const loopVideo = document.querySelector('#loop')
     const loopText = document.querySelector('.looptext')
     loopVideo.addEventListener('click',function() {
         loopclickCount++
@@ -292,7 +292,7 @@
     return array;
     }
     // Get a reference to the shuffle button element
-    const shuffleButton = document.getElementById('shuffleButton');
+    const shuffleButton = document.getElementById('randomize');
     // Add an event listener to the shuffle button to randomize the order of songs
     shuffleButton.addEventListener('click', function() {
     // Shuffle the videoUrls array
@@ -317,7 +317,7 @@
         delay = newDelay; 
     }
     // Add event listener for button click
-    document.getElementById("changeDelayButton").addEventListener("click", function() {
+    document.getElementById("Delay").addEventListener("click", function() {
         // Prompt user for new delay
         let newDelay = parseInt(prompt("Enter new delay in milliseconds (Current delay: " + delay + "ms)"));
         // Validate user input
