@@ -131,6 +131,8 @@ p {
     margin-top:2.5vw;
 }
 #videoPlayer {
+    width: 35.55vw;
+    height: 20vw;
     max-width: 100%;
     margin: 0 auto;
     margin-top: 2vh;
@@ -248,6 +250,8 @@ to {
         max-width: 100%; /* Make the video player responsive */
         height: auto; /* Allow the video player to adjust its height */
         margin-top: 6vw;
+        width:auto;
+        height:auto;
     }
     .topnav a {
         font-size:2.2vw;
@@ -264,8 +268,17 @@ to {
     .button-container span{
         font-size:12px;
     }
-    .fa-brands.fa-github.fa-2xl {
-        font-size: 16px;
+    .fa-2xl {
+        font-size: 3vw;
+        position: absolute;
+        bottom:0;
+        right:0;
+    }
+    .fa-stack {
+        font-size:2vw !important;
+    }
+    .button-container span {
+        font-size:3vw !important;
     }
     .ZE {
     position: relative;

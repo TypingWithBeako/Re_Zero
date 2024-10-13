@@ -439,11 +439,22 @@
                     playVideo(videoUrls[7]);
                 }   
         }
+        if (event.code === 'Numpad9'||event.code === "Digit9") {
+            if (clickCount % 2 === 0) {
+                playVideo(videoUrls[8]);
+            }   
+        }
+        if (event.code === 'Numpad0'||event.code === "Digit0") {
+            if (clickCount % 2 === 0) {
+                playVideo(videoUrls[9]);
+            }   
+        }
         if (event.code === 'Tab') {
             event.preventDefault(); // Prevent the default tab behavior
             moveableimg.click();
         }
     });
+    
     let isAnimatingbutton = false;
     // Next and Back button implementation:
     nextButton.addEventListener('click',function(){
