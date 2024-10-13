@@ -13,3 +13,7 @@ Finished adding the loop, randomize and delay button!
 /11.10.2024/ <br>
 Nguyễn Thái Tuấn <br>
 Mostly completed! Aiming to add caching videos feature to reserve bandwidth (gonna take a while)
+<br> <br>
+/13.10.2024/ <br>
+Nguyễn Thái Tuấn <br>
+Made the website totally responsive! Expect to see consistent designs across your devices!
