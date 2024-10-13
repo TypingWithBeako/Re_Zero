@@ -453,6 +453,15 @@
             event.preventDefault(); // Prevent the default tab behavior
             moveableimg.click();
         }
+        if (event.code === 'KeyQ') {
+           shuffleButton.click();
+            }   
+        if (event.code === 'KeyW') {
+            loopVideo.click();
+            }   
+        if (event.code === 'KeyE') {
+            document.getElementById("Delay").click();
+            }   
     });
     
     let isAnimatingbutton = false;
