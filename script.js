@@ -263,10 +263,12 @@
                 if (clickCount % 2 == 1){ 
                     const songName = newvideoUrls[newcurrentIndex].split('/').pop(); // Get the last part of the path after splitting by '/'   
                     console.log('Video looping enabled for:', songName);
+                    alert("Video looping enabled for: " + songName);
                 }
                 else{
                     const songName = videoUrls[currentIndex].split('/').pop();
-                    console.log('Video looping enabled for:', songName);   
+                    console.log('Video looping enabled for:', songName);
+                    alert("Video looping enabled for: " + songName);   
                 }
             }
             else {
@@ -275,10 +277,12 @@
                 if (clickCount % 2 == 1){
                     const songName = newvideoUrls[newcurrentIndex].split('/').pop();
                     console.log('Video looping disabled for:', songName)
+                    alert("Video looping disabled for: " + songName);
                 }
                 else {
                     const songName = videoUrls[currentIndex].split('/').pop();
                     console.log('Video looping disabled for:', songName);
+                    alert("Video looping disabled for: " + songName);
                 }
             }
     });
