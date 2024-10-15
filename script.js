@@ -1,5 +1,5 @@
     console.log ("To disable preloading, you can click the image below the video player. To re-enable preloading, you can click my trademark text.")
-    console.log("Currently, there is a bug relating to clicking the play button when the video ends. You can manually fix it by changing the delay to 0 milliseconds.")
+    console.log("Pressing Play button on video will restart the current video (not a bug, it's a feature)")
     console.log("Video player keyboard controls: Spacebar: Play/Pause video; ArrowKeyRight: Skipping to next video; ArrowKeyRight: Returning to previous video; Numpad1/Digit1 for video selecting; Tab to change between OPs and EDs and Insert Songs.")
     var videoUrls = [
         "Openings_and_Endings/OP1 - Redo.mp4",
@@ -59,6 +59,8 @@
     }
     const videoPlayer = document.getElementById('videoPlayer');
     videoPlayer.addEventListener('play',function(){
+        clearTimeout(nextVideoTimeout);
+        isSwitching = false;
         if (!isPosterSet) {
         videoPlayer.poster = "Other_Files/black.png";
         isPosterSet = true;
