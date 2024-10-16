@@ -69,7 +69,7 @@ nav a:hover {
     display:none;
 }
 body {
-    background-image: url("Other_Files/bg-tv.png");
+    background-image: url("../../Other_Files/bg-tv.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
@@ -211,7 +211,7 @@ to {
 }
 @media only screen and (max-width: 722px) {
     body {
-        background-image: url(Other_Files/bg-tv.png);
+        background-image: url(../../Other_Files/bg-tv.png);
     }
     .subaru {
         width: 60vw;
