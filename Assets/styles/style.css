@@ -6,6 +6,9 @@ nav a:not(:last-child)::after {
 nav a:hover {
     text-decoration: underline;
 }
+.swal2-close:focus {
+    box-shadow: none !important;
+}
 #backButton {
     position:absolute;
     left:0;
@@ -293,3 +296,4 @@ to {
              display: none; /* Hide content in landscape mode */     }
     }
 }
+

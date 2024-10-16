@@ -514,3 +514,31 @@
     nextButton.addEventListener('animationend', () => {
         nextButton.classList.remove('fade-in');
     })
+
+        Swal.fire({
+            html: '<b>Happy Halloween!</b> 🎃',
+            imageUrl: "../../Other_Files/a13i8y4smku51.jpg",
+            imageHeight: 600,
+            showCloseButton: true,
+            focusClose: false,    
+            showConfirmButton: false,
+            background: "#716add",
+            color: "#eb6123",
+            backdrop: `
+            rgba(0,0,123,0.4)
+            `,
+            showClass: {
+                popup: `
+                  animate__animated
+                  animate__fadeIn
+                  animate__faster
+                `
+              },
+              hideClass: {
+                popup: `
+                  animate__animated
+                  animate__fadeOut
+                  animate__faster
+                `
+              },
+        });
