@@ -514,7 +514,8 @@
     nextButton.addEventListener('animationend', () => {
         nextButton.classList.remove('fade-in');
     })
-        Swal.fire({
+    setTimeout(function(){
+        window.addEventListener('load', Swal.fire({
             html: '<b>Happy Halloween!</b> 🎃',
             imageUrl: "Other_Files/Halloween poster.jpg",
             imageHeight: "80vh",
@@ -540,4 +541,5 @@
                   animate__faster
                 `
               },
-        });
+        }))
+    },2000);
