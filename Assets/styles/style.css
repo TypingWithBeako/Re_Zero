@@ -295,7 +295,7 @@ to {
     top:0.2vw;
     }
     .swal2-image {
-        width: 100vw;
+        max-width: 80%;
     }
     @media screen and (orientation: landscape) {
          body {
