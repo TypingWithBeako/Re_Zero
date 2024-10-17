@@ -514,32 +514,32 @@
     nextButton.addEventListener('animationend', () => {
         nextButton.classList.remove('fade-in');
     })
-    setTimeout(function(){
-        window.addEventListener('load', Swal.fire({
-            html: '<b>Happy Halloween!</b> 🎃',
-            imageUrl: "Other_Files/Halloween poster.jpg",
-            imageHeight: "80vh",
-            imageWidth: "auto",
-            showCloseButton: true,
-            showConfirmButton: false,
-            background: "#716add",
-            color: "#eb6123",
-            backdrop: `
-            rgba(0,0,123,0.4)
-            `,
-            showClass: {
-                popup: `
-                  animate__animated
-                  animate__fadeIn
-                  animate__faster
-                `
-              },
-              hideClass: {
-                popup: `
-                  animate__animated
-                  animate__fadeOut
-                  animate__faster
-                `
-              },
-        }))
-    },2000);
+    window.addEventListener('load',
+        setTimeout(function(){ 
+            Swal.fire({
+                html: '<b>Happy Halloween!</b> 🎃',
+                imageUrl: "Other_Files/Halloween poster.jpg",
+                imageHeight: "80vh",
+                imageWidth: "auto",
+                showCloseButton: true,
+                showConfirmButton: false,
+                background: "#716add",
+                color: "#eb6123",
+                backdrop: `
+                    rgba(0,0,123,0.4)
+                `,
+                showClass: {
+                    popup: `
+                        animate__animated
+                        animate__fadeIn
+                        animate__faster
+                    `
+                },
+                hideClass: {
+                    popup: `
+                        animate__animated
+                        animate__fadeOut
+                        animate__faster
+                    `
+                },
+    })},2000))
