@@ -514,7 +514,7 @@
     nextButton.addEventListener('animationend', () => {
         nextButton.classList.remove('fade-in');
     })
-    window.addEventListener('load',
+    window.addEventListener('load', function() {
         setTimeout(function(){ 
             Swal.fire({
                 html: '<b>Happy Halloween!</b> 🎃',
@@ -542,4 +542,5 @@
                         animate__faster
                     `
                 },
-    })},2000))
+        })},2000)
+    });
