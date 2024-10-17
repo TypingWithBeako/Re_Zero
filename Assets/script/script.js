@@ -518,6 +518,7 @@
             html: '<b>Happy Halloween!</b> 🎃',
             imageUrl: "Other_Files/Halloween poster.jpg",
             imageHeight: "80vh",
+            imageWidth: "auto",
             showCloseButton: true,
             showConfirmButton: false,
             background: "#716add",

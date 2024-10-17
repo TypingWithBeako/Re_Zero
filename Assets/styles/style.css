@@ -12,9 +12,6 @@ nav a:hover {
 .swal2-html-container b {
     font-size: 18px;
 }
-.swal2-image {
-    margin-top: 20px;
-}
 #backButton {
     position:absolute;
     left:0;
@@ -296,6 +293,9 @@ to {
     .RO {
     position: relative;
     top:0.2vw;
+    }
+    .swal2-image {
+        width: 100vw;
     }
     @media screen and (orientation: landscape) {
          body {
