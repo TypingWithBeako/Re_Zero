@@ -514,13 +514,11 @@
     nextButton.addEventListener('animationend', () => {
         nextButton.classList.remove('fade-in');
     })
-
         Swal.fire({
             html: '<b>Happy Halloween!</b> 🎃',
-            imageUrl: "../../Other_Files/a13i8y4smku51.jpg",
-            imageHeight: 600,
+            imageUrl: "Other_Files/Halloween poster.jpg",
+            imageHeight: "80vh",
             showCloseButton: true,
-            focusClose: false,    
             showConfirmButton: false,
             background: "#716add",
             color: "#eb6123",

@@ -9,6 +9,12 @@ nav a:hover {
 .swal2-close:focus {
     box-shadow: none !important;
 }
+.swal2-html-container b {
+    font-size: 18px;
+}
+.swal2-image {
+    margin-top: 20px;
+}
 #backButton {
     position:absolute;
     left:0;
