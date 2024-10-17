@@ -126,7 +126,7 @@ h3 {
 }
 footer {
     position:absolute;
-    bottom:1vh;
+    bottom:0.3vh;
     right:0.5vw;
 }
 p {
@@ -274,10 +274,10 @@ to {
     .button-container span{
         font-size:12px;
     }
-    .fa-2xl {
+    .fab {
         font-size: 3vw;
         position: absolute;
-        bottom:0;
+        bottom:0vh;
         right:0;
     }
     .fa-stack {
