@@ -517,7 +517,7 @@ window.addEventListener('load', function() {
     setTimeout(function(){ 
         Swal.fire({
             html: '<b>Happy Halloween!</b> 🎃',
-            imageUrl: "Other_Files/Halloween poster.jpg",
+            imageUrl: "Other_Files/Halloween_poster.jpg",
             imageHeight: "80vh",
             imageWidth: "auto",
             showCloseButton: true,
