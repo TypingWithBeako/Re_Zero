@@ -304,10 +304,12 @@ shuffleButton.addEventListener('click', function() {
     if (clickCount % 2 == 1){
         newvideoUrls = shuffleArray(newvideoUrls);
         playVideo(newvideoUrls[0]);
+        preloadedVideos = [];
     }
     else {
         videoUrls = shuffleArray(videoUrls);
         playVideo(videoUrls[0]);
+        preloadedVideos = [];
     }
     alert("Videos shuffled! (check console logs for more info)");
 // You can now use the shuffled videoUrls array for playing the songs in a random order
