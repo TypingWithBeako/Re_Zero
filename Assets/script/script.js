@@ -332,6 +332,10 @@ document.getElementById("Delay").addEventListener("click", function() {
         alert("Invalid delay. Please enter a non-negative number.");
     return;
     }
+    if (newDelay > 10000) {
+        alert("You really like to sleep when switching videos! (Delay not changed)");
+    return;
+    }
     // Update delay and optionally display confirmation
     updateDelay(newDelay);
     console.log("Delay updated to", newDelay, "milliseconds");
