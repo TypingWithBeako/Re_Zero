@@ -259,6 +259,8 @@ to {
     }  
     h1 {
         font-size: 5vw; /* Adjust the font size of h1 for mobile */
+        position:relative;
+        top:1vh;
     }
     .Re {
         font-size: 3.2vw;
