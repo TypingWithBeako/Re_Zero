@@ -103,6 +103,7 @@ h1 {
     color: black; 
     font-size: 1.979vw;
     text-align:center;
+    margin-top: 1vw;
     font-weight: bolder!important;
     text-shadow:-3px 4px 4px rgba(0,0,0,0.4),
                 -3px 8px 13px rgba(0,0,0,0.1),
@@ -156,7 +157,7 @@ p {
     text-align: center;
     font-size: 1.146vw;
     font-weight: bold;  
-    margin-top:2vh;
+    margin-top:2.5vh;
 }
 #videoPlayer {
     width: 40vw;
