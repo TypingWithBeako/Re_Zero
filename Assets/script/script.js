@@ -519,6 +519,7 @@ navbarContent.classList.remove('fade-in');
 nextButton.addEventListener('animationend', () => {
     nextButton.classList.remove('fade-in');
 })
+/*
 window.addEventListener('load', function() {
     setTimeout(function(){ 
         Swal.fire({
@@ -549,3 +550,4 @@ window.addEventListener('load', function() {
             },
     })},2000)
 });
+*/

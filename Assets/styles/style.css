@@ -6,27 +6,44 @@ nav a:not(:last-child)::after {
 nav a:hover {
     text-decoration: underline;
 }
+h3 a{
+    color:#0000EE;
+}
+h3 a:visited {
+    color:#551A8B;
+}
+h3 a:link:active, a:visited:active {
+    color: #FF0000; 
+}
+.oldtopnav a:link:active, a:visited:active {
+    color: white;
+}
 .swal2-close:focus {
     box-shadow: none !important;
 }
 .swal2-html-container b {
     font-size: 18px;
 }
+#text_to_change {
+    font-family: 'Times New Roman', Times, serif!important;
+}
 #backButton {
     position:absolute;
-    left:0;
-    margin-top: 0.25vw;
-    margin-left:0;
-    padding-left: 0;
+    margin: 0;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
     display:none;
+    padding-left:0;
     background-color: transparent;
     border:none;
 }
 #nextButton {
     position:absolute;
-    right:0;
-    margin-top: 0.25vw;
-    margin-right:0;
+    margin: 0;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
     padding-right:0;
     background-color: transparent;
     border:none;
@@ -44,6 +61,7 @@ nav a:hover {
     text-align: center;
 }
 .oldtopnav {
+    position: relative;
     overflow: hidden;
     background-color: #333;
 }
@@ -85,6 +103,7 @@ h1 {
     color: black; 
     font-size: 1.979vw;
     text-align:center;
+    font-weight: bolder!important;
     text-shadow:-3px 4px 4px rgba(0,0,0,0.4),
                 -3px 8px 13px rgba(0,0,0,0.1),
                 -3px 18px 23px rgba(0,0,0,0.1);
@@ -119,6 +138,8 @@ h1 {
 }
 h3 {
     font-family: Arial, Helvetica, sans-serif;
+    color:#000000;
+    font-weight: 700;
     position:absolute;
     left: 0.5vw;
     bottom: -0.6vw;
@@ -130,11 +151,12 @@ footer {
     right:0.5vw;
 }
 p {
+    color:#000000;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
     font-size: 1.146vw;
     font-weight: bold;  
-    margin-top:2.5vw;
+    margin-top:2vh;
 }
 #videoPlayer {
     width: 40vw;
@@ -151,7 +173,7 @@ nav a {
 }
 .moveable_img{
     position: relative;
-    top: 3vw;
+    top: 2.3vw;
     left: 1vw;
     width: 15vw;
     height: 6.3vw;
@@ -159,6 +181,7 @@ nav a {
     cursor: pointer;
 }
 .button-container {
+    color:#000000;
     text-align: center;
     position: relative;
     top: 1vh;
@@ -227,23 +250,14 @@ to {
     h3 {
         font-size:1.1vw;
     }
-    #backButton {
-        margin-top:-0.8vh;
-    }
-    #nextButton {
-        margin-top:-0.8vh;
-    }   
     .moveable_img {
         position: relative;
-        top: 7.5vw;
-        left: 2.5vw;
         width: 37.5vw;
         height: 15vw;
-        margin-top: -9vw;
+        top:2.6vw;
     }  
     h1 {
         font-size: 5vw; /* Adjust the font size of h1 for mobile */
-        margin-top:3vw;
     }
     .Re {
         font-size: 3.2vw;
@@ -259,6 +273,9 @@ to {
         width:auto;
         height:auto;
     }
+    #nextButton {
+        padding:3px;
+    }
     .topnav a {
         font-size:2.2vw;
         margin-left: 1.73vw;
@@ -273,6 +290,7 @@ to {
     }
     .button-container span{
         font-size:12px;
+        font-size:3vw !important;
     }
     .fab {
         font-size: 3vw;
@@ -282,9 +300,6 @@ to {
     }
     .fa-stack {
         font-size:2vw !important;
-    }
-    .button-container span {
-        font-size:3vw !important;
     }
     .ZE {
     position: relative;
