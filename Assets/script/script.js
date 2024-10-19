@@ -224,7 +224,7 @@ videoPlayer.addEventListener('timeupdate', function() {
                 const nextNewVideo = new Audio(newvideoUrls[nextNewIndex]);
                 nextNewVideo.preload = 'auto';
                 preloadedVideos.push(newvideoUrls[nextNewIndex]);
-                console.log('Next new video preloaded:', newvideoUrls[nextNewIndex]);                                    
+                console.log('Next new video preloaded:', newvideoUrls[nextNewIndex]);                                      
             }
         }
         else {
@@ -233,12 +233,19 @@ videoPlayer.addEventListener('timeupdate', function() {
                 const nextVideo = new Audio(videoUrls[nextIndex]);
                 nextVideo.preload = 'auto';
                 preloadedVideos.push(videoUrls[nextIndex]);
-                console.log('Next video preloaded:', videoUrls[nextIndex]);       
+                console.log('Next video preloaded:', videoUrls[nextIndex]);  
             }
         }
     }      
 });
-
+// Reset preloadedVideos array every 60 seconds (worst case scenario) to optimize playback.
+setInterval(function() {
+    if (preloadedVideos.length > 0){
+        setTimeout(function() {
+            preloadedVideos=[];
+        }, 10000);
+    }
+}, 50000)
 // Enable and Disable Looping functions
 enableLoopingListener = function EnableLooping() {
     if (clickCount % 2 == 1) {

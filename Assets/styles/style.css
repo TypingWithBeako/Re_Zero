@@ -264,7 +264,7 @@ to {
     }
     p {
         font-size: 2.8vw; /* Adjust the font size of p for mobile */
-        margin-top:4vw;
+        margin-top:2.5vw;
     }
      #videoPlayer {
         max-width: 100%; /* Make the video player responsive */
