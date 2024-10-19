@@ -6,6 +6,9 @@ nav a:not(:last-child)::after {
 nav a:hover {
     text-decoration: underline;
 }
+#default-sidebar{
+    display: none!important;
+}
 h3 a{
     color:#0000EE;
 }
@@ -64,6 +67,7 @@ h3 a:link:active, a:visited:active {
     position: relative;
     overflow: hidden;
     background-color: #333;
+    margin-top: 3vh;
 }
 .oldtopnav a {
     float: left;
@@ -100,10 +104,11 @@ body {
     margin:0 /* Make topnav spread fullscreen */
 }
 h1 {
+    pointer-events: none;
     color: black; 
     font-size: 1.979vw;
     text-align:center;
-    margin-top: 1vw;
+    margin-top: -2vh;
     font-weight: bolder!important;
     text-shadow:-3px 4px 4px rgba(0,0,0,0.4),
                 -3px 8px 13px rgba(0,0,0,0.1),
@@ -143,7 +148,7 @@ h3 {
     font-weight: 700;
     position:absolute;
     left: 0.5vw;
-    bottom: -0.6vw;
+    bottom: 0vw;
     font-size:0.8vw;
 }
 footer {
@@ -157,7 +162,7 @@ p {
     text-align: center;
     font-size: 1.146vw;
     font-weight: bold;  
-    margin-top:2.5vh;
+    margin-top: -2vh;
 }
 #videoPlayer {
     width: 40vw;
@@ -173,13 +178,14 @@ nav a {
     font-weight: bold
 }
 .moveable_img{
-    position: relative;
-    top: 2.3vw;
-    left: 1vw;
+    display: inline-block !important;
     width: 15vw;
     height: 6.3vw;
-    margin-top: -4vw;
+    position:relative;
+    margin-top: 1vw;
+    left:1vw;
     cursor: pointer;
+    pointer-events: all !important;
 }
 .button-container {
     color:#000000;
@@ -243,6 +249,9 @@ to {
     body {
         background-image: url(../../Other_Files/bg-tv.png);
     }
+    #default-sidebar{
+        display:block !important;
+    }
     .subaru {
         width: 60vw;
         height: 23.62vw;
@@ -255,19 +264,18 @@ to {
         position: relative;
         width: 37.5vw;
         height: 15vw;
-        top:2.6vw;
     }  
     h1 {
         font-size: 5vw; /* Adjust the font size of h1 for mobile */
         position:relative;
-        top:1vh;
+        margin-top: 0.3vh;
     }
     .Re {
         font-size: 3.2vw;
     }
     p {
         font-size: 2.8vw; /* Adjust the font size of p for mobile */
-        margin-top:2.5vw;
+        margin-top: -0.5vh;
     }
      #videoPlayer {
         max-width: 100%; /* Make the video player responsive */

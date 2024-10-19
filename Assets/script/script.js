@@ -131,6 +131,9 @@ moveableimg.addEventListener('click', function(){
         backButton.style.display ='none';
         nextButton.style.display ='none';
         S3.style.display='none';
+        Insert_Songs.style.display = 'flex';
+        Endings.style.display = 'none';
+        Openings.style.display = 'none';
     }
     else {
         textToChange.innerHTML = " All OPs and EDs ";
@@ -149,6 +152,9 @@ moveableimg.addEventListener('click', function(){
         moveable_img.classList.add('fade-in');
         nextButton.style.display ='inline';
         nextButton.classList.add('fade-in-songname')
+        Insert_Songs.style.display='none';
+        Openings.style.display = 'flex';
+        Endings.style.display = 'flex';
     }
     setTimeout(() => {
     isAnimating = false; // Reset the flag once the animation is complete
