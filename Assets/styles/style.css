@@ -7,7 +7,7 @@ nav a:hover {
     text-decoration: underline;
 }
 #default-sidebar{
-    display: none!important;
+    display:none;
 }
 h3 a{
     color:#0000EE;
@@ -293,8 +293,8 @@ to {
         text-align: left;
         padding: 2vw 0;
     } 
-    .topnav {
-        margin-top:5vw;
+    .oldtopnav {
+        margin-top:2vh;
     }
     .button-container {
         margin-top: 2vw;
