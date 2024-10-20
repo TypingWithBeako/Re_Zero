@@ -309,7 +309,7 @@ to {
     .button-container-mobile {
         display:block;
     }
-    #Desktop,#Desktop-text {
+    #Desktop,#Desktop-text,#Theater,#Theater-text {
         display:none;
     }
     .fab {
