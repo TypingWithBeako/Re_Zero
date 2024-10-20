@@ -618,12 +618,40 @@ function openFullscreen() {
     }
   }
 
-  function closeFullscreen() {
+function closeFullscreen() {
     if (document.exitFullscreen) {
-      document.exitFullscreen();
+        document.exitFullscreen();
     } else if (document.webkitExitFullscreen) { /* Safari */
-      document.webkitExitFullscreen();
+        document.webkitExitFullscreen();
     } else if (document.msExitFullscreen) { /* IE11 */
-      document.msExitFullscreen();
+        document.msExitFullscreen();
     }
-  }
+}
+
+const TheaterMode = document.getElementById('Theater');
+const ButtonContainer = document.getElementsByClassName('button-container');
+const paragraph = document.getElementById('paragraph');
+const body = document.getElementById('body');
+const ReZeroCast = document.getElementById('subaru');
+const Trademark = document.getElementById('trademark');
+const GitHub = document.getElementById('github');
+
+TheaterMode.addEventListener('click',function(){
+    navbarContent.style.display = 'none';
+    paragraph.style.display = 'none';
+    ReZeroCast.style.display = 'none';
+    Trademark.style.display = 'none';
+    GitHub.style.display = 'none';
+    moveableimg.style.setProperty('display', 'none', 'important');
+    textToChange.style.display = 'none';
+    for (let i = 0; i < ButtonContainer.length; i++) {
+        ButtonContainer[i].style.display = 'none';
+    }
+    videoPlayer.style.position = 'relative';
+    videoPlayer.style.width =  '160vh';
+    videoPlayer.style.height = '90vh';
+    videoPlayer.style.marginTop = '4vh';
+    videoPlayer.style.marginBottom = '5vh';
+    body.style.backgroundColor = '#1a1a1a';
+    body.style.backgroundImage = 'none';
+})

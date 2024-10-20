@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
-<body>
+<body id="body">
     <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-3 ml-3 text-sm text-gray-500 rounded-lg 2xl:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" style="position: absolute;z-index: 1;">
         <span class="sr-only">Open sidebar</span>
         <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -122,7 +122,7 @@
         <img id = "moveable_img" class= "moveable_img" src="Other_Files/Re_ZERO icon (1).png"  alt="Re:ZERO icon" aria-hidden="true">
         <span  id="text_to_change"> All OPs and EDs </span>
     </h1>
-    <p style="line-height: normal;">
+    <p id='paragraph' style="line-height: normal;">
         My first project - Feel free to enjoy the <span class ="Re" style = "color:#7771b3">Re</span>:<span class="ZE">ZE</span><span class ="RO">RO</span> 
         <span id="bodytext">Openings and Endings!</span> <br>
         (Click on the logo to change to <span id="songname">Insert Songs</span>)
@@ -183,7 +183,11 @@
             <i class="fa fa-expand" aria-hidden="true"></i>
         </span>
         <span id="Desktop-text" style="font-size: 1vw;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Picture in picture</span>
-
+        <span id="Theater" class="fa-stack fa-1x" style="font-size: 1.05vw;cursor: pointer;" >
+            <i class="far fa-circle fa-stack-2x" ></i>
+            <i class="fas fa-music" aria-hidden="true"></i>
+        </span>
+        <span style="font-size: 1vw;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Theater Mode</span>
     </div>
     <video id="videoPlayer" width="640px" height="360px" poster="Other_Files/Beatrice_Anime (2).webp" controls preload="auto" playsinline onended="playNextVideo()">
         <source src="Openings_and_Endings/OP1 - Redo.mp4" type="video/mp4">
@@ -196,16 +200,16 @@
         <span onclick="togglePictureInPicture()" style="font-size: 1vw;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Picture in picture</span>
     </div>
     <h2>
-        <img class= "subaru" src="Other_Files/subaru cheering.png" alt="rezero cast in isekai quartet"> 
+        <img id ='subaru' class= "subaru" src="Other_Files/subaru cheering.png" alt="rezero cast in isekai quartet"> 
     </h2>
-    <h3 class="trademark" style="line-height: normal;">
+    <h3 id ='trademark' class="trademark" style="line-height: normal;">
         ©2024 "TypingWithBeako" - Nguyễn Thái Tuấn <br>
         For audio version, you can visit <a href="https://open.spotify.com/playlist/2CIlJuP1CU7HpWLGX9T5DW" target="_blank">here</a>.  
     </h3>
     <a href="https://myfigurecollection.net/item/713029" target="_blank">
         <img class ="emilia" src="Other_Files/emilia.png" alt="Emilia">
     </a>
-    <footer>
+    <footer id="github">
         <a href="https://github.com/TypingWithBeako/Re_Zero" target="_blank">
             <span style="color: black;">
                 <i class="fab fa-github fa-2xl" style="font-size:2vw;"></i> 
