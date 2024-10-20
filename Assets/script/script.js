@@ -36,6 +36,9 @@ let loopclickCount = 0;
 let enableLoopingListener = null;
 let delay = 0;
 let isAnimating = false;
+let intervalId;
+let isIntervalActive = true;
+
     
 function playVideo(videoName) {
     // Extract the file name from the full path
@@ -251,13 +254,10 @@ videoPlayer.addEventListener('timeupdate', function() {
     }      
 });
 // Reset preloadedVideos array every 60 seconds (worst case scenario) to optimize playback.
-setInterval(function() {
-    if (preloadedVideos.length > 0){
-        setTimeout(function() {
-            preloadedVideos=[];
-        }, 10000);
-    }
-}, 50000)
+function ResetArray(){
+    preloadedVideos = [];
+}
+videoPlayer.addEventListener('ended',ResetArray)
 // Enable and Disable Looping functions
 enableLoopingListener = function EnableLooping() {
     if (clickCount % 2 == 1) {
@@ -279,6 +279,7 @@ loopVideo.addEventListener('click',function() {
     loopclickCount++
     if (loopclickCount % 2 == 1){
         loopText.innerHTML = "Disable looping";
+        videoPlayer.removeEventListener('ended',ResetArray);
         videoPlayer.addEventListener('ended', enableLoopingListener);
         if (clickCount % 2 == 1){ 
             const songName = newvideoUrls[newcurrentIndex].split('/').pop(); // Get the last part of the path after splitting by '/'   
@@ -294,6 +295,7 @@ loopVideo.addEventListener('click',function() {
     else {
         loopText.innerHTML = "Enable looping";
         videoPlayer.removeEventListener('ended', enableLoopingListener);
+        videoPlayer.addEventListener('ended',ResetArray);
         if (clickCount % 2 == 1){
             const songName = newvideoUrls[newcurrentIndex].split('/').pop();
             console.log('Video looping disabled for:', songName)

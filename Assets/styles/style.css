@@ -34,6 +34,7 @@ h3 a:link:active, a:visited:active {
     position:absolute;
     margin: 0;
     top: 50%;
+    left:0;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     display:none;
@@ -45,6 +46,7 @@ h3 a:link:active, a:visited:active {
     position:absolute;
     margin: 0;
     top: 50%;
+    right:0;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     padding-right:0;
