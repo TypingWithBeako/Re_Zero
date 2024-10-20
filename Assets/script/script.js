@@ -496,12 +496,14 @@ document.addEventListener("keydown", function(event) {
         togglePictureInPicture();
     }
     if (event.code === 'KeyF'){
-        FclickCount++;
-        if (FclickCount%2==1)
-            openFullscreen();
-        else
-            closeFullscreen();
-    }   
+        if ((document.fullscreenElement && document.fullscreenElement === videoPlayer) ||
+            (document.webkitFullscreenElement && document.webkitFullscreenElement === videoPlayer) ||
+            (document.msFullscreenElement && document.msFullscreenElement === videoPlayer)
+        ) 
+            closeFullscreen(); // Video is currently in fullscreen mode, so close fullscreen
+        else 
+            openFullscreen();  // Video is not in fullscreen mode, so open fullscreen
+    }
 });
     
 let isAnimatingbutton = false;
