@@ -1,6 +1,6 @@
 console.log ("To disable preloading, you can click the image below the video player. To re-enable preloading, you can click my trademark text.")
-console.log("Pressing Play button on video will restart the current video (not a bug, it's a feature)")
-console.log("Video player keyboard controls: Spacebar: Play/Pause video; ArrowKeyRight: Skipping to next video; ArrowKeyRight: Returning to previous video; Numpad1/Digit1 for video selecting; Tab to change between OPs and EDs and Insert Songs.")
+console.log("Pressing Play on video ending will restart the current video (not a bug, it's a feature)")
+console.log("Video player keyboard controls: Spacebar: Play/Pause video; ArrowKeyRight: Skipping to next video; ArrowKeyRight: Returning to previous video; Numpad1/Digit1 for video selecting; Tab to change between OPs and EDs and Insert Songs. Q,W,E,R: For respective buttons (left to right). Press F for fullscreen toggling.")
 var videoUrls = [
     "Openings_and_Endings/OP1 - Redo.mp4",
     "Openings_and_Endings/ED1 - STYX HELIX.mp4",
@@ -38,6 +38,7 @@ let delay = 0;
 let isAnimating = false;
 let intervalId;
 let isIntervalActive = true;
+let FclickCount = 0;
 
     
 function playVideo(videoName) {
@@ -490,6 +491,16 @@ document.addEventListener("keydown", function(event) {
     }   
     if (event.code === 'KeyE') {
         document.getElementById("Delay").click();
+    }
+    if (event.code === 'KeyR') {
+        togglePictureInPicture();
+    }
+    if (event.code === 'KeyF'){
+        FclickCount++;
+        if (FclickCount%2==1)
+            openFullscreen();
+        else
+            closeFullscreen();
     }   
 });
     
@@ -594,3 +605,23 @@ async function togglePictureInPicture() {
         }
     }
 }
+
+function openFullscreen() {
+    if (videoPlayer.requestFullscreen) {
+      videoPlayer.requestFullscreen();
+    } else if (videoPlayer.webkitRequestFullscreen) { /* Safari */
+      videoPlayer.webkitRequestFullscreen();
+    } else if (videoPlayer.msRequestFullscreen) { /* IE11 */
+      videoPlayer.msRequestFullscreen();
+    }
+  }
+
+  function closeFullscreen() {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) { /* Safari */
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { /* IE11 */
+      document.msExitFullscreen();
+    }
+  }
