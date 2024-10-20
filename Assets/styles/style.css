@@ -189,7 +189,10 @@ nav a {
     cursor: pointer;
     pointer-events: all !important;
 }
-.button-container {
+.button-container-mobile {
+    display:none;
+}
+.button-container,.button-container-mobile {
     color:#000000;
     text-align: center;
     position: relative;
@@ -298,12 +301,18 @@ to {
     .oldtopnav {
         margin-top:2vh;
     }
-    .button-container {
+    .button-container,.button-container-mobile {
         margin-top: 2vw;
     }
-    .button-container span{
+    .button-container span,.button-container-mobile span{
         font-size:12px;
         font-size:3vw !important;
+    }
+    .button-container-mobile {
+        display:block;
+    }
+    #Desktop,#Desktop-text {
+        display:none;
     }
     .fab {
         font-size: 3vw;

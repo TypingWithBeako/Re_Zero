@@ -582,3 +582,15 @@ function simulateClick() {
         elementAtPoint.click();
     }
 }
+
+async function togglePictureInPicture() {
+    if (document.pictureInPictureElement) {
+        await document.exitPictureInPicture();
+    } else {
+        try {
+            await videoPlayer.requestPictureInPicture();
+        } catch (error) {
+            console.error('Error entering Picture-in-Picture mode:', error);
+        }
+    }
+}
