@@ -6,9 +6,7 @@ nav a:not(:last-child)::after {
 nav a:hover {
     text-decoration: underline;
 }
-#default-sidebar{
-    display:none;
-}
+
 h3 a{
     color:#0000EE;
 }
