@@ -59,6 +59,7 @@ function playVideo(videoName) {
     clearTimeout(nextVideoTimeout); 
     // When playVideo is executed, reset isSwitching.
     isSwitching = false; 
+    simulateClick();
 }
 const videoPlayer = document.getElementById('videoPlayer');
 videoPlayer.addEventListener('play',function(){
@@ -572,10 +573,12 @@ window.addEventListener('load', function() {
     })},2000)
 });
 */
-function w3_open() {
-    document.getElementById("mySidebar").style.display = "block";
-  }
-  
-  function w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
-  }
+function simulateClick() {
+    // Get the element at the bottom right corner of the screen
+    const elementAtPoint = document.elementFromPoint(window.innerWidth - 10, window.innerHeight - 100);
+
+    // Check if the element is found and trigger a click event
+    if (elementAtPoint) {
+        elementAtPoint.click();
+    }
+}
