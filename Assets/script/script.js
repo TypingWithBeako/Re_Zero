@@ -482,6 +482,8 @@ document.addEventListener("keydown", function(event) {
     if (event.code === 'Tab') {
         event.preventDefault(); // Prevent the default tab behavior
         moveableimg.click();
+        if (TheatreModeFlag)
+            TheaterMode.click();
     }
     if (event.code === 'KeyQ') {
         shuffleButton.click();
@@ -638,9 +640,10 @@ const body = document.getElementById('body');
 const ReZeroCast = document.getElementById('subaru');
 const Trademark = document.getElementById('trademark');
 const GitHub = document.getElementById('github');
-
+let TheatreModeFlag = false;
 TheaterMode.addEventListener('click',function(){
     navbarContent.style.display = 'none';
+    newnavbarContent.style.display = 'none';
     paragraph.style.display = 'none';
     ReZeroCast.style.display = 'none';
     Trademark.style.display = 'none';
@@ -658,4 +661,5 @@ TheaterMode.addEventListener('click',function(){
     body.style.backgroundColor = '#000000';
     body.style.backgroundImage = 'none';
     document.documentElement.requestFullscreen();
+    TheatreModeFlag = true;
 })
