@@ -655,6 +655,7 @@ TheaterMode.addEventListener('click',function(){
     videoPlayer.style.height = '90vh';
     videoPlayer.style.marginTop = '4vh';
     videoPlayer.style.marginBottom = '5vh';
-    body.style.backgroundColor = '#1a1a1a';
+    body.style.backgroundColor = '#000000';
     body.style.backgroundImage = 'none';
+    document.documentElement.requestFullscreen();
 })
