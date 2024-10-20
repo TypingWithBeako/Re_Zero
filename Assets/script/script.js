@@ -504,6 +504,9 @@ document.addEventListener("keydown", function(event) {
         else 
             openFullscreen();  // Video is not in fullscreen mode, so open fullscreen
     }
+    if (event.code === "KeyT"){
+        TheaterMode.click();
+    }
 });
     
 let isAnimatingbutton = false;
