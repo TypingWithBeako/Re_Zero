@@ -143,7 +143,7 @@ moveableimg.addEventListener('click', function(){
         Openings_Content.style.display = 'none';
         Endings_Content.style.display = 'none';
         Insert_Songs_Content.style.display = '';
-        SidebarButton.innerHTML = "Change to OPs and EDs";
+        SidebarButton.innerHTML = "Change to Openings and Endings";
     }
     else {
         textToChange.innerHTML = " All OPs and EDs ";
