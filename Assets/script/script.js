@@ -108,6 +108,7 @@ const enablePreloadingbutton = document.querySelector('.trademark');
 const nextButton = document.getElementById('nextButton');
 const backButton = document.getElementById('backButton');
 const S3 = document.getElementById('Season3Content');
+const SidebarButton = document.getElementById('SidebarButton');
 
 moveableimg.addEventListener('click', function(){
         
@@ -142,6 +143,7 @@ moveableimg.addEventListener('click', function(){
         Openings_Content.style.display = 'none';
         Endings_Content.style.display = 'none';
         Insert_Songs_Content.style.display = '';
+        SidebarButton.innerHTML = "Change to OPs and EDs";
     }
     else {
         textToChange.innerHTML = " All OPs and EDs ";
@@ -166,6 +168,7 @@ moveableimg.addEventListener('click', function(){
         Openings_Content.style.display = '';
         Endings_Content.style.display = '';
         Insert_Songs_Content.style.display = 'none';
+        SidebarButton.innerHTML = "Change to Insert Songs";
     }
     setTimeout(() => {
     isAnimating = false; // Reset the flag once the animation is complete
@@ -641,6 +644,7 @@ const ReZeroCast = document.getElementById('subaru');
 const Trademark = document.getElementById('trademark');
 const GitHub = document.getElementById('github');
 let TheatreModeFlag = false;
+
 TheaterMode.addEventListener('click',function(){
     navbarContent.style.display = 'none';
     newnavbarContent.style.display = 'none';
@@ -663,3 +667,6 @@ TheaterMode.addEventListener('click',function(){
     document.documentElement.requestFullscreen();
     TheatreModeFlag = true;
 })
+function ChangeToInsertSongs() {
+        moveableimg.click();
+}
