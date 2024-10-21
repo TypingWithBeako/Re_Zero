@@ -125,7 +125,7 @@ moveableimg.addEventListener('click', function(){
         songname.innerHTML = "Openings and Endings"
         navbarContent.style.display = 'none';
         newnavbarContent.style.display ='block';
-        videoPlayer.src="Insert_Songs/STRAIGHT BET.mp4";
+        videoPlayer.src= newvideoUrls[0];
         newcurrentIndex=0;
         clearTimeout(nextVideoTimeout);
         isSwitching = false; 
@@ -151,7 +151,7 @@ moveableimg.addEventListener('click', function(){
         songname.innerHTML = "Insert Songs"
         navbarContent.style.display ='block';
         newnavbarContent.style.display ='none';
-        videoPlayer.src="Openings_and_Endings/OP1 - Redo.mp4";
+        videoPlayer.src=videoUrls[0];
         currentIndex=0;
         clearTimeout(nextVideoTimeout); 
         isSwitching = false; 
