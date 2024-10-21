@@ -643,9 +643,9 @@ const body = document.getElementById('body');
 const ReZeroCast = document.getElementById('subaru');
 const Trademark = document.getElementById('trademark');
 const GitHub = document.getElementById('github');
-let TheatreModeFlag = false;
+let TheaterModeFlag = false;
 
-TheaterMode.addEventListener('click',function(){
+TheaterMode.addEventListener('click',function() {
     navbarContent.style.display = 'none';
     newnavbarContent.style.display = 'none';
     paragraph.style.display = 'none';
@@ -665,8 +665,12 @@ TheaterMode.addEventListener('click',function(){
     body.style.backgroundColor = '#000000';
     body.style.backgroundImage = 'none';
     document.documentElement.requestFullscreen();
-    TheatreModeFlag = true;
+    TheaterModeFlag = true;
 })
 function ChangeToInsertSongs() {
         moveableimg.click();
+        if (TheaterModeFlag==true) {
+            newnavbarContent.style.display='none';
+            navbarContent.style.display='none';
+        }
 }
