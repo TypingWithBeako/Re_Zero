@@ -1,6 +1,7 @@
 console.log ("To disable preloading, you can click the image below the video player. To re-enable preloading, you can click my trademark text.")
 console.log("Pressing Play on video ending will restart the current video (not a bug, it's a feature)")
-console.log("Video player keyboard controls: Spacebar: Play/Pause video; ArrowKeyRight: Skipping to next video; ArrowKeyRight: Returning to previous video; Numpad1/Digit1 for video selecting; Tab to change between OPs and EDs and Insert Songs. Q,W,E,R: For respective buttons (left to right). Press F for fullscreen toggling.")
+console.log("Video player keyboard controls: Spacebar: Play/Pause video; ArrowKeyRight: Skipping to next video; ArrowKeyRight: Returning to previous video; Numpad1/Digit1 for video selecting; Tab to change between OPs and EDs and Insert Songs.")
+console.log("Q,W,E,R: For respective buttons (left to right). Press F for Fullscreen toggling. Press T for Theater Mode toggling")
 var videoUrls = [
     "Openings_and_Endings/OP1 - Redo.mp4",
     "Openings_and_Endings/ED1 - STYX HELIX.mp4",
@@ -485,8 +486,10 @@ document.addEventListener("keydown", function(event) {
     if (event.code === 'Tab') {
         event.preventDefault(); // Prevent the default tab behavior
         moveableimg.click();
-        if (TheatreModeFlag)
-            TheaterMode.click();
+        if (TheaterModeFlag){
+            newnavbarContent.style.display='none';
+            navbarContent.style.display='none';
+        }
     }
     if (event.code === 'KeyQ') {
         shuffleButton.click();
@@ -644,28 +647,78 @@ const ReZeroCast = document.getElementById('subaru');
 const Trademark = document.getElementById('trademark');
 const GitHub = document.getElementById('github');
 let TheaterModeFlag = false;
+let TheaterModeClickCount = 0;
+const ExitTheaterModeButton = document.getElementById('ExitTheaterModeButton');
 
 TheaterMode.addEventListener('click',function() {
-    navbarContent.style.display = 'none';
-    newnavbarContent.style.display = 'none';
-    paragraph.style.display = 'none';
-    ReZeroCast.style.display = 'none';
-    Trademark.style.display = 'none';
-    GitHub.style.display = 'none';
-    moveableimg.style.setProperty('display', 'none', 'important');
-    textToChange.style.display = 'none';
-    for (let i = 0; i < ButtonContainer.length; i++) {
-        ButtonContainer[i].style.display = 'none';
+    TheaterModeClickCount++;
+    if (TheaterModeClickCount%2==1){
+        navbarContent.style.display = 'none';
+        newnavbarContent.style.display = 'none';
+        paragraph.style.display = 'none';
+        ReZeroCast.style.display = 'none';
+        Trademark.style.display = 'none';
+        GitHub.style.display = 'none';
+        moveableimg.style.setProperty('display', 'none', 'important');
+        textToChange.style.display = 'none';
+        for (let i = 0; i < ButtonContainer.length; i++) {
+            ButtonContainer[i].style.display = 'none';
+        }
+        videoPlayer.style.position = 'relative';
+        videoPlayer.style.width =  '160vh';
+        videoPlayer.style.height = '90vh';
+        videoPlayer.style.marginTop = '4vh';
+        videoPlayer.style.marginBottom = '5vh';
+        body.style.backgroundColor = '#000000';
+        body.style.backgroundImage = 'none';
+        document.documentElement.requestFullscreen();
+        TheaterModeFlag = true;
+        ExitTheaterModeButton.style.display ='flex';
     }
-    videoPlayer.style.position = 'relative';
-    videoPlayer.style.width =  '160vh';
-    videoPlayer.style.height = '90vh';
-    videoPlayer.style.marginTop = '4vh';
-    videoPlayer.style.marginBottom = '5vh';
-    body.style.backgroundColor = '#000000';
-    body.style.backgroundImage = 'none';
-    document.documentElement.requestFullscreen();
-    TheaterModeFlag = true;
+    else
+        if (clickCount%2==1){
+            newnavbarContent.style.display = 'block';
+            paragraph.style.display = 'block';
+            ReZeroCast.style.display = 'block';
+            Trademark.style.display = 'block';
+            GitHub.style.display = 'block';
+            moveableimg.style.setProperty('display', 'inline', 'important');
+            textToChange.style.display = 'inline';
+            for (let i = 0; i < ButtonContainer.length; i++) {
+                ButtonContainer[i].style.display = 'block';
+            }
+            body.style.backgroundImage = 'url(../../Other_Files/bg-tv.png)';
+            body.style.backgroundColor = '#FFFFFF';
+            videoPlayer.style.width =  '40vw';
+            videoPlayer.style.height = '22.5vw';
+            videoPlayer.style.margin = '0 auto';
+            videoPlayer.style.marginTop = '2vh';
+            ExitTheaterModeButton.style.display ='none';
+            TheaterModeFlag = false;
+            closeFullscreen();
+        }
+        else {
+            navbarContent.style.display = 'block';
+            paragraph.style.display = 'block';
+            ReZeroCast.style.display = 'block';
+            Trademark.style.display = 'block';
+            GitHub.style.display = 'block';
+            moveableimg.style.setProperty('display', 'inline', 'important');
+            textToChange.style.display = 'inline';
+            for (let i = 0; i < ButtonContainer.length; i++) {
+                ButtonContainer[i].style.display = 'block';
+            }
+            body.style.backgroundImage = 'url(../../Other_Files/bg-tv.png)';
+            body.style.backgroundColor = '#FFFFFF';
+            videoPlayer.style.width =  '40vw';
+            videoPlayer.style.height = '22.5vw';
+            videoPlayer.style.margin = '0 auto';
+            videoPlayer.style.marginTop = '2vh';
+            ExitTheaterModeButton.style.display ='none';
+            TheaterModeFlag = false;
+            closeFullscreen();
+        }
+
 })
 function ChangeToInsertSongs() {
         moveableimg.click();
@@ -673,4 +726,7 @@ function ChangeToInsertSongs() {
             newnavbarContent.style.display='none';
             navbarContent.style.display='none';
         }
+}
+function ExitTheaterMode() {
+        TheaterMode.click();
 }
