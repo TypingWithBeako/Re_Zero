@@ -751,5 +751,5 @@ MicroModal.init({
 })
 var button = document.querySelector('#KeyboardControls');
 button.addEventListener('click', function(){
-    MicroModal.show('modal-1', { awaitCloseAnimation: true })
+    MicroModal.show('modal-1', { awaitCloseAnimation: true,})
 });
