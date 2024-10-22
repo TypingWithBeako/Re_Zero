@@ -242,7 +242,8 @@ videoPlayer.addEventListener('timeupdate', function() {
         if (clickCount % 2 === 1) {
             const nextNewIndex = (newcurrentIndex + 1) % newvideoUrls.length;
             if (!preloadedVideos.includes(newvideoUrls[nextNewIndex])) {
-                const nextNewVideo = new Audio(newvideoUrls[nextNewIndex]);
+                const nextNewVideo = document.createElement('video');
+                nextNewVideo.src = newvideoUrls[nextNewIndex];
                 nextNewVideo.preload = 'auto';
                 preloadedVideos.push(newvideoUrls[nextNewIndex]);
                 console.log('Next new video preloaded:', newvideoUrls[nextNewIndex]);                                      
@@ -251,7 +252,8 @@ videoPlayer.addEventListener('timeupdate', function() {
         else {
             const nextIndex = (currentIndex + 1) % videoUrls.length;
             if (!preloadedVideos.includes(videoUrls[nextIndex])) {
-                const nextVideo = new Audio(videoUrls[nextIndex]);
+                const nextVideo = document.createElement('video');
+                nextVideo.src = videoUrls[nextIndex];
                 nextVideo.preload = 'auto';
                 preloadedVideos.push(videoUrls[nextIndex]);
                 console.log('Next video preloaded:', videoUrls[nextIndex]);  
