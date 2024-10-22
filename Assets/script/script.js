@@ -264,6 +264,7 @@ function ResetArray(){
     preloadedVideos = [];
 }
 videoPlayer.addEventListener('ended',ResetArray)
+
 // Enable and Disable Looping functions
 enableLoopingListener = function EnableLooping() {
     if (clickCount % 2 == 1) {
@@ -730,3 +731,18 @@ function ChangeToInsertSongs() {
 function ExitTheaterMode() {
         TheaterMode.click();
 }
+MicroModal.init({
+    onShow: modal => console.info(`${modal.id} is shown`), // [1]
+    onClose: modal => console.info(`${modal.id} is hidden`), // [2]
+    openTrigger: 'data-custom-open', // [3]
+    closeTrigger: 'data-custom-close', // [4]
+    disableScroll: true, // [5]
+    disableFocus: true, // [6]
+    awaitCloseAnimation: true, // [7]
+    debugMode: false // [8]
+  });
+
+var button = document.querySelector('#KeyboardControls');
+button.addEventListener('click', function(){
+  MicroModal.show('modal-1');    
+});

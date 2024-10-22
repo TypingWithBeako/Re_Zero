@@ -164,6 +164,11 @@ p {
     font-weight: bold;  
     margin-top: -2vh;
 }
+kbd {
+    border: 1px solid rgb(124, 131, 124);
+    border-radius: 5px;
+    padding: 5px;
+  }
 #videoPlayer {
     width: 40vw;
     height: 22.5vw;
@@ -198,6 +203,9 @@ nav a {
 }
 #text_to_change, #bodytext, #songname {
 transition: opacity 0.5s, transform 0.5s; /* Define the transition properties */
+}
+.micromodal-slide {
+    animation: fade-in 1s ease;
 }
 
 .slide-in {
@@ -249,6 +257,9 @@ to {
     }
 }
 @media only screen and (max-width: 722px) {
+    #KeyboardControls {
+        display:none;
+    }
     body {
         background-image: url(../../Other_Files/bg-tv.png);
     }
