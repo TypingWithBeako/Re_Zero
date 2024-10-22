@@ -650,6 +650,7 @@ const GitHub = document.getElementById('github');
 let TheaterModeFlag = false;
 let TheaterModeClickCount = 0;
 const ExitTheaterModeButton = document.getElementById('ExitTheaterModeButton');
+const KeyboardControls = document.getElementById("KeyboardControls")
 
 TheaterMode.addEventListener('click',function() {
     TheaterModeClickCount++;
@@ -660,6 +661,7 @@ TheaterMode.addEventListener('click',function() {
         ReZeroCast.style.display = 'none';
         Trademark.style.display = 'none';
         GitHub.style.display = 'none';
+        KeyboardControls.style.display = 'none';
         moveableimg.style.setProperty('display', 'none', 'important');
         textToChange.style.display = 'none';
         for (let i = 0; i < ButtonContainer.length; i++) {
@@ -682,7 +684,8 @@ TheaterMode.addEventListener('click',function() {
             paragraph.style.display = 'block';
             ReZeroCast.style.display = 'block';
             Trademark.style.display = 'block';
-            GitHub.style.display = 'block';
+            GitHub.style.display = 'none';
+            KeyboardControls.style.display = 'flex';
             moveableimg.style.setProperty('display', 'inline', 'important');
             textToChange.style.display = 'inline';
             for (let i = 0; i < ButtonContainer.length; i++) {
@@ -703,7 +706,8 @@ TheaterMode.addEventListener('click',function() {
             paragraph.style.display = 'block';
             ReZeroCast.style.display = 'block';
             Trademark.style.display = 'block';
-            GitHub.style.display = 'block';
+            GitHub.style.display = 'none';
+            KeyboardControls.style.display = 'flex';
             moveableimg.style.setProperty('display', 'inline', 'important');
             textToChange.style.display = 'inline';
             for (let i = 0; i < ButtonContainer.length; i++) {
