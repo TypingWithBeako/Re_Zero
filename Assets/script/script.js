@@ -691,7 +691,7 @@ TheaterMode.addEventListener('click',function() {
             for (let i = 0; i < ButtonContainer.length; i++) {
                 ButtonContainer[i].style.display = 'block';
             }
-            body.style.backgroundImage = 'url(../../Other_Files/bg-tv.png)';
+            body.style.backgroundImage = 'url(Other_Files/bg-tv.png)';
             body.style.backgroundColor = '#FFFFFF';
             videoPlayer.style.width =  '40vw';
             videoPlayer.style.height = '22.5vw';
@@ -713,7 +713,7 @@ TheaterMode.addEventListener('click',function() {
             for (let i = 0; i < ButtonContainer.length; i++) {
                 ButtonContainer[i].style.display = 'block';
             }
-            body.style.backgroundImage = 'url(../../Other_Files/bg-tv.png)';
+            body.style.backgroundImage = 'url(Other_Files/bg-tv.png)';
             body.style.backgroundColor = '#FFFFFF';
             videoPlayer.style.width =  '40vw';
             videoPlayer.style.height = '22.5vw';
@@ -735,18 +735,21 @@ function ChangeToInsertSongs() {
 function ExitTheaterMode() {
         TheaterMode.click();
 }
+document.addEventListener("DOMContentLoaded", function() {
 MicroModal.init({
     onShow: modal => console.info(`${modal.id} is shown`), // [1]
     onClose: modal => console.info(`${modal.id} is hidden`), // [2]
     openTrigger: 'data-custom-open', // [3]
     closeTrigger: 'data-custom-close', // [4]
-    disableScroll: true, // [5]
-    disableFocus: true, // [6]
-    awaitCloseAnimation: true, // [7]
-    debugMode: false // [8]
+    openClass: 'is-open', // [5]
+    disableScroll: true, // [6]
+    disableFocus: true, // [7]
+    awaitOpenAnimation: true, // [8]
+    awaitCloseAnimation: true, // [9]
+    debugMode: false // [10]
   });
-
+})
 var button = document.querySelector('#KeyboardControls');
 button.addEventListener('click', function(){
-  MicroModal.show('modal-1');    
+    MicroModal.show('modal-1', { awaitCloseAnimation: true })
 });

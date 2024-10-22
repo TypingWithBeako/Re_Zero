@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="robots" content="noindex, video, noodp, noarchive, noimageindex" />
+    <meta name="robots" content="noindex, video, noodp, noarchive, noimageindex">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="max-age=31536000"> <!-- 1 year = 365 days * 24 hours * 3600 seconds -->
     <meta http-equiv="Expires" content="Thu, 11 Oct 2025 08:00:00 GMT"> <!-- Expires 1 year from the specified date -->
@@ -11,14 +11,13 @@
     <link rel="icon" type="image/png" sizes="32x32" href="Icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="Icons/favicon-16x16.png">
     <link rel="manifest" href="Icons/site.webmanifest">
-    <link href="Assets/styles/flowbite.min.css" rel="stylesheet" />
-    <link href="Assets/styles/tailwind.css" rel="stylesheet">
-    <link href = "Assets/styles/style.css" rel = "stylesheet" type = "text/css" />
-    <link rel="stylesheet" href="Assets/styles/micromodal.css">
-    <link href = "Font/stylesheet.css" rel = "stylesheet" type = "text/css" />
-    <link href="Font/fontawesome/css/all.min.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="Assets/styles/flowbite.min.css" rel = "stylesheet" type = "text/css">
+    <link href="Assets/styles/tailwind.min.css" rel = "stylesheet" type = "text/css">
+    <link href = "Assets/styles/style.css" rel = "stylesheet" type = "text/css">
+    <link href = "Font/stylesheet.css" rel = "stylesheet" type = "text/css">
+    <link href="Font/fontawesome/css/all.min.css" rel="stylesheet" type = "text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" type = "text/css">
+    <link rel="stylesheet" href="Assets/styles/micromodal.css" type = "text/css">
 </head>
 <body id="body">
     <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-3 ml-3 text-sm text-gray-500 rounded-lg 2xl:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" style="position: absolute;z-index: 1;">
@@ -221,20 +220,20 @@
     <a href="https://myfigurecollection.net/item/713029" target="_blank">
         <img class ="emilia" src="Other_Files/emilia.png" alt="Emilia">
     </a>
-    <footer style="position: absolute;top: 0;right: 0; display: none;" id="github">
+    <footer style="position: absolute;top: 0;right: 0;" id="github">
         <a href="https://github.com/TypingWithBeako/Re_Zero" target="_blank">
             <span style="color: black;">
                 <i class="fab fa-github fa-2xl" style="font-size:2vw;"></i> 
             </span>
         </a>
     </footer>
-    <button id="KeyboardControls" style="position: absolute;bottom: 0;right: 0;" type="button" class="px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-gray-700 rounded-lg hover:bg-slate-200 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+    <button id="KeyboardControls" style="position: absolute;bottom: 1vh;right: 5px;" data-micromodal-trigger="modal-1"  type="button" class="px-3 py-2 text-sm font-medium text-center inline-flex items-center text-black bg-gray-200 rounded-lg hover:bg-slate-200 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
             <path stroke="currentColor" stroke-linecap="square" stroke-width="2" d="M8 15h7.01v.01H15L8 15Z"/>
             <path stroke="currentColor" stroke-linecap="square" stroke-width="2" d="M20 6H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1Z"/>
             <path stroke="currentColor" stroke-linecap="square" stroke-width="2" d="M6 9h.01v.01H6V9Zm0 3h.01v.01H6V12Zm0 3h.01v.01H6V15Zm3-6h.01v.01H9V9Zm0 3h.01v.01H9V12Zm3-3h.01v.01H12V9Zm0 3h.01v.01H12V12Zm3 0h.01v.01H15V12Zm3 0h.01v.01H18V12Zm0 3h.01v.01H18V15Zm-3-6h.01v.01H15V9Zm3 0h.01v.01H18V9Z"/>
           </svg>          
-        &nbsp&nbspShow Keyboard controls
+        &nbsp&nbspShow Keyboard Controls
     </button>
     <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
         <div class="modal__overlay" tabindex="-1" data-micromodal-close>
@@ -243,7 +242,7 @@
               <h2 class="modal__title" id="modal-1-title">
                 Keyboard hotkeys:
               </h2>
-              <button id="CloseKeyboardButton" class="modal__close" aria-hidden="true" data-micromodal-close></button>
+              <button id="CloseKeyboardButton" class="modal__close" aria-hidden="true" aria-label="Close modal" data-micromodal-close></button>
             </header>
             <main class="font-sans" style="line-height: 2.5; margin-top:2vh;margin-bottom:0" id="modal-1-content">
               <kbd class = "px-2 py-2 text-xs font-bold text-gray-800 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-600 dark:text-gray-100 dark:border-gray-500">Space</kbd> : Play/Pause video <br>
@@ -255,6 +254,7 @@
           </div>
         </div>
       </div>
+<script src="Assets/script/jquery.min.js"></script>
 <script src="Assets/script/micromodal.min.js"></script>
 <script src="Assets/script/flowbite.js"></script>
 <script src="Assets/script/sweetalert2.all.min.js " type="text/javascript"></script>
