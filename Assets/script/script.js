@@ -41,7 +41,6 @@ let intervalId;
 let isIntervalActive = true;
 let FclickCount = 0;
 
-    
 function playVideo(videoName) {
     // Extract the file name from the full path
     const songName = videoName.split('/').pop(); // Get the last part of the path after splitting by '/'
@@ -261,6 +260,7 @@ videoPlayer.addEventListener('timeupdate', function() {
         }
     }      
 });
+
 // Reset preloadedVideos array every 60 seconds (worst case scenario) to optimize playback.
 function ResetArray(){
     preloadedVideos = [];
@@ -603,7 +603,6 @@ window.addEventListener('load', function() {
 function simulateClick() {
     // Get the element at the bottom right corner of the screen
     const elementAtPoint = document.elementFromPoint(window.innerWidth - 10, window.innerHeight - 100);
-
     // Check if the element is found and trigger a click event
     if (elementAtPoint) {
         elementAtPoint.click();
