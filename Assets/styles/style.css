@@ -151,10 +151,10 @@ h3 {
     bottom: 0vw;
     font-size:0.8vw;
 }
-footer {
+#github{
     position:absolute;
-    bottom:0.3vh;
-    right:0.5vw;
+    top:0;
+    right:0.2vw;
 }
 p {
     color:#000000;
@@ -318,10 +318,10 @@ to {
     #Desktop,#Desktop-text,#Theater,#Theater-text {
         display:none;
     }
-    .fab {
-        font-size: 3vw;
+    #github {
         position: absolute;
-        bottom:0vh;
+        top:auto;
+        bottom:0;
         right:0;
     }
     .fa-stack {
