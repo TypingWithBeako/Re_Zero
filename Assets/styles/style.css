@@ -6,7 +6,6 @@ nav a:not(:last-child)::after {
 nav a:hover {
     text-decoration: underline;
 }
-
 h3 a{
     color:#0000EE;
 }
@@ -147,7 +146,7 @@ h3 {
     color:#000000;
     font-weight: 700;
     position:absolute;
-    left: 0.5vw;
+    left: 0.2vw;
     bottom: 0vw;
     font-size:0.8vw;
 }
