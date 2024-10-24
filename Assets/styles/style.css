@@ -170,8 +170,8 @@ p {
     margin-top: -2vh;
 }
 #videoPlayer {
-    width: 40vw;
-    height: 22.5vw;
+    width: auto; /*40vw*/
+    height: 46.855vh; /*22.5vw*/
     max-width: 100%;
     margin: 0 auto;
     margin-top: 2vh;
