@@ -133,7 +133,7 @@ moveableimg.addEventListener('click', function(){
         bodytext.classList.add('fade-in-bodytext');
         songname.classList.add('fade-in-songname');
         newnavbarContent.classList.add('slide-in');
-        moveable_img.classList.add('fade-in');
+        moveableimg.classList.add('fade-in');
         backButton.style.display ='none';
         nextButton.style.display ='none';
         S3.style.display='none';
@@ -159,7 +159,7 @@ moveableimg.addEventListener('click', function(){
         bodytext.classList.add('fade-in-bodytext');
         songname.classList.add('fade-in-songname');
         navbarContent.classList.add('slide-in');
-        moveable_img.classList.add('fade-in');
+        moveableimg.classList.add('fade-in');
         nextButton.style.display ='inline';
         nextButton.classList.add('fade-in-songname')
         Insert_Songs.style.display='none';
@@ -694,8 +694,8 @@ TheaterMode.addEventListener('click',function() {
             }
             body.style.backgroundImage = 'url(Other_Files/bg-tv.png)';
             body.style.backgroundColor = '#FFFFFF';
-            videoPlayer.style.width =  '40vw';
-            videoPlayer.style.height = '22.5vw';
+            videoPlayer.style.width =  'auto';
+            videoPlayer.style.height = '46.855vh';
             videoPlayer.style.margin = '0 auto';
             videoPlayer.style.marginTop = '2vh';
             ExitTheaterModeButton.style.display ='none';
@@ -716,8 +716,8 @@ TheaterMode.addEventListener('click',function() {
             }
             body.style.backgroundImage = 'url(Other_Files/bg-tv.png)';
             body.style.backgroundColor = '#FFFFFF';
-            videoPlayer.style.width =  '40vw';
-            videoPlayer.style.height = '22.5vw';
+            videoPlayer.style.width =  'auto';
+            videoPlayer.style.height = '46.855vh';
             videoPlayer.style.margin = '0 auto';
             videoPlayer.style.marginTop = '2vh';
             ExitTheaterModeButton.style.display ='none';
