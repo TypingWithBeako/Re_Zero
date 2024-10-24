@@ -156,11 +156,6 @@ footer{
     bottom:0.3vh;
     right: 0.5vw;
 }
-#ExitTheaterModeButton {
-    position:absolute;
-    bottom:6vh;
-    right: 0.5vw;
-}
 #github{
     position:absolute;
     top:0;
