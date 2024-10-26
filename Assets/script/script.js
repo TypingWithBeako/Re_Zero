@@ -201,7 +201,7 @@ nextButton.classList.remove('fade-in-songname');
 function handleFontSizeChange(mediaQuery) {
     // Change font size for mobile devices
     if (mediaQuery.matches) {
-        textToChange.style.fontSize = '4.2vw';
+        textToChange.style.fontSize = '4vw';
     }
     // Reset font size for non-mobile devices
     else {
