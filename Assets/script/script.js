@@ -26,7 +26,7 @@ var newvideoUrls = [
     
 let isPosterSet = false; //Track if poster is set
 let currentIndex = 0; // For videoUrls
-let newcurrentIndex =0; // For newvideoUrls
+let newcurrentIndex = 0; // For newvideoUrls
 let isSwitching = false;
 let clickCount = 0;
 let preloadedVideos = [];
