@@ -42,6 +42,8 @@ let intervalId;
 let isIntervalActive = true;
 let FclickCount = 0;
 let nextClickCount = 0;
+let originalIndex = 0;
+let keyB = 0
 
 function playVideo(videoName) {
     // Extract the file name from the full path
@@ -767,3 +769,43 @@ var button = document.querySelector('#KeyboardControls');
 button.addEventListener('click', function(){
     MicroModal.show('modal-1', { awaitCloseAnimation: true,})
 });
+
+
+const FULL = document.getElementById('STYX_HELIX_FULL');
+const FULL_sidebar = document.getElementById('STYX_HELIX_FULL_sidebar')
+const OG = document.getElementById('STYX_HELIX_OG')
+const OG_sidebar = document.getElementById('STYX_HELIX_OG_sidebar')
+// Switch OP1 - STYX HELIX between cut and full version
+function ChangeStyxHelix(){
+    keyB++;
+        if (keyB%2==1)
+        {
+            originalIndex = videoUrls.indexOf('Openings_and_Endings/ED1 - STYX HELIX.mp4');
+            videoUrls[originalIndex] = 'Openings_and_Endings/ED1 - STYX HELIX nocut.mp4';
+            OG.style.display = 'none';
+            OG_sidebar.style.display = 'none';
+            FULL.style.display = 'inline';
+            FULL_sidebar.style.display = 'flex';
+            alert("Changed ED1 - STYX HELIX to full version")
+        }
+        else
+        {
+            originalIndex = videoUrls.indexOf('Openings_and_Endings/ED1 - STYX HELIX nocut.mp4');
+            videoUrls[originalIndex] = 'Openings_and_Endings/ED1 - STYX HELIX.mp4';
+            OG.style.display = 'inline';
+            OG_sidebar.style.display = 'flex';
+            FULL.style.display = 'none';
+            FULL_sidebar.style.display = 'none';
+            alert("Reverted changes to ED1 - STYX HELIX")
+        }
+}
+
+document.addEventListener('keydown',function(event){
+    if (event.code === "KeyB"){
+        ChangeStyxHelix();
+    }
+})
+songname.addEventListener('click',function(){
+    ChangeStyxHelix();
+})
+
