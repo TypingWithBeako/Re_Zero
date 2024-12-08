@@ -1,7 +1,3 @@
-console.log ("To disable preloading, you can click the image below the video player. To re-enable preloading, you can click my trademark text.")
-console.log("Pressing Play on video ending will restart the current video (not a bug, it's a feature)")
-console.log("Video player keyboard controls: Spacebar: Play/Pause video; ArrowKeyRight: Skipping to next video; ArrowKeyRight: Returning to previous video; Numpad1/Digit1 for video selecting; Tab to change between OPs and EDs and Insert Songs.")
-console.log("Q,W,E,R: For respective buttons (left to right). Press F for Fullscreen toggling. Press T for Theater Mode toggling")
 var videoUrls = [
     "Openings_and_Endings/OP1 - Redo.mp4",
     "Openings_and_Endings/ED1 - STYX HELIX.mp4",
@@ -808,4 +804,3 @@ document.addEventListener('keydown',function(event){
 songname.addEventListener('click',function(){
     ChangeStyxHelix();
 })
-
