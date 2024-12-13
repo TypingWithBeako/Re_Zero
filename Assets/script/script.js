@@ -519,6 +519,12 @@ document.addEventListener("keydown", function(event) {
     if (event.code === "KeyT"){
         TheaterMode.click();
     }
+    if (event.code === "KeyD"){
+        videoPlayer.src = "Insert_Songs/Theater D.mp4";
+        videoPlayer.play();
+        currentIndex = -1;
+        newcurrentIndex = -1;
+    }
 });
     
 let isAnimatingbutton = false;
