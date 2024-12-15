@@ -67,8 +67,8 @@ videoPlayer.addEventListener('play',function(){
     clearTimeout(nextVideoTimeout);
     isSwitching = false;
     if (!isPosterSet) {
-    videoPlayer.poster = "Other_Files/black.png";
-    isPosterSet = true;
+        videoPlayer.poster = "Other_Files/black.png";
+        isPosterSet = true;
     }
 })
 // Automatically play next video after ending with a delay
@@ -292,14 +292,16 @@ loopVideo.addEventListener('click',function() {
         videoPlayer.removeEventListener('ended',ResetArray);
         videoPlayer.addEventListener('ended', enableLoopingListener);
         if (clickCount % 2 == 1){ 
-            const songName = newvideoUrls[newcurrentIndex].split('/').pop(); // Get the last part of the path after splitting by '/'   
+            const songName = newvideoUrls[newcurrentIndex].split('/').pop(); // Get the last part of the path after splitting by '/'
             console.log('Video looping enabled for:', songName);
             alert("Video looping enabled for: " + songName);
         }
         else {
             const songName = videoUrls[currentIndex].split('/').pop();
+            const lastDot = songName.lastIndexOf('.'); // exactly what it says on the tin
+            const name = songName.slice(0, lastDot); // characters from the start to the last dot
             console.log('Video looping enabled for:', songName);
-            alert("Video looping enabled for: " + songName);   
+            alert("Video looping enabled for: " + name);   
         }
     }
     else {
@@ -313,8 +315,10 @@ loopVideo.addEventListener('click',function() {
         }
         else {
             const songName = videoUrls[currentIndex].split('/').pop();
-            console.log('Video looping disabled for:', songName);
-            alert("Video looping disabled for: " + songName);
+            const lastDot = songName.lastIndexOf('.'); // exactly what it says on the tin
+            const name = songName.slice(0, lastDot); // characters from the start to the last dot
+            console.log('Video looping disabled for:', name);
+            alert("Video looping disabled for: " + name);
         }
     }
 });
