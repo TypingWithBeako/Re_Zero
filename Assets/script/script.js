@@ -125,7 +125,7 @@ moveableimg.addEventListener('click', function(){
         bodytext.innerHTML = "Insert Songs and more!"
         songname.innerHTML = "Openings and Endings"
         navbarContent.style.display = 'none';
-        newnavbarContent.style.display ='block';
+        newnavbarContent.style.display ='flex';
         videoPlayer.src= newvideoUrls[0];
         newcurrentIndex=0;
         clearTimeout(nextVideoTimeout);
@@ -150,7 +150,7 @@ moveableimg.addEventListener('click', function(){
         textToChange.innerHTML = " All OPs and EDs ";
         bodytext.innerHTML = "Openings and Endings!";
         songname.innerHTML = "Insert Songs"
-        navbarContent.style.display ='block';
+        navbarContent.style.display ='flex';
         newnavbarContent.style.display ='none';
         videoPlayer.src=videoUrls[0];
         currentIndex=0;
@@ -541,7 +541,7 @@ nextButton.addEventListener('click',function(){
     isAnimating = true; // Set the flag to indicate that an animation is in progress
     this.setAttribute('disabled', 'disabled'); // Disable the clickable element
     navbarContent.style.display = 'none';
-    S3.style.display = 'block';
+    S3.style.display = 'flex';
     nextButton.style.display ='none';
     backButton.style.display ='inline';
     S3.classList.add('fade-in');
@@ -558,7 +558,7 @@ backButton.addEventListener('click',function(){
     nextClickCount++;
     isAnimating = true; // Set the flag to indicate that an animation is in progress
     this.setAttribute('disabled', 'disabled'); // Disable the clickable element
-    navbarContent.style.display = 'block';
+    navbarContent.style.display = 'flex';
     S3.style.display = 'none';
     nextButton.style.display ='inline';
     backButton.style.display ='none';

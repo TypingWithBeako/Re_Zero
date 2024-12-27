@@ -12,10 +12,13 @@ h3 a{
 h3 a:visited {
     color:#551A8B;
 }
-h3 a:link:active, a:visited:active {
+h3 a:link:active, h3 a:visited:active {
     color: #FF0000; 
 }
-.oldtopnav a:link:active, a:visited:active {
+a:active {
+    color: gray;
+}
+.oldtopnav a:link:active, .oldtopnav a:visited:active {
     color: white;
 }
 .swal2-close:focus {
@@ -67,6 +70,9 @@ h3 a:link:active, a:visited:active {
     overflow: hidden;
     background-color: #333;
     margin-top: 3vh;
+}
+#oldnavbarContent{
+    display: flex;
 }
 .oldtopnav a {
     float: left;
