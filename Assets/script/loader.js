@@ -1,11 +1,14 @@
+let loader;
 $(window).on('load', function() {
-    setTimeout(function() {
+    loader = setTimeout(function() {
+        $(".skip").css("pointer-events", "none");
         $(".loader--wrapper").slideUp(1200);
         $(".loader").fadeOut(600);
-        $(".header").fadeOut(0)
-        $(".content__video").fadeOut(0)
-        $(".content__navbar").fadeOut(0)
-        $(".footer").fadeOut(0)
+        $(".header").fadeOut(0);
+        $(".skip").fadeOut(600);
+        $(".content__video").fadeOut(0);
+        $(".content__navbar").fadeOut(0);
+        $(".footer").fadeOut(0);
         setTimeout(function(){
             $(".header").fadeIn(1200)
         },1200)
@@ -21,6 +24,18 @@ $(window).on('load', function() {
         },4600)
     }, 2000);
 });
+function SkipLoading(){
+    $(".loader--wrapper").slideUp(1200);
+    $(".loader").fadeOut(600);
+    $(".skip").fadeOut(600);
+    clearTimeout(loader)
+    setTimeout(function(){
+        $(".header").fadeIn(1200);
+        $(".content__navbar").fadeIn(1200);
+        $(".content__video").fadeIn(1200);
+        $(".footer").fadeIn(1200);
+    },1200)
+}
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -37,6 +52,9 @@ var images = [
     { src : 'Other_Files/angry beatrice gif.gif'},
 
 ];
+setTimeout(function(){
+    $(".skip").slideDown(500)
+},1000)
 shuffleArray(images)
 var img, div;
 var cont = $('.loader');
