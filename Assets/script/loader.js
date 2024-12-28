@@ -17,6 +17,7 @@ $(window).on('load', function() {
         },3400)
         setTimeout(function(){
             $(".footer").fadeIn(1200)
+            $(".loader--wrapper").remove()
         },4600)
     }, 2000);
 });
