@@ -231,7 +231,7 @@ disablePreloadingbutton.addEventListener('click',function(){
         }
     }
 }, );
-
+const nextVideo = document.createElement('video');
 // Video preloading 
 videoPlayer.addEventListener('timeupdate', function() {
     const currentTime = videoPlayer.currentTime;
@@ -242,25 +242,30 @@ videoPlayer.addEventListener('timeupdate', function() {
         if (clickCount % 2 === 1) {
             const nextNewIndex = (newcurrentIndex + 1) % newvideoUrls.length;
             if (!preloadedVideos.includes(newvideoUrls[nextNewIndex])) {
-                const nextNewVideo = document.createElement('video');
-                nextNewVideo.src = newvideoUrls[nextNewIndex];
-                nextNewVideo.preload = 'auto';
+                nextVideo.src = newvideoUrls[nextNewIndex];
+                nextVideo.preload = 'auto';
                 preloadedVideos.push(newvideoUrls[nextNewIndex]);
-                console.log('Next new video preloaded:', newvideoUrls[nextNewIndex]);                                      
+                console.log('Next new video preloaded:', newvideoUrls[nextNewIndex]);                                
             }
         }
         else {
             const nextIndex = (currentIndex + 1) % videoUrls.length;
             if (!preloadedVideos.includes(videoUrls[nextIndex])) {
-                const nextVideo = document.createElement('video');
                 nextVideo.src = videoUrls[nextIndex];
                 nextVideo.preload = 'auto';
                 preloadedVideos.push(videoUrls[nextIndex]);
-                console.log('Next video preloaded:', videoUrls[nextIndex]);  
+                console.log('Next video preloaded:', videoUrls[nextIndex]);   
             }
         }
     }      
 });
+
+function disableFocus(element) {
+    element.addEventListener('mousedown', function(event) {
+        event.preventDefault();
+    });
+}
+disableFocus(videoPlayer);
 
 // Reset preloadedVideos array every 60 seconds (worst case scenario) to optimize playback.
 function ResetArray(){
