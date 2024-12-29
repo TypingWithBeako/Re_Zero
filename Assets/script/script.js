@@ -819,3 +819,10 @@ document.addEventListener('keydown',function(event){
 songname.addEventListener('click',function(){
     ChangeStyxHelix();
 })
+
+// Network error handling
+videoPlayer.addEventListener('error', (event) => {
+    if (event.target.error.code === 2) { // 2 usually corresponds to network errors
+        console.error('Unable to load video. Please check your internet connection or try again later.', event.target.error);
+    }
+});
