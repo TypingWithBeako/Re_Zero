@@ -1,6 +1,5 @@
-let loader;
 $(window).on('load', function() {
-    loader = setTimeout(function() {
+    setTimeout(function() {
         $(".skip").css("pointer-events", "none");
         $(".loader--wrapper").slideUp(1200);
         $(".loader").fadeOut(600);
@@ -28,7 +27,7 @@ function SkipLoading(){
     $(".loader--wrapper").slideUp(1200);
     $(".loader").fadeOut(600);
     $(".skip").fadeOut(600);
-    clearTimeout(loader)
+    $(window).off('load');
     setTimeout(function(){
         $(".header").fadeIn(1200);
         $(".content__navbar").fadeIn(1200);
