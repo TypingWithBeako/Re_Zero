@@ -1,0 +1,16 @@
+{
+  "name": "re_zero",
+  "version": "1.0.0",
+  "description": "/23.09.2024/ <br>\r Nguyễn Thái Tuấn <br>\r I have completed the website! Still looking forward to adding more changes though! <br> <br>\r /24.09.2024/ <br>\r Nguyễn Thái Tuấn <br>\r Finished adding preloading feature and cleaned up the code (can actually look at the code now). <br>\r <br> <br>\r /27.09.2024/ <br>\r Nguyễn Thái Tuấn <br>\r Finished adding the loop, randomize and delay button!\r <br> <br>\r /11.10.2024/ <br>\r Nguyễn Thái Tuấn <br>\r Mostly completed! Aiming to add caching videos feature to reserve bandwidth (gonna take a while)\r <br> <br>\r /13.10.2024/ <br>\r Nguyễn Thái Tuấn <br>\r Made the website totally responsive! Expect to see consistent designs across your devices!\r <br> <br>\r /20.10.2024/ <br>\r Nguyễn Thái Tuấn <br>\r The website functionality is greater than I ever imagined. If anyone want to improve on this, feel free to do it!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "globals": "^15.14.0"
+  }
+}
