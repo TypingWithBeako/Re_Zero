@@ -479,11 +479,14 @@ document.addEventListener("keydown", function(event) {
         }   
         else {
             playVideo(videoUrls[6]);
-            }
+        }
     }
     if (event.code === "Numpad8"||event.code === "Digit8")  {
         if (clickCount % 2 === 0) {
             playVideo(videoUrls[7]);
+        }
+        else{
+            playVideo(newvideoUrls[7]);
         }   
     }
     if (event.code === 'Numpad9'||event.code === "Digit9") {
@@ -530,6 +533,18 @@ document.addEventListener("keydown", function(event) {
     }
     if (event.code === "KeyD"){
         videoPlayer.src = "Insert_Songs/Theater D.mp4";
+        videoPlayer.play();
+        currentIndex = -1;
+        newcurrentIndex = -1;
+    }
+    if (event.code === "KeyO"){
+        videoPlayer.src = "Openings_and_Endings/S1 Ending.mp4";
+        videoPlayer.play();
+        currentIndex = -1;
+        newcurrentIndex = -1;
+    }
+    if (event.code === "KeyP"){
+        videoPlayer.src = "Openings_and_Endings/S2 Ending.mp4";
         videoPlayer.play();
         currentIndex = -1;
         newcurrentIndex = -1;
