@@ -786,6 +786,7 @@ const FULL = document.getElementById('STYX_HELIX_FULL');
 const FULL_sidebar = document.getElementById('STYX_HELIX_FULL_sidebar')
 const OG = document.getElementById('STYX_HELIX_OG')
 const OG_sidebar = document.getElementById('STYX_HELIX_OG_sidebar')
+const SeasonsEndings = document.getElementsByClassName('Endings--Seasons')
 // Switch OP1 - STYX HELIX between cut and full version
 function ChangeStyxHelix(){
     keyB++;
@@ -797,6 +798,9 @@ function ChangeStyxHelix(){
             OG_sidebar.style.display = 'none';
             FULL.style.display = 'inline';
             FULL_sidebar.style.display = 'flex';
+            for (let i = 0; i < SeasonsEndings.length; i++) {
+                SeasonsEndings[i].style.display = 'flex';
+            }
             alert("Changed ED1 - STYX HELIX to full version")
         }
         else
@@ -807,6 +811,9 @@ function ChangeStyxHelix(){
             OG_sidebar.style.display = 'flex';
             FULL.style.display = 'none';
             FULL_sidebar.style.display = 'none';
+            for (let i = 0; i < SeasonsEndings.length; i++) {
+                SeasonsEndings[i].style.display = 'none';
+            }
             alert("Reverted changes to ED1 - STYX HELIX")
         }
 }

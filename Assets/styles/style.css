@@ -18,6 +18,9 @@ h3 a:link:active, h3 a:visited:active {
 a:active {
     color: gray;
 }
+.Endings--Seasons {
+    display: none;
+}
 .oldtopnav a:link:active, .oldtopnav a:visited:active {
     color: white;
 }
