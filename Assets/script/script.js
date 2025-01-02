@@ -681,10 +681,10 @@ const body = document.getElementById('body');
 const ReZeroCast = document.getElementById('subaru');
 const Trademark = document.getElementById('trademark');
 const GitHub = document.getElementById('github');
-let TheaterModeFlag = false;
-let TheaterModeClickCount = 0;
 const ExitTheaterModeButton = document.getElementById('ExitTheaterModeButton');
 const KeyboardControls = document.getElementById("KeyboardControls")
+let TheaterModeFlag = false;
+let TheaterModeClickCount = 0;
 
 TheaterMode.addEventListener('click',function() {
     TheaterModeClickCount++;
