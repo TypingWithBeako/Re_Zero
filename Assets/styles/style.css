@@ -47,6 +47,9 @@ video::-webkit-media-controls-toggle-closed-captions-button:hover {
 html,aside *, aside *:hover{
     cursor: var(--normalmouse)
 }
+button:disabled {
+    cursor: var(--normalmouse);
+}
 .Endings--Seasons {
     display: none;
 }

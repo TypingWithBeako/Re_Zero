@@ -567,6 +567,7 @@ nextButton.addEventListener('click',function(){
     nextClickCount++;
     isAnimating = true; // Set the flag to indicate that an animation is in progress
     this.setAttribute('disabled', 'disabled'); // Disable the clickable element
+    backButton.disabled = true;
     navbarContent.style.display = 'none';
     S3.style.display = 'flex';
     nextButton.style.display ='none';
@@ -576,6 +577,7 @@ nextButton.addEventListener('click',function(){
     setTimeout(() => {
         isAnimating = false; // Reset the flag once the animation is complete
         this.removeAttribute('disabled'); // Re-enable the clickable element
+        backButton.disabled = false;
         }, 2501);
 })
 backButton.addEventListener('click',function(){
@@ -585,6 +587,7 @@ backButton.addEventListener('click',function(){
     nextClickCount++;
     isAnimating = true; // Set the flag to indicate that an animation is in progress
     this.setAttribute('disabled', 'disabled'); // Disable the clickable element
+    nextButton.disabled = true; // Disable the clickable element
     navbarContent.style.display = 'flex';
     S3.style.display = 'none';
     nextButton.style.display ='inline';
@@ -594,6 +597,7 @@ backButton.addEventListener('click',function(){
     setTimeout(() => {
         isAnimating = false; // Reset the flag once the animation is complete
         this.removeAttribute('disabled'); // Re-enable the clickable element
+        nextButton.disabled = false; // Disable the clickable element
         }, 2501);
 })
 S3.addEventListener('animationend', () => {
