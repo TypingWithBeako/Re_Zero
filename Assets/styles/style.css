@@ -33,28 +33,23 @@ a:active {
 #text_to_change {
     font-family: 'Times New Roman', Times, serif!important;
 }
-#backButton {
+#nextButton, #backButton {
     position:absolute;
     margin: 0;
     top: 50%;
-    left:0;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    display:none;
     padding-left:0;
     background-color: transparent;
     border:none;
+    outline: none;
 }
 #nextButton {
-    position:absolute;
-    margin: 0;
-    top: 50%;
-    right:0;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    padding-right:0;
-    background-color: transparent;
-    border:none;
+    right: 0
+}
+#backButton {
+    left:0;
+    display:none;
 }
 .backIcon {
     width: 2vw;
@@ -63,6 +58,7 @@ a:active {
 .nextIcon {
     width: 2vw;
     height: 2vw;
+
 }
 #Season3Content {
     display:none;
