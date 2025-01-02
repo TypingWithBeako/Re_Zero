@@ -80,11 +80,7 @@ html,aside *, aside *:hover{
     left:0;
     display:none;
 }
-.backIcon {
-    width: 2vw;
-    height: 2vw;
-}
-.nextIcon {
+.nextIcon,.backIcon {
     width: 2vw;
     height: 2vw;
 }

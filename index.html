@@ -134,16 +134,16 @@
                             </li>
                         </ul>
                         <span id="ExitTheaterModeButton" onclick="ExitTheaterMode();simulateClick();closeFullscreen()" style="display: none;" onclick="simulateClick()" type="button" class="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-200 ">
-                            <svg style="cursor: pointer;" class="w-6 h-6 text-gray-800 dark:text-white"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                                 <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm7.707-3.707a1 1 0 0 0-1.414 1.414L10.586 12l-2.293 2.293a1 1 0 1 0 1.414 1.414L12 13.414l2.293 2.293a1 1 0 0 0 1.414-1.414L13.414 12l2.293-2.293a1 1 0 0 0-1.414-1.414L12 10.586 9.707 8.293Z" clip-rule="evenodd"/>
                             </svg>                      
-                            <span style="cursor: pointer;" class="flex-1 ml-3 text-left whitespace-nowrap">Exit Theater Mode</span>
+                            <span class="flex-1 ml-3 text-left whitespace-nowrap">Exit Theater Mode</span>
                         </span>
                         <footer onclick="ChangeToInsertSongs();simulateClick()" class="flex items-center p-5 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-300 ">
-                            <svg style="cursor: pointer;" class="w-6 h-6 text-gray-900 dark:text-white"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 text-gray-900 dark:text-white"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M5 13.17a3.001 3.001 0 0 0 0 5.66V20a1 1 0 1 0 2 0v-1.17a3.001 3.001 0 0 0 0-5.66V4a1 1 0 0 0-2 0v9.17ZM11 20v-9.17a3.001 3.001 0 0 1 0-5.66V4a1 1 0 1 1 2 0v1.17a3.001 3.001 0 0 1 0 5.66V20a1 1 0 1 1-2 0Zm6-1.17V20a1 1 0 1 0 2 0v-1.17a3.001 3.001 0 0 0 0-5.66V4a1 1 0 1 0-2 0v9.17a3.001 3.001 0 0 0 0 5.66Z"/>
                             </svg>
-                            <span style="cursor: pointer;" class="flex-1 ml-3 text-left whitespace-nowrap"><span id="SidebarButton">Switch to Insert Songs</span></span>
+                            <span class="flex-1 ml-3 text-left whitespace-nowrap"><span id="SidebarButton">Switch to Insert Songs</span></span>
                         </footer>
                     </li>
                 </ul>
@@ -208,27 +208,27 @@
         </div>
         <div class="content__video">
             <div class="button-container">
-                <span  class="fa-stack fa-1x" style="font-size: 1.05vw;cursor: pointer;" >
+                <span  class="fa-stack fa-1x" style="font-size: 1.05vw;" >
                     <i class="far fa-circle fa-stack-2x" ></i>
                     <i id = "randomize" class="fas fa-random fa-stack-1x" ></i>
                 </span>
                 <span style="font-size: 1vw;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Randomize</span>
-                <span class="fa-stack fa-1x" style="font-size: 1.05vw;cursor: pointer;">
+                <span class="fa-stack fa-1x" style="font-size: 1.05vw;">
                     <i class="far fa-circle fa-stack-2x" ></i>
                     <i id = "loop" class="fas fa-sync fa-stack-1x" ></i>
                 </span>
                 <span class ="looptext" style="font-size: 1vw; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Enable looping</span> 
-                <span  class="fa-stack fa-1x" style="font-size: 1.05vw;cursor: pointer;">
+                <span  class="fa-stack fa-1x" style="font-size: 1.05vw;">
                     <i class="far fa-circle fa-stack-2x"></i>
                     <i id = "Delay" class="fas fa-clock fa-stack-1x" ></i>
                 </span>
                 <span  style="font-size: 1vw;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Change Delay</span>
-                <span id="Desktop" onclick="togglePictureInPicture()" class="fa-stack fa-1x" style="font-size: 1.05vw;cursor: pointer;" >
+                <span id="Desktop" onclick="togglePictureInPicture()" class="fa-stack fa-1x" style="font-size: 1.05vw;" >
                     <i class="far fa-circle fa-stack-2x" ></i>
                     <i class="fa fa-expand" ></i>
                 </span>
                 <span id="Desktop-text" style="font-size: 1vw;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Picture in picture</span>
-                <span id="Theater" class="fa-stack fa-1x" style="font-size: 1.05vw;cursor: pointer;" >
+                <span id="Theater" class="fa-stack fa-1x" style="font-size: 1.05vw;" >
                     <i class="far fa-circle fa-stack-2x" ></i>
                     <i class="fas fa-music" ></i>
                 </span>
@@ -238,7 +238,7 @@
                 <source src="Openings_and_Endings/OP1 - Redo.mp4" type="video/mp4">
             </video>
             <div class="button-container-mobile">
-                <span onclick="togglePictureInPicture()" class="fa-stack fa-1x" style="font-size: 1.05vw;cursor: pointer;" >
+                <span onclick="togglePictureInPicture()" class="fa-stack fa-1x" style="font-size: 1.05vw;" >
                     <i class="far fa-circle fa-stack-2x" ></i>
                     <i class="fa fa-expand" ></i>
                 </span>
