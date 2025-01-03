@@ -6,7 +6,7 @@
 nav li:not(:last-child)::after {
     content: '|';
     background-color: white; 
-    margin: 0 1.7vw; 
+    margin: 0 0 0 2vw; 
 }  
 nav a:hover {
     text-decoration: underline;
@@ -98,15 +98,20 @@ button:disabled {
     background-color: #333;
     margin-top: 3vh;
 }
-#oldnavbarContent{
+#oldnavbarContent,#newnavbarContent{
     display: flex;
+    justify-content: space-evenly;
+}
+#Season3Content {
+    display: flex;
+    width: 50%;
+    justify-content: space-evenly;
 }
 nav li {
     float: left;
     color: #f2f2f2;
     text-align: justify;
     padding: 0.911vw 0;
-    margin-left: 1.45vw;
     text-decoration: none;
     font-size: 0.911vw;
     white-space: nowrap; /* Prevent text wrapping */  
@@ -120,7 +125,6 @@ nav li {
     color: #f2f2f2;
     text-align: left;
     padding: 0.911vw 0;
-    margin-left: 1.6vw;
     text-decoration: none;
     font-size: 0.911vw;
     white-space: nowrap; /* Prevent text wrapping */  
@@ -213,9 +217,6 @@ p {
 nav li {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold
-}
-#Season3Content li:first-child, #newnavbarContent li:first-child {
-    margin-left: 2vw;
 }
 .moveable_img{
     display: inline-block !important;

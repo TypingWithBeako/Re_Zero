@@ -726,7 +726,7 @@ TheaterMode.addEventListener('click',function() {
     }
     else
         if (clickCount%2==1){
-            newnavbarContent.style.display = 'block';
+            newnavbarContent.style.display = 'flex';
             paragraph.style.display = 'block';
             ReZeroCast.style.display = 'block';
             Trademark.style.display = 'block';
@@ -749,12 +749,12 @@ TheaterMode.addEventListener('click',function() {
         }
         else {
             if (nextClickCount%2==1){
-                S3.style.display = 'block';
+                S3.style.display = 'flex';
                 navbarContent.style.display = 'none';
             }
             else {
                 S3.style.display = 'none';
-                navbarContent.style.display = 'block';
+                navbarContent.style.display = 'flex';
             }
             paragraph.style.display = 'block';
             ReZeroCast.style.display = 'block';
