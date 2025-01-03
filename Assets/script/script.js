@@ -42,6 +42,7 @@ let originalIndex = 0;
 let keyB = 0
 
 function playVideo(videoName) {
+    nextVideo.src = '';
     // Extract the file name from the full path
     const songName = videoName.split('/').pop(); // Get the last part of the path after splitting by '/'
     // Update the video player screen with the selected video
