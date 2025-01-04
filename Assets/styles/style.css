@@ -27,7 +27,7 @@ a:active {
     color: gray;
 }
 button:disabled {
-    cursor: none;
+    cursor: default;
 }
 .Endings--Seasons {
     display: none;
