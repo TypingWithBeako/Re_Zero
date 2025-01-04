@@ -26,30 +26,8 @@ h3 a:link:active, h3 a:visited:active {
 a:active {
     color: gray;
 }
-a:hover,button:hover,i:hover,.moveable_img:hover,#songname:hover,
-video::-webkit-media-controls-play-button:hover,
-video::-webkit-media-controls-volume-slider-container:hover,
-video::-webkit-media-controls-volume-slider:hover,
-video::-webkit-media-controls-mute-button:hover,
-video::-webkit-media-controls-timeline:hover,
-video::-webkit-media-controls-timeline-container:hover,
-video::-webkit-media-controls-seek-back-button:hover,
-video::-webkit-media-controls-seek-forward-button:hover,
-video::-webkit-media-controls-fullscreen-button:hover,
-video::-webkit-media-controls-rewind-button:hover,
-video::-webkit-media-controls-return-to-realtime-button:hover,
-video::-webkit-media-controls-toggle-closed-captions-button:hover {
-    cursor: pointer;
-    cursor: var(--pointermouse)
-}
-.subaru:hover {
-    cursor: var(--subarumouse)
-}
-html,aside *, aside *:hover{
-    cursor: var(--normalmouse)
-}
 button:disabled {
-    cursor: var(--normalmouse);
+    cursor: none;
 }
 .Endings--Seasons {
     display: none;
