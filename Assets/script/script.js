@@ -693,6 +693,7 @@ const body = document.getElementById('body');
 const ReZeroCast = document.getElementById('subaru');
 const GitHub = document.getElementById('github');
 const ExitTheaterModeButton = document.getElementById('ExitTheaterModeButton');
+const EnterTheaterModeButton = document.getElementById('EnterTheaterModeButton');
 const KeyboardControls = document.getElementById("KeyboardControls")
 let TheaterModeFlag = false;
 let TheaterModeClickCount = 0;
@@ -723,6 +724,7 @@ TheaterMode.addEventListener('click',function() {
         document.documentElement.requestFullscreen();
         TheaterModeFlag = true;
         ExitTheaterModeButton.style.display ='flex';
+        EnterTheaterModeButton.style.display = 'none';
     }
     else
         if (clickCount%2==1){
@@ -744,6 +746,7 @@ TheaterMode.addEventListener('click',function() {
             videoPlayer.style.margin = '0 auto';
             videoPlayer.style.marginTop = '2vh';
             ExitTheaterModeButton.style.display ='none';
+            EnterTheaterModeButton.style.display = 'flex';
             TheaterModeFlag = false;
             closeFullscreen();
         }
@@ -773,10 +776,10 @@ TheaterMode.addEventListener('click',function() {
             videoPlayer.style.margin = '0 auto';
             videoPlayer.style.marginTop = '2vh';
             ExitTheaterModeButton.style.display ='none';
+            EnterTheaterModeButton.style.display = 'flex';
             TheaterModeFlag = false;
             closeFullscreen();
         }
-
 })
 function ChangeToInsertSongs() {
         moveableimg.click();

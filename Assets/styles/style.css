@@ -44,6 +44,13 @@ button:disabled {
 #text_to_change {
     font-family: 'Times New Roman', Times, serif!important;
 }
+#footer {
+    background-color: white;
+    bottom: 0;
+}
+#footer:hover {
+    background-color:  rgb(209 213 219);
+}
 #nextButton, #backButton {
     position:absolute;
     margin: 0;
@@ -243,6 +250,9 @@ animation-fill-mode: backwards;
     animation-delay:3.25s;
     animation-fill-mode: both;
 }
+#EnterTheaterModeButton {
+    display: none;
+}
 @keyframes fadeIn {
 from {
     transform: translateX(0%);
@@ -274,6 +284,9 @@ to {
     }
     .emilia {
         display:none;
+    }
+    #EnterTheaterModeButton {
+        display: flex;
     }
     body {
         display:block;
