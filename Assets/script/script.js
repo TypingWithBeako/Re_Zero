@@ -718,7 +718,7 @@ TheaterMode.addEventListener('click',function() {
         videoPlayer.style.position = 'relative';
         videoPlayer.style.width =  '160vh';
         videoPlayer.style.height = '90vh';
-        videoPlayer.style.marginTop = '4vh';
+        videoPlayer.style.marginTop = '7vh';
         videoPlayer.style.marginBottom = '5vh';
         body.style.backgroundColor = '#000000';
         body.style.backgroundImage = 'none';
