@@ -802,6 +802,7 @@ EnterTheaterModeButton.addEventListener('click',function() {
         videoPlayer.style.position = 'relative';
         videoPlayer.style.width =  'auto';
         videoPlayer.style.height = '100vh';
+        videoPlayer.style.margin = '0 auto'
         body.style.backgroundColor = '#000000';
         body.style.backgroundImage = 'none';
         document.documentElement.requestFullscreen();
