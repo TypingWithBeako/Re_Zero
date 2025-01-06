@@ -14,8 +14,9 @@ nav a:hover {
 nav li {
     list-style-type: none;
 }
-nav div {
-    border-color: #333333;
+nav div img {
+    width: 20.833vw;
+    height: auto
 }
 h3 a{
     color:#0000EE;
