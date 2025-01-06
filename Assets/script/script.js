@@ -696,6 +696,7 @@ const ExitTheaterModeButton = document.getElementById('ExitTheaterModeButton');
 const EnterTheaterModeButton = document.getElementById('EnterTheaterModeButton');
 const KeyboardControls = document.getElementById("KeyboardControls")
 let TheaterModeFlag = false;
+let TheaterModeMobileFlag = false;
 let TheaterModeClickCount = 0;
 
 TheaterMode.addEventListener('click',function() {
@@ -732,7 +733,7 @@ TheaterMode.addEventListener('click',function() {
             paragraph.style.display = 'block';
             ReZeroCast.style.display = 'block';
             Trademark.style.display = 'block';
-            GitHub.style.display = 'none';
+            GitHub.style.display = 'block';
             KeyboardControls.style.display = 'flex';
             moveableimg.style.setProperty('display', 'inline', 'important');
             textToChange.style.display = 'inline';
@@ -781,6 +782,87 @@ TheaterMode.addEventListener('click',function() {
             closeFullscreen();
         }
 })
+EnterTheaterModeButton.addEventListener('click',function() {
+    TheaterModeClickCount++;
+    TheaterModeMobileFlag = true;
+    if (TheaterModeClickCount%2==1){
+        navbarContent.style.display = 'none';
+        S3.style.display = 'none';
+        newnavbarContent.style.display = 'none';
+        paragraph.style.display = 'none';
+        ReZeroCast.style.display = 'none';
+        Trademark.style.display = 'none';
+        GitHub.style.display = 'none';
+        KeyboardControls.style.display = 'none';
+        moveableimg.style.setProperty('display', 'none', 'important');
+        textToChange.style.display = 'none';
+        for (let i = 0; i < ButtonContainer.length; i++) {
+            ButtonContainer[i].style.display = 'none';
+        }
+        videoPlayer.style.position = 'relative';
+        videoPlayer.style.width =  'auto';
+        videoPlayer.style.height = '100vh';
+        body.style.backgroundColor = '#000000';
+        body.style.backgroundImage = 'none';
+        document.documentElement.requestFullscreen();
+        TheaterModeFlag = true;
+        ExitTheaterModeButton.style.display ='flex';
+        EnterTheaterModeButton.style.display = 'none';
+    }
+    else
+        if (clickCount%2==1){
+            newnavbarContent.style.display = 'flex';
+            paragraph.style.display = 'block';
+            ReZeroCast.style.display = 'block';
+            Trademark.style.display = 'block';
+            GitHub.style.display = 'block';
+            moveableimg.style.setProperty('display', 'inline', 'important');
+            textToChange.style.display = 'inline';
+            for (let i = 0; i < ButtonContainer.length; i++) {
+                ButtonContainer[i].style.display = 'block';
+            }
+            body.style.backgroundImage = 'url(Other_Files/bg-tv.png)';
+            body.style.backgroundColor = '#FFFFFF';
+            videoPlayer.style.width =  '100%';
+            videoPlayer.style.height = 'auto';
+            videoPlayer.style.margin = '0 auto';
+            videoPlayer.style.marginTop = '6vw';
+            ExitTheaterModeButton.style.display ='none';
+            EnterTheaterModeButton.style.display = 'flex';
+            TheaterModeFlag = false;
+            closeFullscreen();
+        }
+        else {
+            if (nextClickCount%2==1){
+                S3.style.display = 'flex';
+                navbarContent.style.display = 'none';
+            }
+            else {
+                S3.style.display = 'none';
+                navbarContent.style.display = 'flex';
+            }
+            paragraph.style.display = 'block';
+            ReZeroCast.style.display = 'block';
+            Trademark.style.display = 'block';
+            GitHub.style.display = 'block';
+            moveableimg.style.setProperty('display', 'inline', 'important');
+            textToChange.style.display = 'inline';
+            for (let i = 0; i < ButtonContainer.length; i++) {
+                ButtonContainer[i].style.display = 'block';
+            }
+            body.style.backgroundImage = 'url(Other_Files/bg-tv.png)';
+            body.style.backgroundColor = '#FFFFFF';
+            videoPlayer.style.width =  '100%';
+            videoPlayer.style.height = 'auto';
+            videoPlayer.style.margin = '0 auto';
+            videoPlayer.style.marginTop = '6vw';
+            ExitTheaterModeButton.style.display ='none';
+            EnterTheaterModeButton.style.display = 'flex';
+            TheaterModeFlag = false;
+            closeFullscreen();
+        }
+})
+
 function ChangeToInsertSongs() {
         moveableimg.click();
         if (TheaterModeFlag==true) {
@@ -789,6 +871,9 @@ function ChangeToInsertSongs() {
         }
 }
 function ExitTheaterMode() {
+    if (TheaterModeMobileFlag)
+        EnterTheaterModeButton.click()
+    else
         TheaterMode.click();
 }
 document.addEventListener("DOMContentLoaded", function() {
