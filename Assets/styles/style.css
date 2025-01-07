@@ -18,7 +18,7 @@ nav a:hover {
 nav li {
     list-style-type: none;
 }
-nav div img {
+.navbar--tooltips div img {
     width: 20.833vw;
     height: auto
 }
@@ -202,6 +202,7 @@ p {
     margin-top: 2vh;
     display: block;
     position: relative;
+    overflow: visible;
 }
 nav li {
     font-family: Arial, Helvetica, sans-serif;
