@@ -120,6 +120,7 @@ nav li {
 }
 #newnavbarContent {
     display:none;
+    width: 87%;
 }
 body {
     background-image: url("../../Other_Files/bg-tv.png");
