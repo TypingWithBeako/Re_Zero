@@ -505,7 +505,7 @@ to {
     font-weight: bold;
 }
 @media (max-width: 768px) { /* Adjust min-width as needed for medium screens */
-    nav div {
+    .navbar--tooltips div {
       display: none !important; 
     }
   }
