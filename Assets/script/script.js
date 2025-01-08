@@ -747,7 +747,6 @@ TheaterMode.addEventListener('click',function() {
             videoPlayer.style.margin = '0 auto';
             videoPlayer.style.marginTop = '2vh';
             ExitTheaterModeButton.style.display ='none';
-            EnterTheaterModeButton.style.display = 'flex';
             TheaterModeFlag = false;
             closeFullscreen();
         }
@@ -777,7 +776,6 @@ TheaterMode.addEventListener('click',function() {
             videoPlayer.style.margin = '0 auto';
             videoPlayer.style.marginTop = '2vh';
             ExitTheaterModeButton.style.display ='none';
-            EnterTheaterModeButton.style.display = 'flex';
             TheaterModeFlag = false;
             closeFullscreen();
         }
