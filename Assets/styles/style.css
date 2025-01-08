@@ -290,6 +290,9 @@ to {
     #KeyboardControls {
         display:none;
     }
+    #twitter {
+        display: none;
+    }
     .emilia {
         display:none;
     }

@@ -21,7 +21,7 @@ $(window).on('load', function() {
         setTimeout(function(){
             $(".footer").fadeIn(1200)
             $(".loader--wrapper").remove()
-        },4600)
+        },4400)
     }, 2000);
 });
 function SkipLoading(){
@@ -58,3 +58,11 @@ img = $('<img />', { src : images[0].src, width: "auto", height: "160px" });
 div = $('<div></div>', { class : 'loader' });
 div.append(img);
 cont.append(div);
+$("#twitter").on('click',function(){
+    $(".twitter-wrapper").fadeIn(300);
+    $(".twitter-wrapper").css({'display':'flex','background':'rgba(0,0,0,0.6)'})
+})
+$(".twitter-wrapper").on('click',function(){
+    $(".twitter-wrapper").css({'background':'none'})
+    $(".twitter-wrapper").fadeOut(300)
+})
