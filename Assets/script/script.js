@@ -695,6 +695,7 @@ const GitHub = document.getElementById('github');
 const ExitTheaterModeButton = document.getElementById('ExitTheaterModeButton');
 const EnterTheaterModeButton = document.getElementById('EnterTheaterModeButton');
 const KeyboardControls = document.getElementById("KeyboardControls")
+const navbar = document.getElementById("oldtopnav")
 let TheaterModeFlag = false;
 let TheaterModeMobileFlag = false;
 let TheaterModeClickCount = 0;
@@ -718,14 +719,14 @@ TheaterMode.addEventListener('click',function() {
         videoPlayer.style.position = 'relative';
         videoPlayer.style.width =  '160vh';
         videoPlayer.style.height = '90vh';
-        videoPlayer.style.marginTop = '7vh';
-        videoPlayer.style.marginBottom = '5vh';
+        videoPlayer.style.margin = '5vh auto';
         body.style.backgroundColor = '#000000';
         body.style.backgroundImage = 'none';
         document.documentElement.requestFullscreen();
         TheaterModeFlag = true;
         ExitTheaterModeButton.style.display ='flex';
         EnterTheaterModeButton.style.display = 'none';
+        navbar.style.marginTop = '2vh'
     }
     else
         if (clickCount%2==1){
@@ -746,6 +747,7 @@ TheaterMode.addEventListener('click',function() {
             videoPlayer.style.height = '46.855vh';
             videoPlayer.style.margin = '0 auto';
             videoPlayer.style.marginTop = '2vh';
+            navbar.style.marginTop = '3vh'
             ExitTheaterModeButton.style.display ='none';
             TheaterModeFlag = false;
             closeFullscreen();
@@ -775,6 +777,7 @@ TheaterMode.addEventListener('click',function() {
             videoPlayer.style.height = '46.855vh';
             videoPlayer.style.margin = '0 auto';
             videoPlayer.style.marginTop = '2vh';
+            navbar.style.marginTop = '3vh'
             ExitTheaterModeButton.style.display ='none';
             TheaterModeFlag = false;
             closeFullscreen();
@@ -803,6 +806,7 @@ EnterTheaterModeButton.addEventListener('click',function() {
         videoPlayer.style.margin = '0 auto'
         body.style.backgroundColor = '#000000';
         body.style.backgroundImage = 'none';
+        navbar.style.marginTop = '0vh'
         document.documentElement.requestFullscreen();
         TheaterModeFlag = true;
         ExitTheaterModeButton.style.display ='flex';
@@ -826,6 +830,7 @@ EnterTheaterModeButton.addEventListener('click',function() {
             videoPlayer.style.height = 'auto';
             videoPlayer.style.margin = '0 auto';
             videoPlayer.style.marginTop = '6vw';
+            navbar.style.marginTop = '3vh'
             ExitTheaterModeButton.style.display ='none';
             EnterTheaterModeButton.style.display = 'flex';
             TheaterModeFlag = false;
@@ -855,6 +860,7 @@ EnterTheaterModeButton.addEventListener('click',function() {
             videoPlayer.style.height = 'auto';
             videoPlayer.style.margin = '0 auto';
             videoPlayer.style.marginTop = '6vw';
+            navbar.style.marginTop = '3vh'
             ExitTheaterModeButton.style.display ='none';
             EnterTheaterModeButton.style.display = 'flex';
             TheaterModeFlag = false;
