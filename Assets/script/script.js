@@ -830,7 +830,7 @@ EnterTheaterModeButton.addEventListener('click',function() {
             videoPlayer.style.height = 'auto';
             videoPlayer.style.margin = '0 auto';
             videoPlayer.style.marginTop = '6vw';
-            navbar.style.marginTop = '3vh'
+            navbar.style.marginTop = '2vh'
             ExitTheaterModeButton.style.display ='none';
             EnterTheaterModeButton.style.display = 'flex';
             TheaterModeFlag = false;
@@ -860,7 +860,7 @@ EnterTheaterModeButton.addEventListener('click',function() {
             videoPlayer.style.height = 'auto';
             videoPlayer.style.margin = '0 auto';
             videoPlayer.style.marginTop = '6vw';
-            navbar.style.marginTop = '3vh'
+            navbar.style.marginTop = '2vh'
             ExitTheaterModeButton.style.display ='none';
             EnterTheaterModeButton.style.display = 'flex';
             TheaterModeFlag = false;
