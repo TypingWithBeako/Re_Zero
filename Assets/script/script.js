@@ -40,6 +40,7 @@ let FclickCount = 0;
 let nextClickCount = 0;
 let originalIndex = 0;
 let keyB = 0
+let Fullscreen = null;
 
 function playVideo(videoName) {
     nextVideo.src = '';
@@ -111,6 +112,7 @@ const backButton = document.getElementById('backButton');
 const S3 = document.getElementById('Season3Content');
 const SidebarButton = document.getElementById('SidebarButton');
 const Trademark = document.getElementById('trademark');
+const body = document.getElementById('body');
 
 
 moveableimg.addEventListener('click', function(){
@@ -335,6 +337,21 @@ loopVideo.addEventListener('click',function() {
         }
     }
 });
+
+Fullscreen = function(){
+    document.documentElement.requestFullscreen();
+}
+
+// Check for orientation change using matchMedia (for mobile devices)
+const checkOrientation = () => {
+    if (window.matchMedia("(max-width: 768px) and (orientation: landscape)").matches) {
+        body.addEventListener('click',Fullscreen(),{once :  true})
+        body.removeEventListener('click', Fullscreen(),{once : true})
+    }
+};
+// Listen for orientation changes
+window.addEventListener("resize", checkOrientation);
+
 
 // Function to shuffle the array elements randomly
 function shuffleArray(array) {
@@ -680,7 +697,6 @@ function closeFullscreen() {
 const TheaterMode = document.getElementById('Theater');
 const ButtonContainer = document.getElementsByClassName('button-container');
 const paragraph = document.getElementById('paragraph');
-const body = document.getElementById('body');
 const ReZeroCast = document.getElementById('subaru');
 const GitHub = document.getElementById('github');
 const ExitTheaterModeButton = document.getElementById('ExitTheaterModeButton');

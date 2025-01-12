@@ -509,7 +509,7 @@ to {
     }
 }
 @media screen and (max-width: 768px) and (orientation: landscape) {
-    .content__navbar, #paragraph, .subaru, .trademark, #github, #KeyboardControls, #text_to_change, .button-container, #ExitTheaterModeButton, #EnterTheaterModeButton, #moveable_img {
+    .content__navbar, #paragraph, .subaru, .trademark, #github, #KeyboardControls, #text_to_change, .button-container,.button-container-mobile, #ExitTheaterModeButton, #EnterTheaterModeButton, #moveable_img {
         display: none !important;
     }
     #videoPlayer {
