@@ -389,15 +389,6 @@ document.getElementById("Delay").addEventListener("click", function() {
     console.log("Delay updated to", newDelay, "milliseconds");
 });
 
-// Check for orientation change using matchMedia (for mobile devices)
-const checkOrientation = () => {
-    if (window.matchMedia("(max-width: 722px) and (orientation: landscape)").matches) {
-        alert("Please switch to portrait mode for the best experience.");
-    }
-};
-// Listen for orientation changes
-window.addEventListener("resize", checkOrientation);
-
 // Register key being pressed
 document.addEventListener("keydown", function(event) {
     // Play/pause the video when pressing space
