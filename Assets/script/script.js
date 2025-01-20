@@ -120,6 +120,14 @@ videoPlayer.addEventListener('play',function(){
     navigator.mediaSession.metadata = new MediaMetadata({
         title: name,//the title of the media
         artist: artist,//the artist of the media
+        artwork: 
+        [
+            {
+              src: "Icons/artworks/Redo_Cover.webp",
+              sizes: "512x512",
+              type: "image/png",
+            },
+        ]
       });
     document.title = name;
 })
