@@ -66,3 +66,8 @@ $(".twitter-wrapper").on('click',function(){
     $(".twitter-wrapper").css({'background':'none'})
     $(".twitter-wrapper").fadeOut(300)
 })
+
+window.addEventListener('blur', () => {
+    // Remove focus from all interactive elements
+    document.activeElement?.blur(); 
+})
