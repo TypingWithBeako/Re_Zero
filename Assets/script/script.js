@@ -103,6 +103,15 @@ videoPlayer.addEventListener('play',function(){
             type: "image/png",
           }
     }
+    else if (songName == 'ED1%20-%20STYX%20HELIX%20slow.mp4') {
+        name = 'STYX HELIX (slow ver.)'
+        artist = 'Mayu Maeshima'
+        musicArtwork = {
+            src: "Icons/artworks/STYX_HELIX_Cover.webp",
+            sizes: "997x992",
+            type: "image/png",
+          }
+    }
     else if (clickCount %2 == 1){
         const songName = newvideoUrls[newcurrentIndex].split('/').pop();
         const lastDot = songName.lastIndexOf('.'); // exactly what it says on the tin
@@ -749,6 +758,12 @@ document.addEventListener("keydown", function(event) {
     }
     if (event.code === "KeyP"){
         videoPlayer.src = "Openings_and_Endings/S2 Ending.mp4";
+        videoPlayer.play();
+        currentIndex = -1;
+        newcurrentIndex = -1;
+    }
+    if (event.code === "KeyS"){
+        videoPlayer.src = "Openings_and_Endings/ED1 - STYX HELIX slow.mp4";
         videoPlayer.play();
         currentIndex = -1;
         newcurrentIndex = -1;
