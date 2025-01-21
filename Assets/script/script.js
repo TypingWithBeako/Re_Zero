@@ -480,9 +480,20 @@ function ResetArray(){
 }
 videoPlayer.addEventListener('ended',ResetArray)
 
+function cleanVideoSrc(src) {
+    const startIndex = src.lastIndexOf("/") - 20; 
+    const cleanedPath = src.substring(startIndex);
+    return cleanedPath.replace(/%20/g, ' ');
+}
+
+
 // Enable and Disable Looping functions
 enableLoopingListener = function EnableLooping() {
-    if (clickCount % 2 == 1) {
+    const currentVideo = cleanVideoSrc(videoPlayer.src)
+    if (!videoUrls.includes(currentVideo) && !newvideoUrls.includes(currentVideo)){
+        clearTimeout(nextVideoTimeout);
+    }
+    else if (clickCount % 2 == 1) {
         loopcurrentIndex = newcurrentIndex;
         videoPlayer.src = newvideoUrls[loopcurrentIndex];
         clearTimeout(nextVideoTimeout);
@@ -503,7 +514,15 @@ loopVideo.addEventListener('click',function() {
         loopText.innerHTML = "Disable looping";
         videoPlayer.removeEventListener('ended',ResetArray);
         videoPlayer.addEventListener('ended', enableLoopingListener);
-        if (clickCount % 2 == 1){ 
+        const currentVideo = cleanVideoSrc(videoPlayer.src)
+        if (!videoUrls.includes(currentVideo) && !newvideoUrls.includes(currentVideo)){
+            const songName = currentVideo.split('/').pop(); // Get the last part of the path after splitting by '/'
+            const lastDot = songName.lastIndexOf('.'); // exactly what it says on the tin
+            const name = songName.slice(0, lastDot); // characters from the start to the last dot
+            console.log('Video looping enabled for:', songName);
+            alert("Video looping enabled for: " + name);   
+        }
+        else if (clickCount % 2 == 1){ 
             const songName = newvideoUrls[newcurrentIndex].split('/').pop(); // Get the last part of the path after splitting by '/'
             console.log('Video looping enabled for:', songName);
             alert("Video looping enabled for: " + songName);
@@ -520,7 +539,15 @@ loopVideo.addEventListener('click',function() {
         loopText.innerHTML = "Enable looping";
         videoPlayer.removeEventListener('ended', enableLoopingListener);
         videoPlayer.addEventListener('ended',ResetArray);
-        if (clickCount % 2 == 1){
+        const currentVideo = cleanVideoSrc(videoPlayer.src)
+        if (!videoUrls.includes(currentVideo) && !newvideoUrls.includes(currentVideo)){
+            const songName = currentVideo.split('/').pop(); // Get the last part of the path after splitting by '/'
+            const lastDot = songName.lastIndexOf('.'); // exactly what it says on the tin
+            const name = songName.slice(0, lastDot); // characters from the start to the last dot
+            console.log('Video looping disabled for:', name);
+            alert("Video looping disabled for: " + name);
+        }
+        else if (clickCount % 2 == 1){
             const songName = newvideoUrls[newcurrentIndex].split('/').pop();
             console.log('Video looping disabled for:', songName)
             alert("Video looping disabled for: " + songName);
