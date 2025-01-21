@@ -13,7 +13,7 @@ nav li:not(:last-child)::after {
     margin: 0 0 0 2.34vw; 
 }  
 nav a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 nav li {
     list-style-type: none;
@@ -32,7 +32,7 @@ h3 a:link:active, h3 a:visited:active {
     color: #FF0000; 
 }
 a:active {
-    color: gray;
+    color: gray !important;
 }
 button:disabled {
     cursor: default;
