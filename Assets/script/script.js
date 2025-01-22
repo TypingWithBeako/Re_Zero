@@ -577,6 +577,10 @@ const checkOrientation = () => {
             videoPlayer.style.margin = "0 auto";
         },700)
     }
+    else if (window.matchMedia("(max-width: 768px) and (orientation: portrait").matches) {
+        videoPlayer.style.height = "auto";
+        videoPlayer.style.marginTop = "6vw"; 
+    }
 };
 // Listen for orientation changes
 window.addEventListener("resize", checkOrientation);
