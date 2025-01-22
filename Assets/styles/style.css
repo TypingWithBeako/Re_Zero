@@ -257,9 +257,6 @@ animation-fill-mode: backwards;
     animation-delay:3.25s;
     animation-fill-mode: both;
 }
-#EnterTheaterModeButton {
-    display: none;
-}
 @keyframes fadeIn {
 from {
     transform: translateX(0%);
@@ -294,9 +291,6 @@ to {
     }
     .emilia {
         display:none;
-    }
-    #EnterTheaterModeButton {
-        display: flex;
     }
     body {
         display:block;
@@ -508,7 +502,7 @@ to {
     }
 }
 @media screen and (max-width: 768px) and (orientation: landscape) {
-    .content__navbar, #paragraph, .subaru, .trademark, #github, #KeyboardControls, #text_to_change, .button-container,.button-container-mobile, #ExitTheaterModeButton, #EnterTheaterModeButton, #moveable_img {
+    .content__navbar, #paragraph, .subaru, .trademark, #github, #KeyboardControls, #text_to_change, .button-container,.button-container-mobile, #ExitTheaterModeButton, #moveable_img {
         display: none !important;
     }
     #videoPlayer {
