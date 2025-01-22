@@ -517,28 +517,4 @@ to {
     .oldtopnav {
         margin-top: 0;
     }
-    /* navbarContent.style.display = 'none';
-    S3.style.display = 'none';
-    newnavbarContent.style.display = 'none';
-    paragraph.style.display = 'none';
-    ReZeroCast.style.display = 'none';
-    Trademark.style.display = 'none';
-    GitHub.style.display = 'none';
-    KeyboardControls.style.display = 'none';
-    moveableimg.style.setProperty('display', 'none', 'important');
-    textToChange.style.display = 'none';
-    for (let i = 0; i < ButtonContainer.length; i++) {
-        ButtonContainer[i].style.display = 'none';
-    }
-    videoPlayer.style.position = 'relative';
-    videoPlayer.style.width =  'auto';
-    videoPlayer.style.height = '100vh';
-    videoPlayer.style.margin = '0 auto'
-    body.style.backgroundColor = '#000000';
-    body.style.backgroundImage = 'none';
-    navbar.style.marginTop = '0vh'
-    document.documentElement.requestFullscreen();
-    TheaterModeFlag = true;
-    ExitTheaterModeButton.style.display ='flex';
-    EnterTheaterModeButton.style.display = 'none'; */
 }
