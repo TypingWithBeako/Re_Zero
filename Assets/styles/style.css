@@ -511,7 +511,7 @@ to {
     .content__navbar, #paragraph, .subaru, .trademark, #github, #KeyboardControls, #text_to_change, .button-container,.button-container-mobile, #ExitTheaterModeButton, #EnterTheaterModeButton, #moveable_img {
         display: none !important;
     }
-    #videoPlayer:fullscreen {
+    #videoPlayer {
         width: auto;
         height: 100vh;
         margin: 0 auto;

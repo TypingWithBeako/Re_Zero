@@ -571,6 +571,11 @@ const checkOrientation = () => {
     if (window.matchMedia("(max-width: 768px) and (orientation: landscape)").matches) {
         body.addEventListener('click',Fullscreen(),{once :  true})
         body.removeEventListener('click', Fullscreen(),{once : true})
+        setTimeout(function(){
+            videoPlayer.style.width = "auto";
+            videoPlayer.style.height = "100vh";
+            videoPlayer.style.margin = "0 auto";
+        },700)
     }
 };
 // Listen for orientation changes
