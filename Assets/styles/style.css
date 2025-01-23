@@ -17,6 +17,11 @@ nav a:hover {
     color: white;
     opacity: 0.7;
 }
+#nextnavbarContent li:not(:last-child)::after {
+    content: '|';
+    background-color: white; 
+    margin: 0 0 0 3vw; 
+}
 nav li {
     list-style-type: none;
 }
@@ -80,7 +85,7 @@ button:disabled {
     width: 2vw;
     height: 2vw;
 }
-#Season3Content {
+#nextnavbarContent {
     text-align: center;
 }
 .oldtopnav {
@@ -88,13 +93,17 @@ button:disabled {
     background-color: #333;
     margin-top: 3vh;
 }
-#oldnavbarContent,#newnavbarContent,#Season3Content{
+#oldnavbarContent,#newnavbarContent,#nextnavbarContent,#lastnavbarContent{
     display: flex;
     justify-content: space-evenly;
 }
-#Season3Content {
-    width: 55%;
+#nextnavbarContent {
+    width: 100%;
     display:none;
+}
+#lastnavbarContent {
+    display: none;
+    width: 70%
 }
 nav li {
     float: left;
@@ -215,8 +224,6 @@ nav li {
     position:relative;
     margin-top: 1vw;
     left:1vw;
-    cursor: pointer;
-    pointer-events: all !important;
 }
 .button-container-mobile {
     display:none;
@@ -240,7 +247,7 @@ animation-delay:2s;
 animation-fill-mode: backwards;
 }
 .fade-in{
-    animation: fadeIn 2.5s ease;
+    animation: fadeIn 800ms ease;
 }
 .fade-in-title{
     animation: fadeIn 2.5s ease;
