@@ -73,14 +73,11 @@
                             <svg  class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                         </button>
                         <ul id="Endings_Content" class="hidden py-2 space-y-2">
-                            <li>
-                                <a href="#" onclick="playVideo('Openings_and_Endings/ED1 - STYX HELIX nocut.mp4')" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-green-100" >ED1 - STYX HELIX (1st)</a>
+                            <li id="STYX_HELIX_OG_sidebar">
+                                <a href="#" onclick="playVideo('Openings_and_Endings/ED1 - STYX HELIX.mp4')" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-green-100" >ED1 - STYX HELIX</a>
                             </li>
-                            <li>
-                                <a href="#" onclick="playVideo('Openings_and_Endings/ED1 - STYX HELIX.mp4')" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-green-100" >ED1 - STYX HELIX (2nd)</a>
-                            </li>
-                            <li>
-                                <a href="#" onclick="playVideo('Openings_and_Endings/ED1 - STYX HELIX slow.mp4')" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-green-100" >ED1 - STYX HELIX (3rd)</a>
+                            <li id="STYX_HELIX_FULL_sidebar" style="display: none; margin-top: 0;">
+                                <a href="#" onclick="playVideo('Openings_and_Endings/ED1 - STYX HELIX nocut.mp4')" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-green-100" >ED1 - STYX HELIX</a>
                             </li>
                             <li>
                                 <a href="#" onclick="playVideo('Openings_and_Endings/ED2 - Stay Alive.mp4')" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-green-100">ED2 - Stay Alive</a>
@@ -94,16 +91,16 @@
                             <li>    
                                 <a href="#" onclick="playVideo('Openings_and_Endings/ED5 - NOX LUX.mp4')" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-green-100">ED5 - NOX LUX</a>
                             </li>
-                            <li>
+                            <li class="Endings--Seasons">
                                 <a href="#" onclick="playVideo('Openings_and_Endings/S1 Ending.mp4')" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-green-100">Season 1 Ending</a>
                             </li>
-                            <li>
+                            <li class="Endings--Seasons">
                                 <a href="#" onclick="playVideo('Openings_and_Endings/S2 Ending.mp4')" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-green-100">Season 2 Ending</a>
                             </li>
                         </ul>
                     </li>
                     <li class="space-y-1">
-                        <button type="button" id = "Insert_Songs" class="flex items-center p-2  w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-300 " aria-controls="Insert_Songs_Content" data-collapse-toggle="Insert_Songs_Content">
+                        <button type="button" id = "Insert_Songs" style="display: none;" class="flex items-center p-2  w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-300 " aria-controls="Insert_Songs_Content" data-collapse-toggle="Insert_Songs_Content">
                             <svg class="w-6 h-6 text-gray-800 dark:text-white"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                                 <path fill-rule="evenodd" d="M17.316 4.052a.99.99 0 0 0-.9.14c-.262.19-.416.495-.416.82v8.566a4.573 4.573 0 0 0-2-.464c-1.99 0-4 1.342-4 3.443 0 2.1 2.01 3.443 4 3.443 1.99 0 4-1.342 4-3.443V6.801c.538.5 1 1.219 1 2.262 0 .56.448 1.013 1 1.013s1-.453 1-1.013c0-1.905-.956-3.18-1.86-3.942a6.391 6.391 0 0 0-1.636-.998 4 4 0 0 0-.166-.063l-.013-.005-.005-.002h-.002l-.002-.001ZM4 5.012c-.552 0-1 .454-1 1.013 0 .56.448 1.013 1 1.013h9c.552 0 1-.453 1-1.013 0-.559-.448-1.012-1-1.012H4Zm0 4.051c-.552 0-1 .454-1 1.013 0 .56.448 1.013 1 1.013h9c.552 0 1-.454 1-1.013 0-.56-.448-1.013-1-1.013H4Zm0 4.05c-.552 0-1 .454-1 1.014 0 .559.448 1.012 1 1.012h4c.552 0 1-.453 1-1.012 0-.56-.448-1.013-1-1.013H4Z" clip-rule="evenodd"/>
                             </svg>                      
@@ -119,9 +116,6 @@
                             </li>
                             <li>
                                 <a href="#" onclick="playVideo('Insert_Songs/White White Snow.mp4')" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-green-100">White White Snow</a>
-                            </li>
-                            <li>
-                                <a href="#" onclick="playVideo('Insert_Songs/Theater D.mp4')" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-green-100">Theater D</a>
                             </li>
                             <li>
                                 <a href="#" onclick="playVideo('Insert_Songs/Yuki no hate ni Kimi no na wo.mp4')" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-green-100">Your Name</a>
@@ -145,16 +139,24 @@
                             </svg>                      
                             <span class="flex-1 ml-3 text-left whitespace-nowrap">Exit Theater Mode</span>
                         </span>
+                        <footer id="footer" style="cursor: pointer;" onclick="ChangeToInsertSongs();simulateClick()" class="flex items-center p-5 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-300 ">
+                            <svg class="w-6 h-6 text-gray-900 dark:text-white"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M5 13.17a3.001 3.001 0 0 0 0 5.66V20a1 1 0 1 0 2 0v-1.17a3.001 3.001 0 0 0 0-5.66V4a1 1 0 0 0-2 0v9.17ZM11 20v-9.17a3.001 3.001 0 0 1 0-5.66V4a1 1 0 1 1 2 0v1.17a3.001 3.001 0 0 1 0 5.66V20a1 1 0 1 1-2 0Zm6-1.17V20a1 1 0 1 0 2 0v-1.17a3.001 3.001 0 0 0 0-5.66V4a1 1 0 1 0-2 0v9.17a3.001 3.001 0 0 0 0 5.66Z"/>
+                            </svg>
+                            <span class="flex-1 ml-3 text-left whitespace-nowrap"><span id="SidebarButton">Switch to Insert Songs</span></span>
+                        </footer>
                     </li>
                 </ul>
             </div>
         </aside>
         <h1>
             <img id = "moveable_img" class= "moveable_img" src="Other_Files/Re_ZERO icon (1).png"  alt="Re:ZERO" >
-            <span  id="text_to_change"> Chronological Timeline</span>
+            <span  id="text_to_change"> All OPs and EDs </span>
         </h1>
         <p id='paragraph' style="line-height: normal;">
-            Best moments from 3 Seasons of <span class ="Re" style = "color:#7771b3">Re</span>:<span class="ZE">ZE</span><span class ="RO">RO</span>! 
+            My first project - Feel free to enjoy the <span class ="Re" style = "color:#7771b3">Re</span>:<span class="ZE">ZE</span><span class ="RO">RO</span> 
+            <span id="bodytext">Openings and Endings!</span> <br>
+            (Click on the logo to change to <span id="songname">Insert Songs</span>)
         </p>
         <div id="github">
             <a href="https://github.com/TypingWithBeako/Re_Zero" target="_blank">
@@ -170,36 +172,36 @@
                 <button id="backButton">
                     <img class = "backIcon" src="Other_Files/previous.png" alt="Back button">
                 </button>
-                <nav id = "oldnavbarContent">
-                    <li><a data-tooltip-target="tooltip-STYX_HELIX_FULL" data-tooltip-placement="bottom" href="#" onclick="playVideo('Openings_and_Endings/ED1 - STYX HELIX nocut.mp4')" >STYX HELIX (1st)</a></li>
-                    <li><a data-tooltip-target="tooltip-Redo" data-tooltip-placement="bottom" href="#" onclick="playVideo('Openings_and_Endings/OP1 - Redo.mp4')">Redo</a></li>
-                    <li><a data-tooltip-target="tooltip-STYX_HELIX_OG" data-tooltip-placement="bottom" href="#" onclick="playVideo('Openings_and_Endings/ED1 - STYX HELIX.mp4')" >STYX HELIX (2nd)</a></li>
-                    <li><a data-tooltip-target="tooltip-STRAIGHT_BET" data-tooltip-placement="bottom" href="#" onclick="playVideo('Insert_Songs/STRAIGHT BET.mp4')">STRAIGHT BET</a></li>
-                    <li><a data-tooltip-target="tooltip-STYX_HELIX_slow" data-tooltip-placement="bottom" href="#" onclick="playVideo('Openings_and_Endings/ED1 - STYX HELIX slow.mp4')">STYX HELIX (3rd)</a></li>
-                    <li><a data-tooltip-target="tooltip-Memories" data-tooltip-placement="bottom" href="#" onclick="playVideo('Insert_Songs/Memories.mp4')">Memories</a></li>
-                    <li><a data-tooltip-target="tooltip-White_White_Snow" data-tooltip-placement="bottom" href="#" onclick="playVideo('Insert_Songs/White White Snow.mp4')">White White Snow</a></li>
-                    <li><a data-tooltip-target="tooltip-Paradisus-Paradoxum" data-tooltip-placement="bottom" href="#" onclick="playVideo('Openings_and_Endings/OP2 - Paradisus - Paradoxum.mp4')">Paradisus - Paradoxum</a></li>
+                <nav id ="oldnavbarContent">
+                    <li><a data-tooltip-target="tooltip-Redo" data-tooltip-placement="bottom" href="#" onclick="playVideo('Openings_and_Endings/OP1 - Redo.mp4')">OP1 - Redo</a></li>
+                    <li id="STYX_HELIX_OG"><a data-tooltip-target="tooltip-STYX_HELIX_OG" data-tooltip-placement="bottom" href="#" onclick="playVideo('Openings_and_Endings/ED1 - STYX HELIX.mp4')" >ED1 - STYX HELIX</a></li>
+                    <li id="STYX_HELIX_FULL" style="display: none;"><a data-tooltip-target="tooltip-STYX_HELIX_FULL" data-tooltip-placement="bottom" href="#" onclick="playVideo('Openings_and_Endings/ED1 - STYX HELIX nocut.mp4')" >ED1 - STYX HELIX</a></li>
+                    <li><a data-tooltip-target="tooltip-Paradisus-Paradoxum" data-tooltip-placement="bottom" href="#" onclick="playVideo('Openings_and_Endings/OP2 - Paradisus - Paradoxum.mp4')">OP2 - Paradisus - Paradoxum</a></li>
+                    <li><a data-tooltip-target="tooltip-Stay_Alive" data-tooltip-placement="bottom" href="#" onclick="playVideo('Openings_and_Endings/ED2 - Stay Alive.mp4')">ED2 - Stay Alive</a></li>
+                    <li><a data-tooltip-target="tooltip-Realize" data-tooltip-placement="bottom" href="#" onclick="playVideo('Openings_and_Endings/OP3 - Realize.mp4')">OP3 - Realize</a></li>
+                    <li><a data-tooltip-target="tooltip-Memento" data-tooltip-placement="bottom" href="#" onclick="playVideo('Openings_and_Endings/ED3 - Memento.mp4')">ED3 - Memento</a></li>
+                    <li><a data-tooltip-target="tooltip-Long_shot" data-tooltip-placement="bottom" href="#" onclick="playVideo('Openings_and_Endings/OP4 - Long shot.mp4')">OP4 - Long shot</a></li>
+                    <li><a data-tooltip-target="tooltip-Believe_in_you" data-tooltip-placement="bottom" href="#" onclick="playVideo('Openings_and_Endings/ED4 - Believe in you.mp4')">ED4 - Believe in you</a></li> 
                 </nav>
                 <button id = "nextButton">
                     <img class="nextIcon" src="Other_Files/next.png" alt="Next button">
                 </button>
-                <nav id = "nextnavbarContent">
-                    <li><a data-tooltip-target="tooltip-Stay_Alive" data-tooltip-placement="bottom" href="#" onclick="playVideo('Openings_and_Endings/ED2 - Stay Alive.mp4')">Stay Alive</a></li>
-                    <li><a data-tooltip-target="tooltip-Theater_D" data-tooltip-placement="bottom" href="#" onclick="playVideo('Insert_Songs/Theater D.mp4')">Theater D</a></li>
-                    <li><a data-tooltip-target="tooltip-Wishing" data-tooltip-placement="bottom" href="#" onclick="playVideo('Insert_Songs/Wishing.mp4')">Wishing</a></li>
-                    <li><a data-tooltip-target="tooltip-Ending_1" data-tooltip-placement="bottom" href="#" onclick="playVideo('S1 Ending.mp4')">Season 1 Ending</a></li>
-                    <li><a data-tooltip-target="tooltip-Realize" data-tooltip-placement="bottom" href="#" onclick="playVideo('Openings_and_Endings/OP3 - Realize.mp4')">Realize</a></li>
-                    <li><a data-tooltip-target="tooltip-Memento" data-tooltip-placement="bottom" href="#" onclick="playVideo('Openings_and_Endings/ED3 - Memento.mp4')">Memento</a></li>
-                    <li><a data-tooltip-target="tooltip-Your_Name" data-tooltip-placement="bottom" href="#" onclick="playVideo('Insert_Songs/Yuki no hate ni Kimi no na wo.mp4')">Your Name</a></li>
-                    <li><a data-tooltip-target="tooltip-Door" data-tooltip-placement="bottom" href="#" onclick="playVideo('Insert_Songs/Door.mp4')">Door</a></li>
-                    <li><a data-tooltip-target="tooltip-Long_shot" data-tooltip-placement="bottom" href="#" onclick="playVideo('Openings_and_Endings/OP4 - Long shot.mp4')">Long shot</a></li>
+                <nav id = "Season3Content">
+                    <li><a data-tooltip-target="tooltip-Reweave" data-tooltip-placement="bottom" href="#" onclick="playVideo('Openings_and_Endings/OP5 - Reweave.mp4')">OP5 - Reweave</a></li>
+                    <li><a data-tooltip-target="tooltip-NOX_LUX" data-tooltip-placement="bottom" href="#" onclick="playVideo('Openings_and_Endings/ED5 - NOX LUX.mp4')">ED5 - NOX LUX</a></li>
+                    <li><a href="#">OP6 - To be announced</a></li>
+                    <li><a href="#">ED6 - To be announced</a></li>
                 </nav>
-                <nav id="lastnavbarContent">
-                    <li><a data-tooltip-target="tooltip-Believe_in_you" data-tooltip-placement="bottom" href="#" onclick="playVideo('Openings_and_Endings/ED4 - Believe in you.mp4')">Believe in you</a></li>
+            </div>
+            <div class ="newtopnav">
+                <nav id = "newnavbarContent">
+                    <li><a data-tooltip-target="tooltip-STRAIGHT_BET" data-tooltip-placement="bottom" href="#" onclick="playVideo('Insert_Songs/STRAIGHT BET.mp4')">STRAIGHT BET</a></li>
+                    <li><a data-tooltip-target="tooltip-Memories" data-tooltip-placement="bottom" href="#" onclick="playVideo('Insert_Songs/Memories.mp4')">Memories</a></li>
+                    <li><a data-tooltip-target="tooltip-White_White_Snow" data-tooltip-placement="bottom" href="#" onclick="playVideo('Insert_Songs/White White Snow.mp4')">White White Snow</a></li>
+                    <li><a data-tooltip-target="tooltip-Your_Name" data-tooltip-placement="bottom" href="#" onclick="playVideo('Insert_Songs/Yuki no hate ni Kimi no na wo.mp4')">Your Name</a></li>
+                    <li><a data-tooltip-target="tooltip-Wishing" data-tooltip-placement="bottom" href="#" onclick="playVideo('Insert_Songs/Wishing.mp4')">Wishing</a></li>
+                    <li><a data-tooltip-target="tooltip-Door" data-tooltip-placement="bottom" href="#" onclick="playVideo('Insert_Songs/Door.mp4')">Door</a></li>
                     <li><a data-tooltip-target="tooltip-What_you_dont_know" data-tooltip-placement="bottom" href="#" onclick="playVideo('Insert_Songs/What you don\'t know.mp4')">What you don't know</a></li>
-                    <li><a data-tooltip-target="tooltip-Ending_2" data-tooltip-placement="bottom" href="#" onclick="playVideo('Openings_and_Endings/S2 Ending.mp4')">Season 2 Ending</a></li>
-                    <li><a data-tooltip-target="tooltip-Reweave" data-tooltip-placement="bottom" href="#" onclick="playVideo('Openings_and_Endings/OP5 - Reweave.mp4')">Reweave</a></li>
-                    <li><a data-tooltip-target="tooltip-NOX_LUX" data-tooltip-placement="bottom" href="#" onclick="playVideo('Openings_and_Endings/ED5 - NOX LUX.mp4')">NOX LUX</a></li>
                     <li><a data-tooltip-target="tooltip-I_Trust_You" data-tooltip-placement="bottom" href="#" onclick="playVideo('Insert_Songs/I Trust You.mp4')">I Trust You</a></li>
                 </nav>
             </div>
@@ -217,11 +219,6 @@
                 <div id="tooltip-STYX_HELIX_FULL" role="tooltip" class="flex flex-col items-center absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-200 bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-800">
                     Played in Episode 1B
                     <img src="Other_Files/Thumbnails/ED1 - STYX HELIX nocut.mp4_snapshot_01.29.374.jpg"  alt="" style="margin-top: 5px;padding-bottom: 5px;">
-                    <div class="tooltip-arrow" data-popper-arrow></div>
-                </div>
-                <div id="tooltip-STYX_HELIX_slow" role="tooltip" class="flex flex-col items-center absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-200 bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-800">
-                    Played in Episode 5B
-                    <img src="Other_Files/Thumbnails/ED1 - STYX HELIX slow.mp4_snapshot_00.39.650.jpg"  alt="" style="margin-top: 5px;padding-bottom: 5px;">
                     <div class="tooltip-arrow" data-popper-arrow></div>
                 </div>
                 <div id="tooltip-Paradisus-Paradoxum" role="tooltip" class="flex flex-col items-center absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-200 bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-600">
@@ -289,11 +286,6 @@
                     <img src="Other_Files/Thumbnails/Wishing.mp4_snapshot_03.40.705.jpg"  alt="" style="margin-top: 5px;padding-bottom: 5px;">
                     <div class="tooltip-arrow" data-popper-arrow></div>
                 </div>
-                <div id="tooltip-Theater_D" role="tooltip" class="flex flex-col items-center absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-200 bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
-                    Played in Episode 8A
-                    <img src="Other_Files/Thumbnails/Theater D.mp4_snapshot_01.13.783.jpg"  alt="" style="margin-top: 5px;padding-bottom: 5px;">
-                    <div class="tooltip-arrow" data-popper-arrow></div>
-                </div>
                 <div id="tooltip-Door" role="tooltip" class="flex flex-col items-center absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-200 bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
                     Played in Episode 40
                     <img src="Other_Files/Thumbnails/Door.mp4_snapshot_02.14.024.jpg"  alt="" style="margin-top: 5px;padding-bottom: 5px;">
@@ -307,16 +299,6 @@
                 <div id="tooltip-I_Trust_You" role="tooltip" class="flex flex-col items-center absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-200 bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-600">
                     Played in Episode 57
                     <img src="Other_Files/Thumbnails/I Trust You.mp4_snapshot_05.34.630.jpg"  alt="" style="margin-top: 5px;padding-bottom: 5px;">
-                    <div class="tooltip-arrow" data-popper-arrow></div>
-                </div>
-                <div id="tooltip-Ending_1" role="tooltip" class="flex flex-col items-center absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-200 bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-600">
-                    Played in Episode 13B
-                    <img src="Other_Files/Thumbnails/S1 Ending.mp4_snapshot_11.28.383.jpg"  alt="" style="margin-top: 5px;padding-bottom: 5px;">
-                    <div class="tooltip-arrow" data-popper-arrow></div>
-                </div>
-                <div id="tooltip-Ending_2" role="tooltip" class="flex flex-col items-center absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-200 bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-600">
-                    Played in Episode 50
-                    <img src="Other_Files/Thumbnails/S2 Ending.mp4_snapshot_04.24.452.jpg"  alt="" style="margin-top: 5px;padding-bottom: 5px;">
                     <div class="tooltip-arrow" data-popper-arrow></div>
                 </div>
             </div>
@@ -350,7 +332,7 @@
                 <span id ="Theater-text" style="font-size: 1vw;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Theater Mode</span>
             </div>
             <video tabindex="-1" id="videoPlayer" width="640px" height="360px" poster="Other_Files/Beatrice_Anime (2).webp" controls preload="metadata" playsinline onended="playNextVideo()">
-                <source src="Openings_and_Endings/ED1 - STYX HELIX nocut.mp4" type="video/mp4">
+                <source src="Openings_and_Endings/OP1 - Redo.mp4" type="video/mp4">
             </video>
             <div class="button-container-mobile">
                 <span style="cursor: pointer; font-size: 1.05vw;" onclick="togglePictureInPicture()" class="fa-stack fa-1x" >
