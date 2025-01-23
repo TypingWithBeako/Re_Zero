@@ -957,7 +957,6 @@ const paragraph = document.getElementById('paragraph');
 const ReZeroCast = document.getElementById('subaru');
 const GitHub = document.getElementById('github');
 const ExitTheaterModeButton = document.getElementById('ExitTheaterModeButton');
-const EnterTheaterModeButton = document.getElementById('EnterTheaterModeButton');
 const KeyboardControls = document.getElementById("KeyboardControls")
 const navbar = document.getElementById("oldtopnav")
 let TheaterModeFlag = false;
@@ -988,7 +987,6 @@ TheaterMode.addEventListener('click',function() {
         document.documentElement.requestFullscreen();
         TheaterModeFlag = true;
         ExitTheaterModeButton.style.display ='flex';
-        EnterTheaterModeButton.style.display = 'none';
         navbar.style.marginTop = '2vh'
     }
     else
