@@ -269,12 +269,19 @@ videoPlayer.addEventListener('play',function(){
         ]
       });
     document.title = "「" + name + "」";
+
+    navigator.mediaSession.setActionHandler("play", () => {
+        videoPlayer.play()
+    });
+    navigator.mediaSession.setActionHandler("pause", () => {
+        videoPlayer.pause()
+    });
     navigator.mediaSession.setActionHandler("previoustrack", () => {
         previousVideoTrack()
-      });
-      navigator.mediaSession.setActionHandler("nexttrack", () => {
+    });
+    navigator.mediaSession.setActionHandler("nexttrack", () => {
         nextVideoTrack()
-      });
+    });
 })
 // Automatically play next video after ending with a delay
 function playNextVideo() {
