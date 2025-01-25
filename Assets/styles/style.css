@@ -282,7 +282,7 @@ to {
         display:none;
     }
 }
-@media only screen and (max-width: 722px) {
+@media only screen and (max-width: 768px) {
     #KeyboardControls {
         display:none;
     }
