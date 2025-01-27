@@ -161,9 +161,11 @@ h1 {
 .subaru {
     position:absolute;
     bottom:0;
-    left:38vw;
-    width: 24vw;
-    height: auto;
+    left:0;
+    right: 0;
+    margin: 0 auto;
+    width: auto;
+    height: 15vh;
     pointer-events: auto;
     user-select: none;
 }
@@ -302,7 +304,6 @@ to {
     .subaru {
         width: 60vw;
         height: 23.62vw;
-        left: 22.5vw;
     }
     h3 {
         font-size:1.1vw;
@@ -375,98 +376,6 @@ to {
     .swal2-image {
         max-width: 80%;
         height:70vh !important;
-    }
-}
-@media screen and (orientation: portrait) {
-    #KeyboardControls {
-        display:none;
-    }
-    body {
-        display:block;
-        background-image: url(../../Other_Files/bg-tv.png);
-    }
-    #default-sidebar{
-        display:block !important;
-    }
-    .subaru {
-        width: 60vw;
-        height: 23.62vw;
-        left: 22.5vw;
-    }
-    h3 {
-        font-size:1.1vw;
-    }
-    .moveable_img {
-        position: relative;
-        width: 37.5vw;
-        height: 15vw;
-    }  
-    h1 {
-        font-size: 5vw; /* Adjust the font size of h1 for mobile */
-        position:relative;
-        margin-top: 0.3vh;
-    }
-    .Re {
-        font-size: 3.2vw;
-    }
-    p {
-        font-size: 2.8vw; /* Adjust the font size of p for mobile */
-        margin-top: -0.5vh;
-    }
-     #videoPlayer {
-        max-width: 100%; /* Make the video player responsive */
-        height: auto; /* Allow the video player to adjust its height */
-        margin-top: 6vw;
-        width: 100%;
-    }
-    #nextButton {
-        padding:3px;
-    }
-    .topnav a {
-        font-size:2.2vw;
-        margin-left: 1.73vw;
-        text-align: left;
-        padding: 2vw 0;
-    } 
-    .oldtopnav {
-        margin-top:2vh;
-    }
-    .button-container,.button-container-mobile {
-        margin-top: 2vw;
-    }
-    .button-container span,.button-container-mobile span{
-        font-size:12px;
-        font-size:3vw !important;
-    }
-    .button-container-mobile {
-        display:block;
-    }
-    #Desktop,#Desktop-text,#Theater,#Theater-text {
-        display:none;
-    }
-    #github {
-        position: absolute;
-        top:auto;
-        bottom:0.2vw;
-        right:0.2vw;
-    }
-    .fa-stack {
-        font-size:2vw !important;
-    }
-    .ZE {
-    position: relative;
-    bottom:0.2vw;
-    }
-    .RO {
-    position: relative;
-    top:0.2vw;
-    }
-    .swal2-image {
-        max-width: 80%;
-        height:70vh !important;
-    }
-    .emilia {
-        display:none;
     }
 }
 .loader--wrapper {
