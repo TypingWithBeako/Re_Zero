@@ -413,6 +413,9 @@ moveable_img.classList.remove('fade-in');
 nextButton.addEventListener('animationend', () => {
 nextButton.classList.remove('fade-in-songname');
 });
+backButton.addEventListener('animationend', () => {
+backButton.classList.remove('fade-in-songname');
+});
 
 function handleFontSizeChange(mediaQuery) {
     // Change font size for mobile devices
@@ -978,6 +981,8 @@ TheaterMode.addEventListener('click',function() {
     TheaterModeClickCount++;
     if (TheaterModeClickCount%2==1){
         navbarContent.style.display = 'none';
+        nextButton.style.display = 'none'
+        backButton.style.display = 'none'
         S3.style.display = 'none';
         newnavbarContent.style.display = 'none';
         paragraph.style.display = 'none';
@@ -1003,7 +1008,7 @@ TheaterMode.addEventListener('click',function() {
         ExitTheaterModeButton.style.display ='flex';
         navbar.style.marginTop = '2vh'
     }
-    else
+    else{
         if (clickCount%2==1){
             newnavbarContent.style.display = 'flex';
             paragraph.style.display = 'block';
@@ -1030,10 +1035,12 @@ TheaterMode.addEventListener('click',function() {
         else {
             if (nextClickCount%2==1){
                 S3.style.display = 'flex';
+                backButton.style.display = 'flex'
                 navbarContent.style.display = 'none';
             }
             else {
                 S3.style.display = 'none';
+                nextButton.style.display = 'flex'
                 navbarContent.style.display = 'flex';
             }
             paragraph.style.display = 'block';
@@ -1057,6 +1064,7 @@ TheaterMode.addEventListener('click',function() {
             TheaterModeFlag = false;
             closeFullscreen();
         }
+    }
 })
 
 function ChangeToInsertSongs() {
