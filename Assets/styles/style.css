@@ -84,6 +84,7 @@ button:disabled {
     text-align: center;
 }
 .oldtopnav {
+    overflow: hidden;
     position: relative;
     background-color: #333;
     margin-top: 3vh;
