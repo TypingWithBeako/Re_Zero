@@ -837,6 +837,10 @@ document.addEventListener("keydown", function(event) {
         currentIndex = -1;
         newcurrentIndex = -1;
     }
+    ìf (event.code === "Escape"){
+        if (TheaterModeFlag)
+            TheaterMode.click()
+    }
 });
     
 let isAnimatingbutton = false;
