@@ -12,6 +12,7 @@ var videoUrls = [
 ];
 var newvideoUrls = [
     "Insert_Songs/STRAIGHT BET.mp4",
+    "Insert_Songs/Bouya no Yume yo.mp4",
     "Insert_Songs/Memories.mp4",
     "Insert_Songs/White White Snow.mp4",
     "Insert_Songs/Yuki no hate ni Kimi no na wo.mp4",
@@ -41,7 +42,7 @@ let nextClickCount = 0;
 let originalIndex = 0;
 let keyB = 0
 let Fullscreen = null;
-let currentVolume = 1 // 1 stand for max volume - 0 stands for muted
+let currentVolume = 1 // Default volume (0 to 1)
 
 function playVideo(videoName) {
     nextVideo.src = '';
@@ -188,7 +189,7 @@ videoPlayer.addEventListener('play',function(){
                 type: "image/png",
             }
         }
-    else if (name == 'Stay Alive' || name == 'Door' || name == 'I Trust You'){
+    else if (name == 'Stay Alive' || name == 'Door' || name == 'I Trust You' || name == 'Bouya no Yume yo'){
         artist = 'Emilia (CV: Rie Takahashi)'
         if (name == 'Stay Alive')
             musicArtwork = {
@@ -203,6 +204,12 @@ videoPlayer.addEventListener('play',function(){
                 type: "image/png",
             }
         else if (name == 'I Trust You')
+            musicArtwork = {
+                src: "Icons/artworks/Character_song_album.webp",
+                sizes: "1280x1280",
+                type: "image/png",
+            }
+        else if (name == 'Bouya no Yume yo')
             musicArtwork = {
                 src: "Icons/artworks/Character_song_album.webp",
                 sizes: "1280x1280",
@@ -775,7 +782,10 @@ document.addEventListener("keydown", function(event) {
     if (event.code === 'Numpad9'||event.code === "Digit9") {
         if (clickCount % 2 === 0) {
             playVideo(videoUrls[8]);
-        }   
+        }
+        else{
+            playVideo(newvideoUrls[8]);
+        }      
     }
     if (event.code === 'Numpad0'||event.code === "Digit0") {
         if (clickCount % 2 === 0) {
