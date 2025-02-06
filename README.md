@@ -50,15 +50,11 @@ This is a web-based video player designed specifically for Re:Zero anime opening
 - MicroModal
    
 
-## Built From Scratch
+## Core Video Logic Built From Scratch
 
-  
+The core video player logic, dynamic content switching, and state management were built from scratch using pure JavaScript, HTML, and CSS. Styling is enhanced with Tailwind CSS, UI components are provided by Flowbite, DOM manipulation is simplified with jQuery, and modal dialogs are implemented with MicroModal.
 
-This project was built from scratch using pure JavaScript, HTML, and CSS, without relying on any frameworks or libraries. This approach allowed for greater control over the design and functionality, resulting in a highly customized and optimized user experience.
-
-  
-
-> "Let's start here, from square one. No,... From Zero!" - Rem, Re:Zero
+> "Let's start here, from square one. No,.. from Zero!" - Rem, Re:Zero
 
   
 
