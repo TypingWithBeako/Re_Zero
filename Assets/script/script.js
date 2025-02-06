@@ -41,6 +41,7 @@ let nextClickCount = 0;
 let originalIndex = 0;
 let keyB = 0
 let Fullscreen = null;
+let currentVolume = 1 // 1 stand for max volume - 0 stands for muted
 
 function playVideo(videoName) {
     nextVideo.src = '';
@@ -814,32 +815,33 @@ document.addEventListener("keydown", function(event) {
         TheaterMode.click();
     }
     if (event.code === "KeyD"){
-        videoPlayer.src = "Insert_Songs/Theater D.mp4";
-        videoPlayer.play();
-        currentIndex = -1;
-        newcurrentIndex = -1;
+        playVideo("Insert_Songs/Theater D.mp4")
     }
     if (event.code === "KeyO"){
-        videoPlayer.src = "Openings_and_Endings/S1 Ending.mp4";
-        videoPlayer.play();
-        currentIndex = -1;
-        newcurrentIndex = -1;
+        playVideo("Openings_and_Endings/S1 Ending.mp4");
     }
     if (event.code === "KeyP"){
-        videoPlayer.src = "Openings_and_Endings/S2 Ending.mp4";
-        videoPlayer.play();
-        currentIndex = -1;
-        newcurrentIndex = -1;
+        playVideo("Openings_and_Endings/S2 Ending.mp4")
     }
     if (event.code === "KeyS"){
-        videoPlayer.src = "Openings_and_Endings/ED1 - STYX HELIX slow.mp4";
-        videoPlayer.play();
-        currentIndex = -1;
-        newcurrentIndex = -1;
+        playVideo("Openings_and_Endings/ED1 - STYX HELIX slow.mp4");
     }
-    if (event.code === "Escape"){
-        if (TheaterModeFlag)
-            TheaterMode.click()
+    if (event.code === 'Escape') {
+        if (TheaterModeFlag){
+           TheaterMode.click()
+       }
+    }
+    if (event.code === 'ArrowUp'){
+        if (currentVolume + 0.1 > 1) // Check if the volume is already at 1
+            return
+        videoPlayer.volume = currentVolume + 0.1
+        currentVolume = videoPlayer.volume
+    }
+    if (event.code === 'ArrowDown'){
+        if (currentVolume - 0.1 < 0) // Check if the volume is already at 0
+            return
+        videoPlayer.volume = currentVolume - 0.1
+        currentVolume = videoPlayer.volume
     }
 });
     
