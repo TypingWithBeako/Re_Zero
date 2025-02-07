@@ -295,9 +295,6 @@ to {
     #twitter {
         display: none;
     }
-    .subaru {
-        display: none
-    }
     .emilia {
         display:none;
     }
@@ -310,9 +307,10 @@ to {
     }
     .subaru {
        height: 10vh;
+       display: none;
     }
     h3 {
-        font-size:1.1vw;
+        font-size:2vw;
     }
     .moveable_img {
         position: relative;
