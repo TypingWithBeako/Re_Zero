@@ -1,69 +1,57 @@
-
 # Re:Zero Openings and Endings Video Player
 
   
 
 ## Overview
 
-  
-
-A web-based video player for Re:Zero anime openings, endings, and insert songs. The core video logic is built from scratch using vanilla JavaScript, HTML, and CSS, enhanced with Tailwind CSS, Flowbite, jQuery, and MicroModal for a streamlined and immersive experience.
+A web-based video player for Re:Zero anime openings, endings, and insert songs. The core video logic is built from scratch using vanilla JavaScript, HTML, and CSS, enhanced with modern web technologies for a streamlined and immersive experience.
 
   
 
-> **DISCLAIMER**: This project is a personal learning exercise demonstrating front-end web development skills. It is not affiliated with the Re:Zero franchise and is not intended for any commercial purpose. All rights to Re:Zero characters, music, videos, and other related materials belong to their respective owners.
+### Disclaimer
+
+This project uses Re:Zero content licensed by Muse Asia:
+
+- Opening themes
+
+- Ending themes (including season endings)
+
+- Insert songs
 
   
 
-### Why?
+All rights reserved by their respective copyright holders.
+
+For the complete Re:Zero experience, visit [Muse Asia's official YouTube channel](https://www.youtube.com/c/MuseAsia).
 
   
 
-I created this project for my personal enjoyment, to easily watch Re:Zero openings, endings, and insert songs.
+This is an educational project and is not monetized.
 
   
 
-### Time Dedicated to the Project
+### Why This Project?
+
+I created this project to learn web development fundamentals while solving a personal need - having a reliable way to watch Re:Zero openings, endings, and insert songs. This project helped me understand browser APIs, state management, and performance optimization.
 
   
 
-September 20, 2024 - February 7, 2025: ≈ 4.5 months
+### Development Period
+
+September 20, 2024 - February 7, 2025 (≈ 4.5 months)
+
+
+## Core Technology
+
+The core video player logic, dynamic content switching, and state management were built from scratch using pure JavaScript, HTML, and CSS.
 
   
 
-## Features
+> "Let's start here, from square one. No,.. from Zero!" - Rem, Re:Zero
 
   
 
--  **Custom Video Player:** Enjoy a tailored video playback experience with custom controls.
-
--  **Dynamic Content Switching:** Seamlessly switch between openings, endings, and insert songs.
-
--  **Picture-in-Picture Mode:** Watch videos while multitasking.
-
--  **Theater Mode:** Immerse yourself in a cinema-like viewing experience.
-
--  **Keyboard Shortcuts:** Control playback with convenient keyboard shortcuts.
-
--  **Media Session Integration:** Control playback from your browser or device's media controls.
-
--  **Responsive Design:** Enjoy a consistent experience across various screen sizes and devices.
-
--  **All-in-One Page:** All content is accessible on a single, scroll-free page for immediate access.
-
--  **Randomize:** Shuffle the video playlist for a fresh experience.
-
--  **Looping:** Enable continuous playback of your favorite songs.
-
--  **Adjustable Delay:** Customize the delay between videos for a personalized viewing experience.
-
--  **Smart Preloading:** Seamlessly transition to next videos without delay.
-
-  
-
-## Technologies Used
-
-  
+### Tech Stack
 
 - HTML
 
@@ -81,19 +69,64 @@ September 20, 2024 - February 7, 2025: ≈ 4.5 months
 
   
 
-## Core Video Logic Built From Scratch
+## Features
 
   
 
-The core video player logic, dynamic content switching, and state management were built from scratch using pure JavaScript, HTML, and CSS. Styling is enhanced with Tailwind CSS, UI components are provided by Flowbite, DOM manipulation is simplified with jQuery, and modal dialogs are implemented with MicroModal.
+  
+
+-  **Custom Video Player:** Enjoy a tailored video playback experience with custom controls.
 
   
 
-> "Let's start here, from square one. No,.. from Zero!" - Rem, Re:Zero
+-  **Dynamic Content Switching:** Seamlessly switch between openings, endings, and insert songs.
 
+  
+
+-  **Picture-in-Picture Mode:** Watch videos while multitasking.
+
+  
+
+-  **Theater Mode:** Immerse yourself in a cinema-like viewing experience.
+
+  
+
+-  **Keyboard Shortcuts:** Control playback with convenient keyboard shortcuts.
+
+  
+
+-  **Media Session Integration:** Control playback from your browser or device's media controls.
+
+  
+
+-  **Responsive Design:** Enjoy a consistent experience across various screen sizes and devices.
+
+  
+
+-  **All-in-One Page:** All content is accessible on a single, scroll-free page for immediate access.
+
+  
+
+-  **Randomize:** Shuffle the video playlist for a fresh experience.
+
+  
+
+-  **Looping:** Enable continuous playback of your favorite songs.
+
+  
+
+-  **Adjustable Delay:** Customize the delay between videos for a personalized viewing experience.
+
+  
+
+-  **Smart Preloading:** Seamlessly transition to next videos without delay.
+
+  
   
 
 ## How to Use
+
+  
 
   
 
@@ -101,11 +134,19 @@ The core video player logic, dynamic content switching, and state management wer
 
   
 
+  
+
 ```bash
 
-git clone https://github.com/TypingWithBeako/Re_Zero
+  
+
+git  clone  https://github.com/TypingWithBeako/Re_Zero
+
+  
 
 ```
+
+  
 
   
 
@@ -113,47 +154,89 @@ git clone https://github.com/TypingWithBeako/Re_Zero
 
   
 
+  
+
 ## Keyboard Shortcuts
+
+  
 
   
 
 -  `Space`: Play/Pause
 
+  
+
 -  `ArrowRight`: Next Video
+
+  
 
 -  `ArrowLeft`: Previous Video
 
+  
+
 -  `ArrowUp`: Increase Volume
+
+  
 
 -  `ArrowDown`: Decrease Volume
 
+  
+
 -  `1-9`: Play Specific Video (based on order)
+
+  
 
 -  `Tab`: Switch between OPs/EDs and Insert Songs
 
+  
+
 -  `Q`: Shuffle Videos
+
+  
 
 -  `W`: Enable/Disable Looping
 
+  
+
 -  `E`: Change Delay
+
+  
 
 -  `R`: Toggle Picture-in-Picture
 
+  
+
 -  `F`: Toggle Fullscreen
+
+  
 
 -  `T`: Toggle Theater Mode
 
+  
+
 -  `D`: Play "Theater D"
+
+  
 
 -  `O`: Play "Season 1 Ending"
 
+  
+
 -  `P`: Play "Season 2 Ending"
+
+  
 
 -  `S`: Play "STYX HELIX (slow ver.)"
 
+  
+
 -  `Escape`: Exit Theater Mode
 
+  
+
 -  `B`: Switch between cut and full version of "ED1 - STYX HELIX"
+
+  
 
   
 
@@ -161,7 +244,11 @@ git clone https://github.com/TypingWithBeako/Re_Zero
 
   
 
+  
+
 Contributions are welcome! Feel free to submit pull requests or open issues to suggest improvements or report bugs.
+
+  
 
   
 
@@ -169,11 +256,17 @@ Contributions are welcome! Feel free to submit pull requests or open issues to s
 
   
 
+  
+
 MIT License
 
   
 
+  
+
 ## Author
+
+  
 
   
 
