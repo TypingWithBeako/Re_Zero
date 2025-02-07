@@ -584,6 +584,8 @@ loopVideo.addEventListener('click',function() {
             alert("Video looping disabled for: " + name);
         }
     }
+    if (TheaterModeFlag)
+        setTimeout(Fullscreen,0)
 });
 
 Fullscreen = function(){
@@ -642,6 +644,8 @@ shuffleButton.addEventListener('click', function() {
     }
     alert("Videos shuffled! (check console logs for more info)");
 // You can now use the shuffled videoUrls array for playing the songs in a random order
+    if (TheaterModeFlag)
+        setTimeout(Fullscreen,0)
     if (clickCount % 2 == 1)
         console.log('Shuffled videos to:', newvideoUrls);
     else
@@ -665,6 +669,8 @@ document.getElementById("Delay").addEventListener("click", function() {
         alert("You really like to sleep when switching videos! (Delay not changed)");
     return;
     }
+    if (TheaterModeFlag)
+        setTimeout(Fullscreen,0)
     // Update delay and optionally display confirmation
     updateDelay(newDelay);
     console.log("Delay updated to", newDelay, "milliseconds");
