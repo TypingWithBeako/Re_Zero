@@ -136,14 +136,8 @@ The core video player logic, dynamic content switching, and state management wer
 
   
 
-```bash
-
-  
-
-git  clone  https://github.com/TypingWithBeako/Re_Zero
-
-  
-
+```bash 
+git clone https://github.com/TypingWithBeako/Re_Zero
 ```
 
   
