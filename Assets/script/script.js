@@ -1160,3 +1160,31 @@ videoPlayer.addEventListener('error', (event) => {
         console.error('Unable to load video. Please check your internet connection or try again later.', event.target.error);
     }
 });
+
+videoPlayer.addEventListener('volumechange',() =>{
+    currentVolume = videoPlayer.volume;
+})
+
+// Get current volume from video player before exiting site
+window.addEventListener('beforeunload', () => {
+    currentVolume = videoPlayer.volume;
+    // Save to local storage
+    localStorage.setItem('volume', currentVolume);
+});
+// Load volume when page loads
+document.addEventListener('DOMContentLoaded', () => {
+    // Check if we have a saved volume
+    const savedVolume = localStorage.getItem('volume');
+    // Apply saved volume if it exists
+    if (savedVolume !== null) {
+        videoPlayer.volume = parseFloat(savedVolume);
+        console.log("Thiết lập âm lượng đã lưu: ", savedVolume);
+    }
+});
+
+// Audio resync when changing from tabs to tabs
+document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) {
+        videoPlayer.currentTime = videoPlayer.currentTime;
+    }
+});
