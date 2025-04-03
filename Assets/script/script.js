@@ -602,8 +602,7 @@ const checkOrientation = () => {
     }
 };
 // Listen for orientation changes
-window.addEventListener("resize", () => setTimeout(checkOrientation,700));
-window.addEventListener("orientationchange", () => setTimeout(checkOrientation,700));
+window.addEventListener("resize", checkOrientation);
 
 
 // Function to shuffle the array elements randomly
