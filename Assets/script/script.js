@@ -586,7 +586,6 @@ Fullscreen = function(){
 const checkOrientation = () => {
     if (window.matchMedia("(max-width: 768px) and (orientation: landscape)").matches) {
         body.addEventListener('click',Fullscreen(),{once :  true})
-        body.removeEventListener('click', Fullscreen(),{once : true})
         setTimeout(function(){
             videoPlayer.style.width = "auto";
             videoPlayer.style.height = "100vh";
@@ -594,10 +593,10 @@ const checkOrientation = () => {
             videoPlayer.controlsList = "nofullscreen"
         },700)
     }
-    else if (window.matchMedia("(max-width: 768px) and (orientation: portrait").matches) {
+    else if (window.matchMedia("(max-width: 768px) and (orientation: portrait)").matches) {
         videoPlayer.style.height = "auto";
         videoPlayer.style.marginTop = "6vw";
-        videoPlayer.controlsList = "nofullscreen" 
+        videoPlayer.controlsList = "" 
     }
     else if (!TheaterModeFlag){
         videoPlayer.style.height = "46.855vh"
@@ -606,7 +605,8 @@ const checkOrientation = () => {
     }
 };
 // Listen for orientation changes
-window.addEventListener("resize", checkOrientation);
+window.addEventListener("resize", () => setTimeout(checkOrientation,700));
+window.addEventListener("orientationchange", () => setTimeout(checkOrientation,700));
 
 
 // Function to shuffle the array elements randomly
