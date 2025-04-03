@@ -582,35 +582,6 @@ Fullscreen = function(){
     document.documentElement.requestFullscreen();
 }
 
-// Add this function to handle fullscreen exit properly
-function handleFullscreenChange() {
-    // Check if we're NOT in fullscreen anymore
-    if (!document.fullscreenElement && 
-        !document.webkitFullscreenElement && 
-        !document.mozFullscreenElement) {
-      
-      // Small delay to let browser recalculate viewport
-      setTimeout(() => {
-        // Force mobile viewport recalculation
-        const viewport = document.querySelector('meta[name="viewport"]');
-        const originalContent = viewport.getAttribute('content');
-        
-        // Toggle viewport to force recalculation
-        viewport.setAttribute('content', 'width=device-width, initial-scale=0.99');
-        setTimeout(() => {
-          viewport.setAttribute('content', originalContent);
-    
-        }, 100);
-      }, 250);
-    }
-  }
-  
-  // Add event listeners for fullscreen change
-  document.addEventListener('fullscreenchange', handleFullscreenChange);
-  document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
-  document.addEventListener('mozfullscreenchange', handleFullscreenChange);
-
-
 // Check for orientation change using matchMedia (for mobile devices)
 const checkOrientation = () => {
     if (window.matchMedia("(max-width: 1024px) and (orientation: landscape)").matches) {
