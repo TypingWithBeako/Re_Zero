@@ -15,7 +15,7 @@ A web-based video player for Re:Zero anime's Openings, Endings, and Insert Songs
 
 ### ⚠️ Disclaimer
 
-This project uses Re:Zero content licensed by **Muse Vietnam**:
+This project uses Re:Zero content licensed by **Muse Asia**:
 
 - Openings
 - Endings (including Season Endings)
@@ -39,7 +39,7 @@ I created this project to learn the fundamentals of web development while solvin
 
 ## 🔮 Philosophical Meaning of the Project
 
-> ***"Let's start from here, from the number one. No,.. from zero!"*** - Rem, Re:Zero
+> ***"Let's start from here, from square one. No,.. from zero!"*** - Rem, Re:Zero
 
 ### 💫 Connection to Re:Zero
 
@@ -107,11 +107,11 @@ This project was developed on an unstable laptop:
 - ⌨️ **Keyboard Shortcuts:** Control the video player with convenient keyboard shortcuts.
 - 🎵 **Media Session API Integration:** Control playback from your browser or device media controls.
 - 📱 **Responsive Design:** Enjoy a consistent experience across various screen sizes and devices.
-- 🔀 **Shuffle Play:** Mix up the video playlist for a fresh experience.
+- 🔀 **Randomize Videos:** Mix up the video playlist for a fresh experience.
 - 🔁 **Video Looping:** Enable continuous playback of your favorite videos.
 - ⏱️ **Delay Adjustment:** Customize the delay between videos for a personalized viewing experience.
 - ⚡ **Smart Preloading:** Seamlessly transition to the next video without buffering.
-- 📲 **PWA Application:** Install as an app on your device and access faster on subsequent visits.
+- 📲 **PWA Support:** Install as an app on your device and access faster on subsequent visits.
 - ⚙️ **Settings Persistence:** Remember your preferred settings (volume, delay, controls) between sessions.
 - ☁️ **Videos Hosted on Cloudflare R2**: Store and distribute video content with high performance.
 
@@ -155,8 +155,8 @@ This project was developed on an unstable laptop:
 -  `↑`/`↓`: Increase/Decrease Volume
 -  `0-9`: Play Specific Video (number 1 corresponds to the first video)
 -  `Tab`: Switch between Openings/Endings and Insert Songs
--  `Q`: Shuffle Play
--  `W`: Toggle Video Loop
+-  `Q`: Randomize current playlist
+-  `W`: Toggle Video Looping
 -  `E`: Change Delay
 -  `R`: Toggle Picture-in-Picture Mode
 -  `F`: Toggle Fullscreen Mode
