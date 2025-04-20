@@ -1016,6 +1016,15 @@ function closeFullscreen() {
     }
 }
 
+const TheaterMode = document.getElementById('Theater');
+const ButtonContainer = document.getElementsByClassName('button-container');
+const paragraph = document.getElementById('paragraph');
+const body = document.getElementById('body');
+const ReZeroCast = document.getElementById('subaru');
+const GitHub = document.getElementById('github');
+const ExitTheaterModeButton = document.getElementById('ExitTheaterModeButton');
+const KeyboardControls = document.getElementById("KeyboardControls")
+
 TheaterMode.addEventListener('click',function() {
     TheaterModeClickCount++;
     if (TheaterModeClickCount%2==1){
