@@ -864,10 +864,10 @@ document.addEventListener("keydown", function(event) {
         playVideo(`${URL}Theater D.mp4`)
     }
     else if (event.code === "KeyO"){
-        playVideo(`${URL}S1 Ending.webm`);
+        playVideo(`${URL}Season 1 Ending.webm`);
     }
     else if (event.code === "KeyP"){
-        playVideo(`${URL}S2 Ending.mp4`)
+        playVideo(`${URL}Season 2 Ending.mp4`)
     }
     else if (event.code === "KeyS"){
         playVideo(`${URL}ED1 - STYX HELIX slow.mp4`);
