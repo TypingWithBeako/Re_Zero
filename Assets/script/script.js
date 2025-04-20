@@ -677,7 +677,7 @@ function updateDelay(newDelay) {
 // Add event listener for button click
 document.getElementById("Delay").addEventListener("click", function() {
     // Prompt user for new delay
-    let newDelay = parseFloat(prompt("Enter new transition delay in seconds: (Current delay: " + delay/1000 + "seconds)"));
+    let newDelay = parseFloat(prompt("Enter new transition delay in seconds: (Current delay: " + delay/1000 + " seconds)"));
     // Validate user input
     if (TheaterModeFlag)
         setTimeout(Fullscreen,0)
