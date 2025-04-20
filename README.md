@@ -141,7 +141,7 @@ This project was developed on an unstable laptop:
 
 ## 🚀 How to Use
   
-- Use the player directly at [https://re-zero-EN.pages.dev](https://re-zero-EN.pages.dev)
+- Use the player directly at [https://re-zero-en.pages.dev](https://re-zero-en.pages.dev)
 
 ### 📝 Notes
 
