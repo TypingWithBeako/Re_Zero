@@ -298,24 +298,33 @@ navigator.mediaSession.setActionHandler("nexttrack", () => {
     nextVideoTrack()
 });
 
+// Automatically attempt reloading the current video if any error happen with 7 seconds interval
+videoPlayer.addEventListener('error', () => {
+    const videoName = cleanVideoSrcName(videoPlayer.src);
+    clearTimeout(errorReloadTimeout);
+    errorReloadTimeout = setTimeout(() => {
+        console.log('Attempting to reload:', videoName);
+        videoPlayer.src = videoPlayer.src
+        videoPlayer.play().catch(error => {
+            console.error('Error when playing:', error, 'Reloading in 7 seconds.');
+        });
+    }, 7000)
+})
+
 // Automatically play next video after ending with a delay
 function playNextVideo() {
-    if (!isSwitching) {
-        isSwitching = true;
-        // Delay before switching to the next video
-        nextVideoTimeout = setTimeout(function() {
-            if (clickCount % 2 === 1) {
-                newcurrentIndex = (newcurrentIndex + 1) % newvideoUrls.length;
-                videoPlayer.src = newvideoUrls[newcurrentIndex];
-            } else {
-                currentIndex = (currentIndex + 1) % videoUrls.length;
-                videoPlayer.src = videoUrls[currentIndex];
-            }
-            videoPlayer.poster = "Other_Files/black.png"; // Clear the poster attribute
-            videoPlayer.play();
-            isSwitching = false;
-        }, delay);     
-    }
+    // Delay before switching to the next video
+    nextVideoTimeout = setTimeout(function() {
+        if (clickCount % 2 === 1) {
+            newcurrentIndex = (newcurrentIndex + 1) % newvideoUrls.length;
+            videoPlayer.src = newvideoUrls[newcurrentIndex];
+        } else {
+            currentIndex = (currentIndex + 1) % videoUrls.length;
+            videoPlayer.src = videoUrls[currentIndex];
+        }
+        videoPlayer.poster = "Other_Files/black.png"; // Clear the poster attribute
+        videoPlayer.play();
+    }, delay);     
 }
 
 // Add event listener to stop the timeout if playVideo is pressed while setTimeout is running
@@ -357,7 +366,6 @@ moveableimg.addEventListener('click', function(){
     this.setAttribute('disabled', 'disabled'); // Disable the clickable element
     clickCount++;
     nextClickCount = 0;
-    console.log("Image clicked!"); // Add this line for testing
     if (clickCount % 2 === 1) {
         textToChange.innerHTML = "All <s> OPs and EDs</s> Insert Songs";
         bodytext.innerHTML = "Insert Songs!"
@@ -395,11 +403,12 @@ moveableimg.addEventListener('click', function(){
         },{once:true})
     }
     else {
-        textToChange.innerHTML = " All OPs and EDs ";
+        textToChange.innerHTML = "All OPs and EDs ";
         bodytext.innerHTML = "Openings and Endings!";
         songname.innerHTML = "Insert Songs"
         navbarContent.style.display ='flex';
         newnavbarContent.style.display ='none';
+        newInsertSongs.style.display = 'none';
         videoPlayer.src = videoUrls[0];
         currentIndex = 0;
         newcurrentIndex = -1;
@@ -567,16 +576,16 @@ enableLoopingListener = function EnableLooping() {
     clearTimeout(nextVideoTimeout);
     videoLoopingTimeout = setTimeout(() => {
         videoPlayer.play();
-        isSwitching = false;
     },delay)
 };
+
 const loopVideo = document.querySelector('#loop')
 const loopText = document.querySelector('.looptext')
 loopVideo.addEventListener('click',function() {
     loopclickCount++
     const name = cleanVideoSrcName(videoPlayer.src)
     if (loopclickCount % 2 == 1){
-        loopText.innerHTML = "Tắt lặp video";
+        loopText.innerHTML = "Disable looping";
         if (videoPlayer.ended)
             enableLoopingListener();
         videoPlayer.removeEventListener('ended', ResetArray);
@@ -585,7 +594,7 @@ loopVideo.addEventListener('click',function() {
         alert("Video looping enabled for: " + name);   
     }
     else {
-        loopText.innerHTML = "Bật lặp video";
+        loopText.innerHTML = "Enable looping";
         if (videoPlayer.ended){
             clearTimeout(videoLoopingTimeout)
             playNextVideo();
@@ -683,7 +692,7 @@ document.getElementById("Delay").addEventListener("click", function() {
    
     // Update delay and optionally display confirmation
     updateDelay(newDelay);
-    console.log("Delay updated to", newDelay, "seconds");
+    console.log("Delay updated to", newDelay, " seconds");
 });
 
 function nextVideoTrack(){
@@ -1024,6 +1033,7 @@ const ReZeroCast = document.getElementById('subaru');
 const GitHub = document.getElementById('github');
 const ExitTheaterModeButton = document.getElementById('ExitTheaterModeButton');
 const KeyboardControls = document.getElementById("KeyboardControls")
+const navbar = document.querySelector(".oldtopnav")
 
 TheaterMode.addEventListener('click',function() {
     TheaterModeClickCount++;
@@ -1218,14 +1228,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedVolume !== null) {
         const volumeNumber = Number (parseFloat(savedVolume).toFixed(2)); // Take only 2 significant digits
         videoPlayer.volume = volumeNumber
-        console.log("Thiết lập âm lượng đã lưu:", volumeNumber*100 + "%");
+        console.log("Setting saved volume:", volumeNumber*100 + "%");
     }
 
     // Apply saved delay if it exists
     if (savedDelay !== null) {
         const delayNumber = Number (parseFloat(savedDelay).toFixed(3)); // Take only 3 significant digits
         delay = delayNumber;
-        console.log("Thiết lập độ trễ đã lưu:", delay/1000 + " giây")
+        console.log("Setting saved delay:", delay/1000 + " seconds")
     }
 
     // Apply saved controls preference if it exists
@@ -1233,7 +1243,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (savedControls === 'false') { // Only needs to check for false, default is true
             videoPlayer.removeAttribute('controls');
         }
-        console.log("Thiết lập điều khiển video đã lưu:", savedControls === 'true' ? "Hiển thị" : "Ẩn");
+        console.log("Setting saved controls:", savedControls === 'true' ? "Visible" : "Hidden");
     }
 });
 
@@ -1241,10 +1251,10 @@ if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('service-worker.js')
         .then(registration => {
-          console.log('Đăng kí Service Worker thành công với scope: ', registration.scope);
+          console.log('Registered Service Worker successfully with scope: ', registration.scope);
         })
         .catch(error => {
-          console.log('Đăng kí Service Worker thất bại: ', error);
+          console.log('Failed to register Service Worker: ', error);
         });
     });
 }
