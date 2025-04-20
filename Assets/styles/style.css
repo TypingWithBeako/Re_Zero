@@ -3,26 +3,21 @@
     --pointermouse: image-set(url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAmVBMVEUAAAAbGxsZGRkTExMICAgJCQkPDw8QEBB1YfIICAh0X/BwXeltWuFZSrdyXuxpV9xnVdZiU8tvXehyX+1wXehuXOZfT8VdUcE0LWxyX+1zX+1lU8xmU81hUchVSbJYTLdSR6P///91YfOGdfX39f6pnPfLxPvu6/3Y0/zCuvq6sPmxpviXiPaPfvV+a/R9a/TDuvqhkvegkvdrWLcYAAAAIXRSTlMABQcLEBQNCfEX45aKVcaOfye4lId2Tykk1LRycWFCQBntRKz0AAABCUlEQVQ4y83S11LDMBAF0KhLNm6k0tmVbCchBfj/j8MaGHmIZHhjuLNve7xWm/2vkF/azXze0Ok+Xesz6vX0FJVj359zNSlYfnJwyDibEIStcAs73HCmKEkBucFX2KLWt1ovWGwIE1kLPbatr3zZREKJmzdwCOALMXsmEbg+AnyBvsclJRGwAKFwwcjFGp7wHcbglfwOqCyt+xFw/QIAnQUA23nAaQrs0X+9T04oT26c4LCW9OIkH/VxXESHq2gX4h4PAdhMBBD+Ye6w/Wy7Fh84jc6amwpt58DtLFZCRoAwbooMfcrCcJW4ccWFKeqqLoxIvxtC2UCMb/ubSomBSCnDm0qjIbM/zgdM/h9ZMvytJwAAAABJRU5ErkJggg==) 1x, url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAsVBMVEUAAAAlJSUVFRUODg4KCgoICAgGBgYHBwcJCQkHBwd0YPIHBwcGBgYLCwtjU810X+9zX+9kU8xRQp5vXOdEOox0YPBzX+9wXelvXOZnVtdQRKc0LWpxXupyX+1rWd5tXORhUclWR7JkVMxORKJwXedwXupqWdtYSbZiVcv///91YfOGdfXu6/26sPn39f6onPfd1/x+a/TUzvuxpvipnffDuvqXiPbl4f3LxPuhkveypviacpDcAAAAKXRSTlMABQkMDxMWEBIY8RseFXLj00wZhzjiw5aof0Ylx8SeZmFXOTG4tmpXJ53eMHQAAAJ8SURBVFjD7ZfXdtswEEQTopAARXVbzXZc0jSUZFWX/P+HZQkgKocyQDMvOUnmAUcvczG7WEjQh//6a/XxN+1W9e0H1fVH3e/3UWQItfzdngb0oBvVIJjt2zBq1yGQPxoAyHMAPUaE9wdgGphPp3NAd+sQ2D2QT0k50GHROwlFgAcH2ACDmJXaEAZMNDAjwBq4FpwIVpUBXHwBdgRYAFomRCBZRlXACNi6JvSliBkrMfyAbOya8Aq0NK6/di41Lj85RhjAxASA7eKxeswhwiWolu3iDifqcGYJoQSJvALW9hgeF7PHX6u2hQQIBjAEXgjwbIIs3EoKTbdLEMseMCfAzLbCrU6dIoMfwLMRsHHWw+oKuWRBQJw1gW0J4ArR3EugDhHgFni1pvKKOBDBJXgyo5gfrw4gOPMmIMCDdoCyAGQ88gN4cgHks7cBMaNCfYAOTMPeAkhvE4pTHJozCAB8LWgDy6nVHPP9h+qAi0MFAPYfTgDeuxQAqMSfgAtTQv0EPBkAT2cBdpSDPUg6cBHKTVwC7cxMovc2fwZWz9Nz2gBDEfsnkXExaRHh7CjlwC2NsjcB1aD6rfPD/AJcqIQHb6NQfX2OMMuBpu1h6Fs1HRtC2d9S/ttMADMKMr2DJZz60d+PkTcCFyptAljt9vbFfAWgqdxlrkpAvl0uaPP1j8Kum6m0AQIA00iZ0lmcqD1OpeCRAYQJnAiN5hFCjxqF3waoREikShvfbq40mds3d41UycT5qxJEgXAiu4iN3wHChIjHSSaVUmlKixTF9tZfmcAoRSJEJoRIaHdW/m0PI4hhxDyvC++j+0h1nr1OUf3HPzFqmf+ov0//hn4CGZ+XfMz98P8AAAAASUVORK5CYII=) 2x) 10 6, pointer;
     --subarumouse: image-set(url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAmVBMVEUAAAAbGxsZGRkTExMICAgJCQkPDw8QEBB1YfIICAh0X/BwXeltWuFZSrdyXuxpV9xnVdZiU8tvXehyX+1wXehuXOZfT8VdUcE0LWxyX+1zX+1lU8xmU81hUchVSbJYTLdSR6P///91YfOGdfX39f6pnPfLxPvu6/3Y0/zCuvq6sPmxpviXiPaPfvV+a/R9a/TDuvqhkvegkvdrWLcYAAAAIXRSTlMABQcLEBQNCfEX45aKVcaOfye4lId2Tykk1LRycWFCQBntRKz0AAABCUlEQVQ4y83S11LDMBAF0KhLNm6k0tmVbCchBfj/j8MaGHmIZHhjuLNve7xWm/2vkF/azXze0Ok+Xesz6vX0FJVj359zNSlYfnJwyDibEIStcAs73HCmKEkBucFX2KLWt1ovWGwIE1kLPbatr3zZREKJmzdwCOALMXsmEbg+AnyBvsclJRGwAKFwwcjFGp7wHcbglfwOqCyt+xFw/QIAnQUA23nAaQrs0X+9T04oT26c4LCW9OIkH/VxXESHq2gX4h4PAdhMBBD+Ye6w/Wy7Fh84jc6amwpt58DtLFZCRoAwbooMfcrCcJW4ccWFKeqqLoxIvxtC2UCMb/ubSomBSCnDm0qjIbM/zgdM/h9ZMvytJwAAAABJRU5ErkJggg==) 1x, url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAsVBMVEUAAAAlJSUVFRUODg4KCgoICAgGBgYHBwcJCQkHBwd0YPIHBwcGBgYLCwtjU810X+9zX+9kU8xRQp5vXOdEOox0YPBzX+9wXelvXOZnVtdQRKc0LWpxXupyX+1rWd5tXORhUclWR7JkVMxORKJwXedwXupqWdtYSbZiVcv///91YfOGdfXu6/26sPn39f6onPfd1/x+a/TUzvuxpvipnffDuvqXiPbl4f3LxPuhkveypviacpDcAAAAKXRSTlMABQkMDxMWEBIY8RseFXLj00wZhzjiw5aof0Ylx8SeZmFXOTG4tmpXJ53eMHQAAAJ8SURBVFjD7ZfXdtswEEQTopAARXVbzXZc0jSUZFWX/P+HZQkgKocyQDMvOUnmAUcvczG7WEjQh//6a/XxN+1W9e0H1fVH3e/3UWQItfzdngb0oBvVIJjt2zBq1yGQPxoAyHMAPUaE9wdgGphPp3NAd+sQ2D2QT0k50GHROwlFgAcH2ACDmJXaEAZMNDAjwBq4FpwIVpUBXHwBdgRYAFomRCBZRlXACNi6JvSliBkrMfyAbOya8Aq0NK6/di41Lj85RhjAxASA7eKxeswhwiWolu3iDifqcGYJoQSJvALW9hgeF7PHX6u2hQQIBjAEXgjwbIIs3EoKTbdLEMseMCfAzLbCrU6dIoMfwLMRsHHWw+oKuWRBQJw1gW0J4ArR3EugDhHgFni1pvKKOBDBJXgyo5gfrw4gOPMmIMCDdoCyAGQ88gN4cgHks7cBMaNCfYAOTMPeAkhvE4pTHJozCAB8LWgDy6nVHPP9h+qAi0MFAPYfTgDeuxQAqMSfgAtTQv0EPBkAT2cBdpSDPUg6cBHKTVwC7cxMovc2fwZWz9Nz2gBDEfsnkXExaRHh7CjlwC2NsjcB1aD6rfPD/AJcqIQHb6NQfX2OMMuBpu1h6Fs1HRtC2d9S/ttMADMKMr2DJZz60d+PkTcCFyptAljt9vbFfAWgqdxlrkpAvl0uaPP1j8Kum6m0AQIA00iZ0lmcqD1OpeCRAYQJnAiN5hFCjxqF3waoREikShvfbq40mds3d41UycT5qxJEgXAiu4iN3wHChIjHSSaVUmlKixTF9tZfmcAoRSJEJoRIaHdW/m0PI4hhxDyvC++j+0h1nr1OUf3HPzFqmf+ov0//hn4CGZ+XfMz98P8AAAAASUVORK5CYII=) 2x) 10 6, pointer;
 }
-html,body {
-    margin: 0;
-    padding: 0;
+html {
+    overflow: hidden;
 }
 nav li:not(:last-child)::after {
     content: '|';
     background-color: white; 
-    margin: 0 0 0 2.34vw; 
+    margin: 0 0 0 2.34vw;
 }  
+nav li {
+    list-style-type: none;
+}
 nav a:hover {
     text-decoration: none;
     color: white;
     opacity: 0.7;
-}
-nav li {
-    list-style-type: none;
-}
-.navbar--tooltips div img {
-    width: 20.833vw;
-    height: auto
 }
 h3 a{
     color:#0000EE;
@@ -33,8 +28,41 @@ h3 a:visited {
 h3 a:link:active, h3 a:visited:active {
     color: #FF0000; 
 }
+a,button,i,.moveable_img, #songname,
+video::-webkit-media-controls-play-button,
+video::-webkit-media-controls-volume-slider-container,
+video::-webkit-media-controls-volume-slider,
+video::-webkit-media-controls-mute-button,
+video::-webkit-media-controls-timeline,
+video::-webkit-media-controls-timeline-container,
+video::-webkit-media-controls-seek-back-button,
+video::-webkit-media-controls-seek-forward-button,
+video::-webkit-media-controls-fullscreen-button,
+video::-webkit-media-controls-rewind-button,
+video::-webkit-media-controls-return-to-realtime-button,
+video::-webkit-media-controls-toggle-closed-captions-button {
+    cursor: pointer;
+    cursor: var(--pointermouse)
+}
+.subaru {
+    cursor: var(--subarumouse)
+}
+html,aside *, aside *{
+    cursor: var(--normalmouse)
+}
 button:disabled {
-    cursor: default;
+    cursor: var(--normalmouse)
+}
+.navbar--tooltips div img {
+    width: 20.833vw;
+    height: auto
+}
+#footer {
+    background-color: white;
+    bottom: 0;
+}
+#footer:hover {
+    background-color:  rgb(209 213 219);
 }
 .Endings--Seasons {
     display: none;
@@ -49,53 +77,59 @@ button:disabled {
     font-size: 18px;
 }
 #text_to_change {
-    font-family: 'Times New Roman', Times, serif!important;
+    font-family: "Playfair Display"
 }
-#footer {
-    background-color: white;
-    bottom: 0;
+.title {
+    margin-left: 0.1vw;
+    font-size: 0.625vw;
+    vertical-align: text-top;
 }
-#footer:hover {
-    background-color:  rgb(209 213 219);
-}
-#nextButton, #backButton {
+#nextButton,#backButton, #newnextButton, #newbackButton {
     position:absolute;
     margin: 0;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    top: 20% !important;
     padding-left:0;
     background-color: transparent;
     border:none;
     outline: none;
 }
-#nextButton {
-    right: 0
+#nextButton, #newnextButton {
+    right:0;
 }
-#backButton {
-    left:0;
-    display:none;
+#backButton, #newbackButton {
+    left: 0;
+    display: none;
 }
-.nextIcon,.backIcon {
+#newnextButton {
+    display: none;
+}
+.nextIcon, .backIcon {
     width: 2vw;
     height: 2vw;
 }
-#Season3Content {
+#Season3Content, #newInsertSongs {
+    display:none;
     text-align: center;
 }
-.oldtopnav {
-    overflow: hidden;
+.oldtopnav, .newtopnav {
     position: relative;
+    overflow: hidden;
     background-color: #333;
+}
+.oldtopnav {
     margin-top: 3vh;
 }
-#oldnavbarContent,#newnavbarContent,#Season3Content{
+#oldnavbarContent,#newnavbarContent,#Season3Content,#newInsertSongs {
     display: flex;
     justify-content: space-evenly;
 }
 #Season3Content {
     width: 55%;
-    display:none;
+    display: none;
+}
+#newInsertSongs {
+    width: 10%;
+    display: none;
 }
 nav li {
     float: left;
@@ -105,9 +139,6 @@ nav li {
     text-decoration: none;
     font-size: 0.911vw;
     white-space: nowrap; /* Prevent text wrapping */  
-}
-.newtopnav {
-    background-color: #333;
 }
 .newtopnav li {
     float: left;
@@ -122,12 +153,15 @@ nav li {
     display:none;
     width: 100%;
 }
+#oldnavbarContent {
+    display: flex;
+}
 body {
     background-image: url("../../Other_Files/bg-tv.webp");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
-    margin:0 /* Make topnav spread fullscreen */
+    margin:0 
 }
 h1 {
     pointer-events: none;
@@ -140,6 +174,7 @@ h1 {
                 -3px 8px 13px rgba(0,0,0,0.1),
                 -3px 18px 23px rgba(0,0,0,0.1);
 }
+
 .Re {
     font-size:1.4vw;
     font-family: Joane;
@@ -155,9 +190,9 @@ h1 {
 .emilia {
     position:absolute;
     width: 28vw;
-    height: auto;
-    right:0vw;
-    top: 28vh;
+    height: 28vw;
+    left: 75vw;
+    top: 12vw
 }
 .subaru {
     position:absolute;
@@ -205,7 +240,6 @@ p {
     margin-top: 2vh;
     display: block;
     position: relative;
-    overflow: visible;
 }
 nav li {
     font-family: Arial, Helvetica, sans-serif;
@@ -213,12 +247,13 @@ nav li {
 }
 .moveable_img{
     display: inline-block !important;
-    width: 15vw;
-    height: 6.3vw;
+    margin-left:2.5vw;
+    width: 13vw;
+    height: auto;
     position:relative;
-    margin-top: 1vw;
-    left:1vw;
-    cursor: pointer;
+    margin-top: 2vw;
+    top: -1.7vw;
+    left: 0;
     pointer-events: all !important;
 }
 .button-container-mobile {
@@ -238,9 +273,9 @@ transition: opacity 0.5s, transform 0.5s; /* Define the transition properties */
 }
 
 .slide-in {
-animation: slideIn 3.25s ease;
-animation-delay:2s;
-animation-fill-mode: backwards;
+    animation: slideIn 3.25s ease;
+    animation-delay:2s;
+    animation-fill-mode: backwards;
 }
 .fade-in{
     animation: fadeIn 2.5s ease;
@@ -285,37 +320,37 @@ to {
         display:none;
     }
 }
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 768px) {
+    #sidebar_button{
+        margin: 0 !important;
+    }
+    .title {
+        display: none
+    }
     .navbar--tooltips div {
         display: none !important; 
     }
     #KeyboardControls {
-        display:none;
-    }
-    #twitter {
-        display: none;
-    }
-    .emilia {
-        display:none;
+        display:none !important;
     }
     body {
-        display:block;
-        background-image: url(../../Other_Files/bg-tv.png);
+        background-image: url(../../Other_Files/bg-tv.webp);
     }
     #default-sidebar{
         display:block !important;
     }
     .subaru {
-       height: 10vh;
-       display: none;
+        display: none !important;
+        height: 10vh;
     }
     h3 {
         font-size:2vw;
     }
     .moveable_img {
         position: relative;
-        width: 37.5vw;
-        height: 15vw;
+        margin-bottom: 0.5vh;
+        width: 30vw;
+        height: auto;
     }  
     h1 {
         font-size: 5vw; /* Adjust the font size of h1 for mobile */
@@ -326,7 +361,7 @@ to {
         font-size: 3.2vw;
     }
     p {
-        font-size: 2.8vw; /* Adjust the font size of p for mobile */
+        font-size: 2.5vw; /* Adjust the font size of p for mobile */
         margin-top: -0.5vh;
     }
      #videoPlayer {
@@ -334,6 +369,7 @@ to {
         height: auto; /* Allow the video player to adjust its height */
         margin-top: 6vw;
         width:auto;
+        height:auto;
     }
     .topnav a {
         font-size:2.2vw;
@@ -406,20 +442,20 @@ to {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
 }
-@media screen and (max-width: 1024px) and (orientation: landscape) {
-    .content__navbar, #paragraph, .subaru, .trademark, #github, #KeyboardControls, #text_to_change, .button-container,.button-container-mobile, #ExitTheaterModeButton, #moveable_img {
-        display: none !important;
-    }
-    #videoPlayer {
-        width: auto;
-        height: 100vh;
-        margin: 0 auto;
-    }
-    body {
-        background-color: #000000;
-        background-image: none;
-    }
-    .oldtopnav {
-        margin-top: 0;
-    }
+@media screen and (max-width: 768px) and (orientation: landscape) {
+.content__navbar, #paragraph, .subaru, .trademark, #github, #KeyboardControls, #text_to_change, .button-container,.button-container-mobile, #ExitTheaterModeButton, #moveable_img {
+    display: none !important;
+}
+#videoPlayer {
+    width: auto;
+    height: 100vh;
+    margin: 0 auto;
+}
+body {
+    background-color: #000000;
+    background-image: none;
+}
+.oldtopnav {
+    margin-top: 0;
+}
 }

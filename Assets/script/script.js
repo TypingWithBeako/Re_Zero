@@ -1,49 +1,68 @@
+// Polyfill for MediaSession API
+if (!('mediaSession' in navigator)) {
+    navigator.mediaSession = {
+        setActionHandler: function() {},
+        setPositionState: function() {},
+        metadata: null
+    };
+}
+
+if (typeof MediaMetadata !== 'function') {
+    window.MediaMetadata = function(metadata) {
+        this.title = metadata.title || '';
+        this.artist = metadata.artist || '';
+        this.album = metadata.album || '';
+        this.artwork = metadata.artwork || [];
+    };
+}
+// DOM <video> element for preloading
+const nextVideo = document.createElement('video');
+const URL = "https://r2-cache-worker-en.thaituan150806.workers.dev/"
+
 var videoUrls = [
-    "Openings_and_Endings/OP1 - Redo.mp4",
-    "Openings_and_Endings/ED1 - STYX HELIX.mp4",
-    "Openings_and_Endings/OP2 - Paradisus - Paradoxum.mp4",
-    "Openings_and_Endings/ED2 - Stay Alive.mp4",
-    "Openings_and_Endings/OP3 - Realize.mp4",
-    "Openings_and_Endings/ED3 - Memento.mp4",
-    "Openings_and_Endings/OP4 - Long shot.mp4",
-    "Openings_and_Endings/ED4 - Believe in you.mp4",
-    "Openings_and_Endings/OP5 - Reweave.mp4",
-    "Openings_and_Endings/ED5 - NOX LUX.mp4",
+    `${URL}OP1 - Redo.mp4`,
+    `${URL}ED1 - STYX HELIX.mp4`,
+    `${URL}OP2 - Paradisus - Paradoxum.mp4`,
+    `${URL}ED2 - Stay Alive.webm`,
+    `${URL}OP3 - Realize.mp4`,
+    `${URL}ED3 - Memento.mp4`,
+    `${URL}OP4 - Long shot.mp4`,
+    `${URL}ED4 - Believe in you.webm`,
+    `${URL}OP5 - Reweave.mp4`,
+    `${URL}ED5 - NOX LUX.mp4`,
 ];
 var newvideoUrls = [
-    "Insert_Songs/STRAIGHT BET.mp4",
-    "Insert_Songs/Bouya no Yume yo.mp4",
-    "Insert_Songs/Memories.mp4",
-    "Insert_Songs/White White Snow.mp4",
-    "Insert_Songs/Yuki no hate ni Kimi no na wo.mp4",
-    "Insert_Songs/Wishing.mp4",
-    "Insert_Songs/Door.mp4",
-    "Insert_Songs/What you don't know.mp4",
-    "Insert_Songs/I Trust You.mp4",
+    `${URL}STRAIGHT BET.mp4`,
+    `${URL}Bouya no Yume yo.mp4`,
+    `${URL}Memories.mp4`,
+    `${URL}White White Snow.mp4`,
+    `${URL}Requiem of Silence.mp4`,
+    `${URL}Wishing.mp4`,
+    `${URL}Yuki no hate ni Kimi no na wo.mp4`,
+    `${URL}Door.mp4`,
+    `${URL}What you don't know.mp4`,
+    `${URL}I Trust You.mp4`,
 ];
     
 let isPosterSet = false; //Track if poster is set
 let currentIndex = 0; // For videoUrls
-let newcurrentIndex = 0; // For newvideoUrls
-let isSwitching = false;
+let newcurrentIndex =0; // For newvideoUrls
 let clickCount = 0;
 let preloadedVideos = [];
 let disablePreloading = false;
 let nextVideoTimeout;
 let videoLoopingTimeout;
-let loopcurrentIndex = 0;
 let loopclickCount = 0;
 let enableLoopingListener = null;
 let delay = 0;
 let isAnimating = false;
-let intervalId;
-let isIntervalActive = true;
 let FclickCount = 0;
 let nextClickCount = 0;
-let originalIndex = 0;
 let keyB = 0
-let Fullscreen = null;
-let currentVolume = 1 // Default volume (0 to 1)
+let TheaterModeFlag = false;
+let TheaterModeClickCount = 0;
+let currentVolume = 1 // 1 stands for maximum volume, 0 stands for muted
+let errorReloadTimeout;
 
 function playVideo(videoName) {
     nextVideo.src = '';
@@ -64,110 +83,87 @@ function playVideo(videoName) {
     // Clear the timeout for playNextVideo
     clearTimeout(nextVideoTimeout);
     clearTimeout(videoLoopingTimeout); 
-    // When playVideo is executed, reset isSwitching.
-    isSwitching = false; 
+    clearTimeout(errorReloadTimeout);
     simulateClick();
 }
 const videoPlayer = document.getElementById('videoPlayer');
 videoPlayer.addEventListener('play',function(){
     clearTimeout(nextVideoTimeout);
-    isSwitching = false;
+    clearTimeout(videoLoopingTimeout);
+    clearTimeout(errorReloadTimeout);
     if (!isPosterSet) {
         videoPlayer.poster = "Other_Files/black.png";
         isPosterSet = true;
     }
-    var name = ''
-    var artist = ''
+    let name = cleanVideoSrcName(videoPlayer.src);
+    if (name.substr(0,2) == 'OP' || name.substr(0,2) == 'ED'){
+        let firstIndexOfHyphen = name.indexOf(' - ')
+        name = name.substr(firstIndexOfHyphen + 3)
+    }
+    let artist = ''
     let musicArtwork = ''
-    const songName = videoPlayer.src.split('/').pop(); // Get the last part of the path after splitting by '/'
-    if (songName == "S1%20Ending.mp4"){
-        name = 'Season 1 Ending'
-        artist = 'Myth & Roid'
-        musicArtwork = {
-            src: "Icons/artworks/STYX_HELIX_Cover.webp",
-            sizes: "1008x1000",
-            type: "image/png",
-          }
-    }
-    else if (songName == "S2%20Ending.mp4"){
-        name = 'Season 2 Ending'
-        artist = 'Mayu Maeshima'
-        musicArtwork = {
-            src: "Icons/artworks/Long_Shot_Cover.webp",
-            sizes: "997x992",
-            type: "image/png",
-          }
-    }
-    else if (songName == "Theater%20D.mp4"){
-        name = 'Theater D'
-        artist = 'Myth & Roid'
-        musicArtwork = {
-            src: "Icons/artworks/Theater_D_Cover.jpg",
-            sizes: "1080x1080",
-            type: "image/png",
-          }
-    }
-    else if (songName == 'ED1%20-%20STYX%20HELIX%20slow.mp4') {
-        name = 'STYX HELIX (slow ver.)'
-        artist = 'Mayu Maeshima'
-        musicArtwork = {
-            src: "Icons/artworks/STYX_HELIX_Cover.webp",
-            sizes: "997x992",
-            type: "image/png",
-          }
-    }
-    else if (clickCount %2 == 1){
-        const songName = newvideoUrls[newcurrentIndex].split('/').pop();
-        const lastDot = songName.lastIndexOf('.'); // exactly what it says on the tin
-        name = songName.slice(0, lastDot); // characters from the start to the last dot
-    }
-    else {
-        const songName = videoUrls[currentIndex].split('/').pop();
-        const lastDot = songName.lastIndexOf('.'); // exactly what it says on the tin
-        name = songName.slice(6, lastDot)
-    }
-    if (name == 'STYX HELIX' || name == 'Paradisus - Paradoxum' || name == 'NOX LUX' ||name == 'STRAIGHT BET'){
+    if (name == 'STYX HELIX' || name == 'Paradisus - Paradoxum' || name == 'NOX LUX' ||name == 'STRAIGHT BET' || name == 'Season 1 Ending' || name == 'Theater D' || name == 'STYX HELIX slow' || name == 'STYX HELIX nocut'){ 
         artist = 'Myth & Roid'
         if (name == 'STYX HELIX')
             musicArtwork = {
                 src: "Icons/artworks/STYX_HELIX_Cover.webp",
                 sizes: "1008x1000",
-                type: "image/png",
+                type: "image/webp",
               }
         else if (name == 'Paradisus - Paradoxum')
             musicArtwork = {
                 src: "Icons/artworks/Paradisus-Paradoxum_Cover.webp",
                 sizes: "1000x993",
-                type: "image/png",
+                type: "image/webp",
               }
         else if (name == 'NOX LUX')
             musicArtwork = {
-                src: "Icons/artworks/NOX_LOX_Cover.webp",
+                src: "Icons/artworks/NOX_LUX_Cover.webp",
                 sizes: "1080x1080",
-                type: "image/png",
+                type: "image/webp",
               }
         else if (name == 'STRAIGHT BET')
             musicArtwork = {
                 src: "Icons/artworks/STRAIGHT_BET_Cover.jpg",
                 sizes: "721x720",
-                type: "image/png",
+                type: "image/jpeg",
+              }
+        else if (name == 'Season 1 Ending'){
+            musicArtwork = {
+                src: "Icons/artworks/STYX_HELIX_Cover.webp",
+                sizes: "1008x1000",
+                type: "image/webp",
               }
         }
-    else if (name == 'STYX HELIX nocut') {
-        name = 'STYX HELIX'
-        artist = 'Myth & Roid'
-        musicArtwork = {
-            src: "Icons/artworks/STYX_HELIX_Cover.webp",
-            sizes: "997x992",
-            type: "image/png",
-          }
+        else if (name == 'Theater D')
+            musicArtwork = {
+                src: "Icons/artworks/Theater_D_Cover.jpg",
+                sizes: "1080x1080",
+                type: "image/jpeg",
+              }
+        else if (name == 'STYX HELIX slow'){
+            name = "STYX HELIX (slow ver.)"
+            musicArtwork = {
+                src: "Icons/artworks/STYX_HELIX_Cover.webp",
+                sizes: "1008x1000",
+                type: "image/webp",
+              }
+        }
+        else if (name == 'STYX HELIX nocut') {
+            artist = 'Myth & Roid'
+            musicArtwork = {
+                src: "Icons/artworks/STYX_HELIX_Cover.webp",
+                sizes: "1008x1000",
+                type: "image/webp",
+            }
+        }
     }
-    else if (name == 'Long shot'){
+    else if (name == 'Long shot' || name == 'Season 2 Ending'){
         artist = 'Mayu Maeshima'
         musicArtwork = {
             src: "Icons/artworks/Long_Shot_Cover.webp",
             sizes: "1400x1400",
-            type: "image/png",
+            type: "image/webp",
           }
     }
     else if (name == 'Redo' || name == 'Realize' || name == 'Reweave'){
@@ -176,46 +172,46 @@ videoPlayer.addEventListener('play',function(){
             musicArtwork = {
                 src: "Icons/artworks/Redo_Cover.webp",
                 sizes: "997x992",
-                type: "image/png",
+                type: "image/webp",
             }
         else if (name == 'Realize')
             musicArtwork = {
                 src: "Icons/artworks/Realize_cover.webp",
                 sizes: "500x500",
-                type: "image/png",
+                type: "image/webp",
             }
         else if (name == 'Reweave')
             musicArtwork = {
                 src: "Icons/artworks/Reweave_Cover.webp",
                 sizes: "1600x1600",
-                type: "image/png",
+                type: "image/webp",
             }
-        }
+    }
     else if (name == 'Stay Alive' || name == 'Door' || name == 'I Trust You' || name == 'Bouya no Yume yo'){
         artist = 'Emilia (CV: Rie Takahashi)'
         if (name == 'Stay Alive')
             musicArtwork = {
                 src: "Icons/artworks/Stay_Alive_Cover.webp",
                 sizes: "1280x1281",
-                type: "image/png",
+                type: "image/webp",
             }
         else if (name == 'Door')
             musicArtwork = {
                 src: "Icons/artworks/Character_song_album.webp",
                 sizes: "1280x1280",
-                type: "image/png",
+                type: "image/webp",
             }
         else if (name == 'I Trust You')
             musicArtwork = {
                 src: "Icons/artworks/Character_song_album.webp",
                 sizes: "1280x1280",
-                type: "image/png",
+                type: "image/webp",
             }
         else if (name == 'Bouya no Yume yo')
             musicArtwork = {
                 src: "Icons/artworks/Character_song_album.webp",
                 sizes: "1280x1280",
-                type: "image/png",
+                type: "image/webp",
             }
     }
     else if (name == 'Memento' || name == 'Believe in you' || name == 'Yuki no hate ni Kimi no na wo' || name == 'White White Snow'){
@@ -224,25 +220,25 @@ videoPlayer.addEventListener('play',function(){
             musicArtwork = {
                 src: "Icons/artworks/Memento_cover.webp",
                 sizes: "500x500",
-                type: "image/png",
+                type: "image/webp",
             }
         else if (name == 'Believe in you')
             musicArtwork = {
                 src: "Icons/artworks/Believe_in_you_cover.webp",
                 sizes: "500x500",
-                type: "image/png",
+                type: "image/webp",
             }
         else if (name == 'Yuki no hate ni Kimi no na wo')
             musicArtwork = {
                 src: "Icons/artworks/Memory_Snow_OVA_Music_Cover.webp",
                 sizes: "640x640",
-                type: "image/png",
+                type: "image/webp",
             }
         else if (name == 'White White Snow')
             musicArtwork = {
                 src: "Icons/artworks/Memory_Snow_OVA_Music_Cover.webp",
                 sizes: "640x640",
-                type: "image/png",
+                type: "image/webp",
             }
     }
     else if (name == 'Memories'){
@@ -250,7 +246,7 @@ videoPlayer.addEventListener('play',function(){
         musicArtwork = {
             src: "Icons/artworks/Memory_Snow_OVA_Music_Cover.webp",
             sizes: "640x640",
-            type: "image/png",
+            type: "image/webp",
         }
     }
     else if (name == 'Wishing'){
@@ -258,7 +254,7 @@ videoPlayer.addEventListener('play',function(){
         musicArtwork = {
             src: "Icons/artworks/Character_song_album.webp",
             sizes: "1280x1280",
-            type: "image/png",
+            type: "image/webp",
         }
     }
     else if (name == 'What you don\'t know'){
@@ -266,33 +262,42 @@ videoPlayer.addEventListener('play',function(){
         musicArtwork = {
             src: "Icons/artworks/Character_song_album.webp",
             sizes: "1280x1280",
-            type: "image/png",
+            type: "image/webp",
+        }
+    }
+    else if (name == 'Requiem of Silence'){
+        artist = 'Kenichiro Suehiro'
+        musicArtwork = {
+            src: "Icons/artworks/Re_Zero_Soundtrack_Cover.webp",
+            sizes: "320x317",
+            type: "image/webp",
         }
     }
 
     navigator.mediaSession.metadata = new MediaMetadata({
-        title: name,//the title of the media
-        artist: artist,//the artist of the media
+        title: name, //the title of the media
+        artist: artist, //the artist of the media
         artwork: 
         [
             musicArtwork
         ]
       });
     document.title = "「" + name + "」";
-
-    navigator.mediaSession.setActionHandler("play", () => {
-        videoPlayer.play()
-    });
-    navigator.mediaSession.setActionHandler("pause", () => {
-        videoPlayer.pause()
-    });
-    navigator.mediaSession.setActionHandler("previoustrack", () => {
-        previousVideoTrack()
-    });
-    navigator.mediaSession.setActionHandler("nexttrack", () => {
-        nextVideoTrack()
-    });
 })
+
+navigator.mediaSession.setActionHandler("play", () => {
+    videoPlayer.play()
+});
+navigator.mediaSession.setActionHandler("pause", () => {
+    videoPlayer.pause()
+});
+navigator.mediaSession.setActionHandler("previoustrack", () => {
+    previousVideoTrack()
+});
+navigator.mediaSession.setActionHandler("nexttrack", () => {
+    nextVideoTrack()
+});
+
 // Automatically play next video after ending with a delay
 function playNextVideo() {
     if (!isSwitching) {
@@ -323,17 +328,25 @@ const moveableimg = document.querySelector('.moveable_img');
 const textToChange = document.getElementById('text_to_change');
 const navbarContent = document.getElementById('oldnavbarContent');
 const newnavbarContent = document.getElementById('newnavbarContent');
+const newInsertSongs = document.getElementById('newInsertSongs');
 const bodytext =document.getElementById('bodytext');
 const songname =document.getElementById('songname');
 const disablePreloadingbutton = document.querySelector('.subaru');
 const enablePreloadingbutton = document.querySelector('.trademark');
 const nextButton = document.getElementById('nextButton');
 const backButton = document.getElementById('backButton');
+const newnextButton = document.getElementById('newnextButton');
+const newbackButton = document.getElementById('newbackButton');
 const S3 = document.getElementById('Season3Content');
 const SidebarButton = document.getElementById('SidebarButton');
 const Trademark = document.getElementById('trademark');
-const body = document.getElementById('body');
-
+const DelayButton = document.getElementById('Delay');
+const Openings = document.getElementById('Openings');
+const Endings = document.getElementById('Endings');
+const Insert_Songs = document.getElementById('Insert_Songs');
+const Openings_Content = document.getElementById('Openings_Content');
+const Endings_Content = document.getElementById('Endings_Content');
+const Insert_Songs_Content = document.getElementById('Insert_Songs_Content');
 
 moveableimg.addEventListener('click', function(){
         
@@ -347,14 +360,16 @@ moveableimg.addEventListener('click', function(){
     console.log("Image clicked!"); // Add this line for testing
     if (clickCount % 2 === 1) {
         textToChange.innerHTML = "All <s> OPs and EDs</s> Insert Songs";
-        bodytext.innerHTML = "Insert Songs and more!"
+        bodytext.innerHTML = "Insert Songs!"
         songname.innerHTML = "Openings and Endings"
         navbarContent.style.display = 'none';
         newnavbarContent.style.display ='flex';
         videoPlayer.src= newvideoUrls[0];
-        newcurrentIndex=0;
+        newcurrentIndex = 0;
+        currentIndex = -1;
+        nextClickCount = 0;
         clearTimeout(nextVideoTimeout);
-        isSwitching = false; 
+        clearTimeout(videoLoopingTimeout);
         textToChange.classList.add('fade-in-title');
         bodytext.classList.add('fade-in-bodytext');
         songname.classList.add('fade-in-songname');
@@ -362,6 +377,9 @@ moveableimg.addEventListener('click', function(){
         moveableimg.classList.add('fade-in');
         backButton.style.display ='none';
         nextButton.style.display ='none';
+        newnextButton.style.display = 'inline';
+        newbackButton.style.display = 'none';
+        newnextButton.classList.add('fade-in-songname')
         S3.style.display='none';
         Insert_Songs.style.display = '';
         Endings.style.display = 'none';
@@ -369,7 +387,12 @@ moveableimg.addEventListener('click', function(){
         Openings_Content.style.display = 'none';
         Endings_Content.style.display = 'none';
         Insert_Songs_Content.style.display = '';
-        SidebarButton.innerHTML = "Change to OPs and EDs";
+        SidebarButton.innerHTML = "Switch to OPs and EDs";
+        console.log("- INSERT SONGS MODE - ");
+        videoPlayer.addEventListener('loadeddata', () => {
+            if (isPosterSet)
+                videoPlayer.currentTime = 0;
+        },{once:true})
     }
     else {
         textToChange.innerHTML = " All OPs and EDs ";
@@ -378,23 +401,32 @@ moveableimg.addEventListener('click', function(){
         navbarContent.style.display ='flex';
         newnavbarContent.style.display ='none';
         videoPlayer.src = videoUrls[0];
-        currentIndex=0;
+        currentIndex = 0;
+        newcurrentIndex = -1;
+        nextClickCount = 0;
         clearTimeout(nextVideoTimeout); 
-        isSwitching = false; 
+        clearTimeout(videoLoopingTimeout);
         textToChange.classList.add('fade-in-title');
         bodytext.classList.add('fade-in-bodytext');
         songname.classList.add('fade-in-songname');
+        nextButton.classList.add('fade-in-songname')
         navbarContent.classList.add('slide-in');
         moveableimg.classList.add('fade-in');
         nextButton.style.display ='inline';
-        nextButton.classList.add('fade-in-songname')
+        newnextButton.style.display = 'none';
+        newbackButton.style.display ='none';
         Insert_Songs.style.display='none';
         Openings.style.display = '';
         Endings.style.display = '';
         Openings_Content.style.display = '';
         Endings_Content.style.display = '';
         Insert_Songs_Content.style.display = 'none';
-        SidebarButton.innerHTML = "Change to Insert Songs";
+        SidebarButton.innerHTML = "Switch to Insert Songs";
+        console.log("- OPENINGS AND ENDINGS MODE - ");
+        videoPlayer.addEventListener('loadeddata', () => {
+            if (isPosterSet)
+                videoPlayer.currentTime = 0;
+        },{once:true})
     }
     setTimeout(() => {
     isAnimating = false; // Reset the flag once the animation is complete
@@ -403,29 +435,45 @@ moveableimg.addEventListener('click', function(){
 });
 // Remove the animation class after the animation ends
 textToChange.addEventListener('animationend', () => {
-textToChange.classList.remove('fade-in-title');
+    textToChange.classList.remove('fade-in-title');
 });
 bodytext.addEventListener('animationend', () => {
-bodytext.classList.remove('fade-in-bodytext');
+    bodytext.classList.remove('fade-in-bodytext');
 });
 songname.addEventListener('animationend', () => {
-songname.classList.remove('fade-in-songname');
+    songname.classList.remove('fade-in-songname');
 });
 navbarContent.addEventListener('animationend', () => {
-navbarContent.classList.remove('slide-in');
+    navbarContent.classList.remove('slide-in');
+    navbarContent.classList.remove('fade-in');
 });
 newnavbarContent.addEventListener('animationend', () => {
-newnavbarContent.classList.remove('slide-in');
+    newnavbarContent.classList.remove('slide-in');
+    newnavbarContent.classList.remove('fade-in');
 });
-moveable_img.addEventListener('animationend', () => {
-moveable_img.classList.remove('fade-in');
+moveableimg.addEventListener('animationend', () => {
+    moveableimg.classList.remove('fade-in');
 });
-nextButton.addEventListener('animationend', () => {
-nextButton.classList.remove('fade-in-songname');
-});
+S3.addEventListener('animationend', () => {
+    S3.classList.remove('fade-in');
+})
+newInsertSongs.addEventListener('animationend', () => {
+    newInsertSongs.classList.remove('fade-in');
+})
 backButton.addEventListener('animationend', () => {
-backButton.classList.remove('fade-in-songname');
-});
+    backButton.classList.remove('fade-in');
+})
+nextButton.addEventListener('animationend', () => {
+    nextButton.classList.remove('fade-in-songname');
+    nextButton.classList.remove('fade-in');
+})
+newbackButton.addEventListener('animationend', () => {
+    newbackButton.classList.remove('fade-in');
+})
+newnextButton.addEventListener('animationend', () => {
+    newnextButton.classList.remove('fade-in-songname');
+    newnextButton.classList.remove('fade-in');
+})
 
 function handleFontSizeChange(mediaQuery) {
     // Change font size for mobile devices
@@ -464,7 +512,6 @@ disablePreloadingbutton.addEventListener('click',function(){
         }
     }
 }, );
-const nextVideo = document.createElement('video');
 // Video preloading 
 videoPlayer.addEventListener('timeupdate', function() {
     const currentTime = videoPlayer.currentTime;
@@ -474,20 +521,22 @@ videoPlayer.addEventListener('timeupdate', function() {
     // Preload multiple videos based on the current video type
         if (clickCount % 2 === 1) {
             const nextNewIndex = (newcurrentIndex + 1) % newvideoUrls.length;
+            const newName = cleanVideoSrcName(newvideoUrls[nextNewIndex]);
             if (!preloadedVideos.includes(newvideoUrls[nextNewIndex])) {
                 nextVideo.src = newvideoUrls[nextNewIndex];
                 nextVideo.preload = 'auto';
                 preloadedVideos.push(newvideoUrls[nextNewIndex]);
-                console.log('Next new video preloaded:', newvideoUrls[nextNewIndex]);                                
+                console.log('Preloaded video:', newName);                                      
             }
         }
         else {
             const nextIndex = (currentIndex + 1) % videoUrls.length;
+            const name = cleanVideoSrcName(videoUrls[nextIndex]);
             if (!preloadedVideos.includes(videoUrls[nextIndex])) {
                 nextVideo.src = videoUrls[nextIndex];
                 nextVideo.preload = 'auto';
                 preloadedVideos.push(videoUrls[nextIndex]);
-                console.log('Next video preloaded:', videoUrls[nextIndex]);   
+                console.log('Preloaded video:', name);  
             }
         }
     }      
@@ -500,15 +549,16 @@ function disableFocus(element) {
 }
 disableFocus(videoPlayer);
 
-// Reset preloadedVideos array every 60 seconds (worst case scenario) to optimize playback.
+// Reset preloadedVideos array every time a video ends to optimize memory usage.
 function ResetArray(){
     preloadedVideos = [];
 }
 videoPlayer.addEventListener('ended',ResetArray)
 
-function cleanVideoSrc(src) {
-    const startIndex = src.lastIndexOf("/") - 20; 
-    const cleanedPath = src.substring(startIndex);
+function cleanVideoSrcName(src){
+    const startIndex = src.lastIndexOf("/")+1;
+    const lastDot = src.lastIndexOf('.'); // exactly what it says on the tin
+    const cleanedPath = src.substring(startIndex,lastDot);
     return cleanedPath.replace(/%20/g, ' ');
 }
 
@@ -524,55 +574,26 @@ const loopVideo = document.querySelector('#loop')
 const loopText = document.querySelector('.looptext')
 loopVideo.addEventListener('click',function() {
     loopclickCount++
+    const name = cleanVideoSrcName(videoPlayer.src)
     if (loopclickCount % 2 == 1){
-        loopText.innerHTML = "Disable looping";
-        videoPlayer.removeEventListener('ended',ResetArray);
+        loopText.innerHTML = "Tắt lặp video";
+        if (videoPlayer.ended)
+            enableLoopingListener();
+        videoPlayer.removeEventListener('ended', ResetArray);
         videoPlayer.addEventListener('ended', enableLoopingListener);
-        const currentVideo = cleanVideoSrc(videoPlayer.src)
-        if (!videoUrls.includes(currentVideo) && !newvideoUrls.includes(currentVideo)){
-            const songName = currentVideo.split('/').pop(); // Get the last part of the path after splitting by '/'
-            const lastDot = songName.lastIndexOf('.'); // exactly what it says on the tin
-            const name = songName.slice(0, lastDot); // characters from the start to the last dot
-            console.log('Video looping enabled for:', songName);
-            alert("Video looping enabled for: " + name);   
-        }
-        else if (clickCount % 2 == 1){ 
-            const songName = newvideoUrls[newcurrentIndex].split('/').pop(); // Get the last part of the path after splitting by '/'
-            console.log('Video looping enabled for:', songName);
-            alert("Video looping enabled for: " + songName);
-        }
-        else {
-            const songName = videoUrls[currentIndex].split('/').pop();
-            const lastDot = songName.lastIndexOf('.'); // exactly what it says on the tin
-            const name = songName.slice(0, lastDot); // characters from the start to the last dot
-            console.log('Video looping enabled for:', songName);
-            alert("Video looping enabled for: " + name);   
-        }
+        console.log('Video looping enabled for: ', name);
+        alert("Video looping enabled for: " + name);   
     }
     else {
-        loopText.innerHTML = "Enable looping";
+        loopText.innerHTML = "Bật lặp video";
+        if (videoPlayer.ended){
+            clearTimeout(videoLoopingTimeout)
+            playNextVideo();
+        }
         videoPlayer.removeEventListener('ended', enableLoopingListener);
-        videoPlayer.addEventListener('ended',ResetArray);
-        const currentVideo = cleanVideoSrc(videoPlayer.src)
-        if (!videoUrls.includes(currentVideo) && !newvideoUrls.includes(currentVideo)){
-            const songName = currentVideo.split('/').pop(); // Get the last part of the path after splitting by '/'
-            const lastDot = songName.lastIndexOf('.'); // exactly what it says on the tin
-            const name = songName.slice(0, lastDot); // characters from the start to the last dot
-            console.log('Video looping disabled for:', name);
-            alert("Video looping disabled for: " + name);
-        }
-        else if (clickCount % 2 == 1){
-            const songName = newvideoUrls[newcurrentIndex].split('/').pop();
-            console.log('Video looping disabled for:', songName)
-            alert("Video looping disabled for: " + songName);
-        }
-        else {
-            const songName = videoUrls[currentIndex].split('/').pop();
-            const lastDot = songName.lastIndexOf('.'); // exactly what it says on the tin
-            const name = songName.slice(0, lastDot); // characters from the start to the last dot
-            console.log('Video looping disabled for:', name);
-            alert("Video looping disabled for: " + name);
-        }
+        videoPlayer.addEventListener('ended', ResetArray);
+        console.log('Video looping disabled for: ', name);
+        alert("Video looping disabled for: " + name);
     }
     if (TheaterModeFlag)
         setTimeout(Fullscreen,0)
@@ -584,15 +605,16 @@ Fullscreen = function(){
 
 // Check for orientation change using matchMedia (for mobile devices)
 const checkOrientation = () => {
-    if (window.matchMedia("(max-width: 1024px) and (orientation: landscape)").matches) {
+    if (window.matchMedia("(max-width: 768px) and (orientation: landscape)").matches) {
         body.addEventListener('click',Fullscreen(),{once :  true})
+        body.removeEventListener('click', Fullscreen(),{once : true})
         setTimeout(function(){
             videoPlayer.style.width = "auto";
             videoPlayer.style.height = "100vh";
             videoPlayer.style.margin = "0 auto";
         },700)
     }
-    else if (window.matchMedia("(max-width: 1024px) and (orientation: portrait)").matches) {
+    else if (window.matchMedia("(max-width: 768px) and (orientation: portrait").matches) {
         videoPlayer.style.height = "auto";
         videoPlayer.style.marginTop = "6vw";
     }
@@ -601,6 +623,7 @@ const checkOrientation = () => {
         videoPlayer.style.marginTop = "2vh"
     }
 };
+
 // Listen for orientation changes
 window.addEventListener("resize", checkOrientation);
 
@@ -640,26 +663,27 @@ shuffleButton.addEventListener('click', function() {
     
 // Update the delay variable
 function updateDelay(newDelay) {
-    delay = newDelay; 
+    delay = newDelay * 1000; // Convert to milliseconds
 }
 // Add event listener for button click
 document.getElementById("Delay").addEventListener("click", function() {
     // Prompt user for new delay
-    let newDelay = parseInt(prompt("Enter new delay in milliseconds (Current delay: " + delay + "ms)"));
+    let newDelay = parseFloat(prompt("Enter new transition delay in seconds: (Current delay: " + delay/1000 + "seconds)"));
     // Validate user input
-    if (isNaN(newDelay) || newDelay < 0) {
-        alert("Invalid delay. Please enter a non-negative number.");
-    return;
-    }
-    if (newDelay > 10000) {
-        alert("You really like to sleep when switching videos! (Delay not changed)");
-    return;
-    }
     if (TheaterModeFlag)
         setTimeout(Fullscreen,0)
+    if (isNaN(newDelay) || newDelay < 0) {
+        alert("Invalid delay. Please enter a non-negative number.");
+        return;
+    }
+    if (newDelay > 25) {
+        alert("You really like to sleep when switching videos! (Delay not changed)");
+        return;
+    }
+   
     // Update delay and optionally display confirmation
     updateDelay(newDelay);
-    console.log("Delay updated to", newDelay, "milliseconds");
+    console.log("Delay updated to", newDelay, "seconds");
 });
 
 function nextVideoTrack(){
@@ -703,15 +727,14 @@ document.addEventListener("keydown", function(event) {
             videoPlayer.pause();
     }
     // Skipping to the next video using the playVideo function when pressing right arrow key
-    if (event.code === "ArrowRight") {
+    else if (event.code === "ArrowRight") {
         nextVideoTrack()
     }
     // Returning to the previous video using the playVideo function (doesn't work if used on first video)
-
-    if (event.code === "ArrowLeft") {
+    else if (event.code === "ArrowLeft") {
         previousVideoTrack()
     }
-    if (event.code === "Numpad1"||event.code === "Digit1")  {
+    else if (event.code === "Numpad1"||event.code === "Digit1")  {
         if (clickCount % 2 === 1) {
             playVideo(newvideoUrls[0]);
         }   
@@ -719,7 +742,7 @@ document.addEventListener("keydown", function(event) {
             playVideo(videoUrls[0]);
         }
     }
-    if (event.code === "Numpad2"||event.code === "Digit2")  {
+    else if (event.code === "Numpad2"||event.code === "Digit2")  {
         if (clickCount % 2 === 1) {
             playVideo(newvideoUrls[1]);
         }   
@@ -727,7 +750,7 @@ document.addEventListener("keydown", function(event) {
            playVideo(videoUrls[1]);
             }
     }
-    if (event.code === "Numpad3"||event.code === "Digit3")  {
+    else if (event.code === "Numpad3"||event.code === "Digit3")  {
         if (clickCount % 2 === 1) {
             playVideo(newvideoUrls[2]);
         }   
@@ -735,7 +758,7 @@ document.addEventListener("keydown", function(event) {
             playVideo(videoUrls[2]);
         }
     }
-    if (event.code === "Numpad4"||event.code === "Digit4")  {
+    else if (event.code === "Numpad4"||event.code === "Digit4")  {
         if (clickCount % 2 === 1) {
             playVideo(newvideoUrls[3]);
         }   
@@ -743,7 +766,7 @@ document.addEventListener("keydown", function(event) {
             playVideo(videoUrls[3]);
         }
     }
-    if (event.code === "Numpad5"||event.code === "Digit5")  {
+    else if (event.code === "Numpad5"||event.code === "Digit5")  {
         if (clickCount % 2 === 1) {
             playVideo(newvideoUrls[4]);
         }   
@@ -751,7 +774,7 @@ document.addEventListener("keydown", function(event) {
             playVideo(videoUrls[4]);
         }
     }
-    if (event.code === "Numpad6"||event.code === "Digit6")  {
+    else if (event.code === "Numpad6"||event.code === "Digit6")  {
         if (clickCount % 2 === 1) {
             playVideo(newvideoUrls[5]);
         }   
@@ -759,56 +782,56 @@ document.addEventListener("keydown", function(event) {
             playVideo(videoUrls[5]);
         }
     }
-    if (event.code === "Numpad7"||event.code === "Digit7")  {
+    else if (event.code === "Numpad7"||event.code === "Digit7")  {
         if (clickCount % 2 === 1) {
             playVideo(newvideoUrls[6]);
         }   
         else {
             playVideo(videoUrls[6]);
-        }
+            }
     }
-    if (event.code === "Numpad8"||event.code === "Digit8")  {
+    else if (event.code === "Numpad8"||event.code === "Digit8")  {
         if (clickCount % 2 === 0) {
             playVideo(videoUrls[7]);
         }
-        else{
+        else {
             playVideo(newvideoUrls[7]);
-        }   
+        }      
     }
-    if (event.code === 'Numpad9'||event.code === "Digit9") {
+    else if (event.code === 'Numpad9'||event.code === "Digit9") {
         if (clickCount % 2 === 0) {
             playVideo(videoUrls[8]);
         }
-        else{
-            playVideo(newvideoUrls[8]);
-        }      
+        else {
+            playVideo(newvideoUrls[8])   
+        }
+            
     }
-    if (event.code === 'Numpad0'||event.code === "Digit0") {
+    else if (event.code === 'Numpad0'||event.code === "Digit0") {
         if (clickCount % 2 === 0) {
             playVideo(videoUrls[9]);
+        }
+        else {
+            playVideo(newvideoUrls[9])
         }   
     }
-    if (event.code === 'Tab') {
+    else if (event.code === 'Tab') {
         event.preventDefault(); // Prevent the default tab behavior
-        moveableimg.click();
-        if (TheaterModeFlag){
-            newnavbarContent.style.display='none';
-            navbarContent.style.display='none';
-        }
+        togglePlaylist();
     }
-    if (event.code === 'KeyQ') {
+    else if (event.code === 'KeyQ') {
         shuffleButton.click();
     }   
-    if (event.code === 'KeyW') {
+    else if (event.code === 'KeyW') {
         loopVideo.click();
     }   
-    if (event.code === 'KeyE') {
-        document.getElementById("Delay").click();
+    else if (event.code === 'KeyE') {
+        DelayButton.click();
     }
-    if (event.code === 'KeyR') {
+    else if (event.code === 'KeyR') {
         togglePictureInPicture();
     }
-    if (event.code === 'KeyF'){
+    else if (event.code === 'KeyF'){
         if ((document.fullscreenElement && document.fullscreenElement === videoPlayer) ||
             (document.webkitFullscreenElement && document.webkitFullscreenElement === videoPlayer) ||
             (document.msFullscreenElement && document.msFullscreenElement === videoPlayer)
@@ -817,41 +840,57 @@ document.addEventListener("keydown", function(event) {
         else 
             openFullscreen();  // Video is not in fullscreen mode, so open fullscreen
     }
-    if (event.code === "KeyT"){
+    else if (event.code === "KeyC"){
+        if (videoPlayer.hasAttribute('controls')) {
+            videoPlayer.removeAttribute('controls');
+        } 
+        else {
+            videoPlayer.setAttribute('controls', '');
+        }
+    }
+    else if (event.code === "KeyT"){
         TheaterMode.click();
     }
-    if (event.code === "KeyD"){
-        playVideo("Insert_Songs/Theater D.mp4")
+    else if (event.code === "KeyD"){
+        playVideo(`${URL}Theater D.mp4`)
     }
-    if (event.code === "KeyO"){
-        playVideo("Openings_and_Endings/S1 Ending.mp4");
+    else if (event.code === "KeyO"){
+        playVideo(`${URL}S1 Ending.webm`);
     }
-    if (event.code === "KeyP"){
-        playVideo("Openings_and_Endings/S2 Ending.mp4")
+    else if (event.code === "KeyP"){
+        playVideo(`${URL}S2 Ending.mp4`)
     }
-    if (event.code === "KeyS"){
-        playVideo("Openings_and_Endings/ED1 - STYX HELIX slow.mp4");
+    else if (event.code === "KeyS"){
+        playVideo(`${URL}ED1 - STYX HELIX slow.mp4`);
     }
-    if (event.code === 'Escape') {
+    else if (event.code === "KeyB"){
+        ChangeStyxHelix();
+    }
+    else if (event.code === 'Escape') {
         if (TheaterModeFlag){
-           TheaterMode.click()
+           TheaterMode.click() // Exit Theater Mode if Theater Mode is active
        }
     }
-    if (event.code === 'ArrowUp'){
+    else if (event.code === 'ArrowUp'){
         if (currentVolume + 0.1 > 1) // Check if the volume is already at 1
-            return
+        {
+            videoPlayer.volume = 1
+            return;
+        }
         videoPlayer.volume = currentVolume + 0.1
         currentVolume = videoPlayer.volume
     }
-    if (event.code === 'ArrowDown'){
+    else if (event.code === 'ArrowDown'){
         if (currentVolume - 0.1 < 0) // Check if the volume is already at 0
-            return
+        {
+            videoPlayer.volume = 0
+            return;
+        }
         videoPlayer.volume = currentVolume - 0.1
         currentVolume = videoPlayer.volume
     }
 });
-    
-let isAnimatingbutton = false;
+
 // Next and Back button implementation:
 nextButton.addEventListener('click',function(){
     if (isAnimating || this.hasAttribute('disabled')) {
@@ -877,7 +916,7 @@ backButton.addEventListener('click',function(){
     if (isAnimating || this.hasAttribute('disabled')) {
         return; // Exit the function if an animation is already in progress or the element is disabled
     }
-    nextClickCount++;
+    nextClickCount--;
     isAnimating = true; // Set the flag to indicate that an animation is in progress
     this.setAttribute('disabled', 'disabled'); // Disable the clickable element
     nextButton.disabled = true; // Disable the clickable element
@@ -891,52 +930,51 @@ backButton.addEventListener('click',function(){
         isAnimating = false; // Reset the flag once the animation is complete
         this.removeAttribute('disabled'); // Re-enable the clickable element
         nextButton.disabled = false; // Disable the clickable element
+    }, 2501);
+})
+
+// Next and Back button implementation (for Insert Songs):
+newnextButton.addEventListener('click',function(){
+    if (isAnimating || this.hasAttribute('disabled')) {
+        return; // Exit the function if an animation is already in progress or the element is disabled
+    }
+    nextClickCount++;
+    isAnimating = true; // Set the flag to indicate that an animation is in progress
+    this.setAttribute('disabled', 'disabled'); // Disable the clickable element
+    newbackButton.disabled = true;
+    newnavbarContent.style.display = 'none';
+    newInsertSongs.style.display = 'flex';
+    newnextButton.style.display ='none';
+    newbackButton.style.display ='inline';
+    newInsertSongs.classList.add('fade-in');
+    newbackButton.classList.add('fade-in');
+    setTimeout(() => {
+        isAnimating = false; // Reset the flag once the animation is complete
+        this.removeAttribute('disabled'); // Re-enable the clickable element
+        newbackButton.disabled = false;
         }, 2501);
 })
-S3.addEventListener('animationend', () => {
-    S3.classList.remove('fade-in');
+newbackButton.addEventListener('click',function(){
+    if (isAnimating || this.hasAttribute('disabled')) {
+        return; // Exit the function if an animation is already in progress or the element is disabled
+    }
+    nextClickCount--;
+    isAnimating = true; // Set the flag to indicate that an animation is in progress
+    this.setAttribute('disabled', 'disabled'); // Disable the clickable element
+    newnextButton.disabled = true; // Disable the clickable element
+    newnavbarContent.style.display = 'flex';
+    newInsertSongs.style.display = 'none';
+    newnextButton.style.display ='inline';
+    newbackButton.style.display ='none';
+    newnavbarContent.classList.add('fade-in');
+    newnextButton.classList.add('fade-in');
+    setTimeout(() => {
+        isAnimating = false; // Reset the flag once the animation is complete
+        this.removeAttribute('disabled'); // Re-enable the clickable element
+        newnextButton.disabled = false; // Disable the clickable element
+    }, 2501);
 })
-backButton.addEventListener('animationend', () => {
-    backButton.classList.remove('fade-in');
-})
-navbarContent.addEventListener('animationend', () => {
-navbarContent.classList.remove('fade-in');
-})
-nextButton.addEventListener('animationend', () => {
-    nextButton.classList.remove('fade-in');
-})
-/*
-window.addEventListener('load', function() {
-    setTimeout(function(){ 
-        Swal.fire({
-            html: '<b>Happy Halloween!</b> 🎃',
-            imageUrl: "Other_Files/Halloween_poster.jpg",
-            imageHeight: "80vh",
-            imageWidth: "auto",
-            showCloseButton: true,
-            showConfirmButton: false,
-            background: "#716add",
-            color: "#eb6123",
-            backdrop: `
-                rgba(0,0,123,0.4)
-            `,
-            showClass: {
-                popup: `
-                    animate__animated
-                    animate__fadeIn
-                    animate__faster
-                `
-            },
-            hideClass: {
-                popup: `
-                    animate__animated
-                    animate__fadeOut
-                    animate__faster
-                `
-            },
-    })},2000)
-});
-*/
+
 function simulateClick() {
     // Get the element at the bottom right corner of the screen
     const elementAtPoint = document.elementFromPoint(window.innerWidth - 10, window.innerHeight - 100);
@@ -978,23 +1016,17 @@ function closeFullscreen() {
     }
 }
 
-const TheaterMode = document.getElementById('Theater');
-const ButtonContainer = document.getElementsByClassName('button-container');
-const paragraph = document.getElementById('paragraph');
-const ReZeroCast = document.getElementById('subaru');
-const GitHub = document.getElementById('github');
-const ExitTheaterModeButton = document.getElementById('ExitTheaterModeButton');
-const KeyboardControls = document.getElementById("KeyboardControls")
-const navbar = document.getElementById("oldtopnav")
-let TheaterModeFlag = false;
-let TheaterModeClickCount = 0;
-
 TheaterMode.addEventListener('click',function() {
     TheaterModeClickCount++;
     if (TheaterModeClickCount%2==1){
         navbarContent.style.display = 'none';
-        S3.style.display = 'none';
+        nextButton.style.display = 'none';
+        backButton.style.display = 'none';
+        newnextButton.style.display = 'none';
+        newbackButton.style.display = 'none';
         newnavbarContent.style.display = 'none';
+        S3.style.display = 'none';
+        newInsertSongs.style.display = 'none';
         paragraph.style.display = 'none';
         ReZeroCast.style.display = 'none';
         Trademark.style.display = 'none';
@@ -1013,14 +1045,25 @@ TheaterMode.addEventListener('click',function() {
         body.style.backgroundImage = 'none';
         document.documentElement.requestFullscreen();
         if (document.pictureInPictureElement)
-            document.exitPictureInPicture()
+            document.exitPictureInPicture();
         TheaterModeFlag = true;
         ExitTheaterModeButton.style.display ='flex';
         navbar.style.marginTop = '2vh'
     }
-    else{
+    else {
         if (clickCount%2==1){
-            newnavbarContent.style.display = 'flex';
+            if (nextClickCount == 1){
+                newInsertSongs.style.display = 'flex';
+                newnavbarContent.style.display = 'none';
+                newnextButton.style.display = 'none';
+                newbackButton.style.display = 'inline';
+            }
+            else if (nextClickCount == 0){
+                newInsertSongs.style.display = 'none';
+                newnavbarContent.style.display = 'flex';
+                newnextButton.style.display = 'inline';
+                newbackButton.style.display = 'none';
+            }
             paragraph.style.display = 'block';
             ReZeroCast.style.display = 'block';
             Trademark.style.display = 'block';
@@ -1031,25 +1074,29 @@ TheaterMode.addEventListener('click',function() {
             for (let i = 0; i < ButtonContainer.length; i++) {
                 ButtonContainer[i].style.display = 'block';
             }
-            body.style.backgroundImage = 'url(Other_Files/bg-tv.png)';
+            body.style.backgroundImage = 'url(Other_Files/bg-tv.webp)';
             body.style.backgroundColor = '#FFFFFF';
             videoPlayer.style.width =  'auto';
             videoPlayer.style.height = '46.855vh';
             videoPlayer.style.margin = '0 auto';
             videoPlayer.style.marginTop = '2vh';
-            navbar.style.marginTop = '3vh'
             ExitTheaterModeButton.style.display ='none';
             TheaterModeFlag = false;
+            navbar.style.marginTop = '3vh'
             closeFullscreen();
         }
         else {
-            if (nextClickCount%2==1){
+            if (nextClickCount == 1){
                 S3.style.display = 'flex';
                 navbarContent.style.display = 'none';
+                nextButton.style.display = 'none';
+                backButton.style.display = 'inline';
             }
-            else {
+            else if (nextClickCount == 0){
                 S3.style.display = 'none';
                 navbarContent.style.display = 'flex';
+                nextButton.style.display = 'inline';
+                backButton.style.display = 'none';
             }
             paragraph.style.display = 'block';
             ReZeroCast.style.display = 'block';
@@ -1061,27 +1108,28 @@ TheaterMode.addEventListener('click',function() {
             for (let i = 0; i < ButtonContainer.length; i++) {
                 ButtonContainer[i].style.display = 'block';
             }
-            body.style.backgroundImage = 'url(Other_Files/bg-tv.png)';
+            body.style.backgroundImage = 'url(Other_Files/bg-tv.webp)';
             body.style.backgroundColor = '#FFFFFF';
             videoPlayer.style.width =  'auto';
             videoPlayer.style.height = '46.855vh';
             videoPlayer.style.margin = '0 auto';
             videoPlayer.style.marginTop = '2vh';
-            navbar.style.marginTop = '3vh'
             ExitTheaterModeButton.style.display ='none';
             TheaterModeFlag = false;
+            navbar.style.marginTop = '3vh'
             closeFullscreen();
         }
     }
 })
 
-function ChangeToInsertSongs() {
-        moveableimg.click();
-        if (TheaterModeFlag==true) {
-            newnavbarContent.style.display='none';
-            navbarContent.style.display='none';
-        }
+function togglePlaylist() {
+    moveableimg.click();
+    if (TheaterModeFlag) {
+        newnavbarContent.style.display='none';
+        navbarContent.style.display='none';
+    }
 }
+
 function ExitTheaterMode() {
     TheaterMode.click();
 }
@@ -1110,13 +1158,14 @@ const FULL_sidebar = document.getElementById('STYX_HELIX_FULL_sidebar')
 const OG = document.getElementById('STYX_HELIX_OG')
 const OG_sidebar = document.getElementById('STYX_HELIX_OG_sidebar')
 const SeasonsEndings = document.getElementsByClassName('Endings--Seasons')
+
 // Switch OP1 - STYX HELIX between cut and full version
 function ChangeStyxHelix(){
     keyB++;
         if (keyB%2==1)
         {
-            originalIndex = videoUrls.indexOf('Openings_and_Endings/ED1 - STYX HELIX.mp4');
-            videoUrls[originalIndex] = 'Openings_and_Endings/ED1 - STYX HELIX nocut.mp4';
+            originalIndex = videoUrls.indexOf(`${URL}ED1 - STYX HELIX.mp4`);
+            videoUrls[originalIndex] = `${URL}ED1 - STYX HELIX nocut.mp4`;
             OG.style.display = 'none';
             OG_sidebar.style.display = 'none';
             FULL.style.display = 'inline';
@@ -1128,8 +1177,8 @@ function ChangeStyxHelix(){
         }
         else
         {
-            originalIndex = videoUrls.indexOf('Openings_and_Endings/ED1 - STYX HELIX nocut.mp4');
-            videoUrls[originalIndex] = 'Openings_and_Endings/ED1 - STYX HELIX.mp4';
+            originalIndex = videoUrls.indexOf(`${URL}ED1 - STYX HELIX nocut.mp4`);
+            videoUrls[originalIndex] = `${URL}ED1 - STYX HELIX.mp4`;
             OG.style.display = 'inline';
             OG_sidebar.style.display = 'flex';
             FULL.style.display = 'none';
@@ -1139,48 +1188,114 @@ function ChangeStyxHelix(){
             }
             alert("Reverted changes to ED1 - STYX HELIX")
         }
+    if (TheaterModeFlag)
+        setTimeout(Fullscreen,0)
 }
-
-document.addEventListener('keydown',function(event){
-    if (event.code === "KeyB"){
-        ChangeStyxHelix();
-    }
-})
-songname.addEventListener('click',function(){
-    ChangeStyxHelix();
-})
-
-// Network error handling
-videoPlayer.addEventListener('error', (event) => {
-    if (event.target.error.code === 2) { // 2 usually corresponds to network errors
-        console.error('Unable to load video. Please check your internet connection or try again later.', event.target.error);
-    }
-});
-
-videoPlayer.addEventListener('volumechange',() =>{
-    currentVolume = videoPlayer.volume;
-})
 
 // Get current volume from video player before exiting site
 window.addEventListener('beforeunload', () => {
-    currentVolume = videoPlayer.volume;
     // Save to local storage
-    localStorage.setItem('volume', currentVolume);
+    localStorage.setItem('volume', currentVolume.toFixed(2));
+    localStorage.setItem('delay', delay.toFixed(3));
+    localStorage.setItem('controls', videoPlayer.hasAttribute('controls') ? 'true' : 'false');
 });
 // Load volume when page loads
 document.addEventListener('DOMContentLoaded', () => {
     // Check if we have a saved volume
     const savedVolume = localStorage.getItem('volume');
+    const savedDelay = localStorage.getItem('delay')
+    const savedControls = localStorage.getItem('controls');
     // Apply saved volume if it exists
     if (savedVolume !== null) {
-        videoPlayer.volume = parseFloat(savedVolume);
-        console.log("Thiết lập âm lượng đã lưu: ", savedVolume);
+        const volumeNumber = Number (parseFloat(savedVolume).toFixed(2)); // Take only 2 significant digits
+        videoPlayer.volume = volumeNumber
+        console.log("Thiết lập âm lượng đã lưu:", volumeNumber*100 + "%");
+    }
+
+    // Apply saved delay if it exists
+    if (savedDelay !== null) {
+        const delayNumber = Number (parseFloat(savedDelay).toFixed(3)); // Take only 3 significant digits
+        delay = delayNumber;
+        console.log("Thiết lập độ trễ đã lưu:", delay/1000 + " giây")
+    }
+
+    // Apply saved controls preference if it exists
+    if (savedControls !== null) {
+        if (savedControls === 'false') { // Only needs to check for false, default is true
+            videoPlayer.removeAttribute('controls');
+        }
+        console.log("Thiết lập điều khiển video đã lưu:", savedControls === 'true' ? "Hiển thị" : "Ẩn");
     }
 });
 
-// Audio resync when changing from tabs to tabs
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(registration => {
+          console.log('Đăng kí Service Worker thành công với scope: ', registration.scope);
+        })
+        .catch(error => {
+          console.log('Đăng kí Service Worker thất bại: ', error);
+        });
+    });
+}
+
+// Check if we're on Chrome 136 or higher (Chrome 136 is Chrome Dev - this version fixed audio desync)
+function isChrome136OrHigher() {
+    const userAgent = navigator.userAgent;
+    
+    // Check if browser is Chrome
+    const chromeMatch = userAgent.match(/Chrome\/(\d+)/);
+    if (!chromeMatch) return false;
+    
+    // Extract Chrome version
+    const chromeVersion = parseInt(chromeMatch[1], 10);
+    
+    // Return true if Chrome 136 or higher
+    return chromeVersion >= 136;
+  }
+
+ // Only handle tab switching, not other visibility changes
 document.addEventListener("visibilitychange", () => {
-    if (!document.hidden && !document.pictureInPictureElement) {
-        videoPlayer.currentTime = videoPlayer.currentTime;
+    if (!document.hidden && !document.pictureInPictureElement && !isChrome136OrHigher()) {
+        setTimeout(() => { 
+            videoPlayer.currentTime = videoPlayer.currentTime;
+        }, 300)   // Needs delay (300ms) to work reliably + to make user experience better
     }
 });
+
+songname.addEventListener('click',function(){
+    ChangeStyxHelix();
+})
+
+const standaloneMediaQuery = window.matchMedia('(display-mode: standalone)');
+const fullscreenMediaQuery = window.matchMedia('(display-mode: fullscreen)');
+const minimalUiMediaQuery = window.matchMedia('(display-mode: minimal-ui)');
+
+// Function to check if app is running as installed PWA (checks current state)
+function isRunningAsInstalledPWA() {
+    // Check standard display modes using the current .matches state
+    const isStandalone = standaloneMediaQuery.matches;
+    const isFullscreen = fullscreenMediaQuery.matches;
+    const isMinimalUi = minimalUiMediaQuery.matches;
+
+    return isStandalone || isFullscreen || isMinimalUi;
+}
+
+// Function to handle display mode changes
+function handleDisplayModeChange() { 
+    // Check if video is paused before changing title
+    if (videoPlayer.paused) {
+        if (isRunningAsInstalledPWA()) 
+            document.title = '';  // Running as PWA
+        else 
+            document.title = 'Re:Zero Music Collection'; // Running in browser
+    }
+}
+
+standaloneMediaQuery.addEventListener('change', handleDisplayModeChange);
+fullscreenMediaQuery.addEventListener('change', handleDisplayModeChange);
+minimalUiMediaQuery.addEventListener('change', handleDisplayModeChange);
+
+// Initial call to check PWA or not
+handleDisplayModeChange(isRunningAsInstalledPWA());

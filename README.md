@@ -1,267 +1,181 @@
-# Re:Zero Openings and Endings Video Player
+# 🎬 Re:Zero Openings and Endings Video Player
 
+## 🚨 Important Recommendation
+
+**For the optimal experience:** Please use **Chrome Dev 136+** when accessing this player.
+
+There's currently an issue with video and audio sync when using in background on **Chrome 135 and earlier**, so please download **Chrome Dev** or wait until **04/23/2025** and update Chrome to version 136.
+
+**[Download Chrome Dev here](https://www.google.com/intl/en/chrome/dev/)**
+ 
+
+## 📋 Overview
+
+A web-based video player for Re:Zero anime's Openings, Endings, and Insert Songs. The core video logic is built with **pure HTML, CSS, and JavaScript**, enhanced with modern web technologies to provide a **smooth** and **vibrant** experience.
+
+### ⚠️ Disclaimer
+
+This project uses Re:Zero content licensed by **Muse Vietnam**:
+
+- Openings
+- Endings (including Season Endings)
+- Insert Songs
+
+All rights reserved by their respective copyright owners.
+
+For the most complete Re:Zero experience, please watch on the **[official Muse Asia YouTube channel](https://www.youtube.com/watch?v=7F5rns5lX6g)**.
+
+This is an **educational** project and is **not used for profit**.
+
+
+### 🤔 Why This Project?
+
+I created this project to learn the fundamentals of web development while solving a personal need - to easily **watch Re:Zero Openings, Endings, and Insert Songs**. This project has helped me understand more about **browser APIs, state management**, and **performance optimization**.
+
+### ⏱️ Development Timeline
+
+09/20/2024 - 04/20/2025 (= 7 months)
+
+
+## 🔮 Philosophical Meaning of the Project
+
+> ***"Let's start from here, from the number one. No,.. from zero!"*** - Rem, Re:Zero
+
+### 💫 Connection to Re:Zero
+
+This project was born because Re:Zero **saved my life**. Like Subaru, I started from zero, with no programming experience, using only the most basic web development technologies. Through more than 490 commits over 6 months, this project embodies Re:Zero's message: **Starting from zero and achieving the impossible through unwavering determination**.
+
+
+### 🧱 The Most Primitive Approach
+
+This project uses **pure HTML, CSS, and JavaScript** for its core functionality. Like Subaru who had to learn everything from zero, I created this project using the most basic elements *(Actually because I didn't know any frameworks when starting the project 😅)*:
+
+- 🏗️ **Hand-crafted** HTML elements
+- 🎨 **Basic** CSS features
+- 📝 **Simple** JavaScript syntax
+- 🔌 **Built-in** Browser APIs
+
+
+### 💝 The True Meaning of the Project
+
+This project wasn't created because I needed **recognition** or to **demonstrate my technical skills**. Just as Subaru only cares about protecting those he cares for, this project has only one driving motivation: **to watch Re:Zero perfectly**. The technical features are merely side effects of that desire.
+
+## 💻 Technology
+
+### 🧱 Core Technology
+The core video player logic is built entirely with:
+
+- **HTML:** Creating the page structure
+- **CSS:** Building the user interface
+- **JavaScript:** Managing video playback logic
+
+> 💡 All core features are built from zero, without using frameworks.
+
+### 🔌 Supporting Libraries
+
+Secondary features are supported by:
+
+- **Tailwind CSS:** Supporting interface design
+- **Flowbite:** Supplementing UI components
+- **jQuery:** Simplifying some interactions + creating loading screen
+- **MicroModal:** Managing modal dialogs
+
+### 💻 Minimum Hardware Requirements
+
+This project was developed on an unstable laptop:
+
+- 🔲 **CPU:** Intel Core i5-3337U (2013) 
+  > If your laptop was purchased after 2013, congratulations, you've exceeded the requirements.
+
+- 🧠 **RAM:** 4GB DDR3 
+  > Just one browser tab is all you need to run the project.
+
+- 💾 **Storage:** HDD 5400rpm
+  > If you have an SSD, the project will run unbelievably fast.
+
+- ⚡ **Power:** Degraded battery with 30 minutes left
+  > The project was still completed despite the laptop shutting down frequently.
+
+🚀 **Fun fact:** This project was developed on a laptop older than many modern phones, but still runs smoother than YouTube on any device.
+
+
+## ✨ Features
+
+- 🔄 **Dynamic Content Switching:** Seamlessly switch between Opening, Ending, and Insert Song videos.
+- 🖼️ **Picture-in-Picture Mode:** Watch videos while multitasking.
+- 🎭 **Theater Mode:** Immerse yourself in a cinema-like viewing experience.
+- ⌨️ **Keyboard Shortcuts:** Control the video player with convenient keyboard shortcuts.
+- 🎵 **Media Session API Integration:** Control playback from your browser or device media controls.
+- 📱 **Responsive Design:** Enjoy a consistent experience across various screen sizes and devices.
+- 🔀 **Shuffle Play:** Mix up the video playlist for a fresh experience.
+- 🔁 **Video Looping:** Enable continuous playback of your favorite videos.
+- ⏱️ **Delay Adjustment:** Customize the delay between videos for a personalized viewing experience.
+- ⚡ **Smart Preloading:** Seamlessly transition to the next video without buffering.
+- 📲 **PWA Application:** Install as an app on your device and access faster on subsequent visits.
+- ⚙️ **Settings Persistence:** Remember your preferred settings (volume, delay, controls) between sessions.
+- ☁️ **Videos Hosted on Cloudflare R2**: Store and distribute video content with high performance.
+
+## 📸 Screenshots
+
+-  **Main Page**
+
+![Main page](Other_Files/Screenshots/Main-page.png)
+
+<br>
+
+-  **Main Page (with video description)**
+
+![Screenshot 1](Other_Files/Screenshots/Main-page%201.png)
+
+<br>
+
+-  **Main Page (with title and control buttons from Media Session API)**
+
+![Screenshot 2](Other_Files/Screenshots/Main-page%202.png)
+
+<br>
+
+-  **Theater Mode**
+
+![Screenshot 3](Other_Files/Screenshots/Theater%20mode.png)
+
+## 🚀 How to Use
   
+- Use the player directly at [https://re-zero-EN.pages.dev](https://re-zero-EN.pages.dev)
 
-## Overview
+### 📝 Notes
 
-A web-based video player for Re:Zero anime openings, endings, and insert songs. The core video logic is built from scratch using vanilla JavaScript, HTML, and CSS, enhanced with modern web technologies for a streamlined and immersive experience.
+- Videos will **automatically be cached** after you watch them **once** and will **not need to be downloaded again** on subsequent viewings.
+- You can **install the app** for more convenient usage.
 
-  
-
-### Disclaimer
-
-This project uses Re:Zero content licensed by Muse Asia:
-
-- Opening themes
-
-- Ending themes (including season endings)
-
-- Insert songs
-
-  
-
-All rights reserved by their respective copyright holders.
-
-For the complete Re:Zero experience, visit [Muse Asia's official YouTube channel](https://www.youtube.com/c/MuseAsia).
-
-  
-
-This is an educational project and is not monetized.
-
-  
-
-### Why This Project?
-
-I created this project to learn web development fundamentals while solving a personal need - having a reliable way to watch Re:Zero openings, endings, and insert songs. This project helped me understand browser APIs, state management, and performance optimization.
-
-  
-
-### Development Period
-
-September 20, 2024 - February 7, 2025 (≈ 4.5 months)
-
-
-## Core Technology
-
-The core video player logic, dynamic content switching, and state management were built from scratch using pure JavaScript, HTML, and CSS.
-
-  
-
-> "Let's start here, from square one. No,.. from Zero!" - Rem, Re:Zero
-
-  
-
-### Tech Stack
-
-- HTML
-
-- CSS
-
-- JavaScript (Vanilla)
-
-- Tailwind CSS
-
-- Flowbite
-
-- jQuery
-
-- MicroModal
-
-  
-
-## Features
-
-  
-
-  
-
--  **Custom Video Player:** Enjoy a tailored video playback experience with custom controls.
-
-  
-
--  **Dynamic Content Switching:** Seamlessly switch between openings, endings, and insert songs.
-
-  
-
--  **Picture-in-Picture Mode:** Watch videos while multitasking.
-
-  
-
--  **Theater Mode:** Immerse yourself in a cinema-like viewing experience.
-
-  
-
--  **Keyboard Shortcuts:** Control playback with convenient keyboard shortcuts.
-
-  
-
--  **Media Session Integration:** Control playback from your browser or device's media controls.
-
-  
-
--  **Responsive Design:** Enjoy a consistent experience across various screen sizes and devices.
-
-  
-
--  **All-in-One Page:** All content is accessible on a single, scroll-free page for immediate access.
-
-  
-
--  **Randomize:** Shuffle the video playlist for a fresh experience.
-
-  
-
--  **Looping:** Enable continuous playback of your favorite songs.
-
-  
-
--  **Adjustable Delay:** Customize the delay between videos for a personalized viewing experience.
-
-  
-
--  **Smart Preloading:** Seamlessly transition to next videos without delay.
-
-  
-  
-
-## How to Use
-
-  
-
-  
-
-1. Clone the repository:
-
-  
-
-  
-
-```bash 
-git clone https://github.com/TypingWithBeako/Re_Zero
-```
-
-  
-
-  
-
-2. Open [index.html](http://_vscodecontentref_/0) in your browser.
-
-  
-
-  
-
-## Keyboard Shortcuts
-
-  
-
-  
+## ⌨️ Keyboard Shortcuts
 
 -  `Space`: Play/Pause
-
-  
-
--  `ArrowRight`: Next Video
-
-  
-
--  `ArrowLeft`: Previous Video
-
-  
-
--  `ArrowUp`: Increase Volume
-
-  
-
--  `ArrowDown`: Decrease Volume
-
-  
-
--  `1-9`: Play Specific Video (based on order)
-
-  
-
--  `Tab`: Switch between OPs/EDs and Insert Songs
-
-  
-
--  `Q`: Shuffle Videos
-
-  
-
--  `W`: Enable/Disable Looping
-
-  
-
+-  `←`/`→`: Previous/Next Video
+-  `↑`/`↓`: Increase/Decrease Volume
+-  `0-9`: Play Specific Video (number 1 corresponds to the first video)
+-  `Tab`: Switch between Openings/Endings and Insert Songs
+-  `Q`: Shuffle Play
+-  `W`: Toggle Video Loop
 -  `E`: Change Delay
-
-  
-
--  `R`: Toggle Picture-in-Picture
-
-  
-
--  `F`: Toggle Fullscreen
-
-  
-
+-  `R`: Toggle Picture-in-Picture Mode
+-  `F`: Toggle Fullscreen Mode
 -  `T`: Toggle Theater Mode
-
-  
-
 -  `D`: Play "Theater D"
-
-  
-
 -  `O`: Play "Season 1 Ending"
-
-  
-
 -  `P`: Play "Season 2 Ending"
-
-  
-
--  `S`: Play "STYX HELIX (slow ver.)"
-
-  
-
+-  `S`: Play "STYX HELIX (slow version)"
 -  `Escape`: Exit Theater Mode
+-  `B`: Switch between cut and full versions of "STYX HELIX"
 
-  
+## 👥 Contributing
 
--  `B`: Switch between cut and full version of "ED1 - STYX HELIX"
+Contributions are welcome! Please submit Pull Requests or open issues to suggest improvements or report bugs.
 
-  
-
-  
-
-## Contributing
-
-  
-
-  
-
-Contributions are welcome! Feel free to submit pull requests or open issues to suggest improvements or report bugs.
-
-  
-
-  
-
-## License
-
-  
-
-  
+## 📄 License
 
 MIT License
 
-  
+## 👨‍💻 Author
 
-  
-
-## Author
-
-  
-
-  
-
-Nguyễn Thái Tuấn
+Nguyen Thai Tuan
