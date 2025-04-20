@@ -11,7 +11,7 @@ There's currently an issue with video and audio sync when using in background on
 
 ## 📋 Overview
 
-A web-based video player for Re:Zero anime's Openings, Endings, and Insert Songs. The core video logic is built with **pure HTML, CSS, and JavaScript**, enhanced with modern web technologies to provide a **smooth** and **vibrant** experience.
+A web-based video player for Re:Zero's Openings, Endings, and Insert Songs. The core video logic is built with **pure HTML, CSS, and JavaScript**, enhanced with modern web technologies to provide a **smooth** and **vibrant** experience.
 
 ### ⚠️ Disclaimer
 
@@ -23,7 +23,7 @@ This project uses Re:Zero content licensed by **Muse Asia**:
 
 All rights reserved by their respective copyright owners.
 
-For the most complete Re:Zero experience, please watch on the **[official Muse Asia YouTube channel](https://www.youtube.com/watch?v=7F5rns5lX6g)**.
+For the complete Re:Zero experience, please watch on the **[official Muse Asia YouTube channel](https://www.youtube.com/watch?v=7F5rns5lX6g)**.
 
 This is an **educational** project and is **not used for profit**.
 
