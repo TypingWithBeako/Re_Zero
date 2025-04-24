@@ -295,6 +295,10 @@ transition: opacity 0.5s, transform 0.5s; /* Define the transition properties */
     animation-delay:3.25s;
     animation-fill-mode: both;
 }
+.loop-active {
+    color: #7771b3;
+    text-shadow: 0 0 10px rgba(119, 113, 179, 0.5);
+}
 @keyframes fadeIn {
 from {
     transform: translateX(0%);
