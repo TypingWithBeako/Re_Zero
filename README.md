@@ -4,7 +4,7 @@
 
 **For the optimal experience:** Please use **Chrome Dev 136+** when accessing this player.
 
-There's currently an issue with video and audio sync when using in background on **Chrome 135 and earlier**, so please download **Chrome Dev** or wait until **04/23/2025** and update Chrome to version 136.
+There's currently an issue with video and audio sync when using in background on **Chrome 135 and earlier**, so please download **Chrome Dev** or wait until **04/29/2025** and update Chrome to version 136.
 
 **[Download Chrome Dev here](https://www.google.com/intl/en/chrome/dev/)**
  
