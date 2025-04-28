@@ -34,16 +34,20 @@ I created this project to learn the fundamentals of web development while solvin
 
 ### ⏱️ Development Timeline
 
-09/20/2024 - 04/20/2025 (= 7 months)
+09/20/2024 - 04/28/2025 (= 7 months+)
 
 
 ## 🔮 Philosophical Meaning of the Project
 
-> ***"Let's start from here, from square one. No,.. from zero!"*** - Rem, Re:Zero
+> **"Let's start from here, from square one. No,.. from zero!"** - Rem, Re:Zero
 
 ### 💫 Connection to Re:Zero
 
-This project was born because Re:Zero **saved my life**. Like Subaru, I started from zero, with no programming experience, using only the most basic web development technologies. Through more than 490 commits over 6 months, this project embodies Re:Zero's message: **Starting from zero and achieving the impossible through unwavering determination**.
+This project was born because Re:Zero **saved my life** during a dark period. After achieving recognition in a national English competition, I realized people only cared about the medal, not the person behind it. That emptiness pushed me into depression for nearly a year.
+
+Re:Zero came to me then, with its message about starting over from zero and persevering toward something truly meaningful. Like Subaru, I decided to begin anew—not to win awards or recognition, but to create something genuinely valuable to myself.
+
+Starting from zero with no programming experience, I used the most fundamental tools to build this player. Through more than 500 commits over 7+ months, this project has become living proof of Re:Zero's powerful message: **Starting from zero and achieving the impossible through unwavering determination**.
 
 
 ### 🧱 The Most Primitive Approach
