@@ -1212,6 +1212,11 @@ function ChangeStyxHelix(){
         setTimeout(Fullscreen,0)
 }
 
+// Dynamically change the volume (if the user used the volume slider)
+videoPlayer.addEventListener('volumechange',() =>{
+    currentVolume = videoPlayer.volume
+})
+
 // Get current volume from video player before exiting site
 window.addEventListener('beforeunload', () => {
     // Save to local storage
