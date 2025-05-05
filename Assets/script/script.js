@@ -17,7 +17,7 @@ if (typeof MediaMetadata !== 'function') {
 }
 // DOM <video> element for preloading
 const nextVideo = document.createElement('video');
-const URL = "https://r2-cache-worker-en.thaituan150806.workers.dev/"
+const URL = "https://rezero-en.7849684.xyz/"
 
 var videoUrls = [
     `${URL}OP1 - Redo.mp4`,
