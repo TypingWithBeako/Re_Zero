@@ -1,7 +1,7 @@
 {
-    "name": "Re:Zero Music Collection",
-    "short_name": "Re:Zero Music Collection",
-    "description": "A music player for Re:Zero Openings, Endings and Insert Songs",
+    "name": "Re:Zero All OPs and EDs",
+    "short_name": "Re:Zero All OPs and EDs",
+    "description": "A music player for Re:Zero Openings, Endings (and Insert Songs)",
     "start_url": "/",
     "display": "fullscreen",
     "background_color": "#000000",

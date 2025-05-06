@@ -1314,7 +1314,7 @@ function handleDisplayModeChange() {
         if (isRunningAsInstalledPWA()) 
             document.title = '';  // Running as PWA
         else 
-            document.title = 'Re:Zero Music Collection'; // Running in browser
+            document.title = 'Re:Zero All OPs and EDs'; // Running in browser
     }
 }
 
