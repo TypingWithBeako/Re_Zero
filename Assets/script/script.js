@@ -504,7 +504,7 @@ const root = document.documentElement;
 // Disable preloading when clicking on re:zero cast image
 disablePreloadingbutton.addEventListener('click',function(){
     if (!disablePreloading) {
-        alert("Preloading disabled!");
+        showToast("Preloading disabled!", "warning");
         console.log('Preloading disabled!');
         root.style.setProperty('--subarumouse', 'image-set(url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAllBMVEUAAAAkJCQfHx8SEhIMDAwNDQ0JCQkKCgoODg7x8fFycnL8/Pz9/f3Dw8MJCQn6+vqNjY3////y8vLp6ene3t7u7u7S0tLr6+vDw8P09PT29vb4+Pju7u7a2trw8PClpaVbW1ubm5utra0jKDP///8/Q03j5OWtrrNaXmbx8vLIycyRk5loa3MxNkCDhox2eYDx8fK6vL8DdzWRAAAAI3RSTlMABAcIDQsSFQ+YJePhKhrUOvCojG5nYVdUyMa0iYN3My0cGZgGfOIAAAD+SURBVDjLzZLZcsIwDEWxvJJAwtZC98WKk5LQ5f9/rso4Mx4UwjN61RndI9mzmypxvStAghDTEOzXOF/KSUTIMtS4eNUwQYDK/3xFyB0hFweo+Zf3vgm42JPLGAC1w8ZT/QR8WsYgFpHht/cDsult2ZLa5kcfq2qRFgJGaEMSQ0XbGJMk3D1JJOS4/hTMkiRSv6vx4zyEJMpB4tQGRHxWwC5BEqe+3/3iw8shMzoCI4kOy1VRWKOkGF+ipfSQvxfGaZmWSBKPJFHjyjqdHp5LVLgpXDzjGHAHbGiA0anNMrIccWsVTPRpxNt2Z5k9+xSGbccAkJJ/Fo70NbvB+gfwVhoJL6w+jwAAAABJRU5ErkJggg==) 1x, url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAvVBMVEUAAAAdHR0TExMSEhIODg4KCgoHBwcGBgYHBwcJCQkMDAwGBgb+/v78/PwGBgYGBgbBwcH39/dra2vq6urExMT19fXu7u74+Pj09PTk5OTs7OzQ0NDm5ub+/v75+fn7+/vo6Oji4uLv7+/X19e1tbWysrKIiIjX19fa2trg4ODU1NRSUlKEhIS1tbW8vLwjKDP////j5OU/Q012eICtrrNaXmbx8fKfoaaRlJkxNkDIyczW19loa3ODhoxNUFlr0DWwAAAAL3RSTlMABgoIDQ8XEhUUERnx4yAbKsYnjFOmm7SXfWhiWeHU0p+Rd3JaRT1zS0k7Mh8YF+5vndUAAAIwSURBVFjD7ZbbUttAEERhtaurLcl2HDCXBJJA7tFYiMQBkv//rPRIU0FClFcrqige3O/d6jmz4/LeTju9UO1DT3F7P7573tgQ+PMZ0emRUsgY4/fyU2JNT5RCD/fvqyXcPwk6yDVP4lpAvyW6KzfEWuaug6AAB1wXRVkR6zDXLhEooMwh0aaAmojpO6cETBAfE90Uta7XdcSR5kGGB8xh+l00umoiTga34AD/TQ2hE3EgKIYFvCb6VfxXZyGDIIYCQdRaiFL2EvvKRAJB1F0IWtgqmKALobsQKwpACB5AeGQhW5+ijsNXRLf3zt5CkOAEobeQz0iwzDDDPRWiPs2JRoDLS+hG4NK/YJ1bZ2hB6OuW6JOyQpg8CqG8+1MxyG+DIFw9fAkVytdaxNshKEBYAEJ/hbUmq0hvbyAQ1u3uN413dvbxIgkDDQZOEP6u2X3+IU3TDH6jPEuADhKG0N4cnX2FO0v8KDCYYM92Dm0I5Rqfx9fhDtluPWpAiNsQKvgv0/rjMezit0FIAKFs+KP/cZr5mB323jXbIWCAJfyR2K1+OWl/RVRJgekl/LHuuC0U5SVIgfMswep4d0PlYQaBwAXm6K+76OwQ5Bx4he8TH/3Z7pCgTbjiH/cNCmR4u/369kVe1H8TuEBklHOApw1+llizJIydCzBGE4SLKU0Wc/hrgK4VOMGf4/W7+4WCMnEU4HgEgHMAYzBGaz3OjwBMwZL+4zpA/PzHi9077fRs+gdaMIOfVRGM4AAAAABJRU5ErkJggg==) 2x) 8 8, default');
         Trademark.style.cursor = "var(--pointermouse)"
@@ -512,7 +512,7 @@ disablePreloadingbutton.addEventListener('click',function(){
         // Added failsafe if mistakenly clicked on picture (in IF statements: "!const" = "const === false")
         if (disablePreloading){
             enablePreloadingbutton.addEventListener('click',function(){
-                alert("Preloading enabled!");
+                showToast("Preloading enabled!");
                 console.log('Preloading enabled!');
                 disablePreloading = false;
                 root.style.setProperty('--subarumouse', 'image-set(url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAmVBMVEUAAAAbGxsZGRkTExMICAgJCQkPDw8QEBB1YfIICAh0X/BwXeltWuFZSrdyXuxpV9xnVdZiU8tvXehyX+1wXehuXOZfT8VdUcE0LWxyX+1zX+1lU8xmU81hUchVSbJYTLdSR6P///91YfOGdfX39f6pnPfLxPvu6/3Y0/zCuvq6sPmxpviXiPaPfvV+a/R9a/TDuvqhkvegkvdrWLcYAAAAIXRSTlMABQcLEBQNCfEX45aKVcaOfye4lId2Tykk1LRycWFCQBntRKz0AAABCUlEQVQ4y83S11LDMBAF0KhLNm6k0tmVbCchBfj/j8MaGHmIZHhjuLNve7xWm/2vkF/azXze0Ok+Xesz6vX0FJVj359zNSlYfnJwyDibEIStcAs73HCmKEkBucFX2KLWt1ovWGwIE1kLPbatr3zZREKJmzdwCOALMXsmEbg+AnyBvsclJRGwAKFwwcjFGp7wHcbglfwOqCyt+xFw/QIAnQUA23nAaQrs0X+9T04oT26c4LCW9OIkH/VxXESHq2gX4h4PAdhMBBD+Ye6w/Wy7Fh84jc6amwpt58DtLFZCRoAwbooMfcrCcJW4ccWFKeqqLoxIvxtC2UCMb/ubSomBSCnDm0qjIbM/zgdM/h9ZMvytJwAAAABJRU5ErkJggg==) 1x, url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAsVBMVEUAAAAlJSUVFRUODg4KCgoICAgGBgYHBwcJCQkHBwd0YPIHBwcGBgYLCwtjU810X+9zX+9kU8xRQp5vXOdEOox0YPBzX+9wXelvXOZnVtdQRKc0LWpxXupyX+1rWd5tXORhUclWR7JkVMxORKJwXedwXupqWdtYSbZiVcv///91YfOGdfXu6/26sPn39f6onPfd1/x+a/TUzvuxpvipnffDuvqXiPbl4f3LxPuhkveypviacpDcAAAAKXRSTlMABQkMDxMWEBIY8RseFXLj00wZhzjiw5aof0Ylx8SeZmFXOTG4tmpXJ53eMHQAAAJ8SURBVFjD7ZfXdtswEEQTopAARXVbzXZc0jSUZFWX/P+HZQkgKocyQDMvOUnmAUcvczG7WEjQh//6a/XxN+1W9e0H1fVH3e/3UWQItfzdngb0oBvVIJjt2zBq1yGQPxoAyHMAPUaE9wdgGphPp3NAd+sQ2D2QT0k50GHROwlFgAcH2ACDmJXaEAZMNDAjwBq4FpwIVpUBXHwBdgRYAFomRCBZRlXACNi6JvSliBkrMfyAbOya8Aq0NK6/di41Lj85RhjAxASA7eKxeswhwiWolu3iDifqcGYJoQSJvALW9hgeF7PHX6u2hQQIBjAEXgjwbIIs3EoKTbdLEMseMCfAzLbCrU6dIoMfwLMRsHHWw+oKuWRBQJw1gW0J4ArR3EugDhHgFni1pvKKOBDBJXgyo5gfrw4gOPMmIMCDdoCyAGQ88gN4cgHks7cBMaNCfYAOTMPeAkhvE4pTHJozCAB8LWgDy6nVHPP9h+qAi0MFAPYfTgDeuxQAqMSfgAtTQv0EPBkAT2cBdpSDPUg6cBHKTVwC7cxMovc2fwZWz9Nz2gBDEfsnkXExaRHh7CjlwC2NsjcB1aD6rfPD/AJcqIQHb6NQfX2OMMuBpu1h6Fs1HRtC2d9S/ttMADMKMr2DJZz60d+PkTcCFyptAljt9vbFfAWgqdxlrkpAvl0uaPP1j8Kum6m0AQIA00iZ0lmcqD1OpeCRAYQJnAiN5hFCjxqF3waoREikShvfbq40mds3d41UycT5qxJEgXAiu4iN3wHChIjHSSaVUmlKixTF9tZfmcAoRSJEJoRIaHdW/m0PI4hhxDyvC++j+0h1nr1OUf3HPzFqmf+ov0//hn4CGZ+XfMz98P8AAAAASUVORK5CYII=) 2x) 10 6, pointer');
@@ -592,7 +592,7 @@ loopVideo.addEventListener('click',function() {
         videoPlayer.removeEventListener('ended', ResetArray);
         videoPlayer.addEventListener('ended', enableLoopingListener);
         console.log('Video looping enabled for: ', name);
-        alert("Video looping enabled for: " + name);   
+        showToast("Video looping enabled for: " + name);   
     }
     else {
         loopText.innerHTML = "Enable looping";
@@ -603,7 +603,7 @@ loopVideo.addEventListener('click',function() {
         videoPlayer.removeEventListener('ended', enableLoopingListener);
         videoPlayer.addEventListener('ended', ResetArray);
         console.log('Video looping disabled for: ', name);
-        alert("Video looping disabled for: " + name);
+        showToast("Video looping disabled for: " + name);
     }
     if (TheaterModeFlag)
         setTimeout(Fullscreen,0)
@@ -661,7 +661,7 @@ shuffleButton.addEventListener('click', function() {
         playVideo(videoUrls[0]);
         preloadedVideos = [];
     }
-    alert("Videos shuffled! (check console logs for more info)");
+    showToast("Videos shuffled! (check console logs for more info)");
 // You can now use the shuffled videoUrls array for playing the songs in a random order
     if (TheaterModeFlag)
         setTimeout(Fullscreen,0)
@@ -683,17 +683,17 @@ document.getElementById("Delay").addEventListener("click", function() {
     if (TheaterModeFlag)
         setTimeout(Fullscreen,0)
     if (isNaN(newDelay) || newDelay < 0) {
-        alert("Invalid delay. Please enter a non-negative number.");
+        showToast("Invalid delay. Please enter a non-negative number.");
         return;
     }
     if (newDelay > 25) {
-        alert("You really like to sleep when switching videos! (Delay not changed)");
+        showToast("You really like to sleep when switching videos! (Delay not changed)");
         return;
     }
    
     // Update delay and optionally display confirmation
     updateDelay(newDelay);
-    console.log("Delay updated to", newDelay, " seconds");
+    showToast(`Delay updated to ${newDelay} seconds`);
 });
 
 function nextVideoTrack(){
@@ -853,9 +853,11 @@ document.addEventListener("keydown", function(event) {
     else if (event.code === "KeyC"){
         if (videoPlayer.hasAttribute('controls')) {
             videoPlayer.removeAttribute('controls');
+            showToast('Disabled video controls')
         } 
         else {
             videoPlayer.setAttribute('controls', '');
+            showToast('Enabled video controls')
         }
     }
     else if (event.code === "KeyT"){
@@ -1193,7 +1195,7 @@ function ChangeStyxHelix(){
             for (let i = 0; i < SeasonsEndings.length; i++) {
                 SeasonsEndings[i].style.display = 'flex';
             }
-            alert("Changed ED1 - STYX HELIX to full version")
+            showToast("Changed ED1 - STYX HELIX to full version", "info")
         }
         else
         {
@@ -1206,7 +1208,7 @@ function ChangeStyxHelix(){
             for (let i = 0; i < SeasonsEndings.length; i++) {
                 SeasonsEndings[i].style.display = 'none';
             }
-            alert("Reverted changes to ED1 - STYX HELIX")
+            showToast("Reverted changes to ED1 - STYX HELIX", "info")
         }
     if (TheaterModeFlag)
         setTimeout(Fullscreen,0)
