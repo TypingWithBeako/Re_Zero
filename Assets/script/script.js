@@ -661,7 +661,7 @@ shuffleButton.addEventListener('click', function() {
         playVideo(videoUrls[0]);
         preloadedVideos = [];
     }
-    showToast("Videos shuffled! (check console logs for more info)");
+    showToast("Videos shuffled!");
 // You can now use the shuffled videoUrls array for playing the songs in a random order
     if (TheaterModeFlag)
         setTimeout(Fullscreen,0)
@@ -683,11 +683,11 @@ document.getElementById("Delay").addEventListener("click", function() {
     if (TheaterModeFlag)
         setTimeout(Fullscreen,0)
     if (isNaN(newDelay) || newDelay < 0) {
-        showToast("Invalid delay. Please enter a non-negative number.");
+        showToast("Invalid delay. Please enter a non-negative number.", "error");
         return;
     }
     if (newDelay > 25) {
-        showToast("You really like to sleep when switching videos! (Delay not changed)");
+        showToast("You really like to sleep when switching videos!", "error");
         return;
     }
    
@@ -1003,7 +1003,7 @@ async function togglePictureInPicture() {
         try {
             await videoPlayer.requestPictureInPicture();
         } catch (error) {
-            console.error('Error entering Picture-in-Picture mode:', error);
+            showToast('Error entering Picture-in-Picture mode:', 'error');
         }
     }
 }
