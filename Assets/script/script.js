@@ -884,27 +884,36 @@ document.addEventListener("keydown", function(event) {
        }
     }
     else if (event.code === 'ArrowUp'){
+        if (videoPlayer.muted){
+            videoPlayer.muted = false;
+            return;
+        }
         if (currentVolume + 0.1 > 1) // Check if the volume is already at 1
         {
             videoPlayer.volume = 1
             currentVolume = videoPlayer.volume
-            showVolumeToast(currentVolume); 
+            showVolumeToast(currentVolume); // Add this line
+            return;
         }
         videoPlayer.volume = currentVolume + 0.1
         currentVolume = videoPlayer.volume
-        showVolumeToast(currentVolume);
+        showVolumeToast(currentVolume); // Add this line
     }
     else if (event.code === 'ArrowDown'){
+        if (videoPlayer.muted){
+            videoPlayer.muted = false;
+            return;
+        }
         if (currentVolume - 0.1 < 1e-9) // Check if the volume is already at 0
         {
             videoPlayer.volume = 0.00
             currentVolume = videoPlayer.volume
-            showVolumeToast(currentVolume);
+            showVolumeToast(currentVolume); // Add this line
             return;
         }
         videoPlayer.volume = currentVolume - 0.1
         currentVolume = videoPlayer.volume
-        showVolumeToast(currentVolume);
+        showVolumeToast(currentVolume); // Add this line
     }
 });
 
