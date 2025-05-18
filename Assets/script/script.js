@@ -887,19 +887,24 @@ document.addEventListener("keydown", function(event) {
         if (currentVolume + 0.1 > 1) // Check if the volume is already at 1
         {
             videoPlayer.volume = 1
-            return;
+            currentVolume = videoPlayer.volume
+            showVolumeToast(currentVolume); 
         }
         videoPlayer.volume = currentVolume + 0.1
         currentVolume = videoPlayer.volume
+        showVolumeToast(currentVolume);
     }
     else if (event.code === 'ArrowDown'){
-        if (currentVolume - 0.1 < 0) // Check if the volume is already at 0
+        if (currentVolume - 0.1 < 1e-9) // Check if the volume is already at 0
         {
-            videoPlayer.volume = 0
+            videoPlayer.volume = 0.00
+            currentVolume = videoPlayer.volume
+            showVolumeToast(currentVolume);
             return;
         }
         videoPlayer.volume = currentVolume - 0.1
         currentVolume = videoPlayer.volume
+        showVolumeToast(currentVolume);
     }
 });
 
@@ -1216,7 +1221,8 @@ function ChangeStyxHelix(){
 
 // Dynamically change the volume (if the user used the volume slider)
 videoPlayer.addEventListener('volumechange',() =>{
-    currentVolume = videoPlayer.volume
+    currentVolume = videoPlayer.volume;
+    showVolumeToast(currentVolume)
 })
 
 // Get current volume from video player before exiting site
