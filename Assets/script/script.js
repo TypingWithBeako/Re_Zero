@@ -103,7 +103,7 @@ videoPlayer.addEventListener('play',function(){
     let artist = ''
     let musicArtwork = ''
     if (name == 'STYX HELIX' || name == 'Paradisus - Paradoxum' || name == 'NOX LUX' ||name == 'STRAIGHT BET' || name == 'Season 1 Ending' || name == 'Theater D' || name == 'STYX HELIX slow' || name == 'STYX HELIX nocut'){ 
-        artist = 'Myth & Roid'
+        artist = 'MYTH & ROID'
         if (name == 'STYX HELIX')
             musicArtwork = {
                 src: "Icons/artworks/STYX_HELIX_Cover.webp",
@@ -150,7 +150,6 @@ videoPlayer.addEventListener('play',function(){
               }
         }
         else if (name == 'STYX HELIX nocut') {
-            artist = 'Myth & Roid'
             musicArtwork = {
                 src: "Icons/artworks/STYX_HELIX_Cover.webp",
                 sizes: "1008x1000",
