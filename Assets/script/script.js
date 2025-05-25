@@ -63,6 +63,8 @@ let TheaterModeFlag = false;
 let TheaterModeClickCount = 0;
 let currentVolume = 1 // 1 stands for maximum volume, 0 stands for muted
 let errorReloadTimeout;
+let MASTER_SONGS = [];
+window.isEditingPlaylist = false; // NEW: Global editing mode flag
 
 function playVideo(videoName) {
     nextVideo.src = '';
@@ -86,6 +88,78 @@ function playVideo(videoName) {
     clearTimeout(errorReloadTimeout);
     simulateClick();
 }
+
+async function loadMasterSongs() {
+    try {
+        const response = await fetch('Assets/data/songsMetadata.json');
+        const data = await response.json();
+        
+        MASTER_SONGS = [
+            ...data.openings,
+            ...data.endings, 
+            ...data.inserts,
+            ...data.specials,
+            ...data.concerts 
+        ].sort((a, b) => {
+            const typeOrder = { 'opening': 1, 'ending': 2, 'insert song': 3, 'special': 4, 'live concert': 5};
+            if (typeOrder[a.type] !== typeOrder[b.type]) {
+                return typeOrder[a.type] - typeOrder[b.type];
+            }
+            return a.order - b.order;
+        });
+        
+        console.log(`Media session loaded ${MASTER_SONGS.length} songs from metadata`);
+        return MASTER_SONGS;
+        
+    } catch (error) {
+        console.error('Failed to load metadata for media session:', error);
+        return [];
+    }
+}
+
+// Update your DOMContentLoaded
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadMasterSongs();
+    console.log(`MASTER_SONGS ready with ${MASTER_SONGS.length} songs for media session`);
+});
+
+// Keep your existing setMediaSessionMetadata function unchanged
+function setMediaSessionMetadata(songName) {
+    const displayNames = {
+        'S1 Ending': 'Season 1 Ending',
+        'S2 Ending': 'Season 2 Ending', 
+        'STYX HELIX slow': 'STYX HELIX (slow ver.)',
+        'STYX HELIX nocut': 'STYX HELIX (full ver.)'
+    };
+    
+    const displayName = displayNames[songName] || songName;
+    
+    // Find song in master data
+    let song = MASTER_SONGS.find(s => 
+        s.title === songName || 
+        s.filename.includes(songName) ||
+        s.title === displayName ||
+        cleanVideoSrcName(`${URL}${s.filename}`) === songName
+    );
+    
+    if (song) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+            title: displayName,
+            artist: song.artist,
+            artwork: song.artwork ? [song.artwork] : []
+        });
+        document.title = "「" + displayName + "」";
+    } else {
+        // Fallback for songs not found
+        navigator.mediaSession.metadata = new MediaMetadata({
+            title: displayName,
+            artist: "Unknown Artist",
+            artwork: []
+        });
+        document.title = "「" + displayName + "」";
+    }
+}
+
 const videoPlayer = document.getElementById('videoPlayer');
 videoPlayer.addEventListener('play',function(){
     clearTimeout(nextVideoTimeout);
@@ -100,188 +174,7 @@ videoPlayer.addEventListener('play',function(){
         let firstIndexOfHyphen = name.indexOf(' - ')
         name = name.substr(firstIndexOfHyphen + 3)
     }
-    let artist = ''
-    let musicArtwork = ''
-    if (name == 'STYX HELIX' || name == 'Paradisus - Paradoxum' || name == 'NOX LUX' ||name == 'STRAIGHT BET' || name == 'Season 1 Ending' || name == 'Theater D' || name == 'STYX HELIX slow' || name == 'STYX HELIX nocut'){ 
-        artist = 'MYTH & ROID'
-        if (name == 'STYX HELIX')
-            musicArtwork = {
-                src: "Icons/artworks/STYX_HELIX_Cover.webp",
-                sizes: "1008x1000",
-                type: "image/webp",
-              }
-        else if (name == 'Paradisus - Paradoxum')
-            musicArtwork = {
-                src: "Icons/artworks/Paradisus-Paradoxum_Cover.webp",
-                sizes: "1000x993",
-                type: "image/webp",
-              }
-        else if (name == 'NOX LUX')
-            musicArtwork = {
-                src: "Icons/artworks/NOX_LUX_Cover.webp",
-                sizes: "1080x1080",
-                type: "image/webp",
-              }
-        else if (name == 'STRAIGHT BET')
-            musicArtwork = {
-                src: "Icons/artworks/STRAIGHT_BET_Cover.jpg",
-                sizes: "721x720",
-                type: "image/jpeg",
-              }
-        else if (name == 'Season 1 Ending'){
-            musicArtwork = {
-                src: "Icons/artworks/STYX_HELIX_Cover.webp",
-                sizes: "1008x1000",
-                type: "image/webp",
-              }
-        }
-        else if (name == 'Theater D')
-            musicArtwork = {
-                src: "Icons/artworks/Theater_D_Cover.jpg",
-                sizes: "1080x1080",
-                type: "image/jpeg",
-              }
-        else if (name == 'STYX HELIX slow'){
-            name = "STYX HELIX (slow ver.)"
-            musicArtwork = {
-                src: "Icons/artworks/STYX_HELIX_Cover.webp",
-                sizes: "1008x1000",
-                type: "image/webp",
-              }
-        }
-        else if (name == 'STYX HELIX nocut') {
-            musicArtwork = {
-                src: "Icons/artworks/STYX_HELIX_Cover.webp",
-                sizes: "1008x1000",
-                type: "image/webp",
-            }
-        }
-    }
-    else if (name == 'Long shot' || name == 'Season 2 Ending'){
-        artist = 'Mayu Maeshima'
-        musicArtwork = {
-            src: "Icons/artworks/Long_Shot_Cover.webp",
-            sizes: "1400x1400",
-            type: "image/webp",
-          }
-    }
-    else if (name == 'Redo' || name == 'Realize' || name == 'Reweave'){
-        artist = 'Konomi Suzuki'
-        if (name == 'Redo')
-            musicArtwork = {
-                src: "Icons/artworks/Redo_Cover.webp",
-                sizes: "997x992",
-                type: "image/webp",
-            }
-        else if (name == 'Realize')
-            musicArtwork = {
-                src: "Icons/artworks/Realize_cover.webp",
-                sizes: "500x500",
-                type: "image/webp",
-            }
-        else if (name == 'Reweave')
-            musicArtwork = {
-                src: "Icons/artworks/Reweave_Cover.webp",
-                sizes: "1600x1600",
-                type: "image/webp",
-            }
-    }
-    else if (name == 'Stay Alive' || name == 'Door' || name == 'I Trust You' || name == 'Bouya no Yume yo'){
-        artist = 'Emilia (CV: Rie Takahashi)'
-        if (name == 'Stay Alive')
-            musicArtwork = {
-                src: "Icons/artworks/Stay_Alive_Cover.webp",
-                sizes: "1280x1281",
-                type: "image/webp",
-            }
-        else if (name == 'Door')
-            musicArtwork = {
-                src: "Icons/artworks/Character_song_album.webp",
-                sizes: "1280x1280",
-                type: "image/webp",
-            }
-        else if (name == 'I Trust You')
-            musicArtwork = {
-                src: "Icons/artworks/Character_song_album.webp",
-                sizes: "1280x1280",
-                type: "image/webp",
-            }
-        else if (name == 'Bouya no Yume yo')
-            musicArtwork = {
-                src: "Icons/artworks/Character_song_album.webp",
-                sizes: "1280x1280",
-                type: "image/webp",
-            }
-    }
-    else if (name == 'Memento' || name == 'Believe in you' || name == 'Yuki no hate ni Kimi no na wo' || name == 'White White Snow'){
-        artist = 'nonoc'
-        if (name == 'Memento')
-            musicArtwork = {
-                src: "Icons/artworks/Memento_cover.webp",
-                sizes: "500x500",
-                type: "image/webp",
-            }
-        else if (name == 'Believe in you')
-            musicArtwork = {
-                src: "Icons/artworks/Believe_in_you_cover.webp",
-                sizes: "500x500",
-                type: "image/webp",
-            }
-        else if (name == 'Yuki no hate ni Kimi no na wo')
-            musicArtwork = {
-                src: "Icons/artworks/Memory_Snow_OVA_Music_Cover.webp",
-                sizes: "640x640",
-                type: "image/webp",
-            }
-        else if (name == 'White White Snow')
-            musicArtwork = {
-                src: "Icons/artworks/Memory_Snow_OVA_Music_Cover.webp",
-                sizes: "640x640",
-                type: "image/webp",
-            }
-    }
-    else if (name == 'Memories'){
-        artist = 'Azuna Riko'
-        musicArtwork = {
-            src: "Icons/artworks/Memory_Snow_OVA_Music_Cover.webp",
-            sizes: "640x640",
-            type: "image/webp",
-        }
-    }
-    else if (name == 'Wishing'){
-        artist = 'Rem (CV: Inori Minase)'
-        musicArtwork = {
-            src: "Icons/artworks/Character_song_album.webp",
-            sizes: "1280x1280",
-            type: "image/webp",
-        }
-    }
-    else if (name == 'What you don\'t know'){
-        artist = 'Ram (CV: Rie Murakawa)'
-        musicArtwork = {
-            src: "Icons/artworks/Character_song_album.webp",
-            sizes: "1280x1280",
-            type: "image/webp",
-        }
-    }
-    else if (name == 'Requiem of Silence'){
-        artist = 'Kenichiro Suehiro'
-        musicArtwork = {
-            src: "Icons/artworks/Re_Zero_Soundtrack_Cover.webp",
-            sizes: "320x317",
-            type: "image/webp",
-        }
-    }
-
-    navigator.mediaSession.metadata = new MediaMetadata({
-        title: name, //the title of the media
-        artist: artist, //the artist of the media
-        artwork: 
-        [
-            musicArtwork
-        ]
-      });
-    document.title = "「" + name + "」";
+    setMediaSessionMetadata(name);
 })
 
 navigator.mediaSession.setActionHandler("play", () => {
@@ -726,8 +619,41 @@ function previousVideoTrack() {
         playVideo(videoUrls[prevIndex])
     }
 }
+
+// For handling number key presses (1-9, 0) to play specific videos
+function handleNumberKeyPress(keyCode) {
+    // Extract the number from key code
+    let number;
+    if (keyCode.startsWith("Numpad")) {
+        number = parseInt(keyCode.replace("Numpad", ""));
+    } else if (keyCode.startsWith("Digit")) {
+        number = parseInt(keyCode.replace("Digit", ""));
+    }
+    
+    // Convert to array index (1-9 = index 0-8, 0 = index 9)
+    const index = number === 0 ? 9 : number - 1;
+    
+    // Choose the right array based on clickCount mode (just like your original code!)
+    if (clickCount % 2 === 1) {
+        // Insert Songs mode - use newvideoUrls
+        if (index < newvideoUrls.length)
+            playVideo(newvideoUrls[index]);
+        else 
+            showToast(`Video thứ ${number} không tồn tại (danh sách phát có ${videoUrls.length} bài hát)`, "error");
+    }
+    else {
+        // OP/ED mode - use videoUrls  
+        if (index < videoUrls.length) 
+            playVideo(videoUrls[index]);
+        else 
+            showToast(`Video thứ ${number} không tồn tại (danh sách phát có ${videoUrls.length} bài hát)`, "error");
+    }
+    
+}
+
 // Register key being pressed
 document.addEventListener("keydown", function(event) {
+    if (isEditingPlaylist) return; // Ignore key events if editing the playlist
     // Play/pause the video when pressing space
     if (event.code === "Space") {
         if (videoPlayer.paused)
@@ -743,87 +669,9 @@ document.addEventListener("keydown", function(event) {
     else if (event.code === "ArrowLeft") {
         previousVideoTrack()
     }
-    else if (event.code === "Numpad1"||event.code === "Digit1")  {
-        if (clickCount % 2 === 1) {
-            playVideo(newvideoUrls[0]);
-        }   
-        else {
-            playVideo(videoUrls[0]);
+    else if (event.code.startsWith("Numpad") || event.code.startsWith("Digit")) {
+            handleNumberKeyPress(event.code);
         }
-    }
-    else if (event.code === "Numpad2"||event.code === "Digit2")  {
-        if (clickCount % 2 === 1) {
-            playVideo(newvideoUrls[1]);
-        }   
-        else {
-           playVideo(videoUrls[1]);
-            }
-    }
-    else if (event.code === "Numpad3"||event.code === "Digit3")  {
-        if (clickCount % 2 === 1) {
-            playVideo(newvideoUrls[2]);
-        }   
-        else {
-            playVideo(videoUrls[2]);
-        }
-    }
-    else if (event.code === "Numpad4"||event.code === "Digit4")  {
-        if (clickCount % 2 === 1) {
-            playVideo(newvideoUrls[3]);
-        }   
-        else {
-            playVideo(videoUrls[3]);
-        }
-    }
-    else if (event.code === "Numpad5"||event.code === "Digit5")  {
-        if (clickCount % 2 === 1) {
-            playVideo(newvideoUrls[4]);
-        }   
-        else {
-            playVideo(videoUrls[4]);
-        }
-    }
-    else if (event.code === "Numpad6"||event.code === "Digit6")  {
-        if (clickCount % 2 === 1) {
-            playVideo(newvideoUrls[5]);
-        }   
-        else {
-            playVideo(videoUrls[5]);
-        }
-    }
-    else if (event.code === "Numpad7"||event.code === "Digit7")  {
-        if (clickCount % 2 === 1) {
-            playVideo(newvideoUrls[6]);
-        }   
-        else {
-            playVideo(videoUrls[6]);
-            }
-    }
-    else if (event.code === "Numpad8"||event.code === "Digit8")  {
-        if (clickCount % 2 === 0) {
-            playVideo(videoUrls[7]);
-        }
-        else {
-            playVideo(newvideoUrls[7]);
-        }      
-    }
-    else if (event.code === 'Numpad9'||event.code === "Digit9") {
-        if (clickCount % 2 === 0) {
-            playVideo(videoUrls[8]);
-        }
-        else {
-            playVideo(newvideoUrls[8])   
-        }
-            
-    }
-    else if (event.code === 'Numpad0'||event.code === "Digit0") {
-        if (clickCount % 2 === 0) {
-            playVideo(videoUrls[9]);
-        }
-        else {
-            playVideo(newvideoUrls[9])
-        }   
-    }
     else if (event.code === 'Tab') {
         event.preventDefault(); // Prevent the default tab behavior
         togglePlaylist();
