@@ -566,6 +566,7 @@ shuffleButton.addEventListener('click', function() {
 // Update the delay variable
 function updateDelay(newDelay) {
     delay = newDelay * 1000; // Convert to milliseconds
+    localStorage.setItem('delay', delay.toFixed(3));
 }
 // Add event listener for button click
 document.getElementById("Delay").addEventListener("click", function() {
@@ -706,6 +707,7 @@ document.addEventListener("keydown", function(event) {
             videoPlayer.setAttribute('controls', '');
             showToast('Enabled video controls')
         }
+        localStorage.setItem('controls', videoPlayer.hasAttribute('controls') ? 'true' : 'false');
     }
     else if (event.code === "KeyT"){
         TheaterMode.click();
@@ -1078,16 +1080,10 @@ function ChangeStyxHelix(){
 // Dynamically change the volume (if the user used the volume slider)
 videoPlayer.addEventListener('volumechange',() =>{
     currentVolume = videoPlayer.volume;
+    localStorage.setItem('volume', currentVolume.toFixed(2));
     showVolumeToast(currentVolume)
 })
 
-// Get current volume from video player before exiting site
-window.addEventListener('beforeunload', () => {
-    // Save to local storage
-    localStorage.setItem('volume', currentVolume.toFixed(2));
-    localStorage.setItem('delay', delay.toFixed(3));
-    localStorage.setItem('controls', videoPlayer.hasAttribute('controls') ? 'true' : 'false');
-});
 // Load volume when page loads
 document.addEventListener('DOMContentLoaded', () => {
     // Check if we have a saved volume
