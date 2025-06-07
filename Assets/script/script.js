@@ -640,14 +640,14 @@ function handleNumberKeyPress(keyCode) {
         if (index < newvideoUrls.length)
             playVideo(newvideoUrls[index]);
         else 
-            showToast(`Video thứ ${number} không tồn tại (danh sách phát có ${newvideoUrls.length} bài hát)`, "error");
+            showToast(`Video number ${number} doesn't exist (playlist have ${newvideoUrls.length} songs)`, "error");
     }
     else {
         // OP/ED mode - use videoUrls  
         if (index < videoUrls.length) 
             playVideo(videoUrls[index]);
         else 
-            showToast(`Video thứ ${number} không tồn tại (danh sách phát có ${videoUrls.length} bài hát)`, "error");
+            showToast(`Video number ${number} doesn't exist (playlist have ${videoUrls.length} songs)`, "error");
     }
     
 }
@@ -701,11 +701,11 @@ document.addEventListener("keydown", function(event) {
     else if (event.code === "KeyC"){
         if (videoPlayer.hasAttribute('controls')) {
             videoPlayer.removeAttribute('controls');
-            showToast('Disabled video controls')
+            showToast('Disabled video controls!')
         } 
         else {
             videoPlayer.setAttribute('controls', '');
-            showToast('Enabled video controls')
+            showToast('Enabled video controls!')
         }
         localStorage.setItem('controls', videoPlayer.hasAttribute('controls') ? 'true' : 'false');
     }
@@ -1047,32 +1047,36 @@ const SeasonsEndings = document.getElementsByClassName('Endings--Seasons')
 // Switch OP1 - STYX HELIX between cut and full version
 function ChangeStyxHelix(){
     keyB++;
-        if (keyB%2==1)
-        {
-            originalIndex = videoUrls.indexOf(`${URL}ED1 - STYX HELIX.mp4`);
+    if (keyB%2==1)
+    {
+        originalIndex = videoUrls.indexOf(`${URL}ED1 - STYX HELIX.mp4`);
+        if (originalIndex !== -1) {
             videoUrls[originalIndex] = `${URL}ED1 - STYX HELIX nocut.mp4`;
-            OG.style.display = 'none';
-            OG_sidebar.style.display = 'none';
-            FULL.style.display = 'inline';
-            FULL_sidebar.style.display = 'flex';
-            for (let i = 0; i < SeasonsEndings.length; i++) {
-                SeasonsEndings[i].style.display = 'flex';
-            }
-            showToast("Changed ED1 - STYX HELIX to full version", "info")
         }
-        else
-        {
-            originalIndex = videoUrls.indexOf(`${URL}ED1 - STYX HELIX nocut.mp4`);
+        OG.style.display = 'none';
+        OG_sidebar.style.display = 'none';
+        FULL.style.display = 'inline';
+        FULL_sidebar.style.display = 'flex';
+        for (let i = 0; i < SeasonsEndings.length; i++) {
+            SeasonsEndings[i].style.display = 'flex';
+        }
+        showToast("Changed ED1 - STYX HELIX to full version!", "info")
+    }
+    else
+    {
+        originalIndex = videoUrls.indexOf(`${URL}ED1 - STYX HELIX nocut.mp4`);
+        if (originalIndex !== -1){
             videoUrls[originalIndex] = `${URL}ED1 - STYX HELIX.mp4`;
-            OG.style.display = 'inline';
-            OG_sidebar.style.display = 'flex';
-            FULL.style.display = 'none';
-            FULL_sidebar.style.display = 'none';
-            for (let i = 0; i < SeasonsEndings.length; i++) {
-                SeasonsEndings[i].style.display = 'none';
-            }
-            showToast("Reverted changes to ED1 - STYX HELIX", "info")
         }
+        OG.style.display = 'inline';
+        OG_sidebar.style.display = 'flex';
+        FULL.style.display = 'none';
+        FULL_sidebar.style.display = 'none';
+        for (let i = 0; i < SeasonsEndings.length; i++) {
+            SeasonsEndings[i].style.display = 'none';
+        }
+        showToast("Reverted changes to ED1 - STYX HELIX!", "info")
+    }
     if (TheaterModeFlag)
         setTimeout(Fullscreen,0)
 }
@@ -1196,7 +1200,7 @@ function updatePlayCount(songName) {
     // Save back to localStorage
     localStorage.setItem('songPlayCounts', JSON.stringify(playCounts));
     
-    console.log(`${songName} is played ${playCounts[songName]} times`);
+    console.log(`${songName} is played ${playCounts[songName]} times.`);
 }
 
 videoPlayer.addEventListener('ended', ()=> {
