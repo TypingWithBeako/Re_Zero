@@ -637,9 +637,10 @@ function previousVideoTrack() {
 function handleNumberKeyPress(keyCode) {
     // Extract the number from key code
     let number;
-    if (keyCode.startsWith("Numpad")) {
+    if (keyCode.startsWith("Numpad") && keyCode.length === 7 && !isNaN(parseInt(keyCode.charAt(6)))) {
         number = parseInt(keyCode.replace("Numpad", ""));
-    } else if (keyCode.startsWith("Digit")) {
+
+    } else if (keyCode.startsWith("Digit")  && keyCode.length === 6 && !isNaN(parseInt(keyCode.charAt(5)))) {
         number = parseInt(keyCode.replace("Digit", ""));
     }
     
