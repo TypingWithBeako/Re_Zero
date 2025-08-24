@@ -234,7 +234,7 @@ function createPlaylistEditorModal(playlistName, playlist) {
                 <div class="flex flex-col min-h-0">
                     <div class="flex items-center justify-between mb-6 flex-shrink-0">
                         <button onclick="clearPlaylist('${playlistName}')" class="text-red-500 hover:text-red-700 text-sm">
-                            Xóa tất cả
+                            Clear all
                         </button>
                     </div>
                     <div id="current-playlist" class="border rounded-lg p-4 bg-gray-50 dark:bg-gray-700 dark:border-gray-600 overflow-y-auto playlist-container-height">
